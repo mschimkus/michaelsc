@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michael Schimkus - Portfolio</title>
+  <title>Michael Schimkus - Portfolio (v2)</title>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -48,10 +48,12 @@
       text-shadow: 0 0 1px var(--color-border);
     }
 
+    .nav-placeholder {
+      display: none;
+      height: 0;
+    }
+
     nav {
-      position: sticky;
-      top: 0;
-      width: 100%;
       display: flex;
       justify-content: center;
       gap: 1.5rem;
@@ -60,7 +62,14 @@
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       padding: 0.2rem 0;
-      margin-bottom: 1rem;
+      transition: none;
+    }
+    nav.fixed {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: var(--max-width);
       z-index: 100;
     }
     nav a {
@@ -79,7 +88,7 @@
 
     main {
       padding-bottom: 1rem;
-      scroll-margin-top: calc(1rem + 2.2rem); /* offset for nav stick */
+      margin-top: 1rem;
     }
     .section-title {
       font-size: 1.7rem;
@@ -186,7 +195,8 @@
   </div>
 
   <div class="container">
-    <nav>
+    <div class="nav-placeholder"></div>
+    <nav id="site-nav">
       <a href="#about" class="nav-link">About</a>
       <a href="#portfolio" class="nav-link">Portfolio</a>
       <a href="#contact" class="nav-link">Contact</a>
@@ -227,9 +237,9 @@
 
   <div class="container">
     <footer class="footer">
-      &copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a>
+      &copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a>      
     </footer>
-    <div class="version">version 1</div>
+    <div class="version">version 2</div>
   </div>
 
   <div id="lightbox">
@@ -237,6 +247,22 @@
   </div>
 
   <script>
+    const nav = document.getElementById('site-nav');
+    const placeholder = document.querySelector('.nav-placeholder');
+    const navOffset = nav.offsetTop;
+    placeholder.style.height = nav.offsetHeight + 'px';
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset >= navOffset) {
+        nav.classList.add('fixed');
+        placeholder.style.display = 'block';
+      } else {
+        nav.classList.remove('fixed');
+        placeholder.style.display = 'none';
+      }
+    });
+
+    // Scroll-spy nav highlight
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
     function setActiveLink(id) {
@@ -244,12 +270,13 @@
     }
     function updateActiveSection() {
       let current = '';
-      sections.forEach(sec => { if (window.pageYOffset >= sec.offsetTop - document.querySelector('nav').offsetHeight) current = sec.id; });
+      sections.forEach(sec => { if (window.pageYOffset >= sec.offsetTop - nav.offsetHeight) current = sec.id; });
       if (current) setActiveLink(current);
     }
     window.addEventListener('scroll', updateActiveSection);
     updateActiveSection();
 
+    // Lightbox functionality
     document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('click', () => {
         const lb = document.getElementById('lightbox');
@@ -257,9 +284,7 @@
         lb.style.display = 'flex';
       });
     });
-    document.getElementById('lightbox').addEventListener('click', e => {
-      if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
-    });
+    document.getElementById('lightbox').addEventListener('click', e => { if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none'; });
   </script>
 </body>
 </html>
