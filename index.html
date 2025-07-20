@@ -164,25 +164,18 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <header><h1>Michael Schimkus</h1></header>
-  </div>
-
-  <div class="container">
-    <nav>
+  <div class="container"><header><h1>Michael Schimkus</h1></header></div>
+  <div class="container"><nav id="site-nav">
       <a href="#about" class="nav-link">About</a>
       <a href="#portfolio" class="nav-link">Portfolio</a>
       <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </div>
-
+    </nav></div>
   <main class="container">
     <h2 class="section-title">About</h2>
     <section id="about" class="card">
       <p>This is a sample paragraph for the About section. It describes who you are, what you do, and what your goals might be. It gives visitors a brief introduction.</p>
       <p>This is a second sample paragraph for demonstration purposes. You might include hobbies, your work ethic, or what makes you unique.</p>
     </section>
-
     <h2 class="section-title">Portfolio</h2>
     <section id="portfolio" class="card">
       <div class="gallery">
@@ -190,26 +183,19 @@
         <div class="gallery-item"><h3 class="project-title">Project 2</h3><img src="https://via.placeholder.com/800x500/eeeeee/333" alt="Project 2"></div>
       </div>
     </section>
-
     <h2 class="section-title">Contact</h2>
     <section id="contact" class="card">
       <form><input type="text" placeholder="Your Name" required/><input type="email" placeholder="Your Email" required/><textarea rows="5" placeholder="Your Message" required></textarea><button type="submit">Send Message</button></form>
     </section>
   </main>
-
-  <div class="container">
-    <footer class="footer">&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a></footer>
-    <div class="version">version 3</div>
-  </div>
-
+  <div class="container"><footer class="footer">&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a></footer><div class="version">version 3</div></div>
   <div id="lightbox"><img id="lightbox-img" src="" alt="Enlarged image"/></div>
-
   <script>
     // Scroll-spy nav highlight
     const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
     function setActiveLink(id) { navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href')===`#${id}`)); }
-    function updateActiveSection() { let current=''; sections.forEach(sec=>{ if(window.pageYOffset>=sec.offsetTop-nav.offsetHeight) current=sec.id; }); if(current) setActiveLink(current);} window.addEventListener('scroll',updateActiveSection); updateActiveSection();
-    // Lightbox
+    function updateActiveSection() { let current=''; sections.forEach(sec=>{ if(window.pageYOffset>=sec.offsetTop-nav.offsetHeight) current=sec.id; }); if(current) setActiveLink(current); } window.addEventListener('scroll',updateActiveSection); updateActiveSection();
+    // Lightbox functionality
     document.querySelectorAll('.gallery-item img').forEach(img=>img.addEventListener('click',()=>{const lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=img.src;lb.style.display='flex';}));
     document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.style.display='none';});
   </script>
