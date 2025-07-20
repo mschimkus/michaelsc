@@ -1,314 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Responsive Website</title>
-  <style>
-    /* CSS Variables */
-    :root {
-      --color-primary: #0096c7;
-      --color-primary-light: #b3d9ff;
-      --color-white: #fff;
-      --color-text: #333;
-      --underline-height: 3px;
-      --underline-radius: 2px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Website</title>
+<style>
+  :root {
+    --color-primary: #0096c7;
+    --color-primary-light: #b3d9ff;
+    --color-white: #fff;
+    --color-text: #333;
+    --underline-height: 3px;
+    --underline-radius: 2px;
+  }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f7fa;
-      color: var(--color-text);
-      scroll-behavior: smooth;
-    }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    color: var(--color-text);
+    scroll-behavior: smooth;
+  }
 
-    header {
-      background: var(--color-primary-light);
-      color: var(--color-white);
-      padding: 1rem;
-      text-align: center;
-    }
+  /* Updated header and footer */
+  header, footer {
+    background: #f5f7fa; /* grey matching page background */
+    color: var(--color-text); /* darker text for readability */
+    padding: 1rem;
+    text-align: center;
+  }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      background: var(--color-primary);
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+  nav {
+    display: flex;
+    justify-content: center;
+    background: var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
 
-    nav a {
-      color: var(--color-white);
-      padding: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-      user-select: none;
-    }
+  nav a {
+    position: relative;
+    color: var(--color-white);
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem; /* Slightly bigger nav text */
+    text-decoration: none;
+    user-select: none;
+  }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 5px;
-      width: 100%;
-      height: var(--underline-height);
-      background: var(--color-white);
-      border-radius: var(--underline-radius);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-      will-change: transform;
-    }
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    height: var(--underline-height);
+    background: var(--color-white);
+    border-radius: var(--underline-radius);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
 
-    nav a:hover::after,
-    nav a.active::after {
-      transform: scaleX(1);
-    }
+  nav a:hover::after,
+  nav a.active::after {
+    opacity: 1;
+  }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
 
-    section {
-      margin-bottom: 1rem;
-      /* Remove outline highlight on focus */
-      outline: none;
-    }
+  section {
+    margin-bottom: 1rem;
+    outline: none;
+  }
 
-    /* Remove focus outline and box-shadow on cards and sections */
-    section:focus,
-    section:focus-visible,
-    .card:focus,
-    .card:focus-visible {
-      outline: none;
-      box-shadow: none;
-    }
+  .card {
+    background: var(--color-white);
+    padding-top: 1rem; /* Reduced top padding */
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-bottom: 0.5rem;
+  }
 
-    .card {
-      background: var(--color-white);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem;
-    }
+  .card h2 {
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 1rem; /* Space below heading */
+  }
 
-    .gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 
-    .gallery-item {
-      background: var(--color-white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .gallery-item {
+    background: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .gallery-item h3 {
-      padding: 0.5rem;
-      font-size: 1.1rem;
-      text-align: center;
-      background: var(--color-primary);
-      color: var(--color-white);
-      width: 100%;
-      border-radius: 8px 8px 0 0;
-      margin: 0;
-    }
+  .gallery-item h3 {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    background: var(--color-primary);
+    color: var(--color-white);
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+  }
 
-    .gallery-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      border-radius: 0 0 8px 8px;
-      max-width: 100%;
-    }
+  .gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 8px 8px;
+    max-width: 100%;
+  }
 
-    footer {
-      background: var(--color-primary-light);
-      color: var(--color-white);
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+  input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    font-family: inherit;
+  }
 
-    input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      width: 100%;
-      font-family: inherit;
-    }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 4px rgba(0,150,199,0.5);
+  }
 
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 4px rgba(0,150,199,0.5);
-    }
+  button {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: inherit;
+  }
 
-    button {
-      background: var(--color-primary);
-      color: var(--color-white);
-      padding: 0.75rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      font-family: inherit;
-    }
+  button:hover {
+    background: #0077a8;
+  }
 
-    button:hover {
-      background: #0077a8;
-    }
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+  }
 
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--color-primary);
-      color: var(--color-white);
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
-    }
-
-    #scrollTopBtn:hover {
-      background: #0077a8;
-    }
-  </style>
+  #scrollTopBtn:hover {
+    background: #0077a8;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>My Website</h1>
-  </header>
+<header>
+  <h1>Michael Schimkus</h1>
+</header>
 
-  <nav role="navigation" aria-label="Primary">
-    <a href="#about" class="nav-link">About</a>
-    <a href="#portfolio" class="nav-link">Portfolio</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
+<nav role="navigation" aria-label="Primary">
+  <a href="#about" class="nav-link">About</a>
+  <a href="#portfolio" class="nav-link">Portfolio</a>
+  <a href="#contact" class="nav-link">Contact</a>
+</nav>
 
-  <main>
-    <section id="about" tabindex="-1">
-      <div class="card">
-        <h2>About</h2>
-        <p>This is the About section. Add information about yourself or your brand here.</p>
-      </div>
-    </section>
+<main>
+  <section id="about" tabindex="-1">
+    <div class="card">
+      <h2>About</h2>
+      <p>This is the About section. Add information about yourself or your brand here.</p>
+    </div>
+  </section>
 
-    <section id="portfolio" tabindex="-1">
-      <div class="card">
-        <h2>Portfolio</h2>
-        <p>Check out some of my projects below:</p>
-        <div class="gallery">
-          <div class="gallery-item" data-title="Project 1">
-            <h3>Project 1</h3>
-            <img src="https://via.placeholder.com/800x500" alt="Project 1" />
-          </div>
-          <div class="gallery-item" data-title="Project 2">
-            <h3>Project 2</h3>
-            <img src="https://via.placeholder.com/800x500" alt="Project 2" />
-          </div>
-          <div class="gallery-item" data-title="Project 3">
-            <h3>Project 3</h3>
-            <img src="https://via.placeholder.com/800x500" alt="Project 3" />
-          </div>
-          <div class="gallery-item" data-title="Project 4">
-            <h3>Project 4</h3>
-            <img src="https://via.placeholder.com/800x500" alt="Project 4" />
-          </div>
+  <section id="portfolio" tabindex="-1">
+    <div class="card">
+      <h2>Portfolio</h2>
+      <p>Check out some of my projects below:</p>
+      <div class="gallery">
+        <div class="gallery-item" data-title="Project 1">
+          <h3>Project 1</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 1" />
+        </div>
+        <div class="gallery-item" data-title="Project 2">
+          <h3>Project 2</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 2" />
+        </div>
+        <div class="gallery-item" data-title="Project 3">
+          <h3>Project 3</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 3" />
+        </div>
+        <div class="gallery-item" data-title="Project 4">
+          <h3>Project 4</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 4" />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" tabindex="-1">
-      <div class="card">
-        <h2>Contact</h2>
-        <form action="#" method="post">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </main>
+  <section id="contact" tabindex="-1">
+    <div class="card">
+      <h2>Contact</h2>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <p>&copy; 2025 My Website</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Michael Schimkus</p>
+</footer>
 
-  <button id="scrollTopBtn" type="button" aria-label="Scroll to top">&#8679;</button>
+<button id="scrollTopBtn" type="button" aria-label="Scroll to top">&#8679;</button>
 
-  <script>
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll("nav a");
+<script>
+  const sections = document.querySelectorAll("main section");
+  const navLinks = document.querySelectorAll("nav a");
 
-    function onScroll() {
-      let currentSectionId = "";
+  function onScroll() {
+    let currentSectionId = null;
+    let minDistance = window.innerHeight;
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-          currentSectionId = section.id;
-        }
-      });
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top - 150);
+      if (rect.top <= 150 && distance < minDistance) {
+        minDistance = distance;
+        currentSectionId = section.id;
+      }
+    });
 
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        link.removeAttribute("aria-current");
-        if (link.getAttribute("href") === "#" + currentSectionId) {
-          link.classList.add("active");
-          link.setAttribute("aria-current", "page");
-        }
-      });
+    if (!currentSectionId) {
+      currentSectionId = sections[0].id;
     }
 
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", onScroll);
-    window.addEventListener("load", onScroll);
-
-    // Scroll-to-top button
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-    window.addEventListener("scroll", () => {
-      scrollTopBtn.style.display = window.pageYOffset > 300 ? "block" : "none";
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      link.removeAttribute("aria-current");
+      if (link.getAttribute("href") === "#" + currentSectionId) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
     });
+  }
 
-    scrollTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", onScroll);
+
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    scrollTopBtn.style.display = window.pageYOffset > 300 ? "block" : "none";
+  });
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 </body>
 </html>
