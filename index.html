@@ -2,41 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Responsive Website</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* CSS Variables */
+    :root {
+      --color-primary: #0096c7;
+      --color-primary-light: #b3d9ff;
+      --color-white: #fff;
+      --color-text: #333;
+      --underline-height: 3px;
+      --underline-radius: 2px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       line-height: 1.6;
       background-color: #f5f7fa;
-      color: #333;
+      color: var(--color-text);
+      scroll-behavior: smooth;
     }
 
     header {
-      background: #b3d9ff;
-      color: #fff;
+      background: var(--color-primary-light);
+      color: var(--color-white);
       padding: 1rem;
-    }
-
-    header h1 {
       text-align: center;
-      color: #fff;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background: #0096c7;
+      background: var(--color-primary);
       flex-wrap: wrap;
       position: sticky;
       top: 0;
@@ -44,12 +46,12 @@
     }
 
     nav a {
-      color: #fff;
+      color: var(--color-white);
       padding: 1rem;
       text-decoration: none;
-      text-align: center;
       font-weight: bold;
       position: relative;
+      user-select: none;
     }
 
     nav a::after {
@@ -58,12 +60,13 @@
       left: 0;
       bottom: 5px;
       width: 100%;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;  /* Slight rounding */
+      height: var(--underline-height);
+      background: var(--color-white);
+      border-radius: var(--underline-radius);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
+      will-change: transform;
     }
 
     nav a:hover::after,
@@ -71,14 +74,18 @@
       transform: scaleX(1);
     }
 
-    section {
-      padding: 1rem 1rem;
-      margin: 0 auto;
+    main {
       max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    section {
+      margin-bottom: 1rem;
     }
 
     .card {
-      background: #fff;
+      background: var(--color-white);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
@@ -93,7 +100,7 @@
     }
 
     .gallery-item {
-      background: #fff;
+      background: var(--color-white);
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -107,25 +114,25 @@
       padding: 0.5rem;
       font-size: 1.1rem;
       text-align: center;
-      background: #0096c7;
-      color: #fff;
+      background: var(--color-primary);
+      color: var(--color-white);
       width: 100%;
-      border-radius: 8px 8px 0 0;  /* rounded top corners */
+      border-radius: 8px 8px 0 0;
       margin: 0;
     }
 
     .gallery-item img {
       width: 100%;
-      max-width: 800px;
       height: 180px;
       object-fit: cover;
       display: block;
-      border-radius: 0 0 8px 8px; /* rounded bottom corners */
+      border-radius: 0 0 8px 8px;
+      max-width: 100%;
     }
 
     footer {
-      background: #b3d9ff;
-      color: #fff;
+      background: var(--color-primary-light);
+      color: var(--color-white);
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
@@ -143,23 +150,25 @@
       border-radius: 5px;
       font-size: 1rem;
       width: 100%;
+      font-family: inherit;
     }
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: #0096c7;
+      border-color: var(--color-primary);
       box-shadow: 0 0 4px rgba(0,150,199,0.5);
     }
 
     button {
-      background: #0096c7;
-      color: #fff;
+      background: var(--color-primary);
+      color: var(--color-white);
       padding: 0.75rem;
       border: none;
       border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s ease;
+      font-family: inherit;
     }
 
     button:hover {
@@ -170,8 +179,8 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: #0096c7;
-      color: #fff;
+      background: var(--color-primary);
+      color: var(--color-white);
       border: none;
       padding: 10px 15px;
       border-radius: 50px;
@@ -192,60 +201,104 @@
     <h1>My Website</h1>
   </header>
 
-  <nav>
+  <nav role="navigation" aria-label="Primary">
     <a href="#about" class="nav-link">About</a>
     <a href="#portfolio" class="nav-link">Portfolio</a>
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
 
-  <section id="about">
-    <div class="card">
-      <h2>About</h2>
-      <p>This is the About section. Add information about yourself or your brand here.</p>
-    </div>
-  </section>
+  <main>
+    <section id="about" tabindex="-1">
+      <div class="card">
+        <h2>About</h2>
+        <p>This is the About section. Add information about yourself or your brand here.</p>
+      </div>
+    </section>
 
-  <section id="portfolio">
-    <div class="card">
-      <h2>Portfolio</h2>
-      <p>Check out some of my projects below:</p>
-      <div class="gallery">
-        <div class="gallery-item" data-title="Project 1">
-          <h3>Project 1</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 1" />
-        </div>
-        <div class="gallery-item" data-title="Project 2">
-          <h3>Project 2</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 2" />
-        </div>
-        <div class="gallery-item" data-title="Project 3">
-          <h3>Project 3</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 3" />
-        </div>
-        <div class="gallery-item" data-title="Project 4">
-          <h3>Project 4</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 4" />
+    <section id="portfolio" tabindex="-1">
+      <div class="card">
+        <h2>Portfolio</h2>
+        <p>Check out some of my projects below:</p>
+        <div class="gallery">
+          <div class="gallery-item" data-title="Project 1">
+            <h3>Project 1</h3>
+            <img src="https://via.placeholder.com/800x500" alt="Project 1" />
+          </div>
+          <div class="gallery-item" data-title="Project 2">
+            <h3>Project 2</h3>
+            <img src="https://via.placeholder.com/800x500" alt="Project 2" />
+          </div>
+          <div class="gallery-item" data-title="Project 3">
+            <h3>Project 3</h3>
+            <img src="https://via.placeholder.com/800x500" alt="Project 3" />
+          </div>
+          <div class="gallery-item" data-title="Project 4">
+            <h3>Project 4</h3>
+            <img src="https://via.placeholder.com/800x500" alt="Project 4" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <form action="#" method="post">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+    <section id="contact" tabindex="-1">
+      <div class="card">
+        <h2>Contact</h2>
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 My Website</p>
   </footer>
 
-  <button id="scrollTopBtn">&#8679;</button>
+  <button id="scrollTopBtn" type="button" aria-label="Scroll to top">&#8679;</button>
+
+  <script>
+    // Cache selectors outside scroll handler for performance
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    function onScroll() {
+      let currentSectionId = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          currentSectionId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+        if (link.getAttribute("href") === "#" + currentSectionId) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    window.addEventListener("load", onScroll);
+
+    // Optional: Scroll-to-top button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      scrollTopBtn.style.display = window.pageYOffset > 300 ? "block" : "none";
+    });
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
