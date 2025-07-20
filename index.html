@@ -16,10 +16,9 @@
   --nav-hover-alpha:     0.2;
   --nav-active-alpha:    0.4;
   --card-border:         #b0b0b0;
-  --card-header-border:  #9dcee9;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Inter', sans-serif;
@@ -38,9 +37,7 @@ header, footer {
 header h1 {
   font-size: 1.9rem;
   font-weight: 600;
-  color: var(--color-white);
-  text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7);
+  color: #222;
 }
 
 nav {
@@ -55,18 +52,17 @@ nav {
 
 nav a {
   color: var(--color-white);
-  padding: 0.65rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
   transition: background-color 0.25s ease;
-  text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 nav a:hover {
   background-color: rgba(157,206,233,var(--nav-hover-alpha));
 }
+
 nav a.active {
   background-color: rgba(157,206,233,var(--nav-active-alpha));
 }
@@ -78,20 +74,12 @@ main {
 }
 
 .section-title {
-  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-end));
-  color: var(--color-white);
-  text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7);
-  font-size: 1.25rem;
-  font-weight: 600;
-  padding: 0.4rem 1.2rem;
-  border-radius: 10px;
-  border-bottom: 2px solid var(--card-header-border);
-  width: fit-content;
-  margin: 1rem 0 0.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin: 1rem 0 0.5rem;
 }
 
-/* Card styles */
 .card {
   background: var(--color-white);
   padding: 1.5rem;
@@ -101,17 +89,11 @@ main {
   margin-bottom: 1.5rem;
 }
 
-/* Project titles: plain text, no border or background */
 .project-title {
-  background: none;
   color: var(--color-text);
-  text-shadow: none;
   font-size: 1rem;
   font-weight: 600;
-  padding: 0;
-  margin: 0 0 0.5rem 0;
-  border-bottom: none;
-  border-radius: 0;
+  margin-bottom: 0.5rem;
 }
 
 .gallery {
@@ -126,7 +108,6 @@ main {
   object-fit: cover;
   cursor: pointer;
   border-radius: 8px;
-  display: block;
 }
 
 form {
@@ -155,8 +136,6 @@ input:focus, textarea:focus {
 button {
   background: var(--color-primary-end);
   color: var(--color-white);
-  text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7);
   padding: 0.85rem;
   border: none;
   font-weight: 700;
@@ -175,8 +154,6 @@ button:hover {
   right: 30px;
   background: var(--color-primary-end);
   color: var(--color-white);
-  text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7);
   border: none;
   padding: 10px 15px;
   border-radius: 50%;
@@ -187,13 +164,11 @@ button:hover {
 }
 
 footer p {
-  color: var(--color-white);
+  color: #222;
   background: linear-gradient(90deg, var(--color-primary-start), var(--color-primary-end));
   padding: 0.5rem;
   margin: 0;
   border-top: 2px solid var(--color-primary-dark);
-  text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 /* Lightbox */
@@ -271,17 +246,7 @@ footer p {
     height: 140px;
   }
   .section-title {
-    font-size: 1.1rem;
-  }
-  #lightbox-prev {
-    left: 0.25rem;
-  }
-  #lightbox-next {
-    right: 0.25rem;
-  }
-  #lightbox-close {
-    top: 0.25rem;
-    right: 0.25rem;
+    font-size: 1.5rem;
   }
 }
 </style>
@@ -296,12 +261,12 @@ footer p {
 </nav>
 
 <main>
-  <h2 class="section-title" id="about-title">About</h2>
+  <h2 class="section-title">About</h2>
   <section id="about" class="card">
     <p>This is the About section. Add information about yourself or your brand here.</p>
   </section>
 
-  <h2 class="section-title" id="portfolio-title">Portfolio</h2>
+  <h2 class="section-title">Portfolio</h2>
   <section id="portfolio" class="card">
     <div class="gallery">
       <div class="gallery-item">
@@ -325,7 +290,7 @@ footer p {
     </div>
   </section>
 
-  <h2 class="section-title" id="contact-title">Contact</h2>
+  <h2 class="section-title">Contact</h2>
   <section id="contact" class="card">
     <form>
       <input type="text" placeholder="Your Name" required />
@@ -367,14 +332,16 @@ function updateActiveSection() {
   let current = '';
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+    if (pageYOffset >= sectionTop) current = section.id;
   });
   if (current) setActiveLink(current);
 }
 window.addEventListener('scroll', updateActiveSection);
 updateActiveSection();
 
-navLinks.forEach(link => link.addEventListener('click', () => setActiveLink(link.getAttribute('href').slice(1))));
+navLinks.forEach(link =>
+  link.addEventListener('click', () => setActiveLink(link.getAttribute('href').slice(1)))
+);
 
 window.addEventListener('scroll', () => scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none');
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
