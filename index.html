@@ -25,16 +25,14 @@
     }
 
     body {
-      font-family: 'Figtree', 'Inter', sans-serif;
-      background: var(--color-primary-light);
+      background: #f0faff;
       color: var(--color-text);
       line-height: 1.6;
       scroll-behavior: smooth;
     }
 
     header {
-      text-align: center;
-      padding: 1rem 0 0.5rem;
+      padding: 0.5rem 0;
       max-width: var(--max-width);
       margin: 0 auto;
     }
@@ -149,8 +147,7 @@
     }
 
     footer {
-      text-align: center;
-      padding: 0.5rem;
+      padding: 0.4rem 1rem;
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
@@ -174,17 +171,17 @@
     <h1>Michael Schimkus</h1>
   </header>
 
-  <nav>
+  <div style="max-width: var(--max-width); margin: 0 auto;">
+<nav>
     <a href="#about" class="nav-link">About</a>
     <a href="#portfolio" class="nav-link">Portfolio</a>
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
+</div>
 
   <main>
     <h2 class="section-title">About</h2>
-    <section id="about" class="card">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis et justo fermentum vestibulum sed vel eros.</p>
-      <p>Nam sollicitudin orci sed augue tempor, ut vulputate velit suscipit. Fusce pretium nisi eu neque tempor, at pulvinar orci faucibus.</p>
+    $1<br>$2Nam sollicitudin orci sed augue tempor, ut vulputate velit suscipit. Fusce pretium nisi eu neque tempor, at pulvinar orci faucibus.</p>
     </section>
 
     <h2 class="section-title">Portfolio</h2>
@@ -212,12 +209,17 @@
     </section>
   </main>
 
-  <footer>
+  <div style="max-width: var(--max-width); margin: 1rem auto;">
+<footer>
     <p>&copy; 2025 Michael Schimkus</p>
   <div style="margin-top: 0.5rem;">
       <a href="#" style="text-decoration: none; font-size: 1.5rem; color: var(--color-text); text-shadow: 0 0 1px var(--color-white);">&#8679;</a>
     </div>
+  <div style="margin-top: 0.3rem; font-size: 0.9rem; display: inline-block;">
+        <a href="#" style="text-decoration: none; color: var(--color-text); text-shadow: 0 0 1px var(--color-white);">| Return to top</a>
+      </div>
   </footer>
+</div>
 
   <script>
     const navLinks = document.querySelectorAll('.nav-link');
