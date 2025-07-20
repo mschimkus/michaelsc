@@ -4,19 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Michael Schimkus - Portfolio</title>
-<!-- Google Fonts: Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <meta name="description" content="Portfolio website of Michael Schimkus." />
 <style>
   :root {
     --color-primary-start: #7ec0e4;
-    --color-primary-end: #a0d0f0;
-    --color-primary-dark: #5ca8d6;
-    --color-white: #fff;
-    --color-text: #333;
-    --bg-light: #f5f7fa;
-    --focus-color: #b3d7ff;
+    --color-primary-end:   #a0d0f0;
+    --color-primary-dark:  #5ca8d6;
+    --color-white:         #fff;
+    --color-text:          #333;
+    --bg-light:            #f5f7fa;
+    --focus-color:         #b3d7ff;
   }
 
   *, *::before, *::after {
@@ -46,6 +45,7 @@
     font-weight: 600;
   }
 
+  /* Navigation */
   nav {
     display: flex;
     justify-content: center;
@@ -63,17 +63,18 @@
     color: var(--color-white);
     padding: 0.65rem 1.5rem;
     font-weight: 600;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     text-decoration: none;
     user-select: none;
-    transition: color 0.25s ease, background-color 0.3s ease;
+    transition: background-color 0.3s ease;
     outline-offset: 3px;
     border-radius: 12px;
   }
 
+  /* Active & hover background highlight */
   nav a.active,
   nav a:hover {
-    background-color: rgba(160, 208, 240, 0.08);
+    background-color: rgba(160, 208, 240, 0.08); /* increase alpha if you want stronger */
     color: var(--color-white);
   }
 
@@ -92,6 +93,7 @@
     margin-bottom: 1.25rem;
   }
 
+  /* Card container */
   .card {
     background: var(--color-white);
     padding: 1.75rem;
@@ -108,25 +110,25 @@
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
   }
 
-  /* Blue header bar on main cards */
+  /* Blue header bar on main cards (slimmer) */
   .card > h2 {
-    padding: 0.65rem 1.5rem;
-    font-size: 1.5rem;  /* slightly smaller */
-    margin-bottom: 1.25rem;
     background: var(--color-primary-end);
-    color: var(--color-white); /* back to white */
+    color: var(--color-white);
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 0.4rem 1.2rem;
+    margin: -1.75rem -1.75rem 1.1rem;
     border-radius: 10px 10px 0 0;
-    margin-top: -1.75rem;
-    margin-left: -1.75rem;
-    margin-right: -1.75rem;
+    border-bottom: 2px solid var(--color-primary-dark);
     box-sizing: border-box;
   }
 
+  /* Gallery */
   .gallery {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    margin-top: 1.25rem;
+    margin-top: 1.1rem;
   }
 
   .gallery-item {
@@ -137,18 +139,12 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
-    align-items: stretch;
   }
 
-  .gallery-item h3 {
-    padding: 0.75rem 1rem;
-    font-size: 1.15rem;
-    font-weight: 600;
-    text-align: left;
-    background: none;
-    color: var(--color-text);
-    border-radius: 0;
-    margin: 0;
+  .gallery-item a {
+    display: block;
+    width: 100%;
+    line-height: 0; /* remove gap below image */
   }
 
   .gallery-item img {
@@ -156,9 +152,9 @@
     height: 180px;
     object-fit: cover;
     display: block;
-    border-radius: 0 0 10px 10px;
   }
 
+  /* Form */
   form {
     display: flex;
     flex-direction: column;
@@ -192,12 +188,14 @@
     transition: background 0.3s ease, transform 0.2s ease;
   }
 
-  button:hover, button:focus-visible {
+  button:hover,
+  button:focus-visible {
     background: var(--color-primary-dark);
     transform: scale(1.05);
     outline: none;
   }
 
+  /* Scroll-to-top button */
   #scrollTopBtn {
     position: fixed;
     bottom: 30px;
@@ -214,7 +212,8 @@
     transition: background 0.3s ease, transform 0.2s ease;
   }
 
-  #scrollTopBtn:hover, #scrollTopBtn:focus-visible {
+  #scrollTopBtn:hover,
+  #scrollTopBtn:focus-visible {
     background: var(--color-primary-dark);
     transform: scale(1.1);
     outline: none;
@@ -224,13 +223,16 @@
   @media (max-width: 600px) {
     nav a {
       font-size: 1rem;
-      padding: 0.65rem 1.2rem;
+      padding: 0.55rem 1rem;
     }
     .card {
       padding: 1.2rem;
     }
-    .card h2 {
-      font-size: 1.3rem;
+    .card > h2 {
+      font-size: 1.1rem;
+      margin: -1.2rem -1.2rem 0.9rem;
+      padding: 0.4rem 1rem;
+      border-radius: 8px 8px 0 0;
     }
     .gallery-item img {
       height: 140px;
@@ -263,16 +265,24 @@
       <p>Check out some of my projects below:</p>
       <div class="gallery">
         <div class="gallery-item">
-          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 1" />
+          <a href="https://via.placeholder.com/800x500" target="_blank" rel="noopener noreferrer">
+            <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 1" />
+          </a>
         </div>
         <div class="gallery-item">
-          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 2" />
+          <a href="https://via.placeholder.com/800x500" target="_blank" rel="noopener noreferrer">
+            <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 2" />
+          </a>
         </div>
         <div class="gallery-item">
-          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 3" />
+          <a href="https://via.placeholder.com/800x500" target="_blank" rel="noopener noreferrer">
+            <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 3" />
+          </a>
         </div>
         <div class="gallery-item">
-          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 4" />
+          <a href="https://via.placeholder.com/800x500" target="_blank" rel="noopener noreferrer">
+            <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 4" />
+          </a>
         </div>
       </div>
     </div>
@@ -298,17 +308,18 @@
 <button id="scrollTopBtn" aria-label="Scroll to top">&#8679;</button>
 
 <script>
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll("main section");
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections  = document.querySelectorAll('main section');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
 
+  // Intersection Observer to set active nav link
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          navLinks.forEach(link => link.classList.remove("active"));
-          const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-          if (activeLink) activeLink.classList.add("active");
+          navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
         }
       });
     },
@@ -316,12 +327,13 @@
   );
   sections.forEach(sec => observer.observe(sec));
 
-  window.addEventListener("scroll", () => {
-    scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  // Scroll-to-top button visibility
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
 
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 </body>
