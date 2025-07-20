@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Title</title>
+  <title>Responsive Website</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,12 +14,12 @@
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      background-color: #f4f4f4;
+      background-color: #f8f9fc;
       color: #333;
     }
 
     header {
-      background: #333;
+      background: #1e3a8a; /* Deep blue */
       color: #fff;
       padding: 1rem;
     }
@@ -31,7 +31,7 @@
     nav {
       display: flex;
       justify-content: center;
-      background: #444;
+      background: #2563eb; /* Bright blue */
       flex-wrap: wrap;
     }
 
@@ -41,10 +41,11 @@
       text-decoration: none;
       flex: 1;
       text-align: center;
+      transition: background 0.3s ease;
     }
 
     nav a:hover {
-      background: #555;
+      background: #1e40af; /* Darker blue on hover */
     }
 
     .container {
@@ -58,11 +59,11 @@
       background: #fff;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     footer {
-      background: #333;
+      background: #1e3a8a;
       color: #fff;
       text-align: center;
       padding: 1rem;
@@ -82,24 +83,27 @@
 </head>
 <body>
   <header>
-    <h1>My Responsive Website</h1>
+    <h1>My Website</h1>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
   </nav>
 
   <div class="container">
     <div class="card">
-      <h2>Welcome</h2>
-      <p>This is a simple responsive website template that adjusts to your screen size.</p>
+      <h2>About</h2>
+      <p>This is the About section. Add information about yourself or your brand here.</p>
     </div>
     <div class="card">
-      <h2>Mobile Friendly</h2>
-      <p>The layout uses flexbox and media queries to scale well on phones, tablets, and desktops.</p>
+      <h2>Portfolio</h2>
+      <p>Showcase your work or projects here in the Portfolio section.</p>
+    </div>
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Provide your contact details or a form for people to reach out.</p>
     </div>
   </div>
 
