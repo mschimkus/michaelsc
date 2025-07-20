@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --color-primary-light: #f0faff;
+      --color-primary-light: #f6fcff;
       --color-primary-mid: #cbeaf9;
       --color-primary-dark: #9dcee9;
       --color-white: #ffffff;
@@ -40,7 +40,7 @@
     }
 
     header h1 {
-      font-size: 1.9rem;
+      font-size: 2.2rem;
       font-weight: 600;
       color: var(--color-text);
       text-shadow: 0 0 1px var(--color-white);
@@ -65,8 +65,7 @@
     }
 
     nav a {
-      color: var(--color-text);
-      padding: 0.2rem 1rem;
+      padding: 0.1rem 1rem;
       font-weight: 600;
       font-size: 1.1rem;
       text-decoration: none;
@@ -120,12 +119,9 @@
     }
 
     .gallery-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+$1
+  border: none;
+}
 
     form {
       display: flex;
@@ -175,9 +171,11 @@
   </style>
 </head>
 <body>
-  <header>
+  <div style="max-width: var(--max-width); margin: 0 auto;">
+<header>
     <h1>Michael Schimkus</h1>
   </header>
+</div>
 
   <div class="nav-wrapper">
     <nav>
@@ -220,9 +218,11 @@
   </div>
 
   <div class="footer-wrapper">
-    <footer>
+    <div style="max-width: var(--max-width); margin: 0 auto;">
+<footer>
       <p>&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration: none; color: var(--color-text); text-shadow: 0 0 1px var(--color-white); font-size: 0.9rem;">Return to top</a></p>
     </footer>
+</div>
   </div>
 
   <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
