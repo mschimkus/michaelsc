@@ -77,16 +77,7 @@ main {
   padding: 1rem;
 }
 
-.card {
-  background: var(--color-white);
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid var(--card-border); /* Slightly darker outline */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  margin-bottom: 0.75rem;
-}
-
-.card > h2 {
+.section-title {
   background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-end));
   color: var(--color-white);
   text-shadow:
@@ -94,9 +85,20 @@ main {
   font-size: 1.25rem;
   font-weight: 600;
   padding: 0.4rem 1.2rem;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
   border-bottom: 2px solid var(--card-header-border);
-  margin: -1.5rem -1.5rem 1rem;
+  width: fit-content;
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* Card styles */
+.card {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
 }
 
 /* Project titles: plain text, no border or background */
@@ -268,7 +270,7 @@ footer p {
   .gallery-item img {
     height: 140px;
   }
-  .card > h2 {
+  .section-title {
     font-size: 1.1rem;
   }
   #lightbox-prev {
@@ -294,13 +296,13 @@ footer p {
 </nav>
 
 <main>
+  <h2 class="section-title" id="about-title">About</h2>
   <section id="about" class="card">
-    <h2>About</h2>
     <p>This is the About section. Add information about yourself or your brand here.</p>
   </section>
 
+  <h2 class="section-title" id="portfolio-title">Portfolio</h2>
   <section id="portfolio" class="card">
-    <h2>Portfolio</h2>
     <div class="gallery">
       <div class="gallery-item">
         <h3 class="project-title">Project 1</h3>
@@ -323,8 +325,8 @@ footer p {
     </div>
   </section>
 
+  <h2 class="section-title" id="contact-title">Contact</h2>
   <section id="contact" class="card">
-    <h2>Contact</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
@@ -361,11 +363,10 @@ function setActiveLink(id) {
   navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
 }
 
-/* Improved scroll spy */
 function updateActiveSection() {
   let current = '';
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120; // adjust offset if needed
+    const sectionTop = section.offsetTop - 120;
     if (pageYOffset >= sectionTop) current = section.getAttribute('id');
   });
   if (current) setActiveLink(current);
@@ -375,11 +376,9 @@ updateActiveSection();
 
 navLinks.forEach(link => link.addEventListener('click', () => setActiveLink(link.getAttribute('href').slice(1))));
 
-/* Scroll-to-top */
 window.addEventListener('scroll', () => scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none');
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* Lightbox */
 function openLightbox(i) {
   currentIndex = i;
   const link = galleryLinks[i];
