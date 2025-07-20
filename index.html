@@ -6,14 +6,13 @@
 <title>Michael Schimkus - Portfolio</title>
 <!-- Google Fonts: Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-<!-- Favicon placeholder -->
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <meta name="description" content="Portfolio website of Michael Schimkus." />
 <style>
   :root {
-    --color-primary-start: #7ec0e4; /* lighter blue start */
-    --color-primary-end: #a0d0f0;   /* lighter blue end */
-    --color-primary-dark: #5ca8d6;  /* lighter dark shade */
+    --color-primary-start: #7ec0e4;
+    --color-primary-end: #a0d0f0;
+    --color-primary-dark: #5ca8d6;
     --color-white: #fff;
     --color-text: #333;
     --bg-light: #f5f7fa;
@@ -62,19 +61,19 @@
   nav a {
     position: relative;
     color: var(--color-white);
-    padding: 0.65rem 1.5rem; /* less vertical padding for tighter nav */
+    padding: 0.65rem 1.5rem;
     font-weight: 600;
     font-size: 1.15rem;
     text-decoration: none;
     user-select: none;
     transition: color 0.25s ease, background-color 0.3s ease;
     outline-offset: 3px;
-    border-radius: 12px; /* medium rounding */
+    border-radius: 12px;
   }
 
   nav a.active,
   nav a:hover {
-    background-color: rgba(160, 208, 240, 0.3); /* lighter blue highlight */
+    background-color: rgba(160, 208, 240, 0.08);
     color: var(--color-white);
   }
 
@@ -109,17 +108,17 @@
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
   }
 
-  /* Blue header bar on main cards with no border behind */
+  /* Blue header bar on main cards */
   .card > h2 {
-    padding: 0.65rem 1.5rem; /* match nav bar padding */
-    font-size: 1.7rem;
+    padding: 0.65rem 1.5rem;
+    font-size: 1.5rem;  /* slightly smaller */
     margin-bottom: 1.25rem;
     background: var(--color-primary-end);
-    color: #10294b; /* darker navy for better contrast */
+    color: var(--color-white); /* back to white */
     border-radius: 10px 10px 0 0;
-    margin-top: -1.75rem; /* pull header outside card padding */
-    margin-left: -1.75rem; /* cover card border left */
-    margin-right: -1.75rem; /* cover card border right */
+    margin-top: -1.75rem;
+    margin-left: -1.75rem;
+    margin-right: -1.75rem;
     box-sizing: border-box;
   }
 
@@ -231,7 +230,7 @@
       padding: 1.2rem;
     }
     .card h2 {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
     .gallery-item img {
       height: 140px;
@@ -303,7 +302,6 @@
   const sections = document.querySelectorAll("main section");
   const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-  // Intersection Observer for active nav link
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
@@ -318,7 +316,6 @@
   );
   sections.forEach(sec => observer.observe(sec));
 
-  // Scroll to top button
   window.addEventListener("scroll", () => {
     scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
