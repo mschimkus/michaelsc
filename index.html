@@ -4,21 +4,28 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Michael Schimkus - Portfolio</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<!-- Favicon placeholder -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<meta name="description" content="Portfolio website of Michael Schimkus." />
 <style>
   :root {
-    --color-primary: #0096c7;
-    --color-primary-dark: #0077a8;
+    --color-primary-start: #0077a8;
+    --color-primary-end: #0096c7;
+    --color-primary-dark: #005f7a;
     --color-white: #fff;
     --color-text: #333;
     --bg-light: #f5f7fa;
     --underline-height: 3px;
     --underline-radius: 2px;
+    --focus-color: #80bdff;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     background: var(--bg-light);
     color: var(--color-text);
@@ -34,16 +41,16 @@
 
   header h1 {
     margin: 0.25rem 0;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 600;
   }
 
   nav {
     display: flex;
     justify-content: center;
-    background: var(--color-primary);
-    border-bottom: 1px solid #0077a8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    background: linear-gradient(90deg, var(--color-primary-start), var(--color-primary-end));
+    border-bottom: 1px solid var(--color-primary-dark);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -53,12 +60,13 @@
   nav a {
     position: relative;
     color: var(--color-white);
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 1.1rem;
+    padding: 1.1rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.15rem;
     text-decoration: none;
     user-select: none;
-    transition: color 0.2s ease;
+    transition: color 0.25s ease;
+    outline-offset: 3px;
   }
 
   nav a::after {
@@ -77,56 +85,64 @@
   nav a.active::after,
   nav a:hover::after { opacity: 1; }
 
-  nav:hover a.active:not(:hover)::after { opacity: 0; }
+  nav a:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+  }
 
   main {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+    margin: 1rem auto;
+    padding: 1rem 1.5rem;
   }
 
-  section { margin-bottom: 1rem; }
+  section { margin-bottom: 1.25rem; }
 
   .card {
     background: var(--color-white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0; /* thin border */
-    box-shadow: 0 0 10px rgba(0,0,0,0.03);
-    margin-bottom: 0.5rem;
+    padding: 1.75rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.75rem;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
   }
 
   .card h2 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.7rem;
   }
 
   .gallery {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
   }
 
   .gallery-item {
     background: var(--color-white);
     border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
   .gallery-item h3 {
-    padding: 0.5rem;
-    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
     text-align: left;
-    background: var(--color-primary);
+    background: var(--color-primary-end);
     color: var(--color-white);
-    width: 100%;
-    border-radius: 8px 8px 0 0;
+    border-radius: 10px 10px 0 0;
     margin: 0;
   }
 
@@ -135,54 +151,86 @@
     height: 180px;
     object-fit: cover;
     display: block;
+    border-radius: 0 0 10px 10px;
   }
 
-  form { display: flex; flex-direction: column; gap: 0.75rem; }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   input, textarea {
-    padding: 0.75rem;
+    padding: 0.85rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     font: inherit;
     width: 100%;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
   input:focus, textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 4px rgba(0,150,199,0.5);
+    border-color: var(--color-primary-end);
+    box-shadow: 0 0 8px rgba(0,150,199,0.5);
   }
 
   button {
-    background: var(--color-primary);
+    background: var(--color-primary-end);
     color: var(--color-white);
-    padding: 0.75rem;
+    padding: 0.85rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font: inherit;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
   }
 
-  button:hover { background: var(--color-primary-dark); }
+  button:hover, button:focus-visible {
+    background: var(--color-primary-dark);
+    transform: scale(1.05);
+    outline: none;
+  }
 
   #scrollTopBtn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: var(--color-primary);
+    background: var(--color-primary-end);
     color: var(--color-white);
     border: none;
     padding: 10px 15px;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     display: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    transition: background 0.3s ease, transform 0.2s ease;
   }
 
-  #scrollTopBtn:hover { background: var(--color-primary-dark); }
+  #scrollTopBtn:hover, #scrollTopBtn:focus-visible {
+    background: var(--color-primary-dark);
+    transform: scale(1.1);
+    outline: none;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    nav a {
+      font-size: 1rem;
+      padding: 0.9rem 1.2rem;
+    }
+    .card {
+      padding: 1.2rem;
+    }
+    .card h2 {
+      font-size: 1.4rem;
+    }
+    .gallery-item img {
+      height: 140px;
+    }
+  }
 </style>
 </head>
 <body>
