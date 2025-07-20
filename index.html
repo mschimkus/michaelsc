@@ -82,6 +82,17 @@
 
     section {
       margin-bottom: 1rem;
+      /* Remove outline highlight on focus */
+      outline: none;
+    }
+
+    /* Remove focus outline and box-shadow on cards and sections */
+    section:focus,
+    section:focus-visible,
+    .card:focus,
+    .card:focus-visible {
+      outline: none;
+      box-shadow: none;
     }
 
     .card {
@@ -260,7 +271,6 @@
   <button id="scrollTopBtn" type="button" aria-label="Scroll to top">&#8679;</button>
 
   <script>
-    // Cache selectors outside scroll handler for performance
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll("nav a");
 
@@ -289,7 +299,7 @@
     window.addEventListener("resize", onScroll);
     window.addEventListener("load", onScroll);
 
-    // Optional: Scroll-to-top button
+    // Scroll-to-top button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", () => {
