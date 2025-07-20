@@ -8,14 +8,14 @@
   <style>
     :root {
       --color-primary-light: #f6fcff;
-      --color-primary-mid: #cbeaf9;
+      --color-primary-mid:  #cbeaf9;
       --color-primary-dark: #9dcee9;
-      --color-white: #ffffff;
-      --color-text: #222222;
-      --color-border: #b0b0b0;
-      --highlight-bg: rgba(157, 206, 233, 0.35);
-      --border-radius: 10px;
-      --max-width: 1200px;
+      --color-white:        #ffffff;
+      --color-text:         #222222;
+      --color-border:       #b0b0b0;
+      --highlight-bg:       rgba(157,206,233,0.35);
+      --border-radius:      10px;
+      --max-width:          1200px;
     }
 
     *, *::before, *::after {
@@ -38,18 +38,18 @@
       padding: 0 1rem;
     }
 
+    /* Header */
     header {
       text-align: center;
       padding: 1rem 0 0.5rem;
     }
-
     header h1 {
       font-size: 2.2rem;
       font-weight: 600;
-      color: var(--color-text);
       text-shadow: 0 0 1px var(--color-border);
     }
 
+    /* Sticky Nav */
     nav {
       display: flex;
       justify-content: center;
@@ -57,13 +57,13 @@
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 100;
       padding: 0.2rem 0;
+      margin-bottom: 1rem;
     }
-
     nav a {
       color: var(--color-text);
       padding: 0.2rem 1rem;
@@ -73,42 +73,40 @@
       transition: background-color 0.25s ease;
       text-shadow: 0 0 1px var(--color-white);
       border-radius: var(--border-radius);
+      letter-spacing: 0.03em;
     }
-
     nav a:hover {
-      background-color: rgba(157, 206, 233, 0.2);
+      background-color: rgba(157,206,233,0.2);
     }
-
     nav a.active {
       background-color: var(--highlight-bg);
     }
 
+    /* Main Content */
     main {
-      padding: 1rem 0;
+      padding-bottom: 1rem;
     }
-
     .section-title {
       font-size: 1.7rem;
       font-weight: 700;
       margin: 1rem 0 0.3rem;
       text-shadow: 0 0 1px var(--color-white);
     }
-
     .card {
       background: var(--color-white);
       padding: 1.5rem;
       border-radius: var(--border-radius);
       border: 1px solid var(--color-border);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
     }
 
+    /* Gallery */
     .gallery {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-
     .gallery-item img {
       width: 100%;
       height: 180px;
@@ -117,26 +115,24 @@
       cursor: pointer;
       border: none;
     }
-
     .project-title {
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
+    /* Form */
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-
     input, textarea {
       padding: 0.85rem;
       border: 1px solid #ccc;
       border-radius: 8px;
       font: inherit;
     }
-
     button {
       background: var(--color-primary-mid);
       color: var(--color-white);
@@ -147,19 +143,21 @@
       cursor: pointer;
     }
 
-    .footer {
+    /* Footer */
+    footer.footer {
       text-align: center;
       padding: 0.5rem;
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin: 1rem 0;
       font-size: 0.9rem;
       font-weight: 600;
       text-shadow: 0 0 1px var(--color-white);
     }
 
+    /* Lightbox */
     #lightbox {
       position: fixed;
       inset: 0;
@@ -169,7 +167,6 @@
       justify-content: center;
       z-index: 999;
     }
-
     #lightbox img {
       max-width: 90%;
       max-height: 90%;
@@ -177,13 +174,21 @@
     }
 
     @media (max-width: 600px) {
-      nav a { font-size: 1rem; padding: 0.2rem 0.8rem; }
-      .gallery-item img { height: 140px; }
-      .section-title { font-size: 1.5rem; }
+      nav a {
+        font-size: 1rem;
+        padding: 0.2rem 0.8rem;
+      }
+      .gallery-item img {
+        height: 140px;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <header>
       <h1>Michael Schimkus</h1>
@@ -241,36 +246,32 @@
   </div>
 
   <script>
+    // Scroll-spy nav highlight
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
     function setActiveLink(id) {
       navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
     }
-
     function updateActiveSection() {
       let current = '';
-      sections.forEach(section => {
-        const offset = section.offsetTop - 150;
-        if (pageYOffset >= offset) current = section.id;
+      sections.forEach(sec => {
+        if (window.pageYOffset >= sec.offsetTop - 120) current = sec.id;
       });
       if (current) setActiveLink(current);
     }
-
     window.addEventListener('scroll', updateActiveSection);
     updateActiveSection();
 
+    // Lightbox
     document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
+        const lb = document.getElementById('lightbox');
+        document.getElementById('lightbox-img').src = img.src;
+        lb.style.display = 'flex';
       });
     });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
     });
   </script>
 </body>
