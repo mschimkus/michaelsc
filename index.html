@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Michael Schimkus - Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 <style>
 :root {
   --color-primary-start: #b9e2f9;
@@ -36,6 +36,9 @@ header, footer {
 header h1 {
   font-size: 1.9rem;
   font-weight: 600;
+  color: var(--color-white);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 nav {
@@ -55,11 +58,16 @@ nav a {
   font-size: 1.1rem;
   text-decoration: none;
   transition: background-color 0.25s ease;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-nav a:hover { background-color: rgba(157,206,233,var(--nav-hover-alpha)); }
-nav a.active { background-color: rgba(157,206,233,var(--nav-active-alpha)); }
+nav a:hover {
+  background-color: rgba(157,206,233,var(--nav-hover-alpha));
+}
+nav a.active {
+  background-color: rgba(157,206,233,var(--nav-active-alpha));
+}
 
 main {
   max-width: 1200px;
@@ -79,13 +87,28 @@ main {
 .card > h2 {
   background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-end));
   color: var(--color-white);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
   font-size: 1.25rem;
   font-weight: 600;
   padding: 0.4rem 1.2rem;
   border-radius: 10px 10px 0 0;
   border-bottom: 2px solid var(--color-primary-dark);
   margin: -1.5rem -1.5rem 1rem;
+}
+
+/* New smaller project headers */
+.project-title {
+  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-end));
+  color: var(--color-white);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  border-bottom: 2px solid var(--color-primary-dark);
+  margin: 0 0 0.5rem 0;
+  border-radius: 6px 6px 0 0;
 }
 
 .gallery {
@@ -129,7 +152,8 @@ input:focus, textarea:focus {
 button {
   background: var(--color-primary-end);
   color: var(--color-white);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
   padding: 0.85rem;
   border: none;
   font-weight: 700;
@@ -137,7 +161,10 @@ button {
   transition: background 0.3s, transform 0.2s;
 }
 
-button:hover { background: var(--color-primary-dark); transform: scale(1.05); }
+button:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+}
 
 #scrollTopBtn {
   position: fixed;
@@ -145,7 +172,8 @@ button:hover { background: var(--color-primary-dark); transform: scale(1.05); }
   right: 30px;
   background: var(--color-primary-end);
   color: var(--color-white);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
   border: none;
   padding: 10px 15px;
   border-radius: 50%;
@@ -161,7 +189,8 @@ footer p {
   padding: 0.5rem;
   margin: 0;
   border-top: 2px solid var(--color-primary-dark);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 /* Lightbox */
@@ -175,11 +204,26 @@ footer p {
   z-index: 1000;
   padding: 1rem;
 }
-#lightbox[aria-hidden="false"] { display: flex; }
+#lightbox[aria-hidden="false"] {
+  display: flex;
+}
 
-.lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; text-align: center; }
-#lightbox-img { max-width: 100%; max-height: 80vh; object-fit: contain; }
-#lightbox-caption { margin-top: 0.75rem; color: var(--color-white); font-size: 0.95rem; }
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  text-align: center;
+}
+#lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+#lightbox-caption {
+  margin-top: 0.75rem;
+  color: var(--color-white);
+  font-size: 0.95rem;
+}
 
 .lightbox-btn {
   position: absolute;
@@ -193,9 +237,15 @@ footer p {
   cursor: pointer;
   border-radius: 6px;
 }
-.lightbox-btn:hover { background: rgba(255,255,255,0.35); }
-#lightbox-prev { left: -2.5rem; }
-#lightbox-next { right: -2.5rem; }
+.lightbox-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+#lightbox-prev {
+  left: -2.5rem;
+}
+#lightbox-next {
+  right: -2.5rem;
+}
 #lightbox-close {
   position: absolute;
   top: -2rem;
@@ -205,15 +255,31 @@ footer p {
   font-size: 1.2rem;
   border-radius: 6px;
 }
-#lightbox-close:hover { background: rgba(255,255,255,0.4); }
+#lightbox-close:hover {
+  background: rgba(255,255,255,0.4);
+}
 
 @media (max-width: 600px) {
-  nav a { font-size: 1rem; padding: 0.5rem 1rem; }
-  .gallery-item img { height: 140px; }
-  .card > h2 { font-size: 1.1rem; }
-  #lightbox-prev { left: 0.25rem; }
-  #lightbox-next { right: 0.25rem; }
-  #lightbox-close { top: 0.25rem; right: 0.25rem; }
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .gallery-item img {
+    height: 140px;
+  }
+  .card > h2 {
+    font-size: 1.1rem;
+  }
+  #lightbox-prev {
+    left: 0.25rem;
+  }
+  #lightbox-next {
+    right: 0.25rem;
+  }
+  #lightbox-close {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
 }
 </style>
 </head>
@@ -234,21 +300,23 @@ footer p {
 
   <section id="portfolio" class="card">
     <h2>Portfolio</h2>
-    <p>Check out some of my projects below:</p>
     <div class="gallery">
       <div class="gallery-item">
+        <h3 class="project-title">Project 1</h3>
         <a href="https://via.placeholder.com/1600x1000" data-full="https://via.placeholder.com/1600x1000" data-caption="Project 1 Full Screenshot">
-          <img src="https://via.placeholder.com/800x500" alt="Project 1">
+          <img src="https://via.placeholder.com/800x500" alt="Project 1" />
         </a>
       </div>
       <div class="gallery-item">
+        <h3 class="project-title">Project 2</h3>
         <a href="https://via.placeholder.com/1600x1000/eeeeee/333" data-full="https://via.placeholder.com/1600x1000/eeeeee/333" data-caption="Project 2 Full Screenshot">
-          <img src="https://via.placeholder.com/800x500/eeeeee/333" alt="Project 2">
+          <img src="https://via.placeholder.com/800x500/eeeeee/333" alt="Project 2" />
         </a>
       </div>
       <div class="gallery-item">
+        <h3 class="project-title">Project 3</h3>
         <a href="https://via.placeholder.com/1600x1000/cccccc/000" data-full="https://via.placeholder.com/1600x1000/cccccc/000" data-caption="Project 3 Full Screenshot">
-          <img src="https://via.placeholder.com/800x500/cccccc/000" alt="Project 3">
+          <img src="https://via.placeholder.com/800x500/cccccc/000" alt="Project 3" />
         </a>
       </div>
     </div>
@@ -257,8 +325,8 @@ footer p {
   <section id="contact" class="card">
     <h2>Contact</h2>
     <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
       <textarea rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
@@ -270,7 +338,7 @@ footer p {
 
 <div id="lightbox" aria-hidden="true">
   <div class="lightbox-content">
-    <img id="lightbox-img" src="" alt="">
+    <img id="lightbox-img" src="" alt="" />
     <div id="lightbox-caption"></div>
     <button id="lightbox-prev" class="lightbox-btn">&#10094;</button>
     <button id="lightbox-next" class="lightbox-btn">&#10095;</button>
@@ -292,16 +360,25 @@ function setActiveLink(id) {
   navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
 }
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => e.isIntersecting && setActiveLink(e.target.id));
-}, { threshold: 0.5 });
-sections.forEach(sec => observer.observe(sec));
+/* Improved scroll spy */
+function updateActiveSection() {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120; // adjust offset if needed
+    if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+  });
+  if (current) setActiveLink(current);
+}
+window.addEventListener('scroll', updateActiveSection);
+updateActiveSection();
 
 navLinks.forEach(link => link.addEventListener('click', () => setActiveLink(link.getAttribute('href').slice(1))));
 
+/* Scroll-to-top */
 window.addEventListener('scroll', () => scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none');
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+/* Lightbox */
 function openLightbox(i) {
   currentIndex = i;
   const link = galleryLinks[i];
