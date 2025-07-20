@@ -11,15 +11,19 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      background-color: #f8f9fc;
+      background-color: #f5f7fa;
       color: #333;
     }
 
     header {
-      background: #1e3a8a; /* Deep blue */
+      background: #006d77;
       color: #fff;
       padding: 1rem;
     }
@@ -31,53 +35,194 @@
     nav {
       display: flex;
       justify-content: center;
-      background: #2563eb; /* Bright blue */
+      background: #0096c7;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
       color: #fff;
       padding: 1rem;
       text-decoration: none;
-      flex: 1;
       text-align: center;
       transition: background 0.3s ease;
     }
 
     nav a:hover {
-      background: #1e40af; /* Darker blue on hover */
+      background: #0077a8;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      gap: 1rem;
+    nav a.active {
+      background: #023e8a;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      margin: 0 auto;
+      max-width: 1200px;
     }
 
     .card {
       background: #fff;
-      padding: 1rem;
+      padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Portfolio Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item h3 {
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      text-align: center;
+      background: #0096c7;
+      color: #fff;
     }
 
     footer {
-      background: #1e3a8a;
+      background: #006d77;
       color: #fff;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
 
-    @media (min-width: 768px) {
-      .container {
-        flex-direction: row;
-      }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
 
-      .card {
-        flex: 1;
-      }
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #0096c7;
+      box-shadow: 0 0 4px rgba(0,150,199,0.5);
+    }
+
+    button {
+      background: #0096c7;
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0077a8;
+    }
+
+    /* Scroll-to-top button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #0096c7;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+
+    #scrollTopBtn:hover {
+      background: #0077a8;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 2000;
+    }
+
+    #lightbox img {
+      max-width: 80%;
+      max-height: 70%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .lightbox-controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .lightbox-btn {
+      background: #0096c7;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .lightbox-btn:hover {
+      background: #0077a8;
     }
   </style>
 </head>
@@ -87,28 +232,133 @@
   </header>
 
   <nav>
-    <a href="#">About</a>
-    <a href="#">Portfolio</a>
-    <a href="#">Contact</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </nav>
 
-  <div class="container">
+  <section id="about">
     <div class="card">
       <h2>About</h2>
       <p>This is the About section. Add information about yourself or your brand here.</p>
     </div>
+  </section>
+
+  <section id="portfolio">
     <div class="card">
       <h2>Portfolio</h2>
-      <p>Showcase your work or projects here in the Portfolio section.</p>
+      <p>Check out some of my projects below:</p>
+      <div class="gallery">
+        <div class="gallery-item"><img src="https://via.placeholder.com/800x500" alt="Project 1"><h3>Project 1</h3></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/800x500" alt="Project 2"><h3>Project 2</h3></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/800x500" alt="Project 3"><h3>Project 3</h3></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/800x500" alt="Project 4"><h3>Project 4</h3></div>
+      </div>
     </div>
+  </section>
+
+  <section id="contact">
     <div class="card">
       <h2>Contact</h2>
-      <p>Provide your contact details or a form for people to reach out.</p>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-  </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 My Website</p>
   </footer>
+
+  <button id="scrollTopBtn">&#8679;</button>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img src="" alt="Lightbox Image" />
+    <div class="lightbox-controls">
+      <button class="lightbox-btn" id="prevBtn">Prev</button>
+      <button class="lightbox-btn" id="nextBtn">Next</button>
+      <button class="lightbox-btn" id="closeBtn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Highlight active tab
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+      });
+    });
+
+    // Scroll-to-top button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollTopBtn.style.display =
+        document.body.scrollTop > 200 || document.documentElement.scrollTop > 200
+          ? "block"
+          : "none";
+    });
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Fade-in animations
+    const animatedItems = document.querySelectorAll(".card, .gallery-item");
+    const revealOnScroll = () => {
+      animatedItems.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) item.classList.add("show");
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    // Lightbox feature
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const galleryItems = document.querySelectorAll(".gallery-item img");
+    let currentIndex = 0;
+
+    const openLightbox = (index) => {
+      currentIndex = index;
+      lightboxImg.src = galleryItems[index].src;
+      lightbox.style.display = "flex";
+    };
+
+    galleryItems.forEach((img, index) => {
+      img.addEventListener("click", () => openLightbox(index));
+    });
+
+    document.getElementById("closeBtn").addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      lightboxImg.src = galleryItems[currentIndex].src;
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      lightboxImg.src = galleryItems[currentIndex].src;
+    });
+
+    // Close lightbox on background click
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.style.display = "none";
+    });
+  </script>
 </body>
 </html>
