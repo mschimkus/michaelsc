@@ -51,6 +51,11 @@
 
     /* Sticky Nav */
     nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
       display: flex;
       justify-content: center;
       gap: 1.5rem;
@@ -58,17 +63,15 @@
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
       padding: 0.2rem 0;
-      margin-bottom: 1rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
     nav a {
       color: var(--color-text);
       padding: 0.2rem 1rem;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-decoration: none;
       transition: background-color 0.25s ease;
       text-shadow: 0 0 1px var(--color-white);
@@ -84,11 +87,12 @@
 
     /* Main Content */
     main {
+      padding-top: 4rem; /* account for fixed nav */
       padding-bottom: 1rem;
     }
     .section-title {
       font-size: 1.7rem;
-      font-weight: 700;
+      font-weight: 800; /* Updated to extra bold */
       margin: 1rem 0 0.3rem;
       text-shadow: 0 0 1px var(--color-white);
     }
@@ -174,27 +178,18 @@
     }
 
     @media (max-width: 600px) {
-      nav a {
-        font-size: 1rem;
-        padding: 0.2rem 0.8rem;
-      }
-      .gallery-item img {
-        height: 140px;
-      }
-      .section-title {
-        font-size: 1.5rem;
-      }
+      nav a { font-size: 1rem; padding: 0.2rem 0.8rem; }
+      .gallery-item img { height: 140px; }
+      .section-title { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <header>
       <h1>Michael Schimkus</h1>
     </header>
   </div>
-
   <div class="container">
     <nav>
       <a href="#about" class="nav-link">About</a>
@@ -202,14 +197,12 @@
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </div>
-
   <main class="container">
     <h2 class="section-title">About</h2>
     <section id="about" class="card">
       <p>This is a sample paragraph for the About section. It describes who you are, what you do, and what your goals might be. It gives visitors a brief introduction.</p>
       <p>This is a second sample paragraph for demonstration purposes. You might include hobbies, your work ethic, or what makes you unique.</p>
     </section>
-
     <h2 class="section-title">Portfolio</h2>
     <section id="portfolio" class="card">
       <div class="gallery">
@@ -223,7 +216,6 @@
         </div>
       </div>
     </section>
-
     <h2 class="section-title">Contact</h2>
     <section id="contact" class="card">
       <form>
@@ -234,19 +226,15 @@
       </form>
     </section>
   </main>
-
   <div class="container">
     <footer class="footer">
       &copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a>
     </footer>
   </div>
-
   <div id="lightbox">
     <img id="lightbox-img" src="" alt="Enlarged image" />
   </div>
-
   <script>
-    // Scroll-spy nav highlight
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
     function setActiveLink(id) {
@@ -254,15 +242,11 @@
     }
     function updateActiveSection() {
       let current = '';
-      sections.forEach(sec => {
-        if (window.pageYOffset >= sec.offsetTop - 120) current = sec.id;
-      });
+      sections.forEach(sec => { if (window.pageYOffset >= sec.offsetTop - 120) current = sec.id; });
       if (current) setActiveLink(current);
     }
     window.addEventListener('scroll', updateActiveSection);
     updateActiveSection();
-
-    // Lightbox
     document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('click', () => {
         const lb = document.getElementById('lightbox');
