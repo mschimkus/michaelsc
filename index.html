@@ -11,9 +11,9 @@
 <meta name="description" content="Portfolio website of Michael Schimkus." />
 <style>
   :root {
-    --color-primary-start: #0077a8;
-    --color-primary-end: #0096c7;
-    --color-primary-dark: #005f7a;
+    --color-primary-start: #4da6cc; /* paler blue start */
+    --color-primary-end: #66b3d9;   /* paler blue end */
+    --color-primary-dark: #3399cc;  /* adjusted darker shade */
     --color-white: #fff;
     --color-text: #333;
     --bg-light: #f5f7fa;
@@ -112,9 +112,14 @@
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
   }
 
-  .card h2 {
-    margin-bottom: 1.25rem;
+  /* Blue header bar on main cards */
+  .card > h2 {
+    padding: 0.75rem 1rem;
     font-size: 1.7rem;
+    margin-bottom: 1.25rem;
+    background: var(--color-primary-end);
+    color: var(--color-white);
+    border-radius: 10px 10px 0 0;
   }
 
   .gallery {
@@ -135,14 +140,15 @@
     align-items: stretch;
   }
 
+  /* Remove blue header from projects */
   .gallery-item h3 {
     padding: 0.75rem 1rem;
     font-size: 1.15rem;
     font-weight: 600;
     text-align: left;
-    background: var(--color-primary-end);
-    color: var(--color-white);
-    border-radius: 10px 10px 0 0;
+    background: none;
+    color: var(--color-text);
+    border-radius: 0;
     margin: 0;
   }
 
@@ -258,19 +264,15 @@
       <p>Check out some of my projects below:</p>
       <div class="gallery">
         <div class="gallery-item">
-          <h3>Project 1</h3>
           <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 1" />
         </div>
         <div class="gallery-item">
-          <h3>Project 2</h3>
           <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 2" />
         </div>
         <div class="gallery-item">
-          <h3>Project 3</h3>
           <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 3" />
         </div>
         <div class="gallery-item">
-          <h3>Project 4</h3>
           <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 4" />
         </div>
       </div>
