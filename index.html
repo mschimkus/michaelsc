@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Michael Schimkus - Portfolio (v3.1)</title>
+  <title>Michael Schimkus - Portfolio (v3.2)</title>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -56,7 +56,6 @@
       justify-content: center;
       gap: 1.5rem;
       background: var(--color-white);
-      border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       padding: 0.2rem 0;
@@ -90,7 +89,7 @@
       background: var(--color-white);
       padding: 1.5rem;
       border-radius: var(--border-radius);
-      border: 1px solid var(--color-border);
+      /* border removed in version 3.2 */
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
     }
@@ -135,7 +134,6 @@
       text-align: center;
       padding: 0.5rem;
       background: var(--color-white);
-      border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin: 1rem 0;
@@ -199,20 +197,16 @@
 
   <div class="container">
     <footer class="footer">&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a></footer>
-    <div class="version">version 3.1</div>
+    <div class="version">version 3.2</div>
   </div>
 
   <div id="lightbox"><img id="lightbox-img" src="" alt="Enlarged image"/></div>
 
   <script>
-    // Sticky nav handled by CSS position: sticky
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
     function setActiveLink(id) { navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href')===`#${id}`)); }
     function updateActiveSection() { let current=''; sections.forEach(sec=>{ if(window.pageYOffset>=sec.offsetTop-nav.offsetHeight) current=sec.id; }); if(current) setActiveLink(current); }
-    window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection();
-    // Lightbox
+    window.addEventListener('scroll',updateActiveSection); updateActiveSection();
     document.querySelectorAll('.gallery-item img').forEach(img=>img.addEventListener('click',()=>{const lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=img.src;lb.style.display='flex';}));
     document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.style.display='none';});
   </script>
