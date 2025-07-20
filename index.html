@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michael Schimkus - Portfolio (v2)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Michael Schimkus - Portfolio (v3)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --color-primary-light: #f6fcff;
@@ -48,12 +48,10 @@
       text-shadow: 0 0 1px var(--color-border);
     }
 
-    .nav-placeholder {
-      display: none;
-      height: 0;
-    }
-
-    nav {
+    /* Sticky nav within container */
+    .container nav {
+      position: sticky;
+      top: 0;
       display: flex;
       justify-content: center;
       gap: 1.5rem;
@@ -62,14 +60,7 @@
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       padding: 0.2rem 0;
-      transition: none;
-    }
-    nav.fixed {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: var(--max-width);
+      margin-bottom: 1rem;
       z-index: 100;
     }
     nav a {
@@ -88,7 +79,6 @@
 
     main {
       padding-bottom: 1rem;
-      margin-top: 1rem;
     }
     .section-title {
       font-size: 1.7rem;
@@ -118,11 +108,7 @@
       cursor: pointer;
       border: none;
     }
-    .project-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .project-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
 
     form {
       display: flex;
@@ -157,13 +143,7 @@
       font-weight: 600;
       text-shadow: 0 0 1px var(--color-white);
     }
-
-    .version {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--color-text);
-      margin-bottom: 1rem;
-    }
+    .version { text-align: center; font-size: 0.8rem; color: var(--color-text); margin-bottom: 1rem; }
 
     #lightbox {
       position: fixed;
@@ -174,11 +154,7 @@
       justify-content: center;
       z-index: 999;
     }
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
+    #lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; }
 
     @media (max-width: 600px) {
       nav a { font-size: 1rem; padding: 0.2rem 0.8rem; }
@@ -189,14 +165,11 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Michael Schimkus</h1>
-    </header>
+    <header><h1>Michael Schimkus</h1></header>
   </div>
 
   <div class="container">
-    <div class="nav-placeholder"></div>
-    <nav id="site-nav">
+    <nav>
       <a href="#about" class="nav-link">About</a>
       <a href="#portfolio" class="nav-link">Portfolio</a>
       <a href="#contact" class="nav-link">Contact</a>
@@ -213,78 +186,32 @@
     <h2 class="section-title">Portfolio</h2>
     <section id="portfolio" class="card">
       <div class="gallery">
-        <div class="gallery-item">
-          <h3 class="project-title">Project 1</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 1">
-        </div>
-        <div class="gallery-item">
-          <h3 class="project-title">Project 2</h3>
-          <img src="https://via.placeholder.com/800x500/eeeeee/333" alt="Project 2">
-        </div>
+        <div class="gallery-item"><h3 class="project-title">Project 1</h3><img src="https://via.placeholder.com/800x500" alt="Project 1"></div>
+        <div class="gallery-item"><h3 class="project-title">Project 2</h3><img src="https://via.placeholder.com/800x500/eeeeee/333" alt="Project 2"></div>
       </div>
     </section>
 
     <h2 class="section-title">Contact</h2>
     <section id="contact" class="card">
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <form><input type="text" placeholder="Your Name" required/><input type="email" placeholder="Your Email" required/><textarea rows="5" placeholder="Your Message" required></textarea><button type="submit">Send Message</button></form>
     </section>
   </main>
 
   <div class="container">
-    <footer class="footer">
-      &copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a>      
-    </footer>
-    <div class="version">version 2</div>
+    <footer class="footer">&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a></footer>
+    <div class="version">version 3</div>
   </div>
 
-  <div id="lightbox">
-    <img id="lightbox-img" src="" alt="Enlarged image" />
-  </div>
+  <div id="lightbox"><img id="lightbox-img" src="" alt="Enlarged image"/></div>
 
   <script>
-    const nav = document.getElementById('site-nav');
-    const placeholder = document.querySelector('.nav-placeholder');
-    const navOffset = nav.offsetTop;
-    placeholder.style.height = nav.offsetHeight + 'px';
-
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset >= navOffset) {
-        nav.classList.add('fixed');
-        placeholder.style.display = 'block';
-      } else {
-        nav.classList.remove('fixed');
-        placeholder.style.display = 'none';
-      }
-    });
-
     // Scroll-spy nav highlight
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
-    function setActiveLink(id) {
-      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
-    }
-    function updateActiveSection() {
-      let current = '';
-      sections.forEach(sec => { if (window.pageYOffset >= sec.offsetTop - nav.offsetHeight) current = sec.id; });
-      if (current) setActiveLink(current);
-    }
-    window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection();
-
-    // Lightbox functionality
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        const lb = document.getElementById('lightbox');
-        document.getElementById('lightbox-img').src = img.src;
-        lb.style.display = 'flex';
-      });
-    });
-    document.getElementById('lightbox').addEventListener('click', e => { if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none'; });
+    const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
+    function setActiveLink(id) { navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href')===`#${id}`)); }
+    function updateActiveSection() { let current=''; sections.forEach(sec=>{ if(window.pageYOffset>=sec.offsetTop-nav.offsetHeight) current=sec.id; }); if(current) setActiveLink(current);} window.addEventListener('scroll',updateActiveSection); updateActiveSection();
+    // Lightbox
+    document.querySelectorAll('.gallery-item img').forEach(img=>img.addEventListener('click',()=>{const lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=img.src;lb.style.display='flex';}));
+    document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.style.display='none';});
   </script>
 </body>
 </html>
