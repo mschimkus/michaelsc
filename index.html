@@ -11,18 +11,20 @@
 <meta name="description" content="Portfolio website of Michael Schimkus." />
 <style>
   :root {
-    --color-primary-start: #4da6cc; /* paler blue start */
-    --color-primary-end: #66b3d9;   /* paler blue end */
-    --color-primary-dark: #3399cc;  /* adjusted darker shade */
+    --color-primary-start: #7ec0e4; /* lighter blue start */
+    --color-primary-end: #a0d0f0;   /* lighter blue end */
+    --color-primary-dark: #5ca8d6;  /* lighter dark shade */
     --color-white: #fff;
     --color-text: #333;
     --bg-light: #f5f7fa;
-    --underline-height: 3px;
-    --underline-radius: 2px;
-    --focus-color: #80bdff;
+    --focus-color: #b3d7ff;
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -60,30 +62,21 @@
   nav a {
     position: relative;
     color: var(--color-white);
-    padding: 1.1rem 1.5rem;
+    padding: 0.65rem 1.5rem; /* less vertical padding for tighter nav */
     font-weight: 600;
     font-size: 1.15rem;
     text-decoration: none;
     user-select: none;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, background-color 0.3s ease;
     outline-offset: 3px;
+    border-radius: 12px; /* medium rounding */
   }
 
-  nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: var(--underline-height);
-    background: var(--color-white);
-    border-radius: var(--underline-radius);
-    opacity: 0;
-    transition: opacity 0.15s ease;
+  nav a.active,
+  nav a:hover {
+    background-color: rgba(160, 208, 240, 0.3); /* lighter blue highlight */
+    color: var(--color-white);
   }
-
-  nav a.active::after,
-  nav a:hover::after { opacity: 1; }
 
   nav a:focus-visible {
     outline: 3px solid var(--focus-color);
@@ -96,7 +89,9 @@
     padding: 1rem 1.5rem;
   }
 
-  section { margin-bottom: 1.25rem; }
+  section {
+    margin-bottom: 1.25rem;
+  }
 
   .card {
     background: var(--color-white);
@@ -106,13 +101,15 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.75rem;
     transition: box-shadow 0.3s ease;
+    position: relative;
+    overflow: visible;
   }
 
   .card:hover {
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
   }
 
-  /* Blue header bar on main cards */
+  /* Blue header bar on main cards with no border behind */
   .card > h2 {
     padding: 0.75rem 1rem;
     font-size: 1.7rem;
@@ -120,6 +117,10 @@
     background: var(--color-primary-end);
     color: var(--color-white);
     border-radius: 10px 10px 0 0;
+    margin-top: -1.75rem; /* pull header outside card padding */
+    margin-left: -1.75rem; /* cover card border left */
+    margin-right: -1.75rem; /* cover card border right */
+    box-sizing: border-box;
   }
 
   .gallery {
@@ -140,7 +141,6 @@
     align-items: stretch;
   }
 
-  /* Remove blue header from projects */
   .gallery-item h3 {
     padding: 0.75rem 1rem;
     font-size: 1.15rem;
@@ -178,7 +178,7 @@
   input:focus, textarea:focus {
     outline: none;
     border-color: var(--color-primary-end);
-    box-shadow: 0 0 8px rgba(0,150,199,0.5);
+    box-shadow: 0 0 8px rgba(160, 208, 240, 0.5);
   }
 
   button {
@@ -225,7 +225,7 @@
   @media (max-width: 600px) {
     nav a {
       font-size: 1rem;
-      padding: 0.9rem 1.2rem;
+      padding: 0.65rem 1.2rem;
     }
     .card {
       padding: 1.2rem;
