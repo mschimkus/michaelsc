@@ -60,6 +60,7 @@
       width: 100%;
       height: 3px;
       background: #fff;
+      border-radius: 2px;  /* Slight rounding */
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
@@ -82,7 +83,6 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       margin-bottom: 0.5rem;
-      /* Removed opacity and transform */
     }
 
     .gallery {
@@ -101,16 +101,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* Removed opacity and transform */
-    }
-
-    .gallery-item img {
-      width: 100%;
-      max-width: 800px;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      border-radius: 8px 8px 0 0;
     }
 
     .gallery-item h3 {
@@ -120,7 +110,17 @@
       background: #0096c7;
       color: #fff;
       width: 100%;
-      border-radius: 0 0 8px 8px;
+      border-radius: 8px 8px 0 0;  /* rounded top corners */
+      margin: 0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      max-width: 800px;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-radius: 0 0 8px 8px; /* rounded bottom corners */
     }
 
     footer {
@@ -210,10 +210,22 @@
       <h2>Portfolio</h2>
       <p>Check out some of my projects below:</p>
       <div class="gallery">
-        <div class="gallery-item" data-title="Project 1"><img src="https://via.placeholder.com/800x500" alt="Project 1"><h3>Project 1</h3></div>
-        <div class="gallery-item" data-title="Project 2"><img src="https://via.placeholder.com/800x500" alt="Project 2"><h3>Project 2</h3></div>
-        <div class="gallery-item" data-title="Project 3"><img src="https://via.placeholder.com/800x500" alt="Project 3"><h3>Project 3</h3></div>
-        <div class="gallery-item" data-title="Project 4"><img src="https://via.placeholder.com/800x500" alt="Project 4"><h3>Project 4</h3></div>
+        <div class="gallery-item" data-title="Project 1">
+          <h3>Project 1</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 1" />
+        </div>
+        <div class="gallery-item" data-title="Project 2">
+          <h3>Project 2</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 2" />
+        </div>
+        <div class="gallery-item" data-title="Project 3">
+          <h3>Project 3</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 3" />
+        </div>
+        <div class="gallery-item" data-title="Project 4">
+          <h3>Project 4</h3>
+          <img src="https://via.placeholder.com/800x500" alt="Project 4" />
+        </div>
       </div>
     </div>
   </section>
