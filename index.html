@@ -18,7 +18,7 @@
       --max-width: 1200px;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -28,52 +28,45 @@
       font-family: 'Public Sans', sans-serif;
       background: var(--color-primary-light);
       color: var(--color-text);
-  text-shadow: 0 0 1px var(--color-border);
       line-height: 1.6;
       scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
     }
 
     header {
       text-align: center;
       padding: 1rem 0 0.5rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
     }
 
     header h1 {
       font-size: 2.2rem;
       font-weight: 600;
       color: var(--color-text);
-      text-shadow: 0 0 1px var(--color-white);
-    }
-
-    .nav-wrapper {
-      max-width: var(--max-width);
-      margin: 0 auto;
+      text-shadow: 0 0 1px var(--color-border);
     }
 
     nav {
-  position: sticky;
-  top: 0;
-  background: var(--color-white);
-  z-index: 999;
-  gap: 1.5rem;
       display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+      justify-content: center;
+      gap: 1.5rem;
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
       position: sticky;
-      top: 0.5rem;
+      top: 0;
       z-index: 100;
+      padding: 0.2rem 0;
     }
 
     nav a {
-      letter-spacing: 0.03em;
-      padding: 0.1rem 1rem;
+      color: var(--color-text);
+      padding: 0.2rem 1rem;
       font-weight: 600;
       font-size: 1.1rem;
       text-decoration: none;
@@ -90,16 +83,13 @@
       background-color: var(--highlight-bg);
     }
 
-    .content-wrapper {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1rem;
+    main {
+      padding: 1rem 0;
     }
 
     .section-title {
       font-size: 1.7rem;
       font-weight: 700;
-      color: var(--color-text);
       margin: 1rem 0 0.3rem;
       text-shadow: 0 0 1px var(--color-white);
     }
@@ -113,13 +103,6 @@
       margin-bottom: 1.5rem;
     }
 
-    .project-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 0.5rem;
-    }
-
     .gallery {
       display: flex;
       flex-direction: column;
@@ -127,9 +110,19 @@
     }
 
     .gallery-item img {
-$1
-  border: none;
-}
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
 
     form {
       display: flex;
@@ -137,14 +130,11 @@ $1
       gap: 1rem;
     }
 
-    input, textarea, button {
-      font: inherit;
-      border-radius: 8px;
-    }
-
     input, textarea {
       padding: 0.85rem;
       border: 1px solid #ccc;
+      border-radius: 8px;
+      font: inherit;
     }
 
     button {
@@ -153,47 +143,62 @@ $1
       padding: 0.85rem;
       border: none;
       font-weight: 700;
+      border-radius: 8px;
       cursor: pointer;
     }
 
-    .footer-wrapper {
-      max-width: var(--max-width);
-      margin: 1rem auto;
-    }
-
-    footer {
+    .footer {
       text-align: center;
       padding: 0.5rem;
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    footer p {
+      margin: 1rem 0;
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--color-text);
       text-shadow: 0 0 1px var(--color-white);
+    }
+
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      nav a { font-size: 1rem; padding: 0.2rem 0.8rem; }
+      .gallery-item img { height: 140px; }
+      .section-title { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div style="max-width: var(--max-width); margin: 0 auto;">
-<header>
-    <h1>Michael Schimkus</h1>
-  </header>
-</div>
+  <div class="container">
+    <header>
+      <h1>Michael Schimkus</h1>
+    </header>
+  </div>
 
-  <div class="nav-wrapper" style="max-width: var(--max-width); margin: 0 auto;">
-    <div style="max-width: var(--max-width); margin: 0 auto;"><nav>
+  <div class="container">
+    <nav>
       <a href="#about" class="nav-link">About</a>
       <a href="#portfolio" class="nav-link">Portfolio</a>
       <a href="#contact" class="nav-link">Contact</a>
-    </nav></div>
+    </nav>
   </div>
 
-  <div class="content-wrapper">
+  <main class="container">
     <h2 class="section-title">About</h2>
     <section id="about" class="card">
       <p>This is a sample paragraph for the About section. It describes who you are, what you do, and what your goals might be. It gives visitors a brief introduction.</p>
@@ -223,34 +228,32 @@ $1
         <button type="submit">Send Message</button>
       </form>
     </section>
+  </main>
+
+  <div class="container">
+    <footer class="footer">
+      &copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a>
+    </footer>
   </div>
 
-  <div class="footer-wrapper" style="max-width: var(--max-width); margin: 1rem auto;">
-    <div style="max-width: var(--max-width); margin: 0 auto;">
-<div style="max-width: var(--max-width); margin: 0 auto;"><footer>
-      <p>&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration: none; color: var(--color-text); text-shadow: 0 0 1px var(--color-white); font-size: 0.9rem;">Return to top</a></p>
-    </footer></div>
-</div>
-  </div>
-
-  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
-    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" alt="Enlarged image">
+  <div id="lightbox">
+    <img id="lightbox-img" src="" alt="Enlarged image" />
   </div>
 
   <script>
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('main section, .card');
+    const sections = document.querySelectorAll('section');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
     function setActiveLink(id) {
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-      });
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
     }
 
     function updateActiveSection() {
       let current = '';
       sections.forEach(section => {
-        const offset = section.offsetTop - 120;
+        const offset = section.offsetTop - 150;
         if (pageYOffset >= offset) current = section.id;
       });
       if (current) setActiveLink(current);
@@ -259,11 +262,7 @@ $1
     window.addEventListener('scroll', updateActiveSection);
     updateActiveSection();
 
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    galleryImages.forEach(img => {
+    document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('click', () => {
         lightbox.style.display = 'flex';
         lightboxImg.src = img.src;
@@ -272,7 +271,6 @@ $1
 
     lightbox.addEventListener('click', () => {
       lightbox.style.display = 'none';
-      lightboxImg.src = '';
     });
   </script>
 </body>
