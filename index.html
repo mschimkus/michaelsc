@@ -82,14 +82,7 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       margin-bottom: 0.5rem;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
+      /* Removed opacity and transform */
     }
 
     .gallery {
@@ -104,18 +97,11 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: scale(0.95);
-      transition: opacity 0.8s ease, transform 0.8s ease;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    .gallery-item.show {
-      opacity: 1;
-      transform: scale(1);
+      /* Removed opacity and transform */
     }
 
     .gallery-item img {
