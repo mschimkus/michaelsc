@@ -3,36 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Responsive Website</title>
+<title>Michael Schimkus - Portfolio</title>
 <style>
   :root {
     --color-primary: #0096c7;
-    --color-primary-light: #b3d9ff;
+    --color-primary-dark: #0077a8;
     --color-white: #fff;
     --color-text: #333;
+    --bg-light: #f5f7fa;
     --underline-height: 3px;
     --underline-radius: 2px;
   }
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f5f7fa;
+    background: var(--bg-light);
     color: var(--color-text);
     scroll-behavior: smooth;
   }
 
-  /* Updated header and footer */
   header, footer {
-    background: #f5f7fa; /* grey matching page background */
-    color: var(--color-text); /* darker text for readability */
-    padding: 1rem;
+    background: var(--bg-light);
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
     text-align: center;
+  }
+
+  header h1 {
+    margin: 0.25rem 0;
+    font-size: 1.8rem;
+    font-weight: 600;
   }
 
   nav {
@@ -42,7 +45,6 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    flex-wrap: wrap;
   }
 
   nav a {
@@ -50,28 +52,29 @@
     color: var(--color-white);
     padding: 1rem;
     font-weight: bold;
-    font-size: 1.1rem; /* Slightly bigger nav text */
+    font-size: 1.1rem;
     text-decoration: none;
     user-select: none;
+    transition: color 0.2s ease;
   }
 
   nav a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 5px;
+    bottom: 2px;
     width: 100%;
     height: var(--underline-height);
     background: var(--color-white);
     border-radius: var(--underline-radius);
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.15s ease;
   }
 
-  nav a:hover::after,
-  nav a.active::after {
-    opacity: 1;
-  }
+  nav a.active::after,
+  nav a:hover::after { opacity: 1; }
+
+  nav:hover a.active:not(:hover)::after { opacity: 0; }
 
   main {
     max-width: 1200px;
@@ -79,25 +82,19 @@
     padding: 1rem;
   }
 
-  section {
-    margin-bottom: 1rem;
-    outline: none;
-  }
+  section { margin-bottom: 1rem; }
 
   .card {
     background: var(--color-white);
-    padding-top: 1rem; /* Reduced top padding */
-    padding-right: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     margin-bottom: 0.5rem;
   }
 
   .card h2 {
-    margin-top: 0; /* Remove default top margin */
-    margin-bottom: 1rem; /* Space below heading */
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
   .gallery {
@@ -112,7 +109,6 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +117,7 @@
   .gallery-item h3 {
     padding: 0.5rem;
     font-size: 1.1rem;
-    text-align: center;
+    text-align: left;
     background: var(--color-primary);
     color: var(--color-white);
     width: 100%;
@@ -134,23 +130,16 @@
     height: 180px;
     object-fit: cover;
     display: block;
-    border-radius: 0 0 8px 8px;
-    max-width: 100%;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
+  form { display: flex; flex-direction: column; gap: 0.75rem; }
 
   input, textarea {
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    font: inherit;
     width: 100%;
-    font-family: inherit;
   }
 
   input:focus, textarea:focus {
@@ -165,15 +154,13 @@
     padding: 0.75rem;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font: inherit;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease;
-    font-family: inherit;
   }
 
-  button:hover {
-    background: #0077a8;
-  }
+  button:hover { background: var(--color-primary-dark); }
 
   #scrollTopBtn {
     position: fixed;
@@ -183,17 +170,14 @@
     color: var(--color-white);
     border: none;
     padding: 10px 15px;
-    border-radius: 50px;
+    border-radius: 50%;
     font-size: 1.2rem;
     cursor: pointer;
     display: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background 0.3s ease;
   }
 
-  #scrollTopBtn:hover {
-    background: #0077a8;
-  }
+  #scrollTopBtn:hover { background: var(--color-primary-dark); }
 </style>
 </head>
 <body>
@@ -201,49 +185,49 @@
   <h1>Michael Schimkus</h1>
 </header>
 
-<nav role="navigation" aria-label="Primary">
+<nav role="navigation" aria-label="Main navigation">
   <a href="#about" class="nav-link">About</a>
   <a href="#portfolio" class="nav-link">Portfolio</a>
   <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
 <main>
-  <section id="about" tabindex="-1">
+  <section id="about">
     <div class="card">
       <h2>About</h2>
       <p>This is the About section. Add information about yourself or your brand here.</p>
     </div>
   </section>
 
-  <section id="portfolio" tabindex="-1">
+  <section id="portfolio">
     <div class="card">
       <h2>Portfolio</h2>
       <p>Check out some of my projects below:</p>
       <div class="gallery">
-        <div class="gallery-item" data-title="Project 1">
+        <div class="gallery-item">
           <h3>Project 1</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 1" />
+          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 1" />
         </div>
-        <div class="gallery-item" data-title="Project 2">
+        <div class="gallery-item">
           <h3>Project 2</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 2" />
+          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 2" />
         </div>
-        <div class="gallery-item" data-title="Project 3">
+        <div class="gallery-item">
           <h3>Project 3</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 3" />
+          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 3" />
         </div>
-        <div class="gallery-item" data-title="Project 4">
+        <div class="gallery-item">
           <h3>Project 4</h3>
-          <img src="https://via.placeholder.com/800x500" alt="Project 4" />
+          <img src="https://via.placeholder.com/800x500" alt="Screenshot of Project 4" />
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" tabindex="-1">
+  <section id="contact">
     <div class="card">
       <h2>Contact</h2>
-      <form action="#" method="post">
+      <form>
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -257,47 +241,31 @@
   <p>&copy; 2025 Michael Schimkus</p>
 </footer>
 
-<button id="scrollTopBtn" type="button" aria-label="Scroll to top">&#8679;</button>
+<button id="scrollTopBtn" aria-label="Scroll to top">&#8679;</button>
 
 <script>
+  const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("main section");
-  const navLinks = document.querySelectorAll("nav a");
-
-  function onScroll() {
-    let currentSectionId = null;
-    let minDistance = window.innerHeight;
-
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top - 150);
-      if (rect.top <= 150 && distance < minDistance) {
-        minDistance = distance;
-        currentSectionId = section.id;
-      }
-    });
-
-    if (!currentSectionId) {
-      currentSectionId = sections[0].id;
-    }
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      link.removeAttribute("aria-current");
-      if (link.getAttribute("href") === "#" + currentSectionId) {
-        link.classList.add("active");
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", onScroll);
-  window.addEventListener("resize", onScroll);
-  window.addEventListener("load", onScroll);
-
   const scrollTopBtn = document.getElementById("scrollTopBtn");
 
+  // Intersection Observer for active link highlighting
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove("active"));
+          const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  sections.forEach(sec => observer.observe(sec));
+
+  // Scroll to top button
   window.addEventListener("scroll", () => {
-    scrollTopBtn.style.display = window.pageYOffset > 300 ? "block" : "none";
+    scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
 
   scrollTopBtn.addEventListener("click", () => {
