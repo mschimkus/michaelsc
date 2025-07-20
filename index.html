@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Michael Schimkus - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Figtree:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --color-primary-light: #f7fbfd;
+      --color-primary-light: #f0faff;
       --color-primary-mid: #cbeaf9;
       --color-primary-dark: #9dcee9;
       --color-white: #ffffff;
@@ -25,13 +25,15 @@
     }
 
     body {
-      background: #f0faff;
+      font-family: 'Public Sans', sans-serif;
+      background: var(--color-primary-light);
       color: var(--color-text);
       line-height: 1.6;
       scroll-behavior: smooth;
     }
 
     header {
+      text-align: center;
       padding: 1rem 0 0.5rem;
       max-width: var(--max-width);
       margin: 0 auto;
@@ -44,6 +46,11 @@
       text-shadow: 0 0 1px var(--color-white);
     }
 
+    .nav-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -51,8 +58,6 @@
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      max-width: var(--max-width);
-      margin: 0 auto 1rem auto;
       overflow: hidden;
       position: sticky;
       top: 0.5rem;
@@ -60,15 +65,15 @@
     }
 
     nav a {
-  color: var(--color-text);
-  padding: 0.2rem 1rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-decoration: none;
-  transition: background-color 0.25s ease;
-  text-shadow: 0 0 1px var(--color-white);
-  border-radius: var(--border-radius);
-}
+      color: var(--color-text);
+      padding: 0.2rem 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background-color 0.25s ease;
+      text-shadow: 0 0 1px var(--color-white);
+      border-radius: var(--border-radius);
+    }
 
     nav a:hover {
       background-color: rgba(157, 206, 233, 0.2);
@@ -78,7 +83,7 @@
       background-color: var(--highlight-bg);
     }
 
-    main {
+    .content-wrapper {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 1rem;
@@ -119,6 +124,7 @@
       height: 180px;
       object-fit: cover;
       border-radius: 8px;
+      cursor: pointer;
     }
 
     form {
@@ -146,43 +152,46 @@
       cursor: pointer;
     }
 
+    .footer-wrapper {
+      max-width: var(--max-width);
+      margin: 1rem auto;
+    }
+
     footer {
+      text-align: center;
       padding: 0.5rem;
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      max-width: var(--max-width);
-      margin: 1rem auto;
     }
 
     footer p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-text);
-  text-shadow: 0 0 1px var(--color-white);
-  position: relative;
-  display: inline-block;
-}
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text);
+      text-shadow: 0 0 1px var(--color-white);
+    }
   </style>
 </head>
 <body>
   <header>
-  <h1 style="text-align: center;">Michael Schimkus</h1>
-</header>
+    <h1>Michael Schimkus</h1>
+  </header>
 
-  <div style="max-width: var(--max-width); margin: 0 auto;">
-<nav>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#portfolio" class="nav-link">Portfolio</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
-</div>
+  <div class="nav-wrapper">
+    <nav>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </div>
 
-  <div style="max-width: var(--max-width); margin: 0 auto;">
-<main>
+  <div class="content-wrapper">
     <h2 class="section-title">About</h2>
-    $1<br>$2Nam sollicitudin orci sed augue tempor, ut vulputate velit suscipit. Fusce pretium nisi eu neque tempor, at pulvinar orci faucibus.</p>
+    <section id="about" class="card">
+      <p>This is a sample paragraph for the About section. It describes who you are, what you do, and what your goals might be. It gives visitors a brief introduction.</p>
+      <p>This is a second sample paragraph for demonstration purposes. You might include hobbies, your work ethic, or what makes you unique.</p>
     </section>
 
     <h2 class="section-title">Portfolio</h2>
@@ -208,22 +217,21 @@
         <button type="submit">Send Message</button>
       </form>
     </section>
-  </main>
-</div>
+  </div>
 
-  <div style="max-width: var(--max-width); margin: 1rem auto;">
-<footer>
-  <p>$1 | <a href="#" style="text-decoration: none; color: var(--color-text); text-shadow: 0 0 1px var(--color-white); font-size: 0.9rem;">Return to top</a></p>
-  <div style="margin-top: 0.5rem;">
-      <a href="#" style="text-decoration: none; font-size: 1.5rem; color: var(--color-text); text-shadow: 0 0 1px var(--color-white);">&#8679;</a>
-    </div>
-  
-  </footer>
-</div>
+  <div class="footer-wrapper">
+    <footer>
+      <p>&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration: none; color: var(--color-text); text-shadow: 0 0 1px var(--color-white); font-size: 0.9rem;">Return to top</a></p>
+    </footer>
+  </div>
+
+  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" alt="Enlarged image">
+  </div>
 
   <script>
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('main section');
+    const sections = document.querySelectorAll('main section, .card');
 
     function setActiveLink(id) {
       navLinks.forEach(link => {
@@ -242,27 +250,22 @@
 
     window.addEventListener('scroll', updateActiveSection);
     updateActiveSection();
-  </script>
-<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
-  <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" alt="Enlarged image">
-</div>
 
-<script>
-  const galleryImages = document.querySelectorAll('.gallery-item img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = img.src;
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
     });
-  });
 
-  lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-    lightboxImg.src = '';
-  });
-</script>
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
+  </script>
 </body>
 </html>
