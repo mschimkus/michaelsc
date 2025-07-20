@@ -23,14 +23,14 @@
     }
 
     header {
-      background: #b3d9ff; /* light blue background */
-      color: #fff; /* white text */
+      background: #b3d9ff;
+      color: #fff;
       padding: 1rem;
     }
 
     header h1 {
       text-align: center;
-      color: #fff; /* white text */
+      color: #fff;
     }
 
     nav {
@@ -48,15 +48,26 @@
       padding: 1rem;
       text-decoration: none;
       text-align: center;
-      transition: background 0.3s ease;
+      font-weight: bold;
+      position: relative;
     }
 
-    nav a:hover {
-      background: #0077a8;
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 5px;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
     }
 
-    nav a.active {
-      background: #023e8a;
+    nav a:hover::after,
+    nav a.active::after {
+      transform: scaleX(1); /* expands underline from center */
     }
 
     section {
@@ -70,7 +81,7 @@
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem; /* reduced spacing */
+      margin-bottom: 0.5rem;
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -81,7 +92,6 @@
       transform: translateY(0);
     }
 
-    /* Stack portfolio cards vertically */
     .gallery {
       display: flex;
       flex-direction: column;
@@ -128,8 +138,8 @@
     }
 
     footer {
-      background: #b3d9ff; /* light blue background */
-      color: #fff; /* white text */
+      background: #b3d9ff;
+      color: #fff;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
@@ -170,7 +180,6 @@
       background: #0077a8;
     }
 
-    /* Scroll-to-top button */
     #scrollTopBtn {
       position: fixed;
       bottom: 30px;
@@ -188,59 +197,6 @@
     }
 
     #scrollTopBtn:hover {
-      background: #0077a8;
-    }
-
-    /* Lightbox */
-    #lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 2000;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    #lightbox img {
-      max-width: 80%;
-      max-height: 60%;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    }
-
-    #lightbox-caption {
-      color: #fff;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      text-align: center;
-      max-width: 80%;
-    }
-
-    .lightbox-controls {
-      display: flex;
-      gap: 10px;
-    }
-
-    .lightbox-btn {
-      background: #0096c7;
-      border: none;
-      color: #fff;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .lightbox-btn:hover {
       background: #0077a8;
     }
   </style>
@@ -293,96 +249,5 @@
   </footer>
 
   <button id="scrollTopBtn">&#8679;</button>
-
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <img src="" alt="Lightbox Image" />
-    <div id="lightbox-caption"></div>
-    <div class="lightbox-controls">
-      <button class="lightbox-btn" id="prevBtn">Prev</button>
-      <button class="lightbox-btn" id="nextBtn">Next</button>
-      <button class="lightbox-btn" id="closeBtn">Close</button>
-    </div>
-  </div>
-
-  <script>
-    // Highlight active tab
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
-        if (pageYOffset >= sectionTop) current = section.getAttribute("id");
-      });
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) link.classList.add("active");
-      });
-    });
-
-    // Scroll-to-top button
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollTopBtn.style.display =
-        document.body.scrollTop > 200 || document.documentElement.scrollTop > 200
-          ? "block"
-          : "none";
-    });
-    scrollTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Fade-in animations
-    const animatedItems = document.querySelectorAll(".card, .gallery-item");
-    const revealOnScroll = () => {
-      animatedItems.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) item.classList.add("show");
-      });
-    };
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-
-    // Lightbox feature with captions
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const galleryItems = document.querySelectorAll(".gallery-item");
-    let currentIndex = 0;
-
-    const openLightbox = (index) => {
-      currentIndex = index;
-      const item = galleryItems[index];
-      lightboxImg.src = item.querySelector("img").src;
-      lightboxImg.alt = item.querySelector("img").alt;
-      lightboxCaption.textContent = item.getAttribute("data-title") || "";
-      lightbox.style.display = "flex";
-    };
-
-    galleryItems.forEach((item, index) => {
-      item.addEventListener("click", () => openLightbox(index));
-    });
-
-    document.getElementById("closeBtn").addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    document.getElementById("prevBtn").addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-      openLightbox(currentIndex);
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % galleryItems.length;
-      openLightbox(currentIndex);
-    });
-
-    // Close lightbox on background click
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) lightbox.style.display = "none";
-    });
-  </script>
 </body>
 </html>
