@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michael Schimkus - Portfolio (v11)</title>
+  <title>Michael Schimkus - Portfolio (v12)</title>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -14,7 +14,10 @@
       --radius:           10px;
       --max-width:        1200px;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
     body {
       font-family: 'Public Sans', sans-serif;
       background: var(--color-bg-light);
@@ -29,11 +32,8 @@
     }
     /* Navigation */
     nav {
-      background: var(--color-bg-nav);
-      border-radius: var(--radius);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin: 1rem 0;
-      padding: 0.5rem 1rem;
+      padding: 0;
     }
     .nav-inner {
       display: flex;
@@ -44,11 +44,13 @@
     .nav-inner > h1 {
       font-size: 2.2rem;
       font-weight: 600;
-      color: var(--color-text);
     }
     .nav-links {
       display: flex;
       gap: 1.5rem;
+      background: var(--color-bg-nav);
+      border-radius: var(--radius);
+      padding: 0.5rem 1rem;
     }
     .nav-links a {
       color: var(--color-text);
@@ -115,6 +117,10 @@
       font-size: 0.9rem;
       font-weight: 600;
     }
+    @media (max-width: 600px) {
+      .nav-links a { font-size: 1rem; padding: 0.2rem 0.8rem; }
+      .card h2 { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -152,7 +158,7 @@
     </section>
   </main>
   <footer class="container">
-    &copy; 2025 Michael Schimkus | <a href="#" style="color:var(--color-text);">Return to top</a> | v11
+    &copy; 2025 Michael Schimkus | <a href="#" style="color:var(--color-text);">Return to top</a> | v12
   </footer>
   <script>
     const links = document.querySelectorAll('.nav-link');
