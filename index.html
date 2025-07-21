@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Michael Schimkus - Portfolio (v4.2)</title>
+  <title>Michael Schimkus - Portfolio (v5)</title>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -90,10 +90,13 @@
       margin-bottom: 1.5rem;
     }
 
+    .gallery-item {
+      position: relative;
+    }
     .gallery-item img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border-radius: 8px;
       cursor: pointer;
       border: none;
@@ -143,6 +146,7 @@
       margin-bottom: 1rem;
     }
 
+    /* Lightbox */
     #lightbox {
       position: fixed;
       inset: 0;
@@ -152,11 +156,27 @@
       justify-content: center;
       z-index: 999;
     }
-    #lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+    #lightbox-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    #lightbox .prev, #lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: var(--color-white);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0 1rem;
+    }
+    #lightbox .prev { left: 0; }
+    #lightbox .next { right: 0; }
 
     @media (max-width: 600px) {
       nav a { font-size: 1rem; padding: 0.2rem 0.8rem; }
-      .gallery-item img { height: 140px; }
       .section-title { font-size: 1.5rem; }
     }
   </style>
@@ -179,7 +199,7 @@
       <p>This is a second sample paragraph for demonstration purposes. You might include hobbies, your work ethic, or what makes you unique.</p>
     </section>
     <section id="portfolio" class="card">
-      <h2 class="section-title">Portfolio</h2>
+      <h2 class="section-title">Population Change in Communities Outside Joshua Tree National Park</h2>
       <div class="gallery-item">
         <h3 class="project-title">Population Change in Communities Outside Joshua Tree National Park</h3>
         <img src="project1.jpg" alt="Population Change in Communities Outside Joshua Tree National Park">
@@ -187,21 +207,63 @@
     </section>
     <section id="contact" class="card">
       <h2 class="section-title">Contact</h2>
-      <form><input type="text" placeholder="Your Name" required/><input type="email" placeholder="Your Email" required/><textarea rows="5" placeholder="Your Message" required></textarea><button type="submit">Send Message</button></form>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </main>
   <div class="container">
     <footer class="footer">&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a></footer>
-    <div class="version">version 4.2</div>
+    <div class="version">version 5</div>
   </div>
-  <div id="lightbox"><img id="lightbox-img" src="" alt="Enlarged image"/></div>
+  <div id="lightbox">
+    <button class="prev">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged image" />
+    <button class="next">&#10095;</button>
+  </div>
   <script>
-    const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
-    function setActiveLink(id) { navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href')===`#${id}`)); }
-    function updateActiveSection() { let current=''; sections.forEach(sec=>{ if(window.pageYOffset>=sec.offsetTop-nav.offsetHeight) current=sec.id; }); if(current) setActiveLink(current); }
-    window.addEventListener('scroll',updateActiveSection); updateActiveSection();
-    document.querySelectorAll('.gallery-item img').forEach(img=>img.addEventListener('click',()=>{const lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=img.src;lb.style.display='flex';}));
-    document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.style.display='none';});
+    const images = Array.from(document.querySelectorAll('.gallery-item img'));
+    let currentIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const btnPrev = lightbox.querySelector('.prev');
+    const btnNext = lightbox.querySelector('.next');
+    images.forEach((img, i) => img.addEventListener('click', () => {
+      currentIndex = i;
+      showLightbox();
+    }));
+    function showLightbox() {
+      lightboxImg.src = images[currentIndex].src;
+      lightbox.style.display = 'flex';
+    }
+    btnPrev.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showLightbox();
+    });
+    btnNext.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showLightbox();
+    });
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    function setActiveLink(id) {
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+    }
+    function updateActiveSection() {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.pageYOffset >= sec.offsetTop - document.querySelector('nav').offsetHeight) current = sec.id;
+      });
+      if (current) setActiveLink(current);
+    }
+    window.addEventListener('scroll', updateActiveSection);
+    updateActiveSection();
   </script>
 </body>
 </html>
