@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Michael Schimkus - Portfolio (v6.2)</title>
+  <title>Michael Schimkus - Portfolio (v7)</title>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --color-primary-light: #f6fcff;
       --color-white:        #ffffff;
       --color-text:         #222222;
-      --highlight-bg:       rgba(0,123,255,0.5); /* Darker medium blue highlight */ /* Medium blue highlight */
+      --highlight-bg:       rgba(0,123,255,0.5);
       --border-radius:      10px;
       --max-width:          1200px;
     }
@@ -25,39 +25,121 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1rem; }
-    header { text-align: center; padding: 1rem 0 0.5rem; }
-    header h1 { font-size: 2.2rem; font-weight: 600; text-shadow: 0 0 1px rgba(176,176,176,0.7); }
-    nav { display: flex; justify-content: center; gap: 1.5rem; background: var(--color-white); border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.1); padding: 0.2rem 0; margin-bottom: 1rem; z-index: 100; }
-    nav a { color: var(--color-text); padding: 0.2rem 1rem; font-weight: 600; font-size: 1.2rem; text-decoration: none; transition: background-color 0.25s ease; text-shadow: 0 0 1px var(--color-white); border-radius: var(--border-radius); letter-spacing: 0.03em; }
-    nav a:hover { background-color: rgba(157,206,233,0.2); }
-    nav a.active { background-color: var(--highlight-bg); }
-    main { padding-bottom: 1rem; }
-    .section-title { font-size: 1.7rem; font-weight: 800; margin: 0 0 0.5rem; text-shadow: 0 0 1px var(--color-white); text-align: left; }
-    .card { background: var(--color-white); padding: 1.5rem; border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.1); margin: 1.5rem 0; }
-    .gallery-item { text-align: center; }
-    .gallery-item img { width: 100%; height: auto; object-fit: contain; border-radius: 8px; cursor: pointer; }
-    .project-title { font-size: 1rem; font-weight: 600; margin: 0.5rem 0 0; text-align: center; }
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    input, textarea { padding: 0.85rem; border: 1px solid #ccc; border-radius: 8px; font: inherit; }
-    button { background: var(--color-primary-mid); color: var(--color-white); padding: 0.85rem; border: none; font-weight: 700; border-radius: 8px; cursor: pointer; }
-    footer.footer { text-align: center; padding: 0.5rem; background: var(--color-white); border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.1); margin: 1rem 0; font-size: 0.9rem; font-weight: 600; text-shadow: 0 0 1px var(--color-white); }
-    /* Lightbox */
-    #lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 999; }
-    #lightbox-img { max-width: 90%; max-height: 90%; border-radius: 10px; }
-    #lightbox .prev, #lightbox .next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: var(--color-white); background: none; border: none; cursor: pointer; padding: 0 1rem; }
-    #lightbox .prev { left: 0; }
-    #lightbox .next { right: 0; }
-    @media (max-width: 600px) { nav a { font-size: 1rem; padding: 0.2rem 0.8rem; } .section-title { font-size: 1.5rem; } }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 0.5rem 0;
+      margin: 1rem 0;
+      gap: 0.5rem;
+    }
+    .nav-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 1px rgba(176,176,176,0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: var(--color-text);
+      padding: 0.3rem 0.8rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: background-color 0.25s ease;
+      text-shadow: 0 0 1px var(--color-white);
+      border-radius: var(--border-radius);
+    }
+    .nav-links a:hover { background-color: rgba(157,206,233,0.2); }
+    .nav-links a.active { background-color: var(--highlight-bg); }
+    main {
+      padding-bottom: 1rem;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+      text-shadow: 0 0 1px var(--color-white);
+      text-align: left;
+    }
+    .card {
+      background: var(--color-white);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+    }
+    .gallery-item {
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%; height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.5rem 0 0;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.85rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font: inherit;
+    }
+    button {
+      background: var(--color-primary-mid);
+      color: var(--color-white);
+      padding: 0.85rem;
+      border: none;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer.footer {
+      text-align: center;
+      padding: 0.5rem;
+      background: var(--color-white);
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-shadow: 0 0 1px var(--color-white);
+    }
+    @media (max-width: 600px) {
+      .nav-links a { font-size: 1rem; padding: 0.2rem 0.8rem; }
+      .section-title { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <header><h1>Michael Schimkus</h1></header>
     <nav id="site-nav">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <div class="nav-title">Michael Schimkus</div>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
     </nav>
   </div>
   <main class="container">
