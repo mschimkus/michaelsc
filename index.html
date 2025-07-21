@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Michael Schimkus - Portfolio (v6)</title>
+  <title>Michael Schimkus - Portfolio (v5.5)</title>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --color-primary-light: #f6fcff;
-      --color-primary-mid:  #cbeaf9;
-      --color-primary-dark: #9dcee9;
       --color-white:        #ffffff;
       --color-text:         #222222;
       --highlight-bg:       rgba(157,206,233,0.35);
       --border-radius:      10px;
       --max-width:          1200px;
     }
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: 'Public Sans', sans-serif;
       background: var(--color-primary-light);
@@ -28,11 +28,13 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 1rem;
     }
+
     header {
       text-align: center;
       padding: 1rem 0 0.5rem;
@@ -42,7 +44,8 @@
       font-weight: 600;
       text-shadow: 0 0 1px rgba(176,176,176,0.7);
     }
-    /* Nav styling without sticky behavior */
+
+    /* Nav styling */
     .container nav {
       display: flex;
       justify-content: center;
@@ -67,6 +70,7 @@
     }
     nav a:hover { background-color: rgba(157,206,233,0.2); }
     nav a.active { background-color: var(--highlight-bg); }
+
     main {
       padding-bottom: 1rem;
     }
@@ -76,10 +80,6 @@
       margin: 0 0 0.5rem;
       text-shadow: 0 0 1px var(--color-white);
       text-align: left;
-      background-color: var(--highlight-bg);
-      border-radius: var(--border-radius);
-      display: inline-block;
-      padding: 0.3rem 0.75rem;
     }
     .card {
       background: var(--color-white);
@@ -88,8 +88,8 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
     }
+
     .gallery-item {
-      position: relative;
       text-align: center;
     }
     .gallery-item img {
@@ -98,7 +98,6 @@
       object-fit: contain;
       border-radius: 8px;
       cursor: pointer;
-      border: none;
     }
     .project-title {
       font-size: 1rem;
@@ -106,6 +105,7 @@
       margin: 0.5rem 0 0;
       text-align: center;
     }
+
     form {
       display: flex;
       flex-direction: column;
@@ -126,6 +126,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
+
     footer.footer {
       text-align: center;
       padding: 0.5rem;
@@ -137,12 +138,7 @@
       font-weight: 600;
       text-shadow: 0 0 1px var(--color-white);
     }
-    .version {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--color-text);
-      margin-bottom: 1rem;
-    }
+
     /* Lightbox */
     #lightbox {
       position: fixed;
@@ -171,6 +167,7 @@
     }
     #lightbox .prev { left: 0; }
     #lightbox .next { right: 0; }
+
     @media (max-width: 600px) {
       nav a { font-size: 1rem; padding: 0.2rem 0.8rem; }
       .section-title { font-size: 1.5rem; }
@@ -212,8 +209,9 @@
     </section>
   </main>
   <div class="container">
-    <footer class="footer">&copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a></footer>
-    <div class="version">version 5.4</div>
+    <footer class="footer">
+      &copy; 2025 Michael Schimkus | <a href="#" style="text-decoration:none; color:var(--color-text);">Return to top</a> | version 5.5
+    </footer>
   </div>
   <div id="lightbox">
     <button class="prev">&#10094;</button>
