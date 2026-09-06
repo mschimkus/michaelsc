@@ -165,10 +165,9 @@
       padding-bottom: 0.75rem;
     }
 
-    .section {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 1.75rem 1.75rem 1.5rem;
+    .section-group {
+      display: flex;
+      flex-direction: column;
     }
 
     .section-heading {
@@ -181,6 +180,16 @@
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.02em;
+    }
+
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.75rem 1.5rem;
+    }
+
+    .section-heading + .section {
+      margin-top: 0;
     }
 
     .about-text {
@@ -470,82 +479,88 @@
 
   <main class="container">
 
-    <section id="about" class="section">
-
+    <div class="section-group">
       <div class="section-heading">
         <h1 class="section-title">About</h1>
       </div>
 
-      <p class="about-text">
-        I am a GIS Specialist with hands-on experience supporting environmental
-        and utility projects through high-quality spatial analysis, data
-        management, and cartographic deliverables. In my current role, I
-        develop standardized GIS templates, perform QA/QC on spatial datasets,
-        and publish maps and data to ArcGIS Online and Field Maps for field and
-        regulatory use. I have worked closely with multidisciplinary teams and
-        clients to ensure accuracy, consistency, and on-time delivery of GIS
-        products. I would welcome the opportunity to contribute my technical
-        skills and attention to detail to your team.
-      </p>
+      <section id="about" class="section">
 
-    </section>
+        <p class="about-text">
+          I am a GIS Specialist with hands-on experience supporting environmental
+          and utility projects through high-quality spatial analysis, data
+          management, and cartographic deliverables. In my current role, I
+          develop standardized GIS templates, perform QA/QC on spatial datasets,
+          and publish maps and data to ArcGIS Online and Field Maps for field and
+          regulatory use. I have worked closely with multidisciplinary teams and
+          clients to ensure accuracy, consistency, and on-time delivery of GIS
+          products. I would welcome the opportunity to contribute my technical
+          skills and attention to detail to your team.
+        </p>
 
-    <section id="portfolio" class="section">
+      </section>
+    </div>
 
+    <div class="section-group">
       <div class="section-heading">
         <h2 class="section-title">Portfolio</h2>
       </div>
 
-      <div class="portfolio-grid">
+      <section id="portfolio" class="section">
 
-        <article class="project">
+        <div class="portfolio-grid">
 
-          <div class="project-image-wrap">
-            <img
-              class="project-image"
-              src="project1.jpg"
-              alt="Map showing population change in communities outside Joshua Tree National Park"
-              loading="lazy"
-            >
-          </div>
+          <article class="project">
 
-          <div class="project-content">
-
-            <h3 class="project-title">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
-
-            <p class="project-description">
-              A cartographic analysis examining population change in communities
-              surrounding Joshua Tree National Park.
-            </p>
-
-            <div class="project-tags">
-              <span class="tag">Cartography</span>
-              <span class="tag">Spatial Analysis</span>
-              <span class="tag">GIS</span>
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+                loading="lazy"
+              >
             </div>
 
-          </div>
+            <div class="project-content">
 
-        </article>
+              <h3 class="project-title">
+                Population Change in Communities Outside Joshua Tree National Park
+              </h3>
 
-      </div>
+              <p class="project-description">
+                A cartographic analysis examining population change in communities
+                surrounding Joshua Tree National Park.
+              </p>
 
-    </section>
+              <div class="project-tags">
+                <span class="tag">Cartography</span>
+                <span class="tag">Spatial Analysis</span>
+                <span class="tag">GIS</span>
+              </div>
 
-    <section id="contact" class="section">
+            </div>
 
+          </article>
+
+        </div>
+
+      </section>
+    </div>
+
+    <div class="section-group">
       <div class="section-heading">
         <h2 class="section-title">Contact</h2>
       </div>
 
-      <p class="contact-intro">
-        Interested in working together? Feel free to get in touch with me via email at
-        <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>.
-      </p>
+      <section id="contact" class="section">
 
-    </section>
+        <p class="contact-intro">
+          Interested in working together? Feel free to get in touch with me via email at
+          <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>.
+        </p>
+
+      </section>
+    </div>
 
   </main>
 
