@@ -36,21 +36,17 @@
       /* Slightly lighter dividing lines */
       --section-border: #9ca7a1;
 
-      /*
-        Single shared card shadow.
-        This combines the original visible card elevation
-        with the subtle darker edge shadow.
-      */
-      --card-shadow:
-        0 5px 18px rgba(35, 65, 48, 0.07),
-        0 2px 4px rgba(35, 45, 40, 0.24);
-
-      /* Shadow used only by section dividing lines */
+      /* Shared divider shadow */
       --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
+
+      /* Original header card shadow */
+      --card-shadow:
+        0 5px 18px rgba(35, 65, 48, 0.07);
 
       --radius: 12px;
       --max-width: 1100px;
       --transition: 0.2s ease;
+      --card-gap: 1.5rem;
     }
 
     *,
@@ -97,6 +93,7 @@
     nav,
     .main-card,
     .project {
+      position: relative;
       border: 1px solid var(--card-border);
       box-shadow: var(--card-shadow);
     }
@@ -107,7 +104,7 @@
 
     .site-header {
       padding-top: 0.5rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: var(--card-gap);
     }
 
     nav {
@@ -122,10 +119,7 @@
 
       width: 100%;
 
-      /*
-        Equal top and side spacing.
-        Extra space remains below the specialties.
-      */
+      /* Equal top and side spacing */
       padding: 1.75rem 1.75rem 2.6rem;
 
       background: rgba(255, 255, 255, 0.97);
@@ -207,7 +201,7 @@
        ========================= */
 
     main {
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
     }
 
     .main-card {
@@ -220,9 +214,7 @@
     .section {
       position: relative;
 
-      /*
-        Equal top and side spacing.
-      */
+      /* Equal top and side spacing */
       padding: 1.75rem 1.75rem 1.5rem;
     }
 
@@ -705,4 +697,223 @@
       <section id="portfolio" class="section">
 
         <div class="section-heading">
-         
+          <h2 class="section-title">Portfolio</h2>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <article class="project">
+
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="project-content">
+
+              <h3 class="project-title">
+                Population Change in Communities Outside Joshua Tree National Park
+              </h3>
+
+              <p class="project-description">
+                A cartographic analysis examining population change in communities
+                surrounding Joshua Tree National Park.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">Cartography</span>
+                <span class="tag">Spatial Analysis</span>
+                <span class="tag">GIS</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <section id="contact" class="section">
+
+        <div class="section-heading">
+          <h2 class="section-title">Contact</h2>
+        </div>
+
+        <p class="contact-intro">
+          Interested in working together? Send me a message using the form below.
+        </p>
+
+        <form action="#" method="POST">
+
+          <div class="contact-row">
+
+            <div>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Name"
+                autocomplete="name"
+                aria-label="Name"
+                required
+              >
+            </div>
+
+            <div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email"
+                autocomplete="email"
+                aria-label="Email"
+                required
+              >
+            </div>
+
+          </div>
+
+          <div>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Message"
+              aria-label="Message"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">
+            Send Message
+          </button>
+
+        </form>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <span>
+      &copy;
+      <span id="current-year"></span>
+      Michael Schimkus
+    </span>
+
+    <span class="footer-separator">·</span>
+
+    <a href="#about">About</a>
+
+    <span class="footer-separator">·</span>
+
+    <a href="#portfolio">Portfolio</a>
+
+    <span class="footer-separator">·</span>
+
+    <a href="#contact">Contact</a>
+
+  </footer>
+
+
+  <div
+    class="modal"
+    id="image-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded portfolio image"
+  >
+
+    <button
+      class="modal-close"
+      id="modal-close"
+      type="button"
+      aria-label="Close image"
+    >
+
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6L18 18"></path>
+        <path d="M18 6L6 18"></path>
+      </svg>
+
+    </button>
+
+    <img id="modal-image" src="" alt="">
+
+  </div>
+
+
+  <script>
+    /* Copyright year */
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+
+    /* Navigation */
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.forEach((item) => {
+          item.classList.toggle("active", item === link);
+        });
+      });
+    });
+
+
+    /* Image viewer */
+
+    const modal = document.getElementById("image-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalClose = document.getElementById("modal-close");
+
+    document.querySelectorAll(".project-image").forEach((image) => {
+      image.addEventListener("click", () => {
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+
+        modalClose.focus();
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+      modalImage.src = "";
+      modalImage.alt = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        modal.classList.contains("is-open")
+      ) {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
