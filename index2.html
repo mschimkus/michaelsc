@@ -88,6 +88,23 @@
       padding-bottom: 1.2rem;
     }
 
+    .header-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-heading {
+      margin-bottom: 0.2rem;
+    }
+
+    .header-title {
+      color: var(--primary-dark);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
     nav {
       display: flex;
       flex-direction: column;
@@ -107,19 +124,6 @@
       border-radius: var(--radius);
 
       backdrop-filter: blur(8px);
-    }
-
-    .nav-brand {
-      width: 100%;
-    }
-
-    .nav-title {
-      color: var(--primary-dark);
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
     }
 
     .nav-links {
@@ -399,7 +403,7 @@
         padding: 1.25rem;
       }
 
-      .nav-brand {
+      .header-heading {
         text-align: center;
       }
 
@@ -458,21 +462,23 @@
   <header class="site-header">
     <div class="container">
 
-      <nav aria-label="Main navigation">
+      <div class="header-group">
 
-        <div class="nav-brand">
-          <div class="nav-title">
-            Michael Schimkus
+        <div class="header-heading">
+          <h1 class="header-title">Michael Schimkus</h1>
+        </div>
+
+        <nav aria-label="Main navigation">
+
+          <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact" class="nav-link">Contact</a>
           </div>
-        </div>
 
-        <div class="nav-links">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#portfolio" class="nav-link">Portfolio</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
+        </nav>
 
-      </nav>
+      </div>
 
     </div>
   </header>
@@ -481,7 +487,7 @@
 
     <div class="section-group">
       <div class="section-heading">
-        <h1 class="section-title">About</h1>
+        <h2 class="section-title">About</h2>
       </div>
 
       <section id="about" class="section">
