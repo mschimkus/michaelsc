@@ -28,11 +28,14 @@
       --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
+
       --border: #cfdad3;
-      --section-border: #c4d0c8;
+      --section-border: #b8c7bd;
+
       --radius: 12px;
       --shadow: 0 5px 18px rgba(35, 65, 48, 0.06);
       --shadow-hover: 0 10px 26px rgba(35, 65, 48, 0.11);
+
       --max-width: 1100px;
       --transition: 0.2s ease;
       --card-gap: 1.5rem;
@@ -75,7 +78,9 @@
       margin-inline: auto;
     }
 
-    /* Header */
+    /* =========================
+       Header
+       ========================= */
 
     .site-header {
       padding-top: 0.5rem;
@@ -87,17 +92,18 @@
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
+
       position: sticky;
       top: 0.5rem;
       z-index: 100;
 
-      width: 100%;
-      padding: 0.9rem 1.5rem;
+      padding: 0.9rem 1.5rem 2.6rem;
 
       background: rgba(255, 255, 255, 0.97);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+
       backdrop-filter: blur(8px);
     }
 
@@ -121,10 +127,7 @@
       flex-wrap: wrap;
       gap: 0.25rem 0.65rem;
 
-      margin-top: 0.55rem;
-      padding-top: 0.45rem;
-
-      border-top: 1px solid var(--section-border);
+      margin-top: 0.3rem;
 
       color: var(--muted);
       font-size: 0.72rem;
@@ -177,14 +180,11 @@
       text-decoration: none;
     }
 
-    /* Main */
-
-    main {
-      width: 100%;
-    }
+    /* =========================
+       Main Card
+       ========================= */
 
     .main-card {
-      width: 100%;
       overflow: hidden;
 
       background: var(--surface);
@@ -195,7 +195,6 @@
 
     .section {
       position: relative;
-      width: 100%;
       padding: 1.35rem 1.75rem 1.5rem;
     }
 
@@ -205,11 +204,14 @@
       top: 0;
       left: 1.75rem;
       right: 1.75rem;
-      border-top: 1px solid var(--section-border);
+
+      height: 1px;
+
+      background: var(--section-border);
+      box-shadow: 0 1px 2px rgba(35, 65, 48, 0.14);
     }
 
     .section-heading {
-      width: 100%;
       margin-bottom: 0.65rem;
     }
 
@@ -221,25 +223,26 @@
       letter-spacing: -0.02em;
     }
 
-    /* About */
+    /* =========================
+       About
+       ========================= */
 
     .about-text {
-      width: 100%;
       color: var(--muted);
       font-size: 0.96rem;
     }
 
-    /* Portfolio */
+    /* =========================
+       Portfolio
+       ========================= */
 
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
-      width: 100%;
     }
 
     .project {
-      width: 100%;
       overflow: hidden;
 
       background: var(--surface);
@@ -266,8 +269,10 @@
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
+
       background: #edf2ee;
       cursor: zoom-in;
+
       transition: transform 0.35s ease;
     }
 
@@ -276,12 +281,10 @@
     }
 
     .project-content {
-      width: 100%;
       padding: 1rem 1.15rem 1.15rem;
     }
 
     .project-title {
-      width: 100%;
       margin-bottom: 0.4rem;
 
       color: var(--text);
@@ -292,7 +295,6 @@
     }
 
     .project-description {
-      width: 100%;
       color: var(--muted);
       font-size: 0.92rem;
     }
@@ -301,7 +303,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      width: 100%;
+
       margin-top: 0.75rem;
     }
 
@@ -319,11 +321,13 @@
       letter-spacing: 0.01em;
     }
 
-    /* Contact */
+    /* =========================
+       Contact
+       ========================= */
 
     .contact-intro {
-      width: 100%;
       margin-bottom: 0.85rem;
+
       color: var(--muted);
       font-size: 0.96rem;
     }
@@ -331,19 +335,16 @@
     form {
       display: grid;
       gap: 0.8rem;
-      width: 100%;
     }
 
     .contact-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.5rem;
-      width: 100%;
     }
 
     .form-group {
       display: grid;
-      width: 100%;
     }
 
     input,
@@ -388,11 +389,11 @@
       width: fit-content;
       padding: 0.65rem 1.2rem;
 
-      border: 0;
-      border-radius: 8px;
-
       background: var(--primary);
       color: #ffffff;
+
+      border: 0;
+      border-radius: 8px;
 
       font-weight: 700;
       cursor: pointer;
@@ -421,21 +422,15 @@
       outline-offset: 2px;
     }
 
-    /* Footer */
+    /* =========================
+       Copyright
+       ========================= */
 
-    .footer-container {
-      padding-top: var(--card-gap);
-      padding-bottom: 0.5rem;
-    }
+    .copyright {
+      padding: 0.9rem 1.75rem 1rem;
 
-    footer {
-      width: 100%;
-      padding: 0.8rem;
-
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-top: 1px solid var(--section-border);
+      box-shadow: 0 -1px 2px rgba(35, 65, 48, 0.08);
 
       color: var(--muted);
       font-size: 0.85rem;
@@ -443,19 +438,20 @@
       text-align: center;
     }
 
-    .footer-link {
-      display: block;
+    .copyright-link {
       color: inherit;
       text-decoration: none;
     }
 
-    .footer-link:hover,
-    .footer-link:focus-visible {
+    .copyright-link:hover,
+    .copyright-link:focus-visible {
       color: var(--primary);
       outline: none;
     }
 
-    /* Image viewer */
+    /* =========================
+       Image Viewer
+       ========================= */
 
     .modal {
       position: fixed;
@@ -467,6 +463,7 @@
       justify-content: center;
 
       padding: 1.5rem;
+
       background: rgba(15, 25, 20, 0.88);
     }
 
@@ -477,7 +474,9 @@
     .modal img {
       max-width: 95vw;
       max-height: 90vh;
+
       object-fit: contain;
+
       border-radius: 8px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
@@ -487,12 +486,11 @@
       top: 1rem;
       right: 1rem;
 
-      width: 44px;
-      height: 44px;
-
       display: grid;
       place-items: center;
 
+      width: 44px;
+      height: 44px;
       padding: 0;
 
       background: rgba(255, 255, 255, 0.12);
@@ -527,7 +525,9 @@
       stroke-linecap: round;
     }
 
-    /* Mobile */
+    /* =========================
+       Mobile
+       ========================= */
 
     @media (max-width: 700px) {
       .site-header {
@@ -538,7 +538,7 @@
         position: static;
         flex-direction: column;
         gap: 0.65rem;
-        padding: 0.85rem 1rem;
+        padding: 0.85rem 1rem 2rem;
       }
 
       .nav-brand {
@@ -566,6 +566,10 @@
       .section + .section::before {
         left: 1.25rem;
         right: 1.25rem;
+      }
+
+      .copyright {
+        padding-inline: 1.25rem;
       }
 
       .portfolio-grid {
@@ -597,7 +601,9 @@
       }
     }
 
-    /* Reduced motion */
+    /* =========================
+       Reduced Motion
+       ========================= */
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -616,7 +622,10 @@
 
 <body id="top">
 
+  <!-- Header Card -->
+
   <header class="site-header">
+
     <div class="container">
 
       <nav aria-label="Main navigation">
@@ -669,18 +678,26 @@
       </nav>
 
     </div>
+
   </header>
+
+
+  <!-- Main Card -->
 
   <main class="container">
 
     <div class="main-card">
 
+      <!-- About -->
+
       <section id="about" class="section">
 
         <div class="section-heading">
+
           <h1 class="section-title">
             About
           </h1>
+
         </div>
 
         <p class="about-text">
@@ -697,12 +714,17 @@
 
       </section>
 
+
+      <!-- Portfolio -->
+
       <section id="portfolio" class="section">
 
         <div class="section-heading">
+
           <h2 class="section-title">
             Portfolio
           </h2>
+
         </div>
 
         <div class="portfolio-grid">
@@ -755,12 +777,17 @@
 
       </section>
 
+
+      <!-- Contact -->
+
       <section id="contact" class="section">
 
         <div class="section-heading">
+
           <h2 class="section-title">
             Contact
           </h2>
+
         </div>
 
         <p class="contact-intro">
@@ -821,23 +848,25 @@
 
       </section>
 
+
+      <!-- Copyright -->
+
+      <div class="copyright">
+
+        <a href="#top" class="copyright-link">
+          &copy;
+          <span id="current-year"></span>
+          Michael Schimkus
+        </a>
+
+      </div>
+
     </div>
 
   </main>
 
-  <div class="container footer-container">
 
-    <footer>
-
-      <a href="#top" class="footer-link">
-        &copy;
-        <span id="current-year"></span>
-        Michael Schimkus
-      </a>
-
-    </footer>
-
-  </div>
+  <!-- Image Viewer -->
 
   <div
     class="modal"
@@ -859,8 +888,10 @@
         aria-hidden="true"
         focusable="false"
       >
+
         <path d="M6 6L18 18"></path>
         <path d="M18 6L6 18"></path>
+
       </svg>
 
     </button>
@@ -872,6 +903,7 @@
     >
 
   </div>
+
 
   <script>
     /* Copyright year */
@@ -906,11 +938,7 @@
           link.getAttribute("href");
 
         if (target?.startsWith("#")) {
-
-          setActiveLink(
-            target.substring(1)
-          );
-
+          setActiveLink(target.substring(1));
         }
 
       });
@@ -934,45 +962,30 @@
       .querySelectorAll(".project-image")
       .forEach((image) => {
 
-        image.addEventListener(
-          "click",
-          () => {
+        image.addEventListener("click", () => {
 
-            modalImage.src =
-              image.src;
+          modalImage.src = image.src;
+          modalImage.alt = image.alt;
 
-            modalImage.alt =
-              image.alt;
+          modal.classList.add("is-open");
 
-            modal.classList.add(
-              "is-open"
-            );
+          document.body.style.overflow = "hidden";
 
-            document.body.style.overflow =
-              "hidden";
+          modalClose.focus();
 
-            modalClose.focus();
-
-          }
-        );
+        });
 
       });
 
 
     function closeModal() {
 
-      modal.classList.remove(
-        "is-open"
-      );
+      modal.classList.remove("is-open");
 
-      document.body.style.overflow =
-        "";
+      document.body.style.overflow = "";
 
-      modalImage.src =
-        "";
-
-      modalImage.alt =
-        "";
+      modalImage.src = "";
+      modalImage.alt = "";
 
     }
 
@@ -987,12 +1000,8 @@
       "click",
       (event) => {
 
-        if (
-          event.target === modal
-        ) {
-
+        if (event.target === modal) {
           closeModal();
-
         }
 
       }
@@ -1005,18 +1014,13 @@
 
         if (
           event.key === "Escape" &&
-          modal.classList.contains(
-            "is-open"
-          )
+          modal.classList.contains("is-open")
         ) {
-
           closeModal();
-
         }
 
       }
     );
-
   </script>
 
 </body>
