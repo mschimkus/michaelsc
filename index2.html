@@ -30,7 +30,7 @@
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
 
-      /* Shared card border */
+      /* Shared card outline */
       --card-border: #99aaa0;
 
       /* Shared section divider */
@@ -84,6 +84,16 @@
     }
 
     /* =========================
+       Shared Card Borders
+       ========================= */
+
+    nav,
+    .main-card,
+    .project {
+      border: 2px solid var(--card-border);
+    }
+
+    /* =========================
        Header Card
        ========================= */
 
@@ -106,7 +116,6 @@
       padding: 0.9rem 1.75rem 2.6rem;
 
       background: rgba(255, 255, 255, 0.97);
-      border: 1px solid var(--card-border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
 
@@ -192,7 +201,6 @@
       overflow: hidden;
 
       background: var(--surface);
-      border: 1px solid var(--card-border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
@@ -251,7 +259,6 @@
       overflow: hidden;
 
       background: var(--surface);
-      border: 1px solid var(--card-border);
       border-radius: var(--radius);
 
       transition:
@@ -841,7 +848,6 @@
 
     document.querySelectorAll(".project-image").forEach((image) => {
       image.addEventListener("click", () => {
-
         modalImage.src = image.src;
         modalImage.alt = image.alt;
 
@@ -855,7 +861,6 @@
     function closeModal() {
       modal.classList.remove("is-open");
       document.body.style.overflow = "";
-
       modalImage.src = "";
       modalImage.alt = "";
     }
