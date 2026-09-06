@@ -25,15 +25,17 @@
       --surface: #ffffff;
       --text: #202a24;
       --muted: #56635b;
-      --primary: #2f6f52;
+      --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
-      --border: #dce5df;
+      --border: #cfdad3;
+      --section-border: #c4d0c8;
       --radius: 12px;
       --shadow: 0 5px 18px rgba(35, 65, 48, 0.06);
       --shadow-hover: 0 10px 26px rgba(35, 65, 48, 0.11);
       --max-width: 1100px;
       --transition: 0.2s ease;
+      --card-gap: 1.5rem;
     }
 
     *,
@@ -77,7 +79,7 @@
 
     .site-header {
       padding-top: 0.5rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: var(--card-gap);
     }
 
     nav {
@@ -118,7 +120,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.25rem 0.65rem;
-      margin-top: 0.3rem;
+
+      margin-top: 0.55rem;
+      padding-top: 0.45rem;
+
+      border-top: 1px solid var(--section-border);
 
       color: var(--muted);
       font-size: 0.72rem;
@@ -146,11 +152,15 @@
 
     .nav-link {
       padding: 0.5rem 0.85rem;
+
       color: var(--muted);
       text-decoration: none;
+
       font-size: 1.08rem;
       font-weight: 700;
+
       border-radius: 6px;
+
       transition: color var(--transition);
     }
 
@@ -164,6 +174,7 @@
 
     .nav-link.active {
       color: var(--primary);
+      text-decoration: none;
     }
 
     /* Main */
@@ -183,12 +194,18 @@
     }
 
     .section {
+      position: relative;
       width: 100%;
       padding: 1.35rem 1.75rem 1.5rem;
     }
 
-    .section + .section {
-      border-top: 1px solid var(--border);
+    .section + .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 1.75rem;
+      right: 1.75rem;
+      border-top: 1px solid var(--section-border);
     }
 
     .section-heading {
@@ -237,7 +254,7 @@
 
     .project:hover {
       transform: translateY(-2px);
-      border-color: #d3dfd7;
+      border-color: #c4d0c8;
       box-shadow: var(--shadow-hover);
     }
 
@@ -266,6 +283,7 @@
     .project-title {
       width: 100%;
       margin-bottom: 0.4rem;
+
       color: var(--text);
       font-size: 1.08rem;
       font-weight: 700;
@@ -289,10 +307,13 @@
 
     .tag {
       padding: 0.22rem 0.55rem;
+
       background: var(--primary-light);
       color: var(--primary-dark);
+
       border: 1px solid rgba(47, 111, 82, 0.09);
       border-radius: 999px;
+
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.01em;
@@ -349,13 +370,13 @@
 
     input:hover,
     textarea:hover {
-      border-color: #c5d3ca;
+      border-color: #bfcfc5;
     }
 
     input:focus,
     textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(47, 111, 82, 0.11);
+      box-shadow: 0 0 0 3px rgba(52, 127, 92, 0.11);
     }
 
     textarea {
@@ -396,14 +417,14 @@
     }
 
     button:focus-visible {
-      outline: 3px solid rgba(47, 111, 82, 0.25);
+      outline: 3px solid rgba(52, 127, 92, 0.25);
       outline-offset: 2px;
     }
 
     /* Footer */
 
     .footer-container {
-      padding-top: 1rem;
+      padding-top: var(--card-gap);
       padding-bottom: 0.5rem;
     }
 
@@ -510,7 +531,7 @@
 
     @media (max-width: 700px) {
       .site-header {
-        padding-bottom: 1.25rem;
+        padding-bottom: var(--card-gap);
       }
 
       nav {
@@ -540,6 +561,11 @@
 
       .section {
         padding: 1.15rem 1.25rem 1.3rem;
+      }
+
+      .section + .section::before {
+        left: 1.25rem;
+        right: 1.25rem;
       }
 
       .portfolio-grid {
@@ -591,7 +617,6 @@
 <body id="top">
 
   <header class="site-header">
-
     <div class="container">
 
       <nav aria-label="Main navigation">
@@ -644,7 +669,6 @@
       </nav>
 
     </div>
-
   </header>
 
   <main class="container">
@@ -654,11 +678,9 @@
       <section id="about" class="section">
 
         <div class="section-heading">
-
           <h1 class="section-title">
             About
           </h1>
-
         </div>
 
         <p class="about-text">
@@ -678,11 +700,9 @@
       <section id="portfolio" class="section">
 
         <div class="section-heading">
-
           <h2 class="section-title">
             Portfolio
           </h2>
-
         </div>
 
         <div class="portfolio-grid">
@@ -738,11 +758,9 @@
       <section id="contact" class="section">
 
         <div class="section-heading">
-
           <h2 class="section-title">
             Contact
           </h2>
-
         </div>
 
         <p class="contact-intro">
@@ -841,10 +859,8 @@
         aria-hidden="true"
         focusable="false"
       >
-
         <path d="M6 6L18 18"></path>
         <path d="M18 6L6 18"></path>
-
       </svg>
 
     </button>
