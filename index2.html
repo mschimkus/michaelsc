@@ -21,20 +21,25 @@
 
   <style>
     :root {
-      --bg: #f4f9fc;
-      --surface: #fff;
+      --bg: #f4f8fb;
+      --surface: #ffffff;
       --text: #1f2933;
       --muted: #52616b;
       --primary: #006fc9;
       --primary-dark: #005a9f;
-      --primary-light: #e7f4ff;
-      --border: #d8e2e8;
+      --primary-light: #edf7ff;
+      --border: #dfe7ec;
+
       --radius: 12px;
-      --shadow: 0 8px 24px rgba(20, 55, 80, 0.08);
-      --shadow-hover: 0 12px 30px rgba(20, 55, 80, 0.13);
+      --shadow: 0 5px 18px rgba(20, 55, 80, 0.06);
+      --shadow-hover: 0 10px 26px rgba(20, 55, 80, 0.11);
+
       --max-width: 1100px;
       --transition: 0.2s ease;
     }
+
+
+    /* Reset */
 
     *,
     *::before,
@@ -44,10 +49,12 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 1rem;
     }
+
 
     body {
       min-height: 100vh;
@@ -57,10 +64,12 @@
       line-height: 1.6;
     }
 
+
     img {
       display: block;
       max-width: 100%;
     }
+
 
     button,
     input,
@@ -68,16 +77,19 @@
       font: inherit;
     }
 
+
     .container {
       width: min(calc(100% - 2rem), var(--max-width));
       margin-inline: auto;
     }
+
 
     /* Navigation */
 
     .site-header {
       padding-top: 0.5rem;
     }
+
 
     nav {
       display: flex;
@@ -89,51 +101,61 @@
       top: 0.5rem;
       z-index: 100;
 
-      padding: 1rem 1.5rem;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
       margin-bottom: 0.85rem;
 
-      background: var(--surface);
+      background: rgba(255, 255, 255, 0.97);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+
+      backdrop-filter: blur(8px);
     }
+
 
     .nav-title {
       color: var(--text);
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.02em;
       white-space: nowrap;
     }
 
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.2rem;
     }
 
+
     .nav-link {
-      padding: 0.5rem 0.75rem;
+      padding: 0.5rem 0.8rem;
 
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
+
+      font-size: 1rem;
       font-weight: 600;
 
       border-radius: 6px;
 
       transition:
         color var(--transition),
-        background-color var(--transition);
+        transform var(--transition);
     }
+
 
     .nav-link:hover,
     .nav-link:focus-visible {
       color: var(--primary);
       background: transparent;
+      transform: translateY(-1px);
       outline: none;
     }
+
 
     .nav-link.active {
       color: var(--primary);
@@ -141,13 +163,20 @@
       font-weight: 700;
     }
 
-    /* Sections */
+
+    /* Main */
 
     main {
+      width: 100%;
       padding-bottom: 0.5rem;
     }
 
+
+    /* Cards */
+
     .card {
+      width: 100%;
+
       padding: 1.15rem 1.75rem 1.5rem;
       margin-bottom: 1rem;
 
@@ -155,24 +184,76 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+
+      transition:
+        box-shadow var(--transition),
+        border-color var(--transition);
     }
 
+
+    .card:hover {
+      border-color: #d7e1e7;
+      box-shadow: var(--shadow-hover);
+    }
+
+
+    /* Section headings */
+
     .section-heading {
+      width: 100%;
       margin-bottom: 0.65rem;
     }
 
+
     .section-title {
+      width: 100%;
+
       color: var(--text);
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.02em;
     }
 
+
+    /* About */
+
     .about-text {
-      max-width: 900px;
+      width: 100%;
+      max-width: none;
+
       color: var(--muted);
+      font-size: 0.96rem;
     }
+
+
+    .specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.7rem;
+
+      width: 100%;
+      margin-top: 0.8rem;
+
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+
+    .specialty {
+      display: inline-flex;
+      align-items: center;
+    }
+
+
+    .specialty:not(:last-child)::after {
+      content: "·";
+      margin-left: 0.7rem;
+      color: #9aaab5;
+      font-weight: 400;
+    }
+
 
     /* Portfolio */
 
@@ -180,9 +261,12 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
+      width: 100%;
     }
 
+
     .project {
+      width: 100%;
       overflow: hidden;
 
       background: var(--surface);
@@ -191,13 +275,22 @@
 
       transition:
         transform var(--transition),
-        box-shadow var(--transition);
+        box-shadow var(--transition),
+        border-color var(--transition);
     }
+
 
     .project:hover {
       transform: translateY(-2px);
+      border-color: #d5e0e7;
       box-shadow: var(--shadow-hover);
     }
+
+
+    .project-image-wrap {
+      overflow: hidden;
+    }
+
 
     .project-image {
       width: 100%;
@@ -206,78 +299,122 @@
 
       background: #edf3f7;
       cursor: zoom-in;
+
+      transition: transform 0.35s ease;
     }
 
+
+    .project:hover .project-image {
+      transform: scale(1.02);
+    }
+
+
     .project-content {
+      width: 100%;
       padding: 1rem 1.15rem 1.15rem;
     }
 
+
     .project-title {
+      width: 100%;
       margin-bottom: 0.4rem;
 
       color: var(--text);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
       line-height: 1.4;
+      letter-spacing: -0.01em;
     }
 
+
     .project-description {
+      width: 100%;
       color: var(--muted);
       font-size: 0.92rem;
     }
+
 
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.7rem;
+
+      width: 100%;
+      margin-top: 0.75rem;
     }
 
+
     .tag {
-      padding: 0.22rem 0.5rem;
+      padding: 0.22rem 0.55rem;
 
       background: var(--primary-light);
       color: var(--primary-dark);
 
+      border: 1px solid rgba(0, 111, 201, 0.08);
       border-radius: 999px;
 
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
+      letter-spacing: 0.01em;
     }
+
 
     /* Contact */
 
     .contact-intro {
-      margin-bottom: 1rem;
+      width: 100%;
+      margin-bottom: 0.85rem;
+
       color: var(--muted);
+      font-size: 0.96rem;
     }
+
 
     form {
       display: grid;
-      gap: 0.9rem;
-      max-width: 850px;
+      gap: 0.8rem;
+
+      width: 100%;
+      max-width: none;
     }
+
 
     .contact-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+
+      gap: 1.5rem;
+      width: 100%;
     }
+
 
     .form-group {
       display: grid;
       gap: 0.35rem;
+      width: 100%;
     }
+
+
+    .contact-row .form-group {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+
+      align-items: center;
+      gap: 0.75rem;
+    }
+
 
     label {
       font-size: 0.9rem;
       font-weight: 600;
+      white-space: nowrap;
     }
+
 
     input,
     textarea {
       width: 100%;
-      padding: 0.75rem 0.85rem;
+      padding: 0.65rem 0.8rem;
 
       background: var(--surface);
       color: var(--text);
@@ -291,53 +428,79 @@
         box-shadow var(--transition);
     }
 
+
     input::placeholder,
     textarea::placeholder {
       color: #84929b;
     }
 
+
+    input:hover,
+    textarea:hover {
+      border-color: #c8d5dd;
+    }
+
+
     input:focus,
     textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0, 111, 201, 0.12);
+      box-shadow: 0 0 0 3px rgba(0, 111, 201, 0.11);
     }
 
+
     textarea {
-      min-height: 140px;
+      min-height: 120px;
       resize: vertical;
     }
 
+
     button {
       width: fit-content;
-      padding: 0.7rem 1.2rem;
+      padding: 0.65rem 1.2rem;
 
       border: 0;
       border-radius: 8px;
 
       background: var(--primary);
-      color: #fff;
+      color: #ffffff;
 
       font-weight: 700;
       cursor: pointer;
 
+      box-shadow: 0 3px 8px rgba(0, 111, 201, 0.18);
+
       transition:
         background-color var(--transition),
-        transform var(--transition);
+        transform var(--transition),
+        box-shadow var(--transition);
     }
+
 
     button:hover {
       background: var(--primary-dark);
       transform: translateY(-1px);
+
+      box-shadow: 0 5px 12px rgba(0, 90, 159, 0.22);
     }
+
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(0, 90, 159, 0.18);
+    }
+
 
     button:focus-visible {
       outline: 3px solid rgba(0, 111, 201, 0.25);
       outline-offset: 2px;
     }
 
+
     /* Footer */
 
     footer {
+      width: 100%;
+
       padding: 0.8rem;
       margin-bottom: 0.75rem;
 
@@ -351,15 +514,6 @@
       text-align: center;
     }
 
-    footer a {
-      color: var(--primary-dark);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
 
     /* Image viewer */
 
@@ -376,17 +530,22 @@
       background: rgba(15, 25, 35, 0.88);
     }
 
+
     .modal.is-open {
       display: flex;
     }
 
+
     .modal img {
-      max-width: min(1100px, 95vw);
+      max-width: 95vw;
       max-height: 90vh;
+
       object-fit: contain;
       border-radius: 8px;
+
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
+
 
     .modal-close {
       position: absolute;
@@ -402,27 +561,32 @@
       padding: 0;
 
       background: rgba(255, 255, 255, 0.12);
-      color: #fff;
+      color: #ffffff;
 
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 50%;
 
       cursor: pointer;
+      box-shadow: none;
 
       transition:
         background-color var(--transition),
         transform var(--transition);
     }
 
+
     .modal-close:hover {
       background: rgba(255, 255, 255, 0.22);
       transform: rotate(90deg);
+      box-shadow: none;
     }
+
 
     .modal-close svg {
       width: 22px;
       height: 22px;
     }
+
 
     .modal-close path {
       fill: none;
@@ -431,9 +595,11 @@
       stroke-linecap: round;
     }
 
+
     /* Mobile */
 
     @media (max-width: 700px) {
+
       nav {
         position: static;
         flex-direction: column;
@@ -441,37 +607,57 @@
         padding: 0.85rem 1rem;
       }
 
+
       .nav-title {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         text-align: center;
       }
+
 
       .nav-links {
         justify-content: center;
         flex-wrap: wrap;
       }
 
+
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
+
       .contact-row {
         grid-template-columns: 1fr;
+        gap: 0.8rem;
       }
+
+
+      .contact-row .form-group {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
 
       .card {
         padding: 1rem 1.25rem 1.3rem;
       }
+
+
+      .specialties {
+        gap: 0.4rem 0.55rem;
+      }
     }
 
+
     @media (max-width: 420px) {
+
       .nav-link {
         padding-inline: 0.5rem;
       }
 
+
       .modal {
         padding: 0.75rem;
       }
+
 
       .modal-close {
         top: 0.75rem;
@@ -479,10 +665,15 @@
       }
     }
 
+
+    /* Reduced motion */
+
     @media (prefers-reduced-motion: reduce) {
+
       html {
         scroll-behavior: auto;
       }
+
 
       *,
       *::before,
@@ -494,32 +685,62 @@
   </style>
 </head>
 
-<body id="top">
+
+<body>
+
+  <!-- Navigation -->
 
   <header class="site-header">
+
     <div class="container">
+
       <nav aria-label="Main navigation">
 
         <div class="nav-title">
           Michael Schimkus
         </div>
 
+
         <div class="nav-links">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#portfolio" class="nav-link">Portfolio</a>
-          <a href="#contact" class="nav-link">Contact</a>
+
+          <a href="#about" class="nav-link">
+            About
+          </a>
+
+          <a href="#portfolio" class="nav-link">
+            Portfolio
+          </a>
+
+          <a href="#contact" class="nav-link">
+            Contact
+          </a>
+
         </div>
 
       </nav>
+
     </div>
+
   </header>
+
+
+  <!-- Main content -->
 
   <main class="container">
 
+
+    <!-- About -->
+
     <section id="about" class="card">
+
       <div class="section-heading">
-        <h1 class="section-title">About</h1>
+
+        <h1 class="section-title">
+          About
+        </h1>
+
       </div>
+
 
       <p class="about-text">
         I am a GIS Specialist with hands-on experience supporting environmental
@@ -532,59 +753,128 @@
         products. I would welcome the opportunity to contribute my technical
         skills and attention to detail to your team.
       </p>
+
+
+      <div
+        class="specialties"
+        aria-label="GIS specialties"
+      >
+
+        <span class="specialty">
+          Spatial Analysis
+        </span>
+
+        <span class="specialty">
+          Cartography
+        </span>
+
+        <span class="specialty">
+          GIS Data Management
+        </span>
+
+        <span class="specialty">
+          ArcGIS Online
+        </span>
+
+      </div>
+
     </section>
 
+
+    <!-- Portfolio -->
+
     <section id="portfolio" class="card">
+
       <div class="section-heading">
-        <h2 class="section-title">Portfolio</h2>
+
+        <h2 class="section-title">
+          Portfolio
+        </h2>
+
       </div>
+
 
       <div class="portfolio-grid">
 
         <article class="project">
-          <img
-            class="project-image"
-            src="project1.jpg"
-            alt="Map showing population change in communities outside Joshua Tree National Park"
-            loading="lazy"
-          >
+
+          <div class="project-image-wrap">
+
+            <img
+              class="project-image"
+              src="project1.jpg"
+              alt="Map showing population change in communities outside Joshua Tree National Park"
+              loading="lazy"
+            >
+
+          </div>
+
 
           <div class="project-content">
+
             <h3 class="project-title">
               Population Change in Communities Outside Joshua Tree National Park
             </h3>
+
 
             <p class="project-description">
               A cartographic analysis examining population change in communities
               surrounding Joshua Tree National Park.
             </p>
 
+
             <div class="project-tags">
-              <span class="tag">Cartography</span>
-              <span class="tag">Spatial Analysis</span>
-              <span class="tag">GIS</span>
+
+              <span class="tag">
+                Cartography
+              </span>
+
+              <span class="tag">
+                Spatial Analysis
+              </span>
+
+              <span class="tag">
+                GIS
+              </span>
+
             </div>
+
           </div>
+
         </article>
 
       </div>
+
     </section>
 
+
+    <!-- Contact -->
+
     <section id="contact" class="card">
+
       <div class="section-heading">
-        <h2 class="section-title">Contact</h2>
+
+        <h2 class="section-title">
+          Contact
+        </h2>
+
       </div>
+
 
       <p class="contact-intro">
         Interested in working together? Send me a message using the form below.
       </p>
+
 
       <form action="#" method="POST">
 
         <div class="contact-row">
 
           <div class="form-group">
-            <label for="name">Name</label>
+
+            <label for="name">
+              Name
+            </label>
 
             <input
               id="name"
@@ -594,10 +884,15 @@
               autocomplete="name"
               required
             >
+
           </div>
 
+
           <div class="form-group">
-            <label for="email">Email</label>
+
+            <label for="email">
+              Email
+            </label>
 
             <input
               id="email"
@@ -607,12 +902,17 @@
               autocomplete="email"
               required
             >
+
           </div>
 
         </div>
 
+
         <div class="form-group">
-          <label for="message">Message</label>
+
+          <label for="message">
+            Message
+          </label>
 
           <textarea
             id="message"
@@ -620,27 +920,38 @@
             placeholder="Your message"
             required
           ></textarea>
+
         </div>
+
 
         <button type="submit">
           Send Message
         </button>
 
       </form>
+
     </section>
+
 
   </main>
 
+
+  <!-- Footer -->
+
   <div class="container">
+
     <footer>
+
       <p>
-        &copy; <span id="current-year"></span>
+        &copy;
+        <span id="current-year"></span>
         Michael Schimkus
-        &nbsp;|&nbsp;
-        <a href="#top">Return to top</a>
       </p>
+
     </footer>
+
   </div>
+
 
   <!-- Image viewer -->
 
@@ -658,115 +969,222 @@
       type="button"
       aria-label="Close image"
     >
+
       <svg
         viewBox="0 0 24 24"
         aria-hidden="true"
         focusable="false"
       >
+
         <path d="M6 6L18 18"></path>
         <path d="M18 6L6 18"></path>
+
       </svg>
+
     </button>
 
-    <img id="modal-image" src="" alt="">
+
+    <img
+      id="modal-image"
+      src=""
+      alt=""
+    >
+
   </div>
 
+
   <script>
+
     /* Copyright year */
 
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
 
-    /* Active navigation */
+    /* Navigation */
 
-    const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll("main section");
+    const navLinks =
+      document.querySelectorAll(".nav-link");
+
+    const sections =
+      document.querySelectorAll("main section");
+
 
     function setActiveLink(id) {
+
       navLinks.forEach((link) => {
+
         link.classList.toggle(
           "active",
           link.getAttribute("href") === `#${id}`
         );
+
       });
+
     }
 
+
     navLinks.forEach((link) => {
+
       link.addEventListener("click", () => {
-        const target = link.getAttribute("href");
+
+        const target =
+          link.getAttribute("href");
 
         if (target?.startsWith("#")) {
-          setActiveLink(target.substring(1));
-        }
-      });
-    });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              a.boundingClientRect.top -
-              b.boundingClientRect.top
+          setActiveLink(
+            target.substring(1)
           );
 
-        if (visible.length) {
-          setActiveLink(visible[0].target.id);
         }
-      },
-      {
-        rootMargin: "-15% 0px -70% 0px",
-        threshold: 0
-      }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      });
+
+    });
+
+
+    const observer =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          const visible =
+            entries
+              .filter(
+                (entry) => entry.isIntersecting
+              )
+              .sort(
+                (a, b) =>
+                  a.boundingClientRect.top -
+                  b.boundingClientRect.top
+              );
+
+
+          if (visible.length) {
+
+            setActiveLink(
+              visible[0].target.id
+            );
+
+          }
+
+        },
+
+        {
+          rootMargin: "-15% 0px -70% 0px",
+          threshold: 0
+        }
+
+      );
+
+
+    sections.forEach((section) => {
+
+      observer.observe(section);
+
+    });
 
 
     /* Image viewer */
 
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const modalClose = document.getElementById("modal-close");
+    const modal =
+      document.getElementById("image-modal");
 
-    document.querySelectorAll(".project-image").forEach((image) => {
-      image.addEventListener("click", () => {
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
+    const modalImage =
+      document.getElementById("modal-image");
 
-        modal.classList.add("is-open");
-        document.body.style.overflow = "hidden";
+    const modalClose =
+      document.getElementById("modal-close");
 
-        modalClose.focus();
+
+    document
+      .querySelectorAll(".project-image")
+      .forEach((image) => {
+
+        image.addEventListener(
+          "click",
+          () => {
+
+            modalImage.src =
+              image.src;
+
+            modalImage.alt =
+              image.alt;
+
+            modal.classList.add(
+              "is-open"
+            );
+
+            document.body.style.overflow =
+              "hidden";
+
+            modalClose.focus();
+
+          }
+        );
+
       });
-    });
+
 
     function closeModal() {
-      modal.classList.remove("is-open");
-      document.body.style.overflow = "";
 
-      modalImage.src = "";
-      modalImage.alt = "";
+      modal.classList.remove(
+        "is-open"
+      );
+
+      document.body.style.overflow =
+        "";
+
+      modalImage.src =
+        "";
+
+      modalImage.alt =
+        "";
+
     }
 
-    modalClose.addEventListener("click", closeModal);
 
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
 
-    document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "Escape" &&
-        modal.classList.contains("is-open")
-      ) {
-        closeModal();
+
+    modal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeModal();
+
+        }
+
       }
-    });
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains(
+            "is-open"
+          )
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
   </script>
 
 </body>
