@@ -39,7 +39,7 @@
       /* Shared divider shadow */
       --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
 
-      /* Original header card shadow */
+      /* Shared card shadow */
       --card-shadow:
         0 5px 18px rgba(35, 65, 48, 0.14);
 
@@ -119,6 +119,7 @@
 
       width: 100%;
 
+      /* Consistent padding on all sides */
       padding: 1.75rem;
 
       background: rgba(255, 255, 255, 0.97);
@@ -147,7 +148,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem;
       width: 100%;
     }
 
@@ -165,9 +165,7 @@
       transition: color var(--transition);
     }
 
-    .nav-link:not(:last-child)::after {
-      content: "·";
-      margin-left: 0.3rem;
+    .nav-separator {
       color: var(--section-border);
       font-weight: 400;
     }
@@ -179,13 +177,6 @@
       color: var(--primary);
       text-decoration: none;
       outline: none;
-    }
-
-    .nav-link:not(:last-child):hover::after,
-    .nav-link:not(:last-child):focus::after,
-    .nav-link:not(:last-child):focus-visible::after,
-    .nav-link:not(:last-child).active::after {
-      color: var(--section-border);
     }
 
     /* =========================
@@ -548,7 +539,7 @@
         flex-direction: column;
         gap: 0.65rem;
 
-        /* Equal spacing on all sides */
+        /* Consistent padding on all sides */
         padding: 1.25rem;
       }
 
@@ -637,7 +628,9 @@
 
         <div class="nav-links">
           <a href="#about" class="nav-link">About</a>
+          <span class="nav-separator">·</span>
           <a href="#portfolio" class="nav-link">Portfolio</a>
+          <span class="nav-separator">·</span>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
 
