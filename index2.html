@@ -330,9 +330,20 @@
     }
 
     .contact-intro a {
-      color: var(--primary);
+      color: var(--primary-dark);
+      font-size: inherit;
       font-weight: 600;
       text-decoration: none;
+
+      transition: color var(--transition);
+    }
+
+    .contact-intro a:hover,
+    .contact-intro a:focus,
+    .contact-intro a:focus-visible {
+      color: var(--primary);
+      text-decoration: none;
+      outline: none;
     }
 
     /* =========================
