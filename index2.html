@@ -21,25 +21,20 @@
 
   <style>
     :root {
-      --bg: #f4f8fb;
+      --bg: #f4f7f5;
       --surface: #ffffff;
-      --text: #1f2933;
-      --muted: #52616b;
-      --primary: #006fc9;
-      --primary-dark: #005a9f;
-      --primary-light: #edf7ff;
-      --border: #dfe7ec;
-
+      --text: #202a24;
+      --muted: #56635b;
+      --primary: #2f6f52;
+      --primary-dark: #24583f;
+      --primary-light: #edf5f0;
+      --border: #dce5df;
       --radius: 12px;
-      --shadow: 0 5px 18px rgba(20, 55, 80, 0.06);
-      --shadow-hover: 0 10px 26px rgba(20, 55, 80, 0.11);
-
+      --shadow: 0 5px 18px rgba(35, 65, 48, 0.06);
+      --shadow-hover: 0 10px 26px rgba(35, 65, 48, 0.11);
       --max-width: 1100px;
       --transition: 0.2s ease;
     }
-
-
-    /* Reset */
 
     *,
     *::before,
@@ -49,12 +44,10 @@
       padding: 0;
     }
 
-
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 1rem;
     }
-
 
     body {
       min-height: 100vh;
@@ -64,12 +57,10 @@
       line-height: 1.6;
     }
 
-
     img {
       display: block;
       max-width: 100%;
     }
-
 
     button,
     input,
@@ -77,19 +68,16 @@
       font: inherit;
     }
 
-
     .container {
       width: min(calc(100% - 2rem), var(--max-width));
       margin-inline: auto;
     }
-
 
     /* Navigation */
 
     .site-header {
       padding-top: 0.5rem;
     }
-
 
     nav {
       display: flex;
@@ -103,7 +91,7 @@
 
       width: 100%;
       padding: 0.9rem 1.5rem;
-      margin-bottom: 0.85rem;
+      margin-bottom: 1rem;
 
       background: rgba(255, 255, 255, 0.97);
       border: 1px solid var(--border);
@@ -113,16 +101,43 @@
       backdrop-filter: blur(8px);
     }
 
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
 
     .nav-title {
       color: var(--text);
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.02em;
       white-space: nowrap;
     }
 
+    .specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.65rem;
+
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .specialty {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .specialty:not(:last-child)::after {
+      content: "·";
+      margin-left: 0.65rem;
+      color: #9aa8a0;
+      font-weight: 400;
+    }
 
     .nav-links {
       display: flex;
@@ -130,16 +145,12 @@
       gap: 0.2rem;
     }
 
-
     .nav-link {
       padding: 0.5rem 0.8rem;
-
       color: var(--muted);
       text-decoration: none;
-
       font-size: 1rem;
       font-weight: 600;
-
       border-radius: 6px;
 
       transition:
@@ -147,36 +158,28 @@
         transform var(--transition);
     }
 
-
     .nav-link:hover,
     .nav-link:focus-visible {
       color: var(--primary);
-      background: transparent;
       transform: translateY(-1px);
       outline: none;
     }
 
-
     .nav-link.active {
       color: var(--primary);
-      background: transparent;
       font-weight: 700;
     }
-
 
     /* Main */
 
     main {
       width: 100%;
-      padding-bottom: 0.5rem;
     }
-
 
     /* Cards */
 
     .card {
       width: 100%;
-
       padding: 1.15rem 1.75rem 1.5rem;
       margin-bottom: 1rem;
 
@@ -190,12 +193,10 @@
         border-color var(--transition);
     }
 
-
     .card:hover {
-      border-color: #d7e1e7;
+      border-color: #d3dfd7;
       box-shadow: var(--shadow-hover);
     }
-
 
     /* Section headings */
 
@@ -204,10 +205,8 @@
       margin-bottom: 0.65rem;
     }
 
-
     .section-title {
       width: 100%;
-
       color: var(--text);
       font-size: 1.65rem;
       font-weight: 700;
@@ -215,45 +214,13 @@
       letter-spacing: -0.02em;
     }
 
-
     /* About */
 
     .about-text {
       width: 100%;
-      max-width: none;
-
       color: var(--muted);
       font-size: 0.96rem;
     }
-
-
-    .specialties {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem 0.7rem;
-
-      width: 100%;
-      margin-top: 0.8rem;
-
-      color: var(--primary-dark);
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-
-
-    .specialty {
-      display: inline-flex;
-      align-items: center;
-    }
-
-
-    .specialty:not(:last-child)::after {
-      content: "·";
-      margin-left: 0.7rem;
-      color: #9aaab5;
-      font-weight: 400;
-    }
-
 
     /* Portfolio */
 
@@ -263,7 +230,6 @@
       gap: 1.25rem;
       width: 100%;
     }
-
 
     .project {
       width: 100%;
@@ -279,41 +245,34 @@
         border-color var(--transition);
     }
 
-
     .project:hover {
       transform: translateY(-2px);
-      border-color: #d5e0e7;
+      border-color: #d3dfd7;
       box-shadow: var(--shadow-hover);
     }
-
 
     .project-image-wrap {
       overflow: hidden;
     }
 
-
     .project-image {
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
-
-      background: #edf3f7;
+      background: #edf2ee;
       cursor: zoom-in;
 
       transition: transform 0.35s ease;
     }
 
-
     .project:hover .project-image {
       transform: scale(1.02);
     }
-
 
     .project-content {
       width: 100%;
       padding: 1rem 1.15rem 1.15rem;
     }
-
 
     .project-title {
       width: 100%;
@@ -326,23 +285,19 @@
       letter-spacing: -0.01em;
     }
 
-
     .project-description {
       width: 100%;
       color: var(--muted);
       font-size: 0.92rem;
     }
 
-
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-
       width: 100%;
       margin-top: 0.75rem;
     }
-
 
     .tag {
       padding: 0.22rem 0.55rem;
@@ -350,7 +305,7 @@
       background: var(--primary-light);
       color: var(--primary-dark);
 
-      border: 1px solid rgba(0, 111, 201, 0.08);
+      border: 1px solid rgba(47, 111, 82, 0.09);
       border-radius: 999px;
 
       font-size: 0.72rem;
@@ -358,58 +313,32 @@
       letter-spacing: 0.01em;
     }
 
-
     /* Contact */
 
     .contact-intro {
       width: 100%;
       margin-bottom: 0.85rem;
-
       color: var(--muted);
       font-size: 0.96rem;
     }
 
-
     form {
       display: grid;
       gap: 0.8rem;
-
       width: 100%;
-      max-width: none;
     }
-
 
     .contact-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 1.5rem;
       width: 100%;
     }
 
-
     .form-group {
       display: grid;
-      gap: 0.35rem;
       width: 100%;
     }
-
-
-    .contact-row .form-group {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-
-    label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
 
     input,
     textarea {
@@ -428,31 +357,26 @@
         box-shadow var(--transition);
     }
 
-
     input::placeholder,
     textarea::placeholder {
-      color: #84929b;
+      color: #84928a;
     }
-
 
     input:hover,
     textarea:hover {
-      border-color: #c8d5dd;
+      border-color: #c5d3ca;
     }
-
 
     input:focus,
     textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0, 111, 201, 0.11);
+      box-shadow: 0 0 0 3px rgba(47, 111, 82, 0.11);
     }
-
 
     textarea {
       min-height: 120px;
       resize: vertical;
     }
-
 
     button {
       width: fit-content;
@@ -467,7 +391,7 @@
       font-weight: 700;
       cursor: pointer;
 
-      box-shadow: 0 3px 8px rgba(0, 111, 201, 0.18);
+      box-shadow: 0 3px 8px rgba(47, 111, 82, 0.18);
 
       transition:
         background-color var(--transition),
@@ -475,34 +399,28 @@
         box-shadow var(--transition);
     }
 
-
     button:hover {
       background: var(--primary-dark);
       transform: translateY(-1px);
-
-      box-shadow: 0 5px 12px rgba(0, 90, 159, 0.22);
+      box-shadow: 0 5px 12px rgba(36, 88, 63, 0.22);
     }
-
 
     button:active {
       transform: translateY(0);
-      box-shadow: 0 2px 5px rgba(0, 90, 159, 0.18);
+      box-shadow: 0 2px 5px rgba(36, 88, 63, 0.18);
     }
-
 
     button:focus-visible {
-      outline: 3px solid rgba(0, 111, 201, 0.25);
+      outline: 3px solid rgba(47, 111, 82, 0.25);
       outline-offset: 2px;
     }
-
 
     /* Footer */
 
     footer {
       width: 100%;
-
       padding: 0.8rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0;
 
       background: var(--surface);
       border: 1px solid var(--border);
@@ -513,7 +431,6 @@
       font-size: 0.85rem;
       text-align: center;
     }
-
 
     /* Image viewer */
 
@@ -527,25 +444,20 @@
       justify-content: center;
 
       padding: 1.5rem;
-      background: rgba(15, 25, 35, 0.88);
+      background: rgba(15, 25, 20, 0.88);
     }
-
 
     .modal.is-open {
       display: flex;
     }
 
-
     .modal img {
       max-width: 95vw;
       max-height: 90vh;
-
       object-fit: contain;
       border-radius: 8px;
-
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
-
 
     .modal-close {
       position: absolute;
@@ -574,19 +486,16 @@
         transform var(--transition);
     }
 
-
     .modal-close:hover {
       background: rgba(255, 255, 255, 0.22);
       transform: rotate(90deg);
       box-shadow: none;
     }
 
-
     .modal-close svg {
       width: 22px;
       height: 22px;
     }
-
 
     .modal-close path {
       fill: none;
@@ -595,11 +504,9 @@
       stroke-linecap: round;
     }
 
-
     /* Mobile */
 
     @media (max-width: 700px) {
-
       nav {
         position: static;
         flex-direction: column;
@@ -607,57 +514,50 @@
         padding: 0.85rem 1rem;
       }
 
-
-      .nav-title {
-        font-size: 1.5rem;
+      .nav-brand {
+        align-items: center;
         text-align: center;
       }
 
+      .nav-title {
+        font-size: 1.75rem;
+      }
+
+      .specialties {
+        justify-content: center;
+      }
 
       .nav-links {
         justify-content: center;
         flex-wrap: wrap;
       }
 
-
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
-
 
       .contact-row {
         grid-template-columns: 1fr;
         gap: 0.8rem;
       }
 
-
-      .contact-row .form-group {
-        grid-template-columns: auto minmax(0, 1fr);
-      }
-
-
       .card {
         padding: 1rem 1.25rem 1.3rem;
       }
-
-
-      .specialties {
-        gap: 0.4rem 0.55rem;
-      }
     }
 
-
     @media (max-width: 420px) {
-
       .nav-link {
         padding-inline: 0.5rem;
       }
 
+      .specialties {
+        font-size: 0.7rem;
+      }
 
       .modal {
         padding: 0.75rem;
       }
-
 
       .modal-close {
         top: 0.75rem;
@@ -665,15 +565,12 @@
       }
     }
 
-
     /* Reduced motion */
 
     @media (prefers-reduced-motion: reduce) {
-
       html {
         scroll-behavior: auto;
       }
-
 
       *,
       *::before,
@@ -688,16 +585,39 @@
 
 <body>
 
-  <!-- Navigation -->
-
   <header class="site-header">
 
     <div class="container">
 
       <nav aria-label="Main navigation">
 
-        <div class="nav-title">
-          Michael Schimkus
+        <div class="nav-brand">
+
+          <div class="nav-title">
+            Michael Schimkus
+          </div>
+
+          <div
+            class="specialties"
+            aria-label="GIS specialties"
+          >
+            <span class="specialty">
+              Spatial Analysis
+            </span>
+
+            <span class="specialty">
+              Cartography
+            </span>
+
+            <span class="specialty">
+              GIS Data Management
+            </span>
+
+            <span class="specialty">
+              ArcGIS Online
+            </span>
+          </div>
+
         </div>
 
 
@@ -724,12 +644,7 @@
   </header>
 
 
-  <!-- Main content -->
-
   <main class="container">
-
-
-    <!-- About -->
 
     <section id="about" class="card">
 
@@ -740,7 +655,6 @@
         </h1>
 
       </div>
-
 
       <p class="about-text">
         I am a GIS Specialist with hands-on experience supporting environmental
@@ -754,34 +668,8 @@
         skills and attention to detail to your team.
       </p>
 
-
-      <div
-        class="specialties"
-        aria-label="GIS specialties"
-      >
-
-        <span class="specialty">
-          Spatial Analysis
-        </span>
-
-        <span class="specialty">
-          Cartography
-        </span>
-
-        <span class="specialty">
-          GIS Data Management
-        </span>
-
-        <span class="specialty">
-          ArcGIS Online
-        </span>
-
-      </div>
-
     </section>
 
-
-    <!-- Portfolio -->
 
     <section id="portfolio" class="card">
 
@@ -816,12 +704,10 @@
               Population Change in Communities Outside Joshua Tree National Park
             </h3>
 
-
             <p class="project-description">
               A cartographic analysis examining population change in communities
               surrounding Joshua Tree National Park.
             </p>
-
 
             <div class="project-tags">
 
@@ -848,8 +734,6 @@
     </section>
 
 
-    <!-- Contact -->
-
     <section id="contact" class="card">
 
       <div class="section-heading">
@@ -872,16 +756,13 @@
 
           <div class="form-group">
 
-            <label for="name">
-              Name
-            </label>
-
             <input
               id="name"
               name="name"
               type="text"
-              placeholder="Your name"
+              placeholder="Name"
               autocomplete="name"
+              aria-label="Name"
               required
             >
 
@@ -890,16 +771,13 @@
 
           <div class="form-group">
 
-            <label for="email">
-              Email
-            </label>
-
             <input
               id="email"
               name="email"
               type="email"
-              placeholder="you@example.com"
+              placeholder="Email"
               autocomplete="email"
+              aria-label="Email"
               required
             >
 
@@ -910,14 +788,11 @@
 
         <div class="form-group">
 
-          <label for="message">
-            Message
-          </label>
-
           <textarea
             id="message"
             name="message"
-            placeholder="Your message"
+            placeholder="Message"
+            aria-label="Message"
             required
           ></textarea>
 
@@ -932,11 +807,8 @@
 
     </section>
 
-
   </main>
 
-
-  <!-- Footer -->
 
   <div class="container">
 
@@ -975,10 +847,8 @@
         aria-hidden="true"
         focusable="false"
       >
-
         <path d="M6 6L18 18"></path>
         <path d="M18 6L6 18"></path>
-
       </svg>
 
     </button>
