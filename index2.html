@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Michael Schimkus — GIS Specialist specializing in spatial analysis, cartography, GIS data management, and environmental and utility projects."
+    content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
   >
 
   <title>Michael Schimkus | GIS Specialist</title>
@@ -30,10 +30,10 @@
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
 
-      /* One border color for every card */
+      /* Shared card border */
       --card-border: #99aaa0;
 
-      /* Section dividers */
+      /* Shared section divider */
       --section-border: #7f9287;
       --divider-shadow: 0 2px 4px rgba(35, 65, 48, 0.28);
 
@@ -199,7 +199,7 @@
 
     .section {
       position: relative;
-      padding: 1.35rem 1.75rem 1.5rem;
+      padding: 0.9rem 1.75rem 1.5rem;
     }
 
     .section + .section::before,
@@ -530,7 +530,7 @@
         position: static;
         flex-direction: column;
         gap: 0.65rem;
-        padding: 0.85rem 1.25rem 2rem;
+        padding: 0.9rem 1.25rem 2rem;
       }
 
       .nav-brand {
@@ -548,7 +548,7 @@
       }
 
       .section {
-        padding: 1.15rem 1.25rem 1.3rem;
+        padding: 0.9rem 1.25rem 1.3rem;
       }
 
       .section + .section::before,
@@ -623,10 +623,9 @@
           </div>
 
           <div class="specialties" aria-label="GIS specialties">
-            <span class="specialty">Spatial Analysis</span>
             <span class="specialty">Cartography</span>
-            <span class="specialty">GIS Data Management</span>
-            <span class="specialty">ArcGIS Online</span>
+            <span class="specialty">Spatial Analysis</span>
+            <span class="specialty">Data Management</span>
           </div>
 
         </div>
@@ -842,6 +841,7 @@
 
     document.querySelectorAll(".project-image").forEach((image) => {
       image.addEventListener("click", () => {
+
         modalImage.src = image.src;
         modalImage.alt = image.alt;
 
@@ -855,6 +855,7 @@
     function closeModal() {
       modal.classList.remove("is-open");
       document.body.style.overflow = "";
+
       modalImage.src = "";
       modalImage.alt = "";
     }
