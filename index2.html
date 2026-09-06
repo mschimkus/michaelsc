@@ -30,10 +30,10 @@
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
 
-      /* Shared card outline */
-      --border: #b8c6bd;
+      /* One border color for every card */
+      --card-border: #99aaa0;
 
-      /* Shared section divider */
+      /* Section dividers */
       --section-border: #7f9287;
       --divider-shadow: 0 2px 4px rgba(35, 65, 48, 0.28);
 
@@ -84,7 +84,7 @@
     }
 
     /* =========================
-       Header
+       Header Card
        ========================= */
 
     .site-header {
@@ -106,7 +106,7 @@
       padding: 0.9rem 1.75rem 2.6rem;
 
       background: rgba(255, 255, 255, 0.97);
-      border: 1px solid var(--border);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
 
@@ -192,7 +192,7 @@
       overflow: hidden;
 
       background: var(--surface);
-      border: 1px solid var(--border);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
@@ -206,9 +206,9 @@
     .copyright::before {
       content: "";
       position: absolute;
+      top: 0;
       left: 1.75rem;
       right: 1.75rem;
-      top: 0;
 
       height: 1px;
 
@@ -251,18 +251,16 @@
       overflow: hidden;
 
       background: var(--surface);
-      border: 1px solid var(--border);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius);
 
       transition:
         transform var(--transition),
-        box-shadow var(--transition),
-        border-color var(--transition);
+        box-shadow var(--transition);
     }
 
     .project:hover {
       transform: translateY(-2px);
-      border-color: #aebeb5;
       box-shadow: var(--shadow-hover);
     }
 
@@ -354,7 +352,7 @@
       background: var(--surface);
       color: var(--text);
 
-      border: 1px solid var(--border);
+      border: 1px solid var(--card-border);
       border-radius: 8px;
       outline: none;
 
@@ -370,7 +368,7 @@
 
     input:hover,
     textarea:hover {
-      border-color: #aebeb5;
+      border-color: var(--card-border);
     }
 
     input:focus,
@@ -387,14 +385,15 @@
     button {
       width: fit-content;
       margin-left: auto;
-      padding: 0.65rem 1.2rem;
+      padding: 0.5rem 1rem;
 
       background: var(--primary);
       color: #ffffff;
 
       border: 0;
-      border-radius: 8px;
+      border-radius: 7px;
 
+      font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
 
@@ -473,7 +472,6 @@
     .modal img {
       max-width: 95vw;
       max-height: 90vh;
-
       object-fit: contain;
 
       border-radius: 8px;
@@ -817,6 +815,8 @@
 
 
   <script>
+    /* Copyright year */
+
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
@@ -827,18 +827,9 @@
 
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
-
-        const target = link.getAttribute("href");
-
-        if (!target.startsWith("#")) return;
-
         navLinks.forEach((item) => {
-          item.classList.toggle(
-            "active",
-            item === link
-          );
+          item.classList.toggle("active", item === link);
         });
-
       });
     });
 
@@ -851,7 +842,6 @@
 
     document.querySelectorAll(".project-image").forEach((image) => {
       image.addEventListener("click", () => {
-
         modalImage.src = image.src;
         modalImage.alt = image.alt;
 
@@ -865,7 +855,6 @@
     function closeModal() {
       modal.classList.remove("is-open");
       document.body.style.overflow = "";
-
       modalImage.src = "";
       modalImage.alt = "";
     }
