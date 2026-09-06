@@ -79,13 +79,6 @@
       margin-inline: auto;
     }
 
-    nav,
-    .section {
-      position: relative;
-      border: 1px solid var(--card-border);
-      box-shadow: var(--card-shadow);
-    }
-
     .site-header {
       padding-top: 0.5rem;
       padding-bottom: 1.2rem;
@@ -93,11 +86,13 @@
 
     .header-group {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
     }
 
     .header-heading {
-      margin-bottom: 0.2rem;
+      flex-shrink: 0;
     }
 
     .header-title {
@@ -109,31 +104,15 @@
     }
 
     nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-
-      position: sticky;
-      top: 0.5rem;
+      position: relative;
       z-index: 100;
-
-      width: 100%;
-
-      padding: 0 1.75rem;
-
-      background: rgba(255, 255, 255, 0.97);
-      border-radius: var(--radius);
-
-      backdrop-filter: blur(8px);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       gap: 0.6rem;
-      width: 100%;
     }
 
     .nav-link {
@@ -190,12 +169,10 @@
 
     .section {
       background: var(--surface);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
       padding: 1.26rem 1.4rem 1.2rem;
-    }
-
-    .section-heading + .section {
-      margin-top: 0;
     }
 
     .about-text {
@@ -399,14 +376,18 @@
     }
 
     @media (max-width: 700px) {
-      nav {
-        position: static;
+      .header-group {
         flex-direction: column;
-        padding: 0 1.25rem;
+        align-items: center;
+        gap: 0.65rem;
       }
 
       .header-heading {
         text-align: center;
+      }
+
+      nav {
+        width: 100%;
       }
 
       .nav-links {
