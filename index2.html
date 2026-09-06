@@ -32,12 +32,6 @@
       /* Shared 1px card outline */
       --card-border: #7f8b84;
 
-      /* Slightly lighter dividing lines */
-      --section-border: #9ca7a1;
-
-      /* Shared divider shadow */
-      --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
-
       /* Shared card shadow */
       --card-shadow:
         0 5px 18px rgba(35, 65, 48, 0.14);
@@ -82,20 +76,12 @@
       margin-inline: auto;
     }
 
-    /* =========================
-       Shared Card Styling
-       ========================= */
-
     nav,
-    .main-card {
+    .section {
       position: relative;
       border: 1px solid var(--card-border);
       box-shadow: var(--card-shadow);
     }
-
-    /* =========================
-       Header Card
-       ========================= */
 
     .site-header {
       padding-top: 0.5rem;
@@ -146,21 +132,15 @@
 
     .nav-link {
       display: inline-block;
-
       padding: 0.45rem 0.85rem;
-
       background: var(--primary-light);
       color: var(--primary-dark);
-
       border: 1px solid rgba(47, 111, 82, 0.09);
       border-radius: 999px;
-
       text-decoration: none;
-
       font-size: 0.95rem;
       font-weight: 600;
       line-height: 1.4;
-
       transition:
         background-color var(--transition),
         color var(--transition),
@@ -178,38 +158,17 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       Main Card
-       ========================= */
-
     main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
       padding-bottom: 0.75rem;
     }
 
-    .main-card {
-      overflow: hidden;
-
+    .section {
       background: var(--surface);
       border-radius: var(--radius);
-    }
-
-    .section {
-      position: relative;
-
       padding: 1.75rem 1.75rem 1.5rem;
-    }
-
-    .section + .section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 1.75rem;
-      right: 1.75rem;
-
-      height: 2px;
-
-      background: var(--section-border);
-      box-shadow: var(--divider-shadow);
     }
 
     .section-heading {
@@ -224,18 +183,10 @@
       letter-spacing: -0.02em;
     }
 
-    /* =========================
-       About
-       ========================= */
-
     .about-text {
       color: var(--muted);
       font-size: 0.96rem;
     }
-
-    /* =========================
-       Portfolio
-       ========================= */
 
     .portfolio-grid {
       display: grid;
@@ -245,10 +196,8 @@
 
     .project {
       overflow: hidden;
-
       background: var(--surface);
       border-radius: var(--radius);
-
       transition: transform var(--transition);
     }
 
@@ -264,10 +213,8 @@
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
-
       background: #edf2ee;
       cursor: zoom-in;
-
       transition: transform 0.35s ease;
     }
 
@@ -281,7 +228,6 @@
 
     .project-title {
       margin-bottom: 0.4rem;
-
       color: var(--primary-dark);
       font-size: 1.08rem;
       font-weight: 700;
@@ -303,21 +249,14 @@
 
     .tag {
       padding: 0.22rem 0.55rem;
-
       background: var(--primary-light);
       color: var(--primary-dark);
-
       border: 1px solid rgba(47, 111, 82, 0.09);
       border-radius: 999px;
-
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.01em;
     }
-
-    /* =========================
-       Contact
-       ========================= */
 
     .contact-intro {
       color: var(--muted);
@@ -329,7 +268,6 @@
       font-size: inherit;
       font-weight: 600;
       text-decoration: none;
-
       transition: color var(--transition);
     }
 
@@ -341,20 +279,14 @@
       outline: none;
     }
 
-    /* =========================
-       Footer
-       ========================= */
-
     .site-footer {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-
       width: min(calc(100% - 2rem), var(--max-width));
       margin: 0 auto;
       padding: 0 1rem 1.5rem;
-
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 600;
@@ -372,7 +304,6 @@
     .site-footer a {
       color: var(--primary-dark);
       text-decoration: none;
-
       transition: color var(--transition);
     }
 
@@ -385,27 +316,20 @@
     }
 
     .footer-separator {
-      color: var(--section-border);
+      color: var(--card-border);
       font-size: 1rem;
       line-height: 1;
       margin-inline: 0.05rem;
     }
 
-    /* =========================
-       Image Viewer
-       ========================= */
-
     .modal {
       position: fixed;
       inset: 0;
       z-index: 1000;
-
       display: none;
       align-items: center;
       justify-content: center;
-
       padding: 1.5rem;
-
       background: rgba(15, 25, 20, 0.88);
     }
 
@@ -417,7 +341,6 @@
       max-width: 95vw;
       max-height: 90vh;
       object-fit: contain;
-
       border-radius: 8px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
@@ -426,23 +349,17 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-
       display: grid;
       place-items: center;
-
       width: 44px;
       height: 44px;
       padding: 0;
-
       background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
-
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 50%;
-
       cursor: pointer;
       box-shadow: none;
-
       transition:
         background-color var(--transition),
         transform var(--transition);
@@ -465,21 +382,15 @@
       stroke-linecap: round;
     }
 
-    /* =========================
-       Mobile
-       ========================= */
-
     @media (max-width: 700px) {
       nav {
         position: static;
         flex-direction: column;
         gap: 0.65rem;
-
         padding: 1.25rem;
       }
 
       .nav-brand {
-        align-items: center;
         text-align: center;
       }
 
@@ -491,11 +402,6 @@
 
       .section {
         padding: 1.25rem 1.25rem 1.3rem;
-      }
-
-      .section + .section::before {
-        left: 1.25rem;
-        right: 1.25rem;
       }
 
       .portfolio-grid {
@@ -523,10 +429,6 @@
         right: 0.75rem;
       }
     }
-
-    /* =========================
-       Reduced Motion
-       ========================= */
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -566,94 +468,86 @@
     </div>
   </header>
 
-
   <main class="container">
 
-    <div class="main-card">
+    <section id="about" class="section">
 
-      <section id="about" class="section">
+      <div class="section-heading">
+        <h1 class="section-title">About</h1>
+      </div>
 
-        <div class="section-heading">
-          <h1 class="section-title">About</h1>
-        </div>
+      <p class="about-text">
+        I am a GIS Specialist with hands-on experience supporting environmental
+        and utility projects through high-quality spatial analysis, data
+        management, and cartographic deliverables. In my current role, I
+        develop standardized GIS templates, perform QA/QC on spatial datasets,
+        and publish maps and data to ArcGIS Online and Field Maps for field and
+        regulatory use. I have worked closely with multidisciplinary teams and
+        clients to ensure accuracy, consistency, and on-time delivery of GIS
+        products. I would welcome the opportunity to contribute my technical
+        skills and attention to detail to your team.
+      </p>
 
-        <p class="about-text">
-          I am a GIS Specialist with hands-on experience supporting environmental
-          and utility projects through high-quality spatial analysis, data
-          management, and cartographic deliverables. In my current role, I
-          develop standardized GIS templates, perform QA/QC on spatial datasets,
-          and publish maps and data to ArcGIS Online and Field Maps for field and
-          regulatory use. I have worked closely with multidisciplinary teams and
-          clients to ensure accuracy, consistency, and on-time delivery of GIS
-          products. I would welcome the opportunity to contribute my technical
-          skills and attention to detail to your team.
-        </p>
+    </section>
 
-      </section>
+    <section id="portfolio" class="section">
 
+      <div class="section-heading">
+        <h2 class="section-title">Portfolio</h2>
+      </div>
 
-      <section id="portfolio" class="section">
+      <div class="portfolio-grid">
 
-        <div class="section-heading">
-          <h2 class="section-title">Portfolio</h2>
-        </div>
+        <article class="project">
 
-        <div class="portfolio-grid">
+          <div class="project-image-wrap">
+            <img
+              class="project-image"
+              src="project1.jpg"
+              alt="Map showing population change in communities outside Joshua Tree National Park"
+              loading="lazy"
+            >
+          </div>
 
-          <article class="project">
+          <div class="project-content">
 
-            <div class="project-image-wrap">
-              <img
-                class="project-image"
-                src="project1.jpg"
-                alt="Map showing population change in communities outside Joshua Tree National Park"
-                loading="lazy"
-              >
+            <h3 class="project-title">
+              Population Change in Communities Outside Joshua Tree National Park
+            </h3>
+
+            <p class="project-description">
+              A cartographic analysis examining population change in communities
+              surrounding Joshua Tree National Park.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Cartography</span>
+              <span class="tag">Spatial Analysis</span>
+              <span class="tag">GIS</span>
             </div>
 
-            <div class="project-content">
+          </div>
 
-              <h3 class="project-title">
-                Population Change in Communities Outside Joshua Tree National Park
-              </h3>
+        </article>
 
-              <p class="project-description">
-                A cartographic analysis examining population change in communities
-                surrounding Joshua Tree National Park.
-              </p>
+      </div>
 
-              <div class="project-tags">
-                <span class="tag">Cartography</span>
-                <span class="tag">Spatial Analysis</span>
-                <span class="tag">GIS</span>
-              </div>
+    </section>
 
-            </div>
+    <section id="contact" class="section">
 
-          </article>
+      <div class="section-heading">
+        <h2 class="section-title">Contact</h2>
+      </div>
 
-        </div>
+      <p class="contact-intro">
+        Interested in working together? Feel free to get in touch with me via email at
+        <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>.
+      </p>
 
-      </section>
-
-
-      <section id="contact" class="section">
-
-        <div class="section-heading">
-          <h2 class="section-title">Contact</h2>
-        </div>
-
-        <p class="contact-intro">
-          Interested in working together? Feel free to get in touch with me via email at
-          <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>.
-        </p>
-
-      </section>
-
-    </div>
+    </section>
 
   </main>
-
 
   <footer class="site-footer">
 
@@ -681,7 +575,6 @@
 
   </footer>
 
-
   <div
     class="modal"
     id="image-modal"
@@ -707,7 +600,6 @@
     <img id="modal-image" src="" alt="">
 
   </div>
-
 
   <script>
     /* Copyright year */
