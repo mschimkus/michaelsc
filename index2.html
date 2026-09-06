@@ -21,20 +21,31 @@
 
   <style>
     :root {
-      --bg: #f1f6f3;
+      --bg: #f5f8f6;
       --surface: #ffffff;
       --text: #202a24;
       --muted: #56635b;
+
       --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
 
-      --border: #cfdad3;
-      --section-border: #b8c7bd;
+      /* Card outlines */
+      --border: #c5d1c9;
+
+      /* Shared section divider */
+      --section-border: #aebeb4;
 
       --radius: 12px;
-      --shadow: 0 5px 18px rgba(35, 65, 48, 0.06);
-      --shadow-hover: 0 10px 26px rgba(35, 65, 48, 0.11);
+
+      --shadow:
+        0 5px 18px rgba(35, 65, 48, 0.07);
+
+      --shadow-hover:
+        0 10px 26px rgba(35, 65, 48, 0.12);
+
+      --divider-shadow:
+        0 2px 4px rgba(35, 65, 48, 0.22);
 
       --max-width: 1100px;
       --transition: 0.2s ease;
@@ -79,7 +90,7 @@
     }
 
     /* =========================
-       Header
+       Header Card
        ========================= */
 
     .site-header {
@@ -159,7 +170,7 @@
       color: var(--muted);
       text-decoration: none;
 
-      font-size: 1.08rem;
+      font-size: 1.15rem;
       font-weight: 700;
 
       border-radius: 6px;
@@ -168,16 +179,11 @@
     }
 
     .nav-link:hover,
-    .nav-link:focus-visible {
-      color: var(--primary);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      outline: none;
-    }
-
+    .nav-link:focus-visible,
     .nav-link.active {
       color: var(--primary);
       text-decoration: none;
+      outline: none;
     }
 
     /* =========================
@@ -198,17 +204,28 @@
       padding: 1.35rem 1.75rem 1.5rem;
     }
 
-    .section + .section::before {
+    /*
+      Shared divider styling.
+      Used between About / Portfolio / Contact
+      and above Copyright.
+    */
+
+    .section + .section::before,
+    .copyright::before {
       content: "";
       position: absolute;
-      top: 0;
+
       left: 1.75rem;
       right: 1.75rem;
 
       height: 1px;
 
       background: var(--section-border);
-      box-shadow: 0 1px 2px rgba(35, 65, 48, 0.14);
+      box-shadow: var(--divider-shadow);
+    }
+
+    .section + .section::before {
+      top: 0;
     }
 
     .section-heading {
@@ -257,7 +274,7 @@
 
     .project:hover {
       transform: translateY(-2px);
-      border-color: #c4d0c8;
+      border-color: #bac8bf;
       box-shadow: var(--shadow-hover);
     }
 
@@ -371,7 +388,7 @@
 
     input:hover,
     textarea:hover {
-      border-color: #bfcfc5;
+      border-color: #b7c6bd;
     }
 
     input:focus,
@@ -427,15 +444,17 @@
        ========================= */
 
     .copyright {
-      padding: 0.9rem 1.75rem 1rem;
-
-      border-top: 1px solid var(--section-border);
-      box-shadow: 0 -1px 2px rgba(35, 65, 48, 0.08);
+      position: relative;
+      padding: 1rem 1.75rem 1.05rem;
 
       color: var(--muted);
       font-size: 0.85rem;
       font-weight: 700;
       text-align: center;
+    }
+
+    .copyright::before {
+      top: 0;
     }
 
     .copyright-link {
@@ -446,6 +465,7 @@
     .copyright-link:hover,
     .copyright-link:focus-visible {
       color: var(--primary);
+      text-decoration: none;
       outline: none;
     }
 
@@ -563,7 +583,8 @@
         padding: 1.15rem 1.25rem 1.3rem;
       }
 
-      .section + .section::before {
+      .section + .section::before,
+      .copyright::before {
         left: 1.25rem;
         right: 1.25rem;
       }
