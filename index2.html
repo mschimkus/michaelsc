@@ -33,14 +33,15 @@
       /* Shared 1px card outline */
       --card-border: #7f8b84;
 
-      /* Slightly lighter section dividers */
+      /* Slightly lighter dividing lines */
       --section-border: #9ca7a1;
-
-      /* Single shared card shadow */
-      --card-shadow: 0 5px 18px rgba(35, 65, 48, 0.07);
 
       /* Shared divider shadow */
       --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
+
+      /* Original header card shadow */
+      --card-shadow:
+        0 5px 18px rgba(35, 65, 48, 0.07);
 
       --radius: 12px;
       --max-width: 1100px;
@@ -200,7 +201,7 @@
        ========================= */
 
     main {
-      padding-bottom: var(--card-gap);
+      padding-bottom: 0.75rem;
     }
 
     .main-card {
@@ -267,8 +268,7 @@
       background: var(--surface);
       border-radius: var(--radius);
 
-      transition:
-        transform var(--transition);
+      transition: transform var(--transition);
     }
 
     .project:hover {
