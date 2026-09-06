@@ -13,33 +13,47 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
   <style>
+    /* =========================================
+       VARIABLES
+    ========================================= */
+
     :root {
       --color-bg: #f4f9fc;
       --color-surface: #ffffff;
+
       --color-text: #1f2933;
       --color-muted: #52616b;
+
       --color-primary: #006fc9;
       --color-primary-dark: #005a9f;
       --color-primary-light: #e7f4ff;
+
       --color-border: #d8e2e8;
 
       --radius: 12px;
-      --shadow: 0 8px 24px rgba(20, 55, 80, 0.08);
-      --shadow-hover: 0 12px 30px rgba(20, 55, 80, 0.13);
+
+      --shadow:
+        0 8px 24px rgba(20, 55, 80, 0.08);
+
+      --shadow-hover:
+        0 12px 30px rgba(20, 55, 80, 0.13);
 
       --max-width: 1100px;
+
       --transition: 0.25s ease;
     }
 
-    /* ------------------------------
-       Reset
-    ------------------------------ */
+
+    /* =========================================
+       RESET
+    ========================================= */
 
     *,
     *::before,
@@ -58,6 +72,7 @@
       font-family: "Public Sans", sans-serif;
       background: var(--color-bg);
       color: var(--color-text);
+
       line-height: 1.7;
       min-height: 100vh;
     }
@@ -77,9 +92,10 @@
       font: inherit;
     }
 
-    /* ------------------------------
-       Layout
-    ------------------------------ */
+
+    /* =========================================
+       LAYOUT
+    ========================================= */
 
     .container {
       width: min(100% - 2rem, var(--max-width));
@@ -94,9 +110,10 @@
       scroll-margin-top: 1rem;
     }
 
-    /* ------------------------------
-       Navigation
-    ------------------------------ */
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
 
     .site-header {
       padding-top: 1rem;
@@ -106,11 +123,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 2rem;
 
       background: var(--color-surface);
+
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
+
       box-shadow: var(--shadow);
 
       padding: 1rem 1.5rem;
@@ -118,13 +138,16 @@
 
       position: sticky;
       top: 1rem;
+
       z-index: 100;
     }
 
     .nav-title {
       font-size: 1.45rem;
       font-weight: 700;
+
       letter-spacing: -0.02em;
+
       white-space: nowrap;
     }
 
@@ -135,16 +158,21 @@
     .nav-links {
       display: flex;
       align-items: center;
+
       gap: 0.35rem;
+
       list-style: none;
     }
 
     .nav-link {
       display: inline-block;
+
       text-decoration: none;
+
       color: var(--color-muted);
 
       padding: 0.55rem 0.9rem;
+
       border-radius: 8px;
 
       font-size: 0.95rem;
@@ -159,6 +187,7 @@
     .nav-link:focus-visible {
       background: var(--color-primary-light);
       color: var(--color-primary-dark);
+
       outline: none;
     }
 
@@ -167,17 +196,27 @@
       color: #ffffff;
     }
 
-    /* ------------------------------
-       Cards / Sections
-    ------------------------------ */
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+
+    /* =========================================
+       CARDS / SECTIONS
+    ========================================= */
 
     .card {
       background: var(--color-surface);
+
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
+
       box-shadow: var(--shadow);
 
       padding: clamp(1.5rem, 4vw, 2.5rem);
+
       margin-bottom: 1.5rem;
 
       transition:
@@ -195,13 +234,17 @@
 
     .section-title {
       font-size: clamp(1.45rem, 3vw, 1.8rem);
+
       line-height: 1.25;
+
       font-weight: 700;
+
       letter-spacing: -0.02em;
     }
 
     .section-title::after {
       content: "";
+
       display: block;
 
       width: 42px;
@@ -210,21 +253,27 @@
       margin-top: 0.55rem;
 
       background: var(--color-primary);
+
       border-radius: 999px;
     }
 
     .about-text {
       max-width: 850px;
+
       color: var(--color-muted);
     }
 
-    /* ------------------------------
-       Portfolio
-    ------------------------------ */
+
+    /* =========================================
+       PORTFOLIO
+    ========================================= */
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
       gap: 1.5rem;
     }
 
@@ -232,7 +281,9 @@
       overflow: hidden;
 
       border: 1px solid var(--color-border);
+
       border-radius: var(--radius);
+
       background: #ffffff;
 
       transition:
@@ -242,12 +293,15 @@
 
     .project:hover {
       transform: translateY(-3px);
+
       box-shadow: var(--shadow-hover);
     }
 
     .project-image {
       width: 100%;
+
       aspect-ratio: 16 / 10;
+
       object-fit: cover;
 
       background: #edf3f7;
@@ -267,19 +321,25 @@
 
     .project-title {
       font-size: 1.05rem;
+
       line-height: 1.4;
+
       font-weight: 700;
+
       margin-bottom: 0.5rem;
     }
 
     .project-description {
       color: var(--color-muted);
+
       font-size: 0.92rem;
     }
 
     .project-tags {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 0.4rem;
 
       margin-top: 0.85rem;
@@ -291,36 +351,44 @@
       padding: 0.25rem 0.55rem;
 
       background: var(--color-primary-light);
+
       color: var(--color-primary-dark);
 
       border-radius: 999px;
 
       font-size: 0.75rem;
+
       font-weight: 600;
     }
 
-    /* ------------------------------
-       Contact
-    ------------------------------ */
+
+    /* =========================================
+       CONTACT
+    ========================================= */
 
     .contact-intro {
       color: var(--color-muted);
+
       margin-bottom: 1.25rem;
     }
 
     form {
       display: grid;
+
       gap: 1rem;
+
       max-width: 750px;
     }
 
     .form-group {
       display: grid;
+
       gap: 0.4rem;
     }
 
     label {
       font-size: 0.9rem;
+
       font-weight: 600;
     }
 
@@ -331,9 +399,11 @@
       padding: 0.8rem 0.9rem;
 
       border: 1px solid var(--color-border);
+
       border-radius: 8px;
 
       background: #ffffff;
+
       color: var(--color-text);
 
       outline: none;
@@ -358,6 +428,7 @@
 
     textarea {
       min-height: 150px;
+
       resize: vertical;
     }
 
@@ -367,12 +438,15 @@
       padding: 0.75rem 1.25rem;
 
       border: none;
+
       border-radius: 8px;
 
       background: var(--color-primary);
+
       color: #ffffff;
 
       font-weight: 700;
+
       cursor: pointer;
 
       transition:
@@ -382,38 +456,46 @@
 
     button:hover {
       background: var(--color-primary-dark);
+
       transform: translateY(-1px);
     }
 
     button:focus-visible {
       outline: 3px solid rgba(0, 111, 201, 0.25);
+
       outline-offset: 2px;
     }
 
-    /* ------------------------------
-       Footer
-    ------------------------------ */
+
+    /* =========================================
+       FOOTER
+    ========================================= */
 
     footer {
       background: var(--color-surface);
 
       border: 1px solid var(--color-border);
+
       border-radius: var(--radius);
 
       box-shadow: var(--shadow);
 
       margin: 0 0 1rem;
+
       padding: 1rem;
 
       text-align: center;
 
       color: var(--color-muted);
+
       font-size: 0.85rem;
     }
 
     footer a {
       color: var(--color-primary-dark);
+
       font-weight: 600;
+
       text-decoration: none;
     }
 
@@ -421,16 +503,20 @@
       text-decoration: underline;
     }
 
-    /* ------------------------------
-       Image Modal
-    ------------------------------ */
+
+    /* =========================================
+       IMAGE MODAL
+    ========================================= */
 
     .modal {
       position: fixed;
+
       inset: 0;
 
       display: none;
+
       align-items: center;
+
       justify-content: center;
 
       padding: 1.5rem;
@@ -446,47 +532,90 @@
 
     .modal img {
       max-width: min(1100px, 95vw);
+
       max-height: 90vh;
 
       object-fit: contain;
 
       border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3);
     }
+
+    /* Fixed close button */
 
     .modal-close {
       position: absolute;
+
       top: 1rem;
       right: 1rem;
 
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
 
       display: grid;
+
       place-items: center;
 
       padding: 0;
 
+      border: 1px solid rgba(255, 255, 255, 0.25);
+
       border-radius: 50%;
+
       background: rgba(255, 255, 255, 0.12);
 
       color: #ffffff;
-      font-size: 1.4rem;
+
+      cursor: pointer;
+
+      transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .modal-close svg {
+      width: 22px;
+      height: 22px;
+
+      display: block;
+    }
+
+    .modal-close path {
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 2;
+
+      stroke-linecap: round;
     }
 
     .modal-close:hover {
       background: rgba(255, 255, 255, 0.22);
+
+      transform: rotate(90deg);
     }
 
-    /* ------------------------------
-       Responsive
-    ------------------------------ */
+    .modal-close:focus-visible {
+      outline: 3px solid rgba(255, 255, 255, 0.5);
+
+      outline-offset: 3px;
+    }
+
+
+    /* =========================================
+       RESPONSIVE DESIGN
+    ========================================= */
 
     @media (max-width: 700px) {
+
       nav {
         position: static;
 
         flex-direction: column;
+
         align-items: stretch;
 
         gap: 0.75rem;
@@ -500,11 +629,16 @@
 
       .nav-links {
         justify-content: center;
+
+        flex-wrap: wrap;
       }
 
       .nav-link {
         font-size: 0.9rem;
-        padding: 0.5rem 0.7rem;
+
+        padding:
+          0.5rem
+          0.7rem;
       }
 
       .portfolio-grid {
@@ -516,7 +650,9 @@
       }
     }
 
+
     @media (max-width: 420px) {
+
       .nav-links {
         gap: 0.1rem;
       }
@@ -524,13 +660,24 @@
       .nav-link {
         padding-inline: 0.55rem;
       }
+
+      .modal {
+        padding: 0.75rem;
+      }
+
+      .modal-close {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
     }
 
-    /* ------------------------------
-       Reduced Motion
-    ------------------------------ */
+
+    /* =========================================
+       REDUCED MOTION
+    ========================================= */
 
     @media (prefers-reduced-motion: reduce) {
+
       html {
         scroll-behavior: auto;
       }
@@ -539,17 +686,25 @@
       *::before,
       *::after {
         transition-duration: 0.01ms !important;
+
         animation-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
-<body>
 
-  <!-- Navigation -->
+<body id="top">
+
+
+  <!-- =========================================
+       HEADER / NAVIGATION
+  ========================================= -->
+
   <header class="site-header">
+
     <div class="container">
+
       <nav id="site-nav" aria-label="Main navigation">
 
         <div class="nav-title">
@@ -557,24 +712,70 @@
         </div>
 
         <div class="nav-links">
-          <a href="#about" class="nav-link active">About</a>
-          <a href="#portfolio" class="nav-link">Portfolio</a>
-          <a href="#contact" class="nav-link">Contact</a>
+
+          <a
+            href="#about"
+            class="nav-link active"
+          >
+            About
+          </a>
+
+          <a
+            href="#portfolio"
+            class="nav-link"
+          >
+            Portfolio
+          </a>
+
+          <a
+            href="#contact"
+            class="nav-link"
+          >
+            Contact
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/mschimkus"
+            class="nav-link github-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
+          >
+            GitHub ↗
+          </a>
+
         </div>
 
       </nav>
+
     </div>
+
   </header>
 
 
-  <!-- Main Content -->
+  <!-- =========================================
+       MAIN
+  ========================================= -->
+
   <main class="container">
 
-    <!-- About -->
-    <section id="about" class="card">
+
+    <!-- =======================================
+         ABOUT
+    ======================================== -->
+
+    <section
+      id="about"
+      class="card"
+    >
 
       <div class="section-heading">
-        <h1 class="section-title">About</h1>
+
+        <h1 class="section-title">
+          About
+        </h1>
+
       </div>
 
       <p class="about-text">
@@ -592,16 +793,29 @@
     </section>
 
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="card">
+    <!-- =======================================
+         PORTFOLIO
+    ======================================== -->
+
+    <section
+      id="portfolio"
+      class="card"
+    >
 
       <div class="section-heading">
-        <h2 class="section-title">Portfolio</h2>
+
+        <h2 class="section-title">
+          Portfolio
+        </h2>
+
       </div>
+
 
       <div class="portfolio-grid">
 
-        <!-- Project 1 -->
+
+        <!-- PROJECT 1 -->
+
         <article class="project">
 
           <img
@@ -623,71 +837,127 @@
             </p>
 
             <div class="project-tags">
-              <span class="tag">Cartography</span>
-              <span class="tag">Spatial Analysis</span>
-              <span class="tag">GIS</span>
+
+              <span class="tag">
+                Cartography
+              </span>
+
+              <span class="tag">
+                Spatial Analysis
+              </span>
+
+              <span class="tag">
+                GIS
+              </span>
+
             </div>
 
           </div>
+
         </article>
 
 
+        <!-- ===================================
+             ADDITIONAL PROJECT EXAMPLE
+
+             Copy this block when adding
+             another portfolio project.
+        ==================================== -->
+
         <!--
-          Additional projects can be added here.
 
-          Example:
+        <article class="project">
 
-          <article class="project">
-            <img
-              class="project-image"
-              src="project2.jpg"
-              alt="Description of project map"
-              loading="lazy"
-            />
+          <img
+            class="project-image"
+            src="project2.jpg"
+            alt="Description of project map"
+            loading="lazy"
+          />
 
-            <div class="project-content">
-              <h3 class="project-title">
-                Project Title
-              </h3>
+          <div class="project-content">
 
-              <p class="project-description">
-                Brief description of the project and analysis.
-              </p>
+            <h3 class="project-title">
+              Project Title
+            </h3>
 
-              <div class="project-tags">
-                <span class="tag">ArcGIS Pro</span>
-                <span class="tag">Analysis</span>
-              </div>
+            <p class="project-description">
+              Brief description of the project,
+              analysis, and final deliverable.
+            </p>
+
+            <div class="project-tags">
+
+              <span class="tag">
+                ArcGIS Pro
+              </span>
+
+              <span class="tag">
+                Analysis
+              </span>
+
+              <span class="tag">
+                Cartography
+              </span>
+
             </div>
-          </article>
+
+          </div>
+
+        </article>
+
         -->
 
       </div>
+
     </section>
 
 
-    <!-- Contact -->
-    <section id="contact" class="card">
+    <!-- =======================================
+         CONTACT
+    ======================================== -->
+
+    <section
+      id="contact"
+      class="card"
+    >
 
       <div class="section-heading">
-        <h2 class="section-title">Contact</h2>
+
+        <h2 class="section-title">
+          Contact
+        </h2>
+
       </div>
 
       <p class="contact-intro">
         Interested in working together? Send me a message using the form below.
       </p>
 
+
       <!--
-        Replace the action URL with your preferred form service
-        (Formspree, Netlify Forms, your own backend, etc.).
+        IMPORTANT:
+        Replace action="#" with your form service URL.
+
+        Examples include:
+        Formspree
+        Netlify Forms
+        Your own backend
       -->
+
       <form
         action="#"
         method="POST"
       >
 
+        <!-- Name -->
+
         <div class="form-group">
-          <label for="name">Name</label>
+
+          <label for="name">
+            Name
+          </label>
+
           <input
             id="name"
             name="name"
@@ -696,10 +966,18 @@
             autocomplete="name"
             required
           />
+
         </div>
 
+
+        <!-- Email -->
+
         <div class="form-group">
-          <label for="email">Email</label>
+
+          <label for="email">
+            Email
+          </label>
+
           <input
             id="email"
             name="email"
@@ -708,17 +986,29 @@
             autocomplete="email"
             required
           />
+
         </div>
 
+
+        <!-- Message -->
+
         <div class="form-group">
-          <label for="message">Message</label>
+
+          <label for="message">
+            Message
+          </label>
+
           <textarea
             id="message"
             name="message"
             placeholder="Your message"
             required
           ></textarea>
+
         </div>
+
+
+        <!-- Submit -->
 
         <button type="submit">
           Send Message
@@ -731,22 +1021,48 @@
   </main>
 
 
-  <!-- Footer -->
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
   <div class="container">
+
     <footer>
 
       <p>
-        &copy; <span id="current-year"></span>
+
+        &copy;
+        <span id="current-year"></span>
         Michael Schimkus
+
         &nbsp;|&nbsp;
-        <a href="#top">Return to top</a>
+
+        <a href="#top">
+          Return to top
+        </a>
+
+        &nbsp;|&nbsp;
+
+        <a
+          href="https://github.com/mschimkus"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit my GitHub profile"
+        >
+          GitHub ↗
+        </a>
+
       </p>
 
     </footer>
+
   </div>
 
 
-  <!-- Image Modal -->
+  <!-- =========================================
+       IMAGE MODAL
+  ========================================= -->
+
   <div
     class="modal"
     id="image-modal"
@@ -755,14 +1071,32 @@
     aria-label="Expanded portfolio image"
   >
 
+    <!-- Close Button -->
+
     <button
       class="modal-close"
       id="modal-close"
       type="button"
       aria-label="Close image"
     >
-      &times;https://github.com/mschimkus/michaelsc/blob/main/index2.html
+
+      <!-- SVG close icon -->
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+
+        <path d="M6 6L18 18" />
+        <path d="M18 6L6 18" />
+
+      </svg>
+
     </button>
+
+
+    <!-- Expanded Image -->
 
     <img
       id="modal-image"
@@ -773,108 +1107,189 @@
   </div>
 
 
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
   <script>
-    /* --------------------------------
-       Dynamic Copyright Year
-    -------------------------------- */
+
+    /* ========================================
+       DYNAMIC COPYRIGHT YEAR
+    ======================================== */
 
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
 
-    /* --------------------------------
-       Active Navigation
-    -------------------------------- */
+    /* ========================================
+       ACTIVE NAVIGATION
+    ======================================== */
 
-    const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll("main section");
+    const navLinks =
+      document.querySelectorAll(".nav-link");
 
-    const setActiveLink = (id) => {
+    const sections =
+      document.querySelectorAll("main section");
+
+
+    function setActiveLink(id) {
+
       navLinks.forEach((link) => {
+
+        const href =
+          link.getAttribute("href");
+
         link.classList.toggle(
           "active",
-          link.getAttribute("href") === `#${id}`
+          href === `#${id}`
         );
+
       });
-    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-25% 0px -60% 0px",
-        threshold: 0
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
+    }
 
 
-    /* --------------------------------
-       Portfolio Image Modal
-    -------------------------------- */
+    const observer =
+      new IntersectionObserver(
 
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const modalClose = document.getElementById("modal-close");
+        (entries) => {
 
-    const projectImages = document.querySelectorAll(".project-image");
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              setActiveLink(
+                entry.target.id
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          rootMargin:
+            "-25% 0px -60% 0px",
+
+          threshold: 0
+        }
+
+      );
+
+
+    sections.forEach((section) => {
+
+      observer.observe(section);
+
+    });
+
+
+    /* ========================================
+       IMAGE MODAL
+    ======================================== */
+
+    const modal =
+      document.getElementById("image-modal");
+
+    const modalImage =
+      document.getElementById("modal-image");
+
+    const modalClose =
+      document.getElementById("modal-close");
+
+    const projectImages =
+      document.querySelectorAll(".project-image");
+
+
+    /* Open modal */
 
     projectImages.forEach((image) => {
 
       image.addEventListener("click", () => {
 
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
+        modalImage.src =
+          image.src;
 
-        modal.classList.add("is-open");
+        modalImage.alt =
+          image.alt;
 
-        document.body.style.overflow = "hidden";
+        modal.classList.add(
+          "is-open"
+        );
+
+        document.body.style.overflow =
+          "hidden";
 
         modalClose.focus();
+
       });
 
     });
 
-    const closeModal = () => {
 
-      modal.classList.remove("is-open");
+    /* Close modal */
 
-      document.body.style.overflow = "";
+    function closeModal() {
 
-      modalImage.src = "";
-      modalImage.alt = "";
+      modal.classList.remove(
+        "is-open"
+      );
 
-    };
+      document.body.style.overflow =
+        "";
 
-    modalClose.addEventListener("click", closeModal);
+      modalImage.src =
+        "";
+
+      modalImage.alt =
+        "";
+
+    }
 
 
-    /* Close modal when clicking the background */
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
 
-    modal.addEventListener("click", (event) => {
 
-      if (event.target === modal) {
-        closeModal();
+    /* Close by clicking background */
+
+    modal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeModal();
+
+        }
+
       }
+    );
 
-    });
 
+    /* Close with Escape */
 
-    /* Close modal with Escape */
+    document.addEventListener(
+      "keydown",
+      (event) => {
 
-    document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("is-open")
+        ) {
 
-      if (event.key === "Escape" && modal.classList.contains("is-open")) {
-        closeModal();
+          closeModal();
+
+        }
+
       }
+    );
 
-    });
   </script>
 
 </body>
