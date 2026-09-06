@@ -104,7 +104,7 @@
       padding: 1.75rem;
 
       background: rgba(255, 255, 255, 0.97);
-      border-radius: var(--radius);
+      border-radius: var(--radius) var(--radius) 0 0;
 
       backdrop-filter: blur(8px);
     }
@@ -167,8 +167,12 @@
 
     .section {
       background: var(--surface);
-      border-radius: var(--radius);
+      border-radius: 0;
       padding: 1.75rem 1.75rem 1.5rem;
+    }
+
+    #contact {
+      border-radius: 0 0 var(--radius) var(--radius);
     }
 
     .section-heading {
