@@ -145,35 +145,42 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 0.6rem;
       width: 100%;
     }
 
     .nav-link {
-      padding: 0 0.85rem;
+      display: inline-block;
 
-      color: var(--muted);
+      padding: 0.45rem 0.85rem;
+
+      background: var(--primary-light);
+      color: var(--primary-dark);
+
+      border: 1px solid rgba(47, 111, 82, 0.09);
+      border-radius: 999px;
+
       text-decoration: none;
 
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
 
-      border-radius: 6px;
-
-      transition: color var(--transition);
-    }
-
-    .nav-separator {
-      color: var(--section-border);
-      font-weight: 400;
+      transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
     }
 
     .nav-link:hover,
     .nav-link:focus,
     .nav-link:focus-visible,
     .nav-link.active {
-      color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
       text-decoration: none;
       outline: none;
+      transform: translateY(-1px);
     }
 
     /* =========================
@@ -471,6 +478,7 @@
       .nav-links {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       .section {
@@ -489,7 +497,8 @@
 
     @media (max-width: 420px) {
       .nav-link {
-        padding-inline: 0.5rem;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.9rem;
       }
 
       .site-footer {
@@ -540,11 +549,7 @@
 
         <div class="nav-links">
           <a href="#about" class="nav-link">About</a>
-          <span class="nav-separator">·</span>
-
           <a href="#portfolio" class="nav-link">Portfolio</a>
-          <span class="nav-separator">·</span>
-
           <a href="#contact" class="nav-link">Contact</a>
         </div>
 
