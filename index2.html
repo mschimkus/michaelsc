@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta
     name="description"
-    content="Michael Schimkus — GIS Specialist portfolio."
-  />
+    content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
+  >
+
   <title>Michael Schimkus | GIS Specialist</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
     :root {
@@ -22,92 +25,171 @@
       --surface: #ffffff;
       --text: #202a24;
       --muted: #56635b;
+
       --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
+
+      /* Shared 1px card outline */
       --card-border: #7f8b84;
+
+      /* Slightly lighter dividing lines */
       --section-border: #9ca7a1;
-      --shadow: 0 5px 18px rgba(35, 65, 48, 0.07);
+
+      /*
+        Single shared card shadow.
+        This combines the original visible card elevation
+        with the subtle darker edge shadow.
+      */
+      --card-shadow:
+        0 5px 18px rgba(35, 65, 48, 0.07),
+        0 2px 4px rgba(35, 45, 40, 0.24);
+
+      /* Shadow used only by section dividing lines */
       --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
+
       --radius: 12px;
       --max-width: 1100px;
       --transition: 0.2s ease;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 1rem;
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
       background: var(--bg);
       color: var(--text);
       font-family: "Public Sans", sans-serif;
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
-    a {
-      color: inherit;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .site-header {
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
       width: min(calc(100% - 2rem), var(--max-width));
-      margin: 0 auto;
-      padding-bottom: 1.5rem;
+      margin-inline: auto;
     }
+
+    /* =========================
+       Shared Card Styling
+       ========================= */
 
     nav,
     .main-card,
     .project {
       border: 1px solid var(--card-border);
-      box-shadow: var(--shadow);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* =========================
+       Header Card
+       ========================= */
+
+    .site-header {
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
     }
 
     nav {
-      background: var(--surface);
-      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      position: sticky;
+      top: 0.5rem;
+      z-index: 100;
+
+      width: 100%;
+
+      /*
+        Equal top and side spacing.
+        Extra space remains below the specialties.
+      */
       padding: 1.75rem 1.75rem 2.6rem;
+
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: var(--radius);
+
+      backdrop-filter: blur(8px);
     }
 
-    .site-title {
-      margin: 0;
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .nav-title {
+      color: var(--text);
       font-size: 1.65rem;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
     .specialties {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem 0.7rem;
-      margin: 0.65rem 0 0;
+      gap: 0.25rem 0.65rem;
+      margin-top: 0.3rem;
+
       color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1.4;
     }
 
-    .specialty + .specialty::before {
+    .specialty {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .specialty:not(:last-child)::after {
       content: "·";
-      margin-right: 0.7rem;
-      color: var(--section-border);
+      margin-left: 0.65rem;
+      color: #9aa8a0;
+      font-weight: 400;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1.4rem;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .nav-link {
+      padding: 0.5rem 0.85rem;
+
       color: var(--muted);
+      text-decoration: none;
+
       font-size: 1.05rem;
       font-weight: 700;
-      text-decoration: none;
+
+      border-radius: 6px;
+
       transition: color var(--transition);
     }
 
@@ -120,22 +202,28 @@
       outline: none;
     }
 
+    /* =========================
+       Main Card
+       ========================= */
+
     main {
-      width: min(calc(100% - 2rem), var(--max-width));
-      margin: 0 auto;
       padding-bottom: 0.5rem;
     }
 
     .main-card {
       overflow: hidden;
+
       background: var(--surface);
       border-radius: var(--radius);
     }
 
     .section {
       position: relative;
+
+      /*
+        Equal top and side spacing.
+      */
       padding: 1.75rem 1.75rem 1.5rem;
-      scroll-margin-top: 1rem;
     }
 
     .section + .section::before {
@@ -144,155 +232,217 @@
       top: 0;
       left: 1.75rem;
       right: 1.75rem;
+
       height: 1px;
+
       background: var(--section-border);
       box-shadow: var(--divider-shadow);
     }
 
     .section-heading {
-      margin: 0 0 0.9rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .section-title {
+      color: var(--text);
       font-size: 1.65rem;
       font-weight: 700;
       line-height: 1.25;
+      letter-spacing: -0.02em;
     }
 
-    .section p {
-      margin: 0;
-      max-width: 900px;
+    /* =========================
+       About
+       ========================= */
+
+    .about-text {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    /* =========================
+       Portfolio
+       ========================= */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
     }
 
     .project {
       overflow: hidden;
-      margin-top: 1.2rem;
+
       background: var(--surface);
-      border-radius: 10px;
+      border-radius: var(--radius);
+
+      transition: transform var(--transition);
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
     }
 
     .project-image-wrap {
       overflow: hidden;
-      aspect-ratio: 16 / 10;
-      cursor: pointer;
-      background: var(--primary-light);
     }
 
     .project-image {
-      display: block;
       width: 100%;
-      height: 100%;
+      aspect-ratio: 16 / 10;
       object-fit: cover;
-      transition: transform 0.25s ease;
+
+      background: #edf2ee;
+      cursor: zoom-in;
+
+      transition: transform 0.35s ease;
     }
 
-    .project-image:hover {
+    .project:hover .project-image {
       transform: scale(1.02);
     }
 
     .project-content {
-      padding: 1.2rem 1.25rem 1.3rem;
+      padding: 1rem 1.15rem 1.15rem;
     }
 
     .project-title {
-      margin: 0;
-      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+
+      color: var(--text);
+      font-size: 1.08rem;
       font-weight: 700;
       line-height: 1.4;
+      letter-spacing: -0.01em;
     }
 
     .project-description {
-      margin: 0.6rem 0 0;
       color: var(--muted);
+      font-size: 0.92rem;
     }
 
-    .tags {
+    .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.9rem;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
     }
 
     .tag {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
+      padding: 0.22rem 0.55rem;
+
       background: var(--primary-light);
       color: var(--primary-dark);
-      font-size: 0.78rem;
+
+      border: 1px solid rgba(47, 111, 82, 0.09);
+      border-radius: 999px;
+
+      font-size: 0.72rem;
       font-weight: 600;
+      letter-spacing: 0.01em;
     }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-top: 0.25rem;
+    /* =========================
+       Contact
+       ========================= */
+
+    .contact-intro {
+      margin-bottom: 0.85rem;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
-    .form-row {
+    form {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.85rem;
+      gap: 0.8rem;
     }
 
-    .contact-form input,
-    .contact-form textarea {
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    input,
+    textarea {
       width: 100%;
-      border: 1px solid var(--card-border);
-      border-radius: 7px;
-      padding: 0.7rem 0.8rem;
+      padding: 0.65rem 0.8rem;
+
       background: var(--surface);
       color: var(--text);
-      font: inherit;
-      font-size: 0.92rem;
+
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
       outline: none;
+
       transition:
         border-color var(--transition),
         box-shadow var(--transition);
     }
 
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: var(--muted);
-      opacity: 1;
+    input::placeholder,
+    textarea::placeholder {
+      color: #84928a;
     }
 
-    .contact-form input:focus,
-    .contact-form textarea:focus {
+    input:hover,
+    textarea:hover {
+      border-color: var(--card-border);
+    }
+
+    input:focus,
+    textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(52, 127, 92, 0.1);
+      box-shadow: 0 0 0 3px rgba(52, 127, 92, 0.11);
     }
 
-    .contact-form textarea {
+    textarea {
       min-height: 96px;
       resize: vertical;
     }
 
-    .button-row {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .send-button {
+    button {
       width: fit-content;
       margin-left: auto;
       padding: 0.5rem 1rem;
-      border: 0;
-      border-radius: 7px;
+
       background: var(--primary);
       color: #ffffff;
-      font: inherit;
+
+      border: 0;
+      border-radius: 7px;
+
       font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
+
+      box-shadow: 0 3px 8px rgba(52, 127, 92, 0.18);
+
       transition:
-        background var(--transition),
-        transform var(--transition);
+        background-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
     }
 
-    .send-button:hover,
-    .send-button:focus-visible {
+    button:hover {
       background: var(--primary-dark);
-      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(36, 88, 63, 0.22);
     }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(36, 88, 63, 0.18);
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(52, 127, 92, 0.25);
+      outline-offset: 2px;
+    }
+
+    /* =========================
+       Footer
+       ========================= */
 
     .site-footer {
       display: flex;
@@ -300,9 +450,11 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 0.45rem;
+
       width: min(calc(100% - 2rem), var(--max-width));
       margin: 0 auto;
       padding: 0 1rem 1.5rem;
+
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 600;
@@ -312,6 +464,7 @@
     .site-footer a {
       color: var(--muted);
       text-decoration: none;
+
       transition: color var(--transition);
     }
 
@@ -327,72 +480,110 @@
       color: var(--section-border);
     }
 
+    /* =========================
+       Image Viewer
+       ========================= */
+
     .modal {
       position: fixed;
       inset: 0;
       z-index: 1000;
-      display: flex;
+
+      display: none;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
-      background: rgba(20, 27, 23, 0.88);
-      opacity: 0;
-      visibility: hidden;
-      transition:
-        opacity var(--transition),
-        visibility var(--transition);
+
+      padding: 1.5rem;
+
+      background: rgba(15, 25, 20, 0.88);
     }
 
     .modal.is-open {
-      opacity: 1;
-      visibility: visible;
+      display: flex;
     }
 
-    .modal-image {
-      display: block;
-      max-width: min(1200px, 92vw);
-      max-height: 88vh;
+    .modal img {
+      max-width: 95vw;
+      max-height: 90vh;
       object-fit: contain;
-      border-radius: 6px;
+
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
     .modal-close {
       position: absolute;
       top: 1rem;
-      right: 1.25rem;
-      width: 2.5rem;
-      height: 2.5rem;
+      right: 1rem;
+
+      display: grid;
+      place-items: center;
+
+      width: 44px;
+      height: 44px;
       padding: 0;
-      border: 0;
-      background: transparent;
+
+      background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
-      font-size: 2rem;
-      line-height: 1;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+
       cursor: pointer;
+      box-shadow: none;
+
+      transition:
+        background-color var(--transition),
+        transform var(--transition);
     }
 
-    .modal-close:hover,
-    .modal-close:focus-visible {
-      color: #dce7e1;
-      outline: none;
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: rotate(90deg);
     }
+
+    .modal-close svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .modal-close path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    /* =========================
+       Mobile
+       ========================= */
 
     @media (max-width: 700px) {
-      .site-header,
-      main,
-      .site-footer {
-        width: min(calc(100% - 1.5rem), var(--max-width));
-      }
-
       nav {
+        position: static;
+        flex-direction: column;
+        gap: 0.65rem;
+
+        /* Equal top and side spacing */
         padding: 1.25rem 1.25rem 2rem;
       }
 
+      .nav-brand {
+        align-items: center;
+        text-align: center;
+      }
+
+      .specialties {
+        justify-content: center;
+      }
+
       .nav-links {
-        gap: 1rem 1.25rem;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .section {
+        /* Equal top and side spacing */
         padding: 1.25rem 1.25rem 1.3rem;
       }
 
@@ -401,19 +592,43 @@
         right: 1.25rem;
       }
 
-      .form-row {
+      .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
-      .modal {
-        padding: 1rem;
-      }
-
-      .modal-image {
-        max-width: 96vw;
-        max-height: 84vh;
+      .contact-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
       }
     }
+
+    @media (max-width: 420px) {
+      .nav-link {
+        padding-inline: 0.5rem;
+      }
+
+      .specialties {
+        font-size: 0.7rem;
+      }
+
+      .site-footer {
+        padding-inline: 0.75rem;
+        font-size: 0.78rem;
+      }
+
+      .modal {
+        padding: 0.75rem;
+      }
+
+      .modal-close {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+
+    /* =========================
+       Reduced Motion
+       ========================= */
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -421,222 +636,73 @@
       }
 
       *,
-      *::before,
-      *::after {
+      *::before {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
-<body>
+<body id="top">
+
   <header class="site-header">
-    <nav aria-label="Primary navigation">
-      <h1 class="site-title">Michael Schimkus</h1>
+    <div class="container">
 
-      <div class="specialties" aria-label="Areas of expertise">
-        <span class="specialty">Cartography</span>
-        <span class="specialty">Spatial Analysis</span>
-        <span class="specialty">Data Management</span>
-      </div>
+      <nav aria-label="Main navigation">
 
-      <div class="nav-links">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </div>
-    </nav>
+        <div class="nav-brand">
+
+          <div class="nav-title">
+            Michael Schimkus
+          </div>
+
+          <div class="specialties" aria-label="GIS specialties">
+            <span class="specialty">Cartography</span>
+            <span class="specialty">Spatial Analysis</span>
+            <span class="specialty">Data Management</span>
+          </div>
+
+        </div>
+
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+      </nav>
+
+    </div>
   </header>
 
-  <main>
+
+  <main class="container">
+
     <div class="main-card">
-      <section class="section" id="about">
-        <h2 class="section-heading">About</h2>
 
-        <p>
-          I am a GIS Specialist with hands-on experience supporting
-          environmental and utility projects through high-quality spatial
-          analysis, data management, and cartographic deliverables. In my
-          current role, I develop standardized GIS templates, perform QA/QC
-          on spatial datasets, and publish maps and data to ArcGIS Online and
-          Field Maps for field and regulatory use. I have worked closely with
-          multidisciplinary teams and clients to ensure accuracy,
-          consistency, and on-time delivery of GIS products. I would welcome
-          the opportunity to contribute my technical skills and attention to
-          detail to your team.
+      <section id="about" class="section">
+
+        <div class="section-heading">
+          <h1 class="section-title">About</h1>
+        </div>
+
+        <p class="about-text">
+          I am a GIS Specialist with hands-on experience supporting environmental
+          and utility projects through high-quality spatial analysis, data
+          management, and cartographic deliverables. In my current role, I
+          develop standardized GIS templates, perform QA/QC on spatial datasets,
+          and publish maps and data to ArcGIS Online and Field Maps for field and
+          regulatory use. I have worked closely with multidisciplinary teams and
+          clients to ensure accuracy, consistency, and on-time delivery of GIS
+          products. I would welcome the opportunity to contribute my technical
+          skills and attention to detail to your team.
         </p>
+
       </section>
 
-      <section class="section" id="portfolio">
-        <h2 class="section-heading">Portfolio</h2>
 
-        <article class="project">
-          <div class="project-image-wrap">
-            <img
-              class="project-image"
-              src="project1.jpg"
-              alt="Map showing population change in communities outside Joshua Tree National Park"
-              loading="lazy"
-            />
-          </div>
+      <section id="portfolio" class="section">
 
-          <div class="project-content">
-            <h3 class="project-title">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
-
-            <p class="project-description">
-              A cartographic analysis examining population change in communities
-              surrounding Joshua Tree National Park.
-            </p>
-
-            <div class="tags" aria-label="Project skills">
-              <span class="tag">Cartography</span>
-              <span class="tag">Spatial Analysis</span>
-              <span class="tag">GIS</span>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section class="section" id="contact">
-        <h2 class="section-heading">Contact</h2>
-
-        <form class="contact-form">
-          <div class="form-row">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              aria-label="Name"
-              autocomplete="name"
-              required
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              aria-label="Email"
-              autocomplete="email"
-              required
-            />
-          </div>
-
-          <textarea
-            name="message"
-            placeholder="Message"
-            aria-label="Message"
-            required
-          ></textarea>
-
-          <div class="button-row">
-            <button class="send-button" type="submit">
-              Send Message
-            </button>
-          </div>
-        </form>
-      </section>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <span>
-      &copy;
-      <span id="current-year"></span>
-      Michael Schimkus
-    </span>
-
-    <span class="footer-separator">·</span>
-
-    <a href="#about">About</a>
-
-    <span class="footer-separator">·</span>
-
-    <a href="#portfolio">Portfolio</a>
-
-    <span class="footer-separator">·</span>
-
-    <a href="#contact">Contact</a>
-  </footer>
-
-  <div
-    class="modal"
-    id="image-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Expanded project image"
-  >
-    <button
-      class="modal-close"
-      id="modal-close"
-      type="button"
-      aria-label="Close image"
-    >
-      &times;
-    </button>
-
-    <img
-      class="modal-image"
-      id="modal-image"
-      src=""
-      alt=""
-    />
-  </div>
-
-  <script>
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.forEach((item) => {
-          item.classList.toggle("active", item === link);
-        });
-      });
-    });
-
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const modalClose = document.getElementById("modal-close");
-
-    document.querySelectorAll(".project-image").forEach((image) => {
-      image.addEventListener("click", () => {
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
-        modal.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-        modalClose.focus();
-      });
-    });
-
-    function closeModal() {
-      modal.classList.remove("is-open");
-      document.body.style.overflow = "";
-      modalImage.src = "";
-      modalImage.alt = "";
-    }
-
-    modalClose.addEventListener("click", closeModal);
-
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "Escape" &&
-        modal.classList.contains("is-open")
-      ) {
-        closeModal();
-      }
-    });
-  </script>
-</body>
-</html>
+        <div class="section-heading">
+         
