@@ -36,7 +36,7 @@
       /* Slightly lighter dividing lines */
       --section-border: #9ca7a1;
 
-      /* Shared shadow used by dividing lines and card outlines */
+      /* Shared shadow for outlines and dividing lines */
       --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
 
       /* Card elevation */
@@ -106,7 +106,6 @@
 
       border: 1px solid var(--card-border);
       border-radius: inherit;
-
       box-shadow: var(--divider-shadow);
 
       pointer-events: none;
@@ -149,7 +148,6 @@
       background: rgba(255, 255, 255, 0.97);
       border-radius: var(--radius);
 
-      /* Existing elevation + dividing-line shadow */
       box-shadow:
         var(--shadow),
         var(--divider-shadow);
@@ -239,7 +237,6 @@
       background: var(--surface);
       border-radius: var(--radius);
 
-      /* Existing elevation + dividing-line shadow */
       box-shadow:
         var(--shadow),
         var(--divider-shadow);
@@ -252,8 +249,7 @@
       padding: 1.75rem 1.75rem 1.5rem;
     }
 
-    .section + .section::before,
-    .copyright::before {
+    .section + .section::before {
       content: "";
       position: absolute;
       top: 0;
@@ -476,30 +472,43 @@
     }
 
     /* =========================
-       Copyright
+       Footer
        ========================= */
 
-    .copyright {
-      position: relative;
-      padding: 1rem 1.75rem 1.05rem;
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+      padding: 0 1rem 1.5rem;
 
       color: var(--muted);
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.82rem;
+      font-weight: 600;
       text-align: center;
     }
 
-    .copyright-link {
-      color: inherit;
+    .site-footer a {
+      color: var(--muted);
       text-decoration: none;
+
+      transition: color var(--transition);
     }
 
-    .copyright-link:hover,
-    .copyright-link:focus,
-    .copyright-link:focus-visible {
+    .site-footer a:hover,
+    .site-footer a:focus,
+    .site-footer a:focus-visible {
       color: var(--primary);
       text-decoration: none;
       outline: none;
+    }
+
+    .footer-separator {
+      color: #9ca7a1;
     }
 
     /* =========================
@@ -609,14 +618,9 @@
         padding: 1.25rem 1.25rem 1.3rem;
       }
 
-      .section + .section::before,
-      .copyright::before {
+      .section + .section::before {
         left: 1.25rem;
         right: 1.25rem;
-      }
-
-      .copyright {
-        padding-inline: 1.25rem;
       }
 
       .portfolio-grid {
@@ -636,6 +640,11 @@
 
       .specialties {
         font-size: 0.7rem;
+      }
+
+      .site-footer {
+        padding-inline: 0.75rem;
+        font-size: 0.78rem;
       }
 
       .modal {
@@ -658,8 +667,7 @@
       }
 
       *,
-      *::before,
-      *::after {
+      *::before {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
       }
@@ -828,20 +836,32 @@
 
       </section>
 
-
-      <div class="copyright">
-
-        <a href="#top" class="copyright-link">
-          &copy;
-          <span id="current-year"></span>
-          Michael Schimkus
-        </a>
-
-      </div>
-
     </div>
 
   </main>
+
+
+  <footer class="site-footer">
+
+    <span>
+      &copy;
+      <span id="current-year"></span>
+      Michael Schimkus
+    </span>
+
+    <span class="footer-separator">·</span>
+
+    <a href="#about">About</a>
+
+    <span class="footer-separator">·</span>
+
+    <a href="#portfolio">Portfolio</a>
+
+    <span class="footer-separator">·</span>
+
+    <a href="#contact">Contact</a>
+
+  </footer>
 
 
   <div
