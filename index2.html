@@ -30,12 +30,12 @@
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
 
-      /* Shared card outline */
-      --card-border: #99aaa0;
+      /* Shared 1px dark gray-green card outline */
+      --card-border: #7f8b84;
 
-      /* Shared section divider */
-      --section-border: #7f9287;
-      --divider-shadow: 0 2px 4px rgba(35, 65, 48, 0.28);
+      /* Slightly lighter section dividers */
+      --section-border: #9ca7a1;
+      --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
 
       --radius: 12px;
       --shadow: 0 5px 18px rgba(35, 65, 48, 0.07);
@@ -84,13 +84,37 @@
     }
 
     /* =========================
-       Shared Card Borders
+       Shared Card Outlines
        ========================= */
 
     nav,
     .main-card,
     .project {
-      border: 2px solid var(--card-border);
+      position: relative;
+      border: none;
+    }
+
+    nav::before,
+    .main-card::before,
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      border: 1px solid var(--card-border);
+      border-radius: inherit;
+
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+
+    nav::before {
+      z-index: 2;
+    }
+
+    .main-card::before,
+    .project::before {
+      z-index: 5;
     }
 
     /* =========================
@@ -607,8 +631,7 @@
       }
 
       *,
-      *::before,
-      *::after {
+      *::before {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
       }
