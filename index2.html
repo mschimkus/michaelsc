@@ -30,18 +30,17 @@
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
 
-      /* Shared 1px dark gray-green card outline */
+      /* Shared 1px card outline */
       --card-border: #7f8b84;
 
-      /* Slightly lighter dividing lines */
+      /* Slightly lighter section dividers */
       --section-border: #9ca7a1;
 
-      /* Shared shadow for outlines and dividing lines */
-      --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
+      /* Single shared card shadow */
+      --card-shadow: 0 5px 18px rgba(35, 65, 48, 0.07);
 
-      /* Card elevation */
-      --shadow: 0 5px 18px rgba(35, 65, 48, 0.07);
-      --shadow-hover: 0 10px 26px rgba(35, 65, 48, 0.12);
+      /* Shared divider shadow */
+      --divider-shadow: 0 2px 4px rgba(35, 45, 40, 0.24);
 
       --radius: 12px;
       --max-width: 1100px;
@@ -87,38 +86,15 @@
     }
 
     /* =========================
-       Shared Card Outlines
+       Shared Card Styling
        ========================= */
 
     nav,
     .main-card,
     .project {
       position: relative;
-      border: none;
-    }
-
-    nav::before,
-    .main-card::before,
-    .project::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-
       border: 1px solid var(--card-border);
-      border-radius: inherit;
-      box-shadow: var(--divider-shadow);
-
-      pointer-events: none;
-      box-sizing: border-box;
-    }
-
-    nav::before {
-      z-index: 2;
-    }
-
-    .main-card::before,
-    .project::before {
-      z-index: 5;
+      box-shadow: var(--card-shadow);
     }
 
     /* =========================
@@ -147,10 +123,6 @@
 
       background: rgba(255, 255, 255, 0.97);
       border-radius: var(--radius);
-
-      box-shadow:
-        var(--shadow),
-        var(--divider-shadow);
 
       backdrop-filter: blur(8px);
     }
@@ -236,10 +208,6 @@
 
       background: var(--surface);
       border-radius: var(--radius);
-
-      box-shadow:
-        var(--shadow),
-        var(--divider-shadow);
     }
 
     .section {
@@ -299,19 +267,12 @@
       background: var(--surface);
       border-radius: var(--radius);
 
-      box-shadow: var(--divider-shadow);
-
       transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform var(--transition);
     }
 
     .project:hover {
       transform: translateY(-2px);
-
-      box-shadow:
-        var(--shadow-hover),
-        var(--divider-shadow);
     }
 
     .project-image-wrap {
@@ -508,7 +469,7 @@
     }
 
     .footer-separator {
-      color: #9ca7a1;
+      color: var(--section-border);
     }
 
     /* =========================
