@@ -77,6 +77,7 @@
 
     .site-header {
       padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
     }
 
     nav {
@@ -90,7 +91,6 @@
 
       width: 100%;
       padding: 0.9rem 1.5rem;
-      margin-bottom: 1rem;
 
       background: rgba(255, 255, 255, 0.97);
       border: 1px solid var(--border);
@@ -103,6 +103,18 @@
       display: flex;
       flex-direction: column;
       gap: 0.15rem;
+
+      padding: 0.55rem 0.8rem 0.65rem;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(47, 111, 82, 0.08),
+          rgba(47, 111, 82, 0.025) 65%,
+          rgba(47, 111, 82, 0)
+        );
+
+      border-radius: 8px;
     }
 
     .nav-title {
@@ -119,7 +131,7 @@
       flex-wrap: wrap;
       gap: 0.25rem 0.65rem;
 
-      color: var(--primary);
+      color: var(--muted);
       font-size: 0.72rem;
       font-weight: 600;
       line-height: 1.4;
@@ -419,7 +431,20 @@
 
       color: var(--muted);
       font-size: 0.85rem;
+      font-weight: 700;
       text-align: center;
+    }
+
+    .footer-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-link:hover,
+    .footer-link:focus-visible {
+      color: var(--primary);
+      outline: none;
     }
 
     /* Image viewer */
@@ -497,6 +522,10 @@
     /* Mobile */
 
     @media (max-width: 700px) {
+      .site-header {
+        padding-bottom: 1.25rem;
+      }
+
       nav {
         position: static;
         flex-direction: column;
@@ -572,8 +601,7 @@
   </style>
 </head>
 
-
-<body>
+<body id="top">
 
   <header class="site-header">
 
@@ -610,7 +638,6 @@
 
         </div>
 
-
         <div class="nav-links">
 
           <a href="#about" class="nav-link">
@@ -633,7 +660,6 @@
 
   </header>
 
-
   <main class="container">
 
     <section id="about" class="card">
@@ -645,7 +671,6 @@
         </h1>
 
       </div>
-
 
       <p class="about-text">
         I am a GIS Specialist with hands-on experience supporting environmental
@@ -661,7 +686,6 @@
 
     </section>
 
-
     <section id="portfolio" class="card">
 
       <div class="section-heading">
@@ -671,7 +695,6 @@
         </h2>
 
       </div>
-
 
       <div class="portfolio-grid">
 
@@ -688,19 +711,16 @@
 
           </div>
 
-
           <div class="project-content">
 
             <h3 class="project-title">
               Population Change in Communities Outside Joshua Tree National Park
             </h3>
 
-
             <p class="project-description">
               A cartographic analysis examining population change in communities
               surrounding Joshua Tree National Park.
             </p>
-
 
             <div class="project-tags">
 
@@ -726,7 +746,6 @@
 
     </section>
 
-
     <section id="contact" class="card">
 
       <div class="section-heading">
@@ -737,11 +756,9 @@
 
       </div>
 
-
       <p class="contact-intro">
         Interested in working together? Send me a message using the form below.
       </p>
-
 
       <form action="#" method="POST">
 
@@ -761,7 +778,6 @@
 
           </div>
 
-
           <div class="form-group">
 
             <input
@@ -778,7 +794,6 @@
 
         </div>
 
-
         <div class="form-group">
 
           <textarea
@@ -791,7 +806,6 @@
 
         </div>
 
-
         <button type="submit">
           Send Message
         </button>
@@ -802,21 +816,19 @@
 
   </main>
 
-
   <div class="container footer-container">
 
     <footer>
 
-      <p>
+      <a href="#top" class="footer-link">
         &copy;
         <span id="current-year"></span>
         Michael Schimkus
-      </p>
+      </a>
 
     </footer>
 
   </div>
-
 
   <div
     class="modal"
@@ -846,7 +858,6 @@
 
     </button>
 
-
     <img
       id="modal-image"
       src=""
@@ -854,7 +865,6 @@
     >
 
   </div>
-
 
   <script>
 
@@ -868,9 +878,6 @@
 
     const navLinks =
       document.querySelectorAll(".nav-link");
-
-    const sections =
-      document.querySelectorAll("main section");
 
 
     function setActiveLink(id) {
@@ -903,48 +910,6 @@
         }
 
       });
-
-    });
-
-
-    const observer =
-      new IntersectionObserver(
-
-        (entries) => {
-
-          const visible =
-            entries
-              .filter(
-                (entry) => entry.isIntersecting
-              )
-              .sort(
-                (a, b) =>
-                  a.boundingClientRect.top -
-                  b.boundingClientRect.top
-              );
-
-
-          if (visible.length) {
-
-            setActiveLink(
-              visible[0].target.id
-            );
-
-          }
-
-        },
-
-        {
-          rootMargin: "-15% 0px -70% 0px",
-          threshold: 0
-        }
-
-      );
-
-
-    sections.forEach((section) => {
-
-      observer.observe(section);
 
     });
 
