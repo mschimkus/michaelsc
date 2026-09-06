@@ -355,7 +355,7 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
 
       width: min(calc(100% - 2rem), var(--max-width));
       margin: 0 auto;
@@ -368,36 +368,25 @@
     }
 
     .site-footer a {
-      display: inline-block;
-
-      padding: 0.4rem 0.7rem;
-
-      background: var(--primary-light);
       color: var(--primary-dark);
-
-      border: 1px solid rgba(47, 111, 82, 0.09);
-      border-radius: 999px;
-
       text-decoration: none;
 
-      font-size: inherit;
-      font-weight: 600;
-      line-height: 1.4;
-
-      transition:
-        background-color var(--transition),
-        color var(--transition),
-        transform var(--transition);
+      transition: color var(--transition);
     }
 
     .site-footer a:hover,
     .site-footer a:focus,
     .site-footer a:focus-visible {
-      background: var(--primary);
-      color: #ffffff;
+      color: var(--primary);
       text-decoration: none;
       outline: none;
-      transform: translateY(-1px);
+    }
+
+    .footer-separator {
+      color: var(--section-border);
+      font-size: 1rem;
+      line-height: 1;
+      margin-inline: 0.05rem;
     }
 
     /* =========================
@@ -654,7 +643,7 @@
 
         <p class="contact-intro">
           Interested in working together? Feel free to get in touch with me via email at
-          <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>.
+          <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>.<br>
         </p>
 
       </section>
@@ -672,9 +661,15 @@
       Michael Schimkus
     </a>
 
+    <span class="footer-separator">•</span>
+
     <a href="#about">About</a>
 
+    <span class="footer-separator">•</span>
+
     <a href="#portfolio">Portfolio</a>
+
+    <span class="footer-separator">•</span>
 
     <a href="#contact">Contact</a>
 
