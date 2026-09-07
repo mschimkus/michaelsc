@@ -69,9 +69,7 @@
       margin: 0 auto;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* Header */
 
     .site-header {
       padding: 0.5rem 0 1.5rem;
@@ -100,7 +98,6 @@
       align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-left: 0;
     }
 
     .nav-link {
@@ -130,9 +127,7 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       MAIN
-    ========================= */
+    /* Main */
 
     main {
       display: flex;
@@ -170,9 +165,7 @@
       letter-spacing: -0.01em;
     }
 
-    /* =========================
-       ABOUT
-    ========================= */
+    /* About */
 
     .about-text {
       color: var(--muted);
@@ -180,9 +173,7 @@
       text-align: justify;
     }
 
-    /* =========================
-       PORTFOLIO GUIDE
-    ========================= */
+    /* Portfolio */
 
     .portfolio-guide-group {
       display: flex;
@@ -204,11 +195,8 @@
       font-size: 0.96rem;
       font-weight: 600;
       line-height: 1.6;
-      text-align: center;
       cursor: pointer;
-      transition:
-        color var(--transition),
-        transform var(--transition);
+      transition: color var(--transition);
     }
 
     .portfolio-guide-action:hover {
@@ -225,18 +213,6 @@
     .portfolio-guide-action:disabled {
       display: none;
     }
-
-    #portfolioGuidePrev {
-      margin-right: auto;
-    }
-
-    #portfolioGuideNext {
-      margin-left: auto;
-    }
-
-    /* =========================
-       PORTFOLIO
-    ========================= */
 
     .portfolio-area {
       position: relative;
@@ -308,40 +284,29 @@
       line-height: 1.6;
     }
 
-    /* =========================
-       PORTFOLIO ARROWS
-    ========================= */
+    /* Portfolio arrows */
 
     .portfolio-prev,
     .portfolio-next {
       position: absolute;
       top: 50%;
       z-index: 5;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       width: 42px;
       height: 42px;
       padding: 0;
-
       border: 1px solid #cbd6cf;
       border-radius: 50%;
-
       background: #ffffff;
       color: var(--primary-dark);
-
       box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
-
       font-family: inherit;
       font-size: 1.5rem;
       line-height: 1;
-
       cursor: pointer;
-
       transform: translateY(-50%);
-
       transition:
         background var(--transition),
         color var(--transition),
@@ -380,9 +345,7 @@
       pointer-events: none;
     }
 
-    /* =========================
-       EXPERIENCE
-    ========================= */
+    /* Experience */
 
     .experience-text {
       color: var(--muted);
@@ -406,9 +369,7 @@
       margin-top: 0.8rem;
     }
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* Contact */
 
     .contact-intro {
       color: var(--muted);
@@ -427,9 +388,7 @@
       text-decoration: none;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* Footer */
 
     .site-footer {
       padding: 1.25rem 0 1.5rem;
@@ -450,12 +409,9 @@
       text-decoration: none;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* Mobile */
 
     @media (max-width: 700px) {
-
       .site-nav {
         gap: 0.4rem;
         flex-wrap: nowrap;
@@ -484,22 +440,13 @@
         font-size: 0.95rem;
       }
 
-      /* =========================
-         MOBILE PORTFOLIO GUIDE
-      ========================= */
-
-      .portfolio-guide-group {
-        gap: 1rem;
-        margin-bottom: 0.55rem;
-      }
-
       .portfolio-guide-action {
         font-size: 0.95rem;
       }
 
-      /* =========================
-         MOBILE PORTFOLIO
-      ========================= */
+      .portfolio-guide-group {
+        gap: 1rem;
+      }
 
       .portfolio-scroll {
         gap: 1rem;
@@ -515,14 +462,8 @@
         padding-top: 0.8rem;
       }
 
-      /*
-        Keep mobile swipe navigation while also
-        showing the visual project arrows.
-      */
-
       .portfolio-prev,
       .portfolio-next {
-        display: flex;
         width: 38px;
         height: 38px;
         font-size: 1.35rem;
@@ -544,15 +485,9 @@
   </style>
 </head>
 
-
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
-
   <header class="site-header">
-
     <div class="container header-group">
 
       <h1 class="header-title">
@@ -563,7 +498,6 @@
         class="site-nav"
         aria-label="Main navigation"
       >
-
         <a
           class="nav-link active"
           href="#about"
@@ -591,31 +525,23 @@
         >
           Contact
         </a>
-
       </nav>
 
     </div>
-
   </header>
 
 
   <main class="container">
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
     <section
       class="section"
       id="about"
     >
-
       <h2 class="section-title">
         About
       </h2>
 
       <div class="section-card">
-
         <p class="about-text">
           I am a GIS Specialist with hands-on experience supporting
           environmental and utility projects through high-quality spatial
@@ -624,39 +550,24 @@
           on spatial datasets, and publish maps and data to ArcGIS Online and
           Field Maps for field and regulatory use.
         </p>
-
       </div>
-
     </section>
 
-
-    <!-- =========================
-         PORTFOLIO
-    ========================= -->
 
     <section
       class="section"
       id="portfolio"
     >
-
       <h2 class="section-title">
         Portfolio
       </h2>
 
       <div class="section-card">
 
-        <!--
-          Portfolio guide:
-          • First project: View More →
-          • Middle projects: ← View Previous / View More →
-          • Last project: ← View Previous
-        -->
-
         <div
           class="portfolio-guide-group"
-          id="portfolioGuideGroup"
+          aria-label="Portfolio navigation"
         >
-
           <button
             class="portfolio-guide-action"
             id="portfolioGuidePrev"
@@ -674,7 +585,6 @@
           >
             View More →
           </button>
-
         </div>
 
 
@@ -687,194 +597,132 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
-            <!-- =========================
-                 PROJECT 1
-            ========================= -->
-
             <article class="project">
-
               <header class="project-header">
-
                 <h3 class="subheader">
                   Project Title One
                 </h3>
-
               </header>
 
               <div class="project-image-wrap">
-
                 <img
                   class="project-image"
                   src="project-1.jpg"
                   alt="Project one map"
                 >
-
               </div>
 
               <div class="project-content">
-
                 <p class="project-description">
                   Project description goes here. Describe the GIS work,
                   analysis, mapping, data management, or other relevant
                   contributions made for this project.
                 </p>
-
               </div>
-
             </article>
 
 
-            <!-- =========================
-                 PROJECT 2
-            ========================= -->
-
             <article class="project">
-
               <header class="project-header">
-
                 <h3 class="subheader">
                   Project Title Two
                 </h3>
-
               </header>
 
               <div class="project-image-wrap">
-
                 <img
                   class="project-image"
                   src="project-2.jpg"
                   alt="Project two map"
                 >
-
               </div>
 
               <div class="project-content">
-
                 <p class="project-description">
                   Project description goes here. Describe the GIS work,
                   analysis, mapping, data management, or other relevant
                   contributions made for this project.
                 </p>
-
               </div>
-
             </article>
 
 
-            <!-- =========================
-                 PROJECT 3
-            ========================= -->
-
             <article class="project">
-
               <header class="project-header">
-
                 <h3 class="subheader">
                   Project Title Three
                 </h3>
-
               </header>
 
               <div class="project-image-wrap">
-
                 <img
                   class="project-image"
                   src="project-3.jpg"
                   alt="Project three map"
                 >
-
               </div>
 
               <div class="project-content">
-
                 <p class="project-description">
                   Project description goes here. Describe the GIS work,
                   analysis, mapping, data management, or other relevant
                   contributions made for this project.
                 </p>
-
               </div>
-
             </article>
 
 
-            <!-- =========================
-                 PROJECT 4
-            ========================= -->
-
             <article class="project">
-
               <header class="project-header">
-
                 <h3 class="subheader">
                   Project Title Four
                 </h3>
-
               </header>
 
               <div class="project-image-wrap">
-
                 <img
                   class="project-image"
                   src="project-4.jpg"
                   alt="Project four map"
                 >
-
               </div>
 
               <div class="project-content">
-
                 <p class="project-description">
                   Project description goes here. Describe the GIS work,
                   analysis, mapping, data management, or other relevant
                   contributions made for this project.
                 </p>
-
               </div>
-
             </article>
 
 
-            <!-- =========================
-                 PROJECT 5
-            ========================= -->
-
             <article class="project">
-
               <header class="project-header">
-
                 <h3 class="subheader">
                   Project Title Five
                 </h3>
-
               </header>
 
               <div class="project-image-wrap">
-
                 <img
                   class="project-image"
                   src="project-5.jpg"
                   alt="Project five map"
                 >
-
               </div>
 
               <div class="project-content">
-
                 <p class="project-description">
                   Project description goes here. Describe the GIS work,
                   analysis, mapping, data management, or other relevant
                   contributions made for this project.
                 </p>
-
               </div>
-
             </article>
 
           </div>
 
-
-          <!-- LEFT ARROW -->
 
           <button
             class="portfolio-prev"
@@ -884,9 +732,6 @@
           >
             ←
           </button>
-
-
-          <!-- RIGHT ARROW -->
 
           <button
             class="portfolio-next"
@@ -898,21 +743,14 @@
           </button>
 
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =========================
-         EXPERIENCE
-    ========================= -->
 
     <section
       class="section"
       id="experience"
     >
-
       <h2 class="section-title">
         Experience
       </h2>
@@ -924,7 +762,6 @@
         </h3>
 
         <p class="experience-text">
-
           <span class="experience-item">
             <strong>GIS Specialist</strong>,
             <em>Amigo Environmental</em>
@@ -946,7 +783,6 @@
             <em>HANA Resources</em>
             (2022)
           </span>
-
         </p>
 
 
@@ -955,7 +791,6 @@
         </h3>
 
         <p class="experience-text">
-
           <strong>GIS Certificate</strong>,
           <em>Cypress College</em>
           (2022)
@@ -965,23 +800,16 @@
           <strong>B.A. in Anthropology</strong>,
           <em>California State University, Long Beach</em>
           (2013)
-
         </p>
 
       </div>
-
     </section>
 
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
 
     <section
       class="section"
       id="contact"
     >
-
       <h2 class="section-title">
         Contact
       </h2>
@@ -993,11 +821,9 @@
         </h3>
 
         <p class="contact-intro">
-
           <a href="mailto:michaelsc@duck.com">
             michaelsc@duck.com
           </a>
-
         </p>
 
         <br>
@@ -1007,7 +833,6 @@
         </h3>
 
         <p class="contact-intro">
-
           <a
             href="https://www.linkedin.com/in/mschimkus"
             target="_blank"
@@ -1015,24 +840,16 @@
           >
             LinkedIn.com/in/mschimkus/
           </a>
-
         </p>
 
       </div>
-
     </section>
 
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
   <footer class="site-footer">
-
     <div class="container">
-
       <p>
         ©
         <span id="current-year"></span>
@@ -1040,17 +857,11 @@
           Michael Schimkus
         </a>
       </p>
-
     </div>
-
   </footer>
 
 
   <script>
-    /* =========================
-       PORTFOLIO ELEMENTS
-    ========================= */
-
     const portfolioScroll =
       document.getElementById("portfolioScroll");
 
@@ -1070,56 +881,37 @@
       portfolioScroll.querySelectorAll(".project");
 
 
-    /* =========================
-       FIND CURRENT PROJECT
-    ========================= */
-
     function getCurrentProjectIndex() {
-
       if (!projectCards.length) {
         return 0;
       }
 
-      const currentScroll =
+      const scrollLeft =
         portfolioScroll.scrollLeft;
 
-      let closestIndex = 0;
+      let currentIndex = 0;
       let closestDistance = Infinity;
 
-      projectCards.forEach(
-        (project, index) => {
+      projectCards.forEach((project, index) => {
+        const distance =
+          Math.abs(project.offsetLeft - scrollLeft);
 
-          const distance =
-            Math.abs(
-              project.offsetLeft -
-              currentScroll
-            );
-
-          if (distance < closestDistance) {
-
-            closestDistance = distance;
-            closestIndex = index;
-
-          }
-
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          currentIndex = index;
         }
-      );
+      });
 
-      return closestIndex;
+      return currentIndex;
     }
 
 
-    /* =========================
-       SCROLL TO PROJECT
-    ========================= */
-
     function scrollToProject(index) {
-
       if (!projectCards.length) {
         return;
       }
 
-      const clampedIndex =
+      const targetIndex =
         Math.max(
           0,
           Math.min(
@@ -1129,106 +921,49 @@
         );
 
       portfolioScroll.scrollTo({
-
-        left:
-          projectCards[
-            clampedIndex
-          ].offsetLeft,
-
+        left: projectCards[targetIndex].offsetLeft,
         behavior: "smooth"
-
       });
-
     }
 
 
-    /* =========================
-       NEXT PROJECT
-    ========================= */
-
     function scrollToNextProject() {
-
       const currentIndex =
         getCurrentProjectIndex();
 
-      if (
-        currentIndex <
-        projectCards.length - 1
-      ) {
-
-        scrollToProject(
-          currentIndex + 1
-        );
-
+      if (currentIndex < projectCards.length - 1) {
+        scrollToProject(currentIndex + 1);
       }
-
     }
 
 
-    /* =========================
-       PREVIOUS PROJECT
-    ========================= */
-
     function scrollToPreviousProject() {
-
       const currentIndex =
         getCurrentProjectIndex();
 
       if (currentIndex > 0) {
-
-        scrollToProject(
-          currentIndex - 1
-        );
-
+        scrollToProject(currentIndex - 1);
       }
-
     }
 
 
-    /* =========================
-       UPDATE NAVIGATION
-    ========================= */
-
     function updatePortfolioNavigation() {
-
       const currentIndex =
         getCurrentProjectIndex();
 
-      const isFirstProject =
+      const isFirst =
         currentIndex === 0;
 
-      const isLastProject =
-        currentIndex >=
-        projectCards.length - 1;
+      const isLast =
+        currentIndex >= projectCards.length - 1;
 
+      portfolioPrev.disabled = isFirst;
+      portfolioNext.disabled = isLast;
 
-      /*
-        Visual project arrows.
-      */
-
-      portfolioPrev.disabled =
-        isFirstProject;
-
-      portfolioNext.disabled =
-        isLastProject;
-
-
-      /*
-        Text navigation.
-      */
-
-      portfolioGuidePrev.disabled =
-        isFirstProject;
-
-      portfolioGuideNext.disabled =
-        isLastProject;
-
+      portfolioGuidePrev.disabled = isFirst;
+      portfolioGuideNext.disabled = isLast;
     }
 
-
-    /* =========================
-       VISUAL ARROW CONTROLS
-    ========================= */
 
     portfolioPrev.addEventListener(
       "click",
@@ -1240,11 +975,6 @@
       scrollToNextProject
     );
 
-
-    /* =========================
-       TEXT CONTROLS
-    ========================= */
-
     portfolioGuidePrev.addEventListener(
       "click",
       scrollToPreviousProject
@@ -1255,36 +985,19 @@
       scrollToNextProject
     );
 
-
-    /* =========================
-       TRACK SWIPE / SCROLL
-    ========================= */
-
     portfolioScroll.addEventListener(
       "scroll",
       updatePortfolioNavigation,
-      {
-        passive: true
-      }
+      { passive: true }
     );
-
 
     window.addEventListener(
       "resize",
       updatePortfolioNavigation
     );
 
-
-    /*
-      Set initial state.
-    */
-
     updatePortfolioNavigation();
 
-
-    /* =========================
-       FOOTER YEAR
-    ========================= */
 
     document.getElementById(
       "current-year"
@@ -1292,33 +1005,24 @@
       new Date().getFullYear();
 
 
-    /* =========================
-       NAVIGATION ACTIVE STATE
-    ========================= */
-
     document
       .querySelectorAll(".nav-link")
       .forEach((link) => {
 
-        link.addEventListener(
-          "click",
-          () => {
+        link.addEventListener("click", () => {
 
-            document
-              .querySelectorAll(".nav-link")
-              .forEach(
-                (item) => {
+          document
+            .querySelectorAll(".nav-link")
+            .forEach((item) => {
 
-                  item.classList.toggle(
-                    "active",
-                    item === link
-                  );
-
-                }
+              item.classList.toggle(
+                "active",
+                item === link
               );
 
-          }
-        );
+            });
+
+        });
 
       });
   </script>
