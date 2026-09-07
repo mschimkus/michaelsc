@@ -192,55 +192,6 @@
        Portfolio
     ========================= */
 
-    .portfolio-guide-group {
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: 100%;
-      min-height: 1.6rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .portfolio-guide-action {
-      display: inline-flex;
-      align-items: center;
-      padding: 0;
-      border: 0;
-      background: none;
-      color: var(--primary);
-      font-family: inherit;
-      font-size: 0.96rem;
-      font-weight: 600;
-      line-height: 1.6;
-      cursor: pointer;
-      transition: color var(--transition);
-    }
-
-    .portfolio-guide-action:hover {
-      color: var(--primary-dark);
-      text-decoration: none;
-    }
-
-    .portfolio-guide-action:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
-    .portfolio-guide-action:disabled {
-      display: none;
-    }
-
-    #portfolioGuidePrev {
-      position: absolute;
-      left: 0;
-    }
-
-    #portfolioGuideNext {
-      position: absolute;
-      right: 0;
-    }
-
     .portfolio-area {
       position: relative;
       width: 100%;
@@ -305,8 +256,8 @@
       display: block;
       width: 100%;
       height: 100%;
-      border: 0;
       padding: 0;
+      border: 0;
       background: none;
       cursor: zoom-in;
     }
@@ -341,7 +292,123 @@
     }
 
     /* =========================
-       Portfolio Image Overlay
+       Portfolio Guide
+    ========================= */
+
+    .portfolio-guide-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 1.6rem;
+      margin-top: 0.55rem;
+    }
+
+    .portfolio-guide-action {
+      display: inline-flex;
+      align-items: center;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: var(--primary);
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 600;
+      line-height: 1.6;
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+
+    .portfolio-guide-action:hover {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .portfolio-guide-action:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .portfolio-guide-action:disabled {
+      display: none;
+    }
+
+    #portfolioGuidePrev {
+      position: absolute;
+      left: 0;
+    }
+
+    #portfolioGuideNext {
+      position: absolute;
+      right: 0;
+    }
+
+    /* =========================
+       Portfolio Arrows
+    ========================= */
+
+    .portfolio-prev,
+    .portfolio-next {
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid #cbd6cf;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--primary-dark);
+      box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
+      font-family: inherit;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition),
+        opacity var(--transition);
+    }
+
+    .portfolio-prev {
+      left: -0.7rem;
+    }
+
+    .portfolio-next {
+      right: -0.7rem;
+    }
+
+    .portfolio-prev:hover,
+    .portfolio-next:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(35, 65, 48, 0.2);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .portfolio-prev:focus-visible,
+    .portfolio-next:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    .portfolio-prev:disabled,
+    .portfolio-next:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* =========================
+       Full Image Overlay
     ========================= */
 
     .image-overlay {
@@ -422,69 +489,6 @@
     .image-overlay-close:focus-visible {
       outline: 2px solid #ffffff;
       outline-offset: 3px;
-    }
-
-    /* =========================
-       Portfolio Arrows
-    ========================= */
-
-    .portfolio-prev,
-    .portfolio-next {
-      position: absolute;
-      top: 50%;
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      border: 1px solid #cbd6cf;
-      border-radius: 50%;
-      background: #ffffff;
-      color: var(--primary-dark);
-      box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
-      font-family: inherit;
-      font-size: 1.5rem;
-      line-height: 1;
-      cursor: pointer;
-      transform: translateY(-50%);
-      transition:
-        background var(--transition),
-        color var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition),
-        transform var(--transition),
-        opacity var(--transition);
-    }
-
-    .portfolio-prev {
-      left: -0.7rem;
-    }
-
-    .portfolio-next {
-      right: -0.7rem;
-    }
-
-    .portfolio-prev:hover,
-    .portfolio-next:hover {
-      background: var(--primary-light);
-      border-color: var(--primary);
-      color: var(--primary);
-      box-shadow: 0 4px 12px rgba(35, 65, 48, 0.2);
-      transform: translateY(-50%) scale(1.04);
-    }
-
-    .portfolio-prev:focus-visible,
-    .portfolio-next:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 3px;
-    }
-
-    .portfolio-prev:disabled,
-    .portfolio-next:disabled {
-      opacity: 0;
-      pointer-events: none;
     }
 
     /* =========================
@@ -608,6 +612,14 @@
         height: 260px;
       }
 
+      .portfolio-guide-group {
+        margin-top: 0.55rem;
+      }
+
+      .portfolio-guide-action {
+        font-size: 0.95rem;
+      }
+
       .portfolio-prev,
       .portfolio-next {
         width: 38px;
@@ -626,10 +638,6 @@
       .portfolio-prev:hover,
       .portfolio-next:hover {
         transform: translateY(-50%) scale(1.03);
-      }
-
-      .portfolio-guide-action {
-        font-size: 0.95rem;
       }
 
       .image-overlay {
@@ -656,7 +664,7 @@
 
   <!-- =========================
        Header
-  ========================== -->
+  ========================= -->
 
   <header class="site-header">
     <div class="container header-group">
@@ -700,29 +708,6 @@
       <h2 class="section-title">Portfolio</h2>
 
       <div class="section-card">
-
-        <div
-          class="portfolio-guide-group"
-          aria-label="Portfolio navigation"
-        >
-          <button
-            class="portfolio-guide-action"
-            id="portfolioGuidePrev"
-            type="button"
-            aria-label="View previous portfolio project"
-          >
-            ← View Previous
-          </button>
-
-          <button
-            class="portfolio-guide-action"
-            id="portfolioGuideNext"
-            type="button"
-            aria-label="View next portfolio project"
-          >
-            View More →
-          </button>
-        </div>
 
         <div class="portfolio-area">
 
@@ -919,6 +904,32 @@
           </button>
 
         </div>
+
+        <!-- Guide moved below project cards -->
+
+        <div
+          class="portfolio-guide-group"
+          aria-label="Portfolio navigation"
+        >
+          <button
+            class="portfolio-guide-action"
+            id="portfolioGuidePrev"
+            type="button"
+            aria-label="View previous portfolio project"
+          >
+            ← View Previous
+          </button>
+
+          <button
+            class="portfolio-guide-action"
+            id="portfolioGuideNext"
+            type="button"
+            aria-label="View next portfolio project"
+          >
+            View More →
+          </button>
+        </div>
+
       </div>
     </section>
 
@@ -1259,6 +1270,7 @@
         image.alt || "Full-size portfolio image";
 
       imageOverlay.classList.add("is-open");
+
       imageOverlay.setAttribute(
         "aria-hidden",
         "false"
