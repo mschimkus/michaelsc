@@ -197,24 +197,21 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.25rem;
+      gap: 0;
     }
 
     .project {
       overflow: hidden;
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: var(--card-shadow);
-      transition: transform var(--transition);
     }
 
-    .project:hover {
-      transform: translateY(-2px);
+    .project + .project {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--card-border);
     }
 
     .project-header {
-      padding: 1rem 1rem 0.4rem;
+      margin-bottom: 0.4rem;
     }
 
     .project-image-wrap {
@@ -229,28 +226,13 @@
     }
 
     .project-content {
-      padding: 0.75rem 1rem 1rem;
+      padding-top: 0.75rem;
     }
 
     .project-description {
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.6;
-    }
-
-    /*
-      Separator between portfolio projects.
-      This is intentionally separate from the
-      project cards so each project remains its
-      own independent card.
-    */
-    .portfolio-separator {
-      width: 100%;
-      height: 1px;
-      margin: 0.15rem 0;
-      border: 0;
-      background: var(--card-border);
-      opacity: 0.7;
     }
 
     /* =========================
@@ -454,85 +436,84 @@
         Portfolio
       </h2>
 
-      <div class="portfolio-grid">
+      <div class="section-card">
 
-        <!-- PROJECT 1 -->
+        <div class="portfolio-grid">
 
-        <article class="project">
+          <!-- PROJECT 1 -->
 
-          <div class="project-header">
+          <article class="project">
 
-            <h3 class="subheader">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
+            <div class="project-header">
 
-          </div>
+              <h3 class="subheader">
+                Population Change in Communities Outside Joshua Tree National Park
+              </h3>
 
-          <div class="project-image-wrap">
+            </div>
 
-            <img
-              class="project-image"
-              src="project1.jpg"
-              alt="Map showing population change in communities outside Joshua Tree National Park"
-              loading="lazy"
-            >
+            <div class="project-image-wrap">
 
-          </div>
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+                loading="lazy"
+              >
 
-          <div class="project-content">
+            </div>
 
-            <p class="project-description">
-              <em>
-                A cartographic analysis examining population change in
-                communities surrounding Joshua Tree National Park.
-              </em>
-            </p>
+            <div class="project-content">
 
-          </div>
+              <p class="project-description">
+                <em>
+                  A cartographic analysis examining population change in
+                  communities surrounding Joshua Tree National Park.
+                </em>
+              </p>
 
-        </article>
+            </div>
 
-
-        <!-- SEPARATOR -->
-
-        <hr class="portfolio-separator">
+          </article>
 
 
-        <!-- PROJECT 2 PLACEHOLDER -->
+          <!-- PROJECT 2 PLACEHOLDER -->
 
-        <article class="project">
+          <article class="project">
 
-          <div class="project-header">
+            <div class="project-header">
 
-            <h3 class="subheader">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
+              <h3 class="subheader">
+                Population Change in Communities Outside Joshua Tree National Park
+              </h3>
 
-          </div>
+            </div>
 
-          <div class="project-image-wrap">
+            <div class="project-image-wrap">
 
-            <img
-              class="project-image"
-              src="project1.jpg"
-              alt="Map showing population change in communities outside Joshua Tree National Park"
-              loading="lazy"
-            >
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+                loading="lazy"
+              >
 
-          </div>
+            </div>
 
-          <div class="project-content">
+            <div class="project-content">
 
-            <p class="project-description">
-              <em>
-                A cartographic analysis examining population change in
-                communities surrounding Joshua Tree National Park.
-              </em>
-            </p>
+              <p class="project-description">
+                <em>
+                  A cartographic analysis examining population change in
+                  communities surrounding Joshua Tree National Park.
+                </em>
+              </p>
 
-          </div>
+            </div>
 
-        </article>
+          </article>
+
+        </div>
 
       </div>
 
