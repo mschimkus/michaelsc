@@ -140,23 +140,27 @@
     }
 
     /* =========================
-       SECTION CARDS
+       SECTIONS
     ========================= */
 
     .section {
+      width: 100%;
+    }
+
+    .section-title {
+      margin-bottom: 0.45rem;
+      color: var(--title-dark);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .section-card {
       padding: 1.26rem 1.4rem 1.2rem;
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
       background: var(--surface);
       box-shadow: var(--card-shadow);
-    }
-
-    .section-title {
-      margin-bottom: 0.2rem;
-      color: var(--title-dark);
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.3;
     }
 
     /* =========================
@@ -209,11 +213,6 @@
       transform: translateY(-2px);
     }
 
-    /*
-      This class controls spacing only.
-      The project title itself uses the shared
-      .subheader class.
-    */
     .project-header {
       padding: 1rem 1rem 0.4rem;
     }
@@ -316,7 +315,7 @@
         justify-content: center;
       }
 
-      .section {
+      .section-card {
         padding: 0.9rem 1rem 1.04rem;
       }
 
@@ -393,44 +392,39 @@
         Background
       </h2>
 
-      <h3 class="subheader">
-        About Me
-      </h3>
+      <div class="section-card">
 
-      <p class="background-text">
-        I am a GIS Specialist with hands-on experience supporting environmental
-        and utility projects through high-quality spatial analysis, data
-        management, and cartographic deliverables. In my current role, I
-        develop standardized GIS templates, perform QA/QC on spatial datasets,
-        and publish maps and data to ArcGIS Online and Field Maps for field and
-        regulatory use. I have worked closely with multidisciplinary teams and
-        clients to ensure accuracy, consistency, and on-time delivery of GIS
-        products. I would welcome the opportunity to contribute my technical
-        skills and attention to detail to your team.
-      </p>
+        <h3 class="subheader">
+          About Me
+        </h3>
 
-      <br>
+        <p class="background-text">
+          I am a GIS Specialist with hands-on experience supporting environmental
+          and utility projects through high-quality spatial analysis, data
+          management, and cartographic deliverables. In my current role, I
+          develop standardized GIS templates, perform QA/QC on spatial datasets,
+          and publish maps and data to ArcGIS Online and Field Maps for field and
+          regulatory use. I have worked closely with multidisciplinary teams and
+          clients to ensure accuracy, consistency, and on-time delivery of GIS
+          products. I would welcome the opportunity to contribute my technical
+          skills and attention to detail to your team.
+        </p>
 
-      <h3 class="subheader education-subheader">
-        Education
-      </h3>
-
-      <p class="background-text">
-        <strong>
-          Geographic Information Systems Certificate
-        </strong>,
-        <em>
-          Cypress College
-        </em>
         <br>
 
-        <strong>
-          Bachelor of Arts in Anthropology
-        </strong>,
-        <em>
-          California State University, Long Beach
-        </em>
-      </p>
+        <h3 class="subheader education-subheader">
+          Education
+        </h3>
+
+        <p class="background-text">
+          <strong>Geographic Information Systems Certificate</strong>,
+          <em>Cypress College</em><br>
+
+          <strong>Bachelor of Arts in Anthropology</strong>,
+          <em>California State University, Long Beach</em>
+        </p>
+
+      </div>
 
     </section>
 
@@ -496,31 +490,35 @@
         Contact
       </h2>
 
-      <h3 class="subheader">
-        Email:
-      </h3>
+      <div class="section-card">
 
-      <p class="contact-intro">
-        <a href="mailto:michaelsc@duck.com">
-          michaelsc@duck.com
-        </a>
-      </p>
+        <h3 class="subheader">
+          Email:
+        </h3>
 
-      <br>
+        <p class="contact-intro">
+          <a href="mailto:michaelsc@duck.com">
+            michaelsc@duck.com
+          </a>
+        </p>
 
-      <h3 class="subheader">
-        LinkedIn:
-      </h3>
+        <br>
 
-      <p class="contact-intro">
-        <a
-          href="https://www.linkedin.com/in/michael-schimkus-4a781b78/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn Profile
-        </a>
-      </p>
+        <h3 class="subheader">
+          LinkedIn:
+        </h3>
+
+        <p class="contact-intro">
+          <a
+            href="https://www.linkedin.com/in/michael-schimkus-4a781b78/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn Profile
+          </a>
+        </p>
+
+      </div>
 
     </section>
 
