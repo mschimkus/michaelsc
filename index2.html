@@ -21,6 +21,10 @@
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
     crossorigin
   >
   <link
@@ -454,16 +458,13 @@
     }
 
     /*
-      X button:
-      Positioned just above / partially over the
-      top-right corner of the image.
+       The close button is fixed to the viewport and
+       dynamically positioned against the actual image.
     */
 
     .image-overlay-close {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      z-index: 2;
+      position: fixed;
+      z-index: 1001;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -641,14 +642,7 @@
         height: 94vh;
       }
 
-      /*
-        Mobile:
-        Keep the X in the same relative position as desktop,
-        just above / partially over the image's top-right.
-      */
       .image-overlay-close {
-        top: 0.5rem;
-        right: 0.5rem;
         width: 38px;
         height: 38px;
         font-size: 1.45rem;
@@ -659,46 +653,28 @@
 
 <body>
 
+  <!-- =========================
+       Header
+  ========================= -->
+
   <header class="site-header">
     <div class="container header-group">
       <h1 class="header-title">Michael Schimkus</h1>
 
-      <nav
-        class="site-nav"
-        aria-label="Main navigation"
-      >
-        <a
-          class="nav-link active"
-          href="#about"
-        >
-          About
-        </a>
-
-        <a
-          class="nav-link"
-          href="#portfolio"
-        >
-          Portfolio
-        </a>
-
-        <a
-          class="nav-link"
-          href="#experience"
-        >
-          Experience
-        </a>
-
-        <a
-          class="nav-link"
-          href="#contact"
-        >
-          Contact
-        </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#about">About</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
+
+    <!-- =========================
+         About
+    ========================= -->
 
     <section class="section" id="about">
       <h2 class="section-title">About</h2>
@@ -715,6 +691,10 @@
       </div>
     </section>
 
+    <!-- =========================
+         Portfolio
+    ========================= -->
+
     <section class="section" id="portfolio">
       <h2 class="section-title">Portfolio</h2>
 
@@ -728,6 +708,8 @@
             tabindex="0"
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
+
+            <!-- Project 1 -->
 
             <article class="project">
               <div class="project-header">
@@ -760,6 +742,8 @@
               </div>
             </article>
 
+            <!-- Project 2 -->
+
             <article class="project">
               <div class="project-header">
                 <h3 class="subheader">
@@ -790,6 +774,8 @@
                 </p>
               </div>
             </article>
+
+            <!-- Project 3 -->
 
             <article class="project">
               <div class="project-header">
@@ -822,6 +808,8 @@
               </div>
             </article>
 
+            <!-- Project 4 -->
+
             <article class="project">
               <div class="project-header">
                 <h3 class="subheader">
@@ -852,6 +840,8 @@
                 </p>
               </div>
             </article>
+
+            <!-- Project 5 -->
 
             <article class="project">
               <div class="project-header">
@@ -910,6 +900,7 @@
           class="portfolio-guide-group"
           aria-label="Portfolio navigation"
         >
+
           <button
             class="portfolio-guide-action"
             id="portfolioGuidePrev"
@@ -927,10 +918,15 @@
           >
             View More →
           </button>
+
         </div>
 
       </div>
     </section>
+
+    <!-- =========================
+         Experience
+    ========================= -->
 
     <section class="section" id="experience">
       <h2 class="section-title">Experience</h2>
@@ -988,6 +984,10 @@
       </div>
     </section>
 
+    <!-- =========================
+         Contact
+    ========================= -->
+
     <section class="section" id="contact">
       <h2 class="section-title">Contact</h2>
 
@@ -1024,6 +1024,10 @@
 
   </main>
 
+  <!-- =========================
+       Full Image Overlay
+  ========================= -->
+
   <div
     class="image-overlay"
     id="imageOverlay"
@@ -1055,6 +1059,10 @@
 
   </div>
 
+  <!-- =========================
+       Footer
+  ========================= -->
+
   <footer class="site-footer">
     <div class="container">
 
@@ -1070,7 +1078,9 @@
   </footer>
 
   <script>
-    /* Portfolio navigation */
+    /* =========================
+       Portfolio Navigation
+    ========================= */
 
     const portfolioScroll =
       document.getElementById(
@@ -1113,18 +1123,23 @@
       let currentIndex = 0;
       let closestDistance = Infinity;
 
-      projectCards.forEach((project, index) => {
-        const distance =
-          Math.abs(
-            project.offsetLeft -
-            scrollLeft
-          );
+      projectCards.forEach(
+        (project, index) => {
+          const distance =
+            Math.abs(
+              project.offsetLeft -
+              scrollLeft
+            );
 
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          currentIndex = index;
+          if (
+            distance <
+            closestDistance
+          ) {
+            closestDistance = distance;
+            currentIndex = index;
+          }
         }
-      });
+      );
 
       return currentIndex;
     }
@@ -1145,7 +1160,9 @@
 
       portfolioScroll.scrollTo({
         left:
-          projectCards[targetIndex].offsetLeft,
+          projectCards[
+            targetIndex
+          ].offsetLeft,
         behavior: "smooth"
       });
     }
@@ -1233,7 +1250,9 @@
     updatePortfolioNavigation();
 
 
-    /* Image overlay */
+    /* =========================
+       Full Image Overlay
+    ========================= */
 
     const imageOverlay =
       document.getElementById(
@@ -1257,6 +1276,37 @@
 
     let lastFocusedImage = null;
 
+
+    /*
+       Position the X against the actual
+       displayed image, not the overlay container.
+    */
+
+    function positionImageOverlayClose() {
+      if (
+        !imageOverlay.classList.contains(
+          "is-open"
+        ) ||
+        !imageOverlayImage.complete ||
+        !imageOverlayImage.naturalWidth
+      ) {
+        return;
+      }
+
+      const imageRect =
+        imageOverlayImage.getBoundingClientRect();
+
+      const closeSize =
+        imageOverlayClose.offsetWidth;
+
+      imageOverlayClose.style.left =
+        `${imageRect.right - closeSize / 2}px`;
+
+      imageOverlayClose.style.top =
+        `${imageRect.top - closeSize / 2}px`;
+    }
+
+
     function openImageOverlay(button) {
       const fullImage =
         button.getAttribute(
@@ -1266,7 +1316,10 @@
       const image =
         button.querySelector("img");
 
-      if (!fullImage || !image) {
+      if (
+        !fullImage ||
+        !image
+      ) {
         return;
       }
 
@@ -1292,8 +1345,16 @@
         "overlay-open"
       );
 
+      imageOverlayImage.onload =
+        positionImageOverlayClose;
+
+      requestAnimationFrame(
+        positionImageOverlayClose
+      );
+
       imageOverlayClose.focus();
     }
+
 
     function closeImageOverlay() {
       imageOverlay.classList.remove(
@@ -1312,36 +1373,44 @@
       imageOverlayImage.src = "";
       imageOverlayImage.alt = "";
 
+      imageOverlayClose.style.left = "";
+      imageOverlayClose.style.top = "";
+
       if (lastFocusedImage) {
         lastFocusedImage.focus();
       }
     }
 
-    projectImageLinks.forEach((button) => {
-      button.addEventListener(
-        "click",
-        () => {
-          openImageOverlay(button);
-        }
-      );
-    });
+
+    projectImageLinks.forEach(
+      (button) => {
+        button.addEventListener(
+          "click",
+          () => {
+            openImageOverlay(button);
+          }
+        );
+      }
+    );
+
 
     imageOverlayClose.addEventListener(
       "click",
       closeImageOverlay
     );
 
+
     imageOverlay.addEventListener(
       "click",
       (event) => {
         if (
-          event.target ===
-          imageOverlay
+          event.target === imageOverlay
         ) {
           closeImageOverlay();
         }
       }
     );
+
 
     document.addEventListener(
       "keydown",
@@ -1358,7 +1427,25 @@
     );
 
 
-    /* Footer year */
+    /*
+       Keep the X attached to the image when
+       the viewport changes size or orientation.
+    */
+
+    window.addEventListener(
+      "resize",
+      positionImageOverlayClose
+    );
+
+    window.addEventListener(
+      "orientationchange",
+      positionImageOverlayClose
+    );
+
+
+    /* =========================
+       Footer Year
+    ========================= */
 
     document.getElementById(
       "current-year"
@@ -1366,24 +1453,32 @@
       new Date().getFullYear();
 
 
-    /* Navigation active state */
+    /* =========================
+       Navigation Active State
+    ========================= */
 
     document
       .querySelectorAll(".nav-link")
       .forEach((link) => {
+
         link.addEventListener(
           "click",
           () => {
+
             document
               .querySelectorAll(".nav-link")
               .forEach((item) => {
+
                 item.classList.toggle(
                   "active",
                   item === link
                 );
+
               });
+
           }
         );
+
       });
   </script>
 
