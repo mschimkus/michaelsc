@@ -498,9 +498,14 @@
       font-weight: 400;
     }
 
+    /*
+       Block-level items keep wrapped lines aligned
+       with the beginning of the first line.
+    */
+
     .experience-item {
-      display: inline;
-      margin-left: var(--content-indent);
+      display: block;
+      padding-left: var(--content-indent);
     }
 
     .experience-text strong {
@@ -959,15 +964,11 @@
             (2025 – Present)
           </span>
 
-          <br>
-
           <span class="experience-item">
             <strong>GIS Technician</strong>,
             <em>Montrose Environmental Group</em>
             (2022 – 2025)
           </span>
-
-          <br>
 
           <span class="experience-item">
             <strong>GIS Intern</strong>,
@@ -987,8 +988,6 @@
             <strong>Certificate in GIS</strong>,
             <em>Cypress College</em>
           </span>
-
-          <br>
 
           <span class="experience-item">
             <strong>B.A. in Anthropology</strong>,
@@ -1083,7 +1082,7 @@
     <div class="container">
 
       <p>
-        Copyright ©
+        ©
         <span id="current-year"></span>
         Michael Schimkus. All rights reserved.
       </p>
