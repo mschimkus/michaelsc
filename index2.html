@@ -189,13 +189,33 @@
        ========================= */
 
     .portfolio-guide {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      display: block;
       margin-bottom: 0.55rem;
+      padding: 0;
+      border: 0;
+      background: none;
       color: var(--primary-dark);
+      font-family: inherit;
       font-size: 0.96rem;
       font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .portfolio-guide:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .portfolio-guide:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .portfolio-area {
+      position: relative;
+      width: 100%;
     }
 
     .portfolio-scroll {
@@ -209,6 +229,7 @@
       overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: auto;
+      scroll-behavior: smooth;
     }
 
     .portfolio-scroll::-webkit-scrollbar {
@@ -229,10 +250,12 @@
       background: var(--primary);
     }
 
-    /* Project Cards */
+    /* =========================
+       Project Cards
+       ========================= */
 
     .project {
-      flex: 0 0 78%;
+      flex: 0 0 94%;
       min-width: 0;
       padding: 0.9rem;
       border: 1px solid #cbd6cf;
@@ -276,6 +299,57 @@
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.6;
+    }
+
+    /* =========================
+       Desktop Next Button
+       ========================= */
+
+    .portfolio-next {
+      position: absolute;
+      top: 50%;
+      right: -0.7rem;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid #cbd6cf;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--primary-dark);
+      box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
+      font-family: inherit;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+    }
+
+    .portfolio-next:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(35, 65, 48, 0.2);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .portfolio-next:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    .portfolio-next:disabled {
+      opacity: 0;
+      pointer-events: none;
     }
 
     /* =========================
@@ -383,12 +457,12 @@
       }
 
       .portfolio-guide {
-        justify-content: flex-start;
         font-size: 0.95rem;
       }
 
       .portfolio-scroll {
         gap: 1rem;
+        padding-bottom: 0.8rem;
       }
 
       .project {
@@ -402,6 +476,10 @@
 
       .project-description {
         font-size: 0.92rem;
+      }
+
+      .portfolio-next {
+        display: none;
       }
 
       .site-footer {
@@ -490,191 +568,213 @@
 
       <div class="section-card">
 
-        <div class="portfolio-guide">
-          Scroll to view more →
-        </div>
-
-        <div
-          class="portfolio-scroll"
-          tabindex="0"
-          aria-label="Portfolio projects. Scroll horizontally to view more projects."
+        <button
+          class="portfolio-guide"
+          id="portfolioGuide"
+          type="button"
+          aria-label="View next portfolio project"
         >
+          Scroll to view more →
+        </button>
 
-          <!-- Project Card 1 -->
+        <div class="portfolio-area">
 
-          <article class="project">
+          <div
+            class="portfolio-scroll"
+            id="portfolioScroll"
+            tabindex="0"
+            aria-label="Portfolio projects. Scroll horizontally to view more projects."
+          >
 
-            <div class="project-header">
+            <!-- Project Card 1 -->
 
-              <h3 class="subheader">
-                Population Change in Communities Outside Joshua Tree National Park
-              </h3>
+            <article class="project">
 
-            </div>
+              <div class="project-header">
 
-            <div class="project-image-wrap">
+                <h3 class="subheader">
+                  Population Change in Communities Outside Joshua Tree National Park
+                </h3>
 
-              <img
-                class="project-image"
-                src="project1.jpg"
-                alt="Map showing population change in communities outside Joshua Tree National Park"
-              >
+              </div>
 
-            </div>
+              <div class="project-image-wrap">
 
-            <div class="project-content">
+                <img
+                  class="project-image"
+                  src="project1.jpg"
+                  alt="Map showing population change in communities outside Joshua Tree National Park"
+                >
 
-              <p class="project-description">
-                <em>
-                  A cartographic analysis examining population change in
-                  communities surrounding Joshua Tree National Park.
-                </em>
-              </p>
+              </div>
 
-            </div>
+              <div class="project-content">
 
-          </article>
+                <p class="project-description">
+                  <em>
+                    A cartographic analysis examining population change in
+                    communities surrounding Joshua Tree National Park.
+                  </em>
+                </p>
 
+              </div>
 
-          <!-- Project Card 2 -->
+            </article>
 
-          <article class="project">
 
-            <div class="project-header">
+            <!-- Project Card 2 -->
 
-              <h3 class="subheader">
-                Population Change in Communities Outside Joshua Tree National Park
-              </h3>
+            <article class="project">
 
-            </div>
+              <div class="project-header">
 
-            <div class="project-image-wrap">
+                <h3 class="subheader">
+                  Population Change in Communities Outside Joshua Tree National Park
+                </h3>
 
-              <img
-                class="project-image"
-                src="project1.jpg"
-                alt="Map showing population change in communities outside Joshua Tree National Park"
-              >
+              </div>
 
-            </div>
+              <div class="project-image-wrap">
 
-            <div class="project-content">
+                <img
+                  class="project-image"
+                  src="project1.jpg"
+                  alt="Map showing population change in communities outside Joshua Tree National Park"
+                >
 
-              <p class="project-description">
-                <em>
-                  A cartographic analysis examining population change in
-                  communities surrounding Joshua Tree National Park.
-                </em>
-              </p>
+              </div>
 
-            </div>
+              <div class="project-content">
 
-          </article>
+                <p class="project-description">
+                  <em>
+                    A cartographic analysis examining population change in
+                    communities surrounding Joshua Tree National Park.
+                  </em>
+                </p>
 
+              </div>
 
-          <!-- Project Card 3 -->
+            </article>
 
-          <article class="project">
 
-            <div class="project-header">
+            <!-- Project Card 3 -->
 
-              <h3 class="subheader">
-                Project Title
-              </h3>
+            <article class="project">
 
-            </div>
+              <div class="project-header">
 
-            <div class="project-image-wrap">
+                <h3 class="subheader">
+                  Project Title
+                </h3>
 
-              <img
-                class="project-image"
-                src="project3.jpg"
-                alt="Description of project map"
-              >
+              </div>
 
-            </div>
+              <div class="project-image-wrap">
 
-            <div class="project-content">
+                <img
+                  class="project-image"
+                  src="project3.jpg"
+                  alt="Description of project map"
+                >
 
-              <p class="project-description">
-                <em>
-                  Project description goes here.
-                </em>
-              </p>
+              </div>
 
-            </div>
+              <div class="project-content">
 
-          </article>
+                <p class="project-description">
+                  <em>
+                    Project description goes here.
+                  </em>
+                </p>
 
+              </div>
 
-          <!-- Project Card 4 -->
+            </article>
 
-          <article class="project">
 
-            <div class="project-header">
+            <!-- Project Card 4 -->
 
-              <h3 class="subheader">
-                Project Title
-              </h3>
+            <article class="project">
 
-            </div>
+              <div class="project-header">
 
-            <div class="project-image-wrap">
+                <h3 class="subheader">
+                  Project Title
+                </h3>
 
-              <img
-                class="project-image"
-                src="project4.jpg"
-                alt="Description of project map"
-              >
+              </div>
 
-            </div>
+              <div class="project-image-wrap">
 
-            <div class="project-content">
+                <img
+                  class="project-image"
+                  src="project4.jpg"
+                  alt="Description of project map"
+                >
 
-              <p class="project-description">
-                <em>
-                  Project description goes here.
-                </em>
-              </p>
+              </div>
 
-            </div>
+              <div class="project-content">
 
-          </article>
+                <p class="project-description">
+                  <em>
+                    Project description goes here.
+                  </em>
+                </p>
 
+              </div>
 
-          <!-- Project Card 5 -->
+            </article>
 
-          <article class="project">
 
-            <div class="project-header">
+            <!-- Project Card 5 -->
 
-              <h3 class="subheader">
-                Project Title
-              </h3>
+            <article class="project">
 
-            </div>
+              <div class="project-header">
 
-            <div class="project-image-wrap">
+                <h3 class="subheader">
+                  Project Title
+                </h3>
 
-              <img
-                class="project-image"
-                src="project5.jpg"
-                alt="Description of project map"
-              >
+              </div>
 
-            </div>
+              <div class="project-image-wrap">
 
-            <div class="project-content">
+                <img
+                  class="project-image"
+                  src="project5.jpg"
+                  alt="Description of project map"
+                >
 
-              <p class="project-description">
-                <em>
-                  Project description goes here.
-                </em>
-              </p>
+              </div>
 
-            </div>
+              <div class="project-content">
 
-          </article>
+                <p class="project-description">
+                  <em>
+                    Project description goes here.
+                  </em>
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- Desktop next-project button -->
+
+          <button
+            class="portfolio-next"
+            id="portfolioNext"
+            type="button"
+            aria-label="View next portfolio project"
+          >
+            →
+          </button>
 
         </div>
 
@@ -819,13 +919,109 @@
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
+
+    /* =========================
+       Main Navigation
+       ========================= */
+
     document.querySelectorAll(".nav-link").forEach((link) => {
       link.addEventListener("click", () => {
+
         document.querySelectorAll(".nav-link").forEach((item) => {
           item.classList.toggle("active", item === link);
         });
+
       });
     });
+
+
+    /* =========================
+       Portfolio Navigation
+       ========================= */
+
+    const portfolioScroll =
+      document.getElementById("portfolioScroll");
+
+    const portfolioNext =
+      document.getElementById("portfolioNext");
+
+    const portfolioGuide =
+      document.getElementById("portfolioGuide");
+
+    const projectCards =
+      portfolioScroll.querySelectorAll(".project");
+
+
+    function scrollToNextProject() {
+
+      const firstProject = projectCards[0];
+
+      if (!firstProject) {
+        return;
+      }
+
+      const projectWidth =
+        firstProject.offsetWidth;
+
+      const gap =
+        parseFloat(
+          window.getComputedStyle(firstProject).marginRight
+        ) || 0;
+
+      const scrollAmount =
+        projectWidth + gap + 20;
+
+      portfolioScroll.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth"
+      });
+    }
+
+
+    function updatePortfolioButton() {
+
+      const maxScroll =
+        portfolioScroll.scrollWidth -
+        portfolioScroll.clientWidth;
+
+      if (portfolioScroll.scrollLeft >= maxScroll - 5) {
+
+        portfolioNext.disabled = true;
+
+      } else {
+
+        portfolioNext.disabled = false;
+
+      }
+    }
+
+
+    portfolioNext.addEventListener(
+      "click",
+      scrollToNextProject
+    );
+
+
+    portfolioGuide.addEventListener(
+      "click",
+      scrollToNextProject
+    );
+
+
+    portfolioScroll.addEventListener(
+      "scroll",
+      updatePortfolioButton,
+      { passive: true }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      updatePortfolioButton
+    );
+
+
+    updatePortfolioButton();
   </script>
 
 </body>
