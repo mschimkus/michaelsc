@@ -167,4 +167,645 @@
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
       box-shadow: var(--card-shadow);
+      padding: 1.26rem 1.4rem 1.2rem;
+    }
+
+    .background-text {
+      color: var(--muted);
+      font-size: 0.96rem;
+      text-align: justify;
+    }
+
+    .subheader {
+      margin-bottom: 0.2rem;
+      color: var(--primary-dark);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    .education-subheader {
+      margin-bottom: 0.15rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .project {
+      overflow: hidden;
+      background: var(--surface);
+      border-radius: var(--radius);
+      transition: transform var(--transition);
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+    }
+
+    .project-image-wrap {
+      overflow: hidden;
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #edf2ee;
+      cursor: zoom-in;
+      transition: transform 0.35s ease;
+    }
+
+    .project:hover .project-image {
+      transform: scale(1.02);
+    }
+
+    .project-content {
+      padding: 1rem 1.15rem 1.15rem;
+    }
+
+    .project-title {
+      margin-bottom: 0.4rem;
+      color: var(--primary-dark);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    .project-description {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-intro {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact-intro a {
+      color: var(--primary-dark);
+      font-size: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .contact-intro a:hover,
+    .contact-intro a:focus,
+    .contact-intro a:focus-visible {
+      color: var(--primary);
+      text-decoration: none;
+      outline: none;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+      padding: 0 1rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .site-footer a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus,
+    .site-footer a:focus-visible {
+      color: var(--primary);
+      text-decoration: none;
+      outline: none;
+    }
+
+    .footer-separator {
+      color: var(--card-border);
+      font-size: 1rem;
+      line-height: 1;
+      margin-inline: 0.05rem;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(15, 25, 20, 0.88);
+    }
+
+    .modal.is-open {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: none;
+      transition:
+        background-color var(--transition),
+        transform var(--transition);
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: rotate(90deg);
+    }
+
+    .modal-close svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .modal-close path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    @media (max-width: 700px) {
+      .header-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .header-heading {
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .section {
+        padding: 0.9rem 1rem 1.04rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-link {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.9rem;
+      }
+
+      .site-footer {
+        padding-inline: 0.75rem;
+        font-size: 0.78rem;
+      }
+
+      .modal {
+        padding: 0.75rem;
+      }
+
+      .modal-close {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <header class="site-header">
+    <div class="container">
+
+      <div class="header-group">
+
+        <div class="header-heading">
+          <h1 class="header-title">Michael Schimkus</h1>
+        </div>
+
+        <nav aria-label="Main navigation">
+
+          <div class="nav-links">
+            <a href="#background" class="nav-link">Background</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+        </nav>
+
+      </div>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="section-group">
+
+      <div class="section-heading">
+        <h2 class="section-title">Background</h2>
+      </div>
+
+      <section id="background" class="section">
+
+        <h3 class="subheader">About Me</h3>
+
+        <p class="background-text">
+          I am a GIS Specialist with hands-on experience supporting environmental
+          and utility projects through high-quality spatial analysis, data
+          management, and cartographic deliverables. In my current role, I
+          develop standardized GIS templates, perform QA/QC on spatial datasets,
+          and publish maps and data to ArcGIS Online and Field Maps for field and
+          regulatory use. I have worked closely with multidisciplinary teams and
+          clients to ensure accuracy, consistency, and on-time delivery of GIS
+          products. I would welcome the opportunity to contribute my technical
+          skills and attention to detail to your team.
+        </p>
+
+        <br>
+
+        <h3 class="subheader education-subheader">Education</h3>
+
+        <p class="background-text">
+          <strong>Geographic Information Systems Certificate</strong>, <em>Cypress College</em><br>
+          <strong>Bachelor of Arts in Anthropology</strong>, <em>California State University, Long Beach</em>
+        </p>
+
+      </section>
+
+    </div>
+
+    <div class="section-group">
+
+      <div class="section-heading">
+        <h2 class="section-title">Portfolio</h2>
+      </div>
+
+      <section id="portfolio" class="section">
+
+        <div class="portfolio-grid">
+
+          <article class="project">
+
+            <h3 class="project-title">
+              Population Change in Communities Outside Joshua Tree National Park
+            </h3>
+
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="project-content">
+
+              <p class="project-description">
+                <em>A cartographic analysis examining population change in communities
+                surrounding Joshua Tree National Park.</em>
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <div class="section-group">
+
+      <div class="section-heading">
+        <h2 class="section-title">Contact</h2>
+      </div>
+
+      <section id="contact" class="section">
+
+        <h3 class="subheader">Email:</h3>
+
+        <p class="contact-intro">
+          <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>
+        </p>
+
+        <h3 class="subheader">LinkedIn:</h3>
+
+        <p class="contact-intro">
+          <a
+            href="https://www.linkedin.com/in/michael-schimkus-4a781b78/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn Profile
+          </a>
+        </p>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-links">
+
+      <a href="#background">Background</a>
+
+      <span class="footer-separator">•</span>
+
+      <a href="#portfolio">Portfolio</a>
+
+      <span class="footer-separator">•</span>
+
+      <a href="#contact">Contact</a>
+
+    </div>
+
+    <div>
+      <a href="#top">
+        &copy;
+        <span id="current-year"></span>
+        Michael Schimkus
+      </a>
+    </div>
+
+  </footer>
+
+  <div
+    class="modal"
+    id="image-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded portfolio image"
+  >
+
+    <button
+      class="modal-close"
+      id="modal-close"
+      type="button"
+      aria-label="Close image"
+    >
+
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6L18 18"></path>
+        <path d="M18 6L6 18"></path>
+      </svg>
+
+    </button>
+
+    <img id="modal-image" src="" alt="">
+
+  </div>
+
+  <script>
+    /* Copyright year */
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+
+    /* Navigation */
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.forEach((item) => {
+          item.classList.toggle("active", item === link);
+        });
+      });
+    });
+
+
+    /* Image viewer */
+
+    const modal = document.getElementById("image-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalClose = document.getElementById("modal-close");
+
+    document.querySelectorAll(".project-image").forEach((image) => {
+      image.addEventListener("click", () => {
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+
+        modalClose.focus();
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+      modalImage.src = "";
+      modalImage.alt = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        modal.classList.contains("is-open")
+      ) {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
+      /* Shared card shadow */
+      --card-shadow:
+        0 5px 18px rgba(35, 65, 48, 0.14);
+
+      --radius: 12px;
+      --max-width: 1100px;
+      --transition: 0.2s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 1rem;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--primary-dark);
+      font-family: "Public Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      padding-top: 0.5rem;
+      padding-bottom: 1.2rem;
+    }
+
+    .header-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .header-heading {
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      color: var(--title-dark);
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.6rem;
+    }
+
+    .nav-link {
+      display: inline-block;
+      padding: 0.45rem 0.85rem;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid rgba(47, 111, 82, 0.09);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+      transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-heading {
+      margin-bottom: 0.2rem;
+    }
+
+    .section-title {
+      color: var(--title-dark);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
       padding: 
