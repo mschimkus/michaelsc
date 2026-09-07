@@ -184,17 +184,6 @@
       line-height: 1.4;
     }
 
-    .subheader a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .subheader a:hover,
-    .subheader a:focus-visible {
-      color: inherit;
-      text-decoration: none;
-    }
-
     /* =========================
        About
     ========================= */
@@ -1061,7 +1050,7 @@
       <div class="section-card">
 
         <p class="contact-text">
-          Get in touch via email at
+          Get in touch with me via email at
           <a href="mailto:michaelsc@duck.com">
             michaelsc@duck.com
           </a>
@@ -1164,7 +1153,7 @@
 
 
     projectCards.forEach(
-      (project, index) => {
+      (_, index) => {
 
         const dot =
           document.createElement("button");
