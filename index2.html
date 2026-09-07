@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Michael Schimkus | GIS Specialist</title>
 
   <meta
     name="description"
     content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
   >
 
-  <title>Michael Schimkus | GIS Specialist</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
@@ -24,29 +23,18 @@
       --bg: #f5f8f6;
       --surface: #ffffff;
       --muted: #56635b;
-
       --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
-
-      /* Slightly darker color for main titles */
       --title-dark: #1d4934;
-
-      /* Shared 1px card outline */
       --card-border: #7f8b84;
-
-      /* Shared card shadow */
-      --card-shadow:
-        0 5px 18px rgba(35, 65, 48, 0.14);
-
+      --card-shadow: 0 5px 18px rgba(35, 65, 48, 0.14);
       --radius: 12px;
       --max-width: 1100px;
       --transition: 0.2s ease;
     }
 
-    *,
-    *::before,
-    *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -54,14 +42,12 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 1rem;
     }
 
     body {
-      min-height: 100vh;
       background: var(--bg);
-      color: var(--primary-dark);
-      font-family: "Public Sans", sans-serif;
+      color: var(--muted);
+      font-family: "Public Sans", Arial, sans-serif;
       line-height: 1.6;
     }
 
@@ -70,18 +56,21 @@
       max-width: 100%;
     }
 
-    button {
-      font: inherit;
+    a {
+      color: inherit;
     }
 
     .container {
       width: min(calc(100% - 2rem), var(--max-width));
-      margin-inline: auto;
+      margin: 0 auto;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     .site-header {
-      padding-top: 0.5rem;
-      padding-bottom: 1.2rem;
+      padding: 0.5rem 0 1.2rem;
     }
 
     .header-group {
@@ -91,52 +80,48 @@
       gap: 2rem;
     }
 
-    .header-heading {
-      flex-shrink: 0;
-    }
-
     .header-title {
       color: var(--title-dark);
       font-size: 1.75rem;
       font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
 
-    .nav-links {
+    .site-nav {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
     .nav-link {
       display: inline-block;
       padding: 0.45rem 0.85rem;
+      border: 1px solid rgba(52, 127, 92, 0.15);
+      border-radius: 999px;
       background: var(--primary-light);
       color: var(--primary-dark);
-      border: 1px solid rgba(47, 111, 82, 0.09);
-      border-radius: 999px;
-      text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      line-height: 1.4;
+      text-decoration: none;
       transition:
-        background-color var(--transition),
+        background var(--transition),
         color var(--transition),
         transform var(--transition);
     }
 
     .nav-link:hover,
     .nav-link:focus,
-    .nav-link:focus-visible,
     .nav-link.active {
       background: var(--primary);
       color: #ffffff;
-      text-decoration: none;
-      outline: none;
       transform: translateY(-1px);
+      outline: none;
     }
+
+    /* =========================
+       MAIN
+    ========================= */
 
     main {
       display: flex;
@@ -145,41 +130,30 @@
       padding-bottom: 0.75rem;
     }
 
-    .section-group {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .section-heading {
-      margin-bottom: 0.2rem;
+    .section {
+      padding: 1.26rem 1.4rem 1.2rem;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
     }
 
     .section-title {
+      margin-bottom: 0.2rem;
       color: var(--title-dark);
       font-size: 1.65rem;
       font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
+      line-height: 1.3;
     }
 
-    .section {
-      background: var(--surface);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      padding: 1.26rem 1.4rem 1.2rem;
-    }
-
-    .background-text {
-      color: var(--muted);
-      font-size: 0.96rem;
-      text-align: justify;
-    }
+    /* =========================
+       SHARED SUBHEADERS
+    ========================= */
 
     .subheader {
       margin-bottom: 0.2rem;
       color: var(--primary);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
       line-height: 1.4;
       letter-spacing: -0.01em;
@@ -189,6 +163,20 @@
       margin-bottom: 0.15rem;
     }
 
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    .background-text {
+      color: var(--muted);
+      font-size: 0.96rem;
+      text-align: justify;
+    }
+
+    /* =========================
+       PORTFOLIO
+    ========================= */
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -197,8 +185,10 @@
 
     .project {
       overflow: hidden;
-      background: var(--surface);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
       transition: transform var(--transition);
     }
 
@@ -206,8 +196,13 @@
       transform: translateY(-2px);
     }
 
+    .project-title {
+      margin: 0;
+      padding: 1rem 1rem 0.4rem;
+    }
+
     .project-image-wrap {
-      overflow: hidden;
+      width: 100%;
     }
 
     .project-image {
@@ -218,22 +213,18 @@
     }
 
     .project-content {
-      padding: 1rem 1.15rem 1.15rem;
-    }
-
-    .project-title {
-      margin-bottom: 0.4rem;
-      color: var(--primary-dark);
-      font-size: 1.08rem;
-      font-weight: 700;
-      line-height: 1.4;
-      letter-spacing: -0.01em;
+      padding: 0.75rem 1rem 1rem;
     }
 
     .project-description {
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.6;
     }
+
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact-intro {
       color: var(--muted);
@@ -249,12 +240,15 @@
     }
 
     .contact-intro a:hover,
-    .contact-intro a:focus,
-    .contact-intro a:focus-visible {
+    .contact-intro a:focus {
       color: var(--primary);
       text-decoration: none;
       outline: none;
     }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     .site-footer {
       display: flex;
@@ -284,49 +278,40 @@
       outline: none;
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 700px) {
-      .header-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.65rem;
+      .site-header {
+        padding-bottom: 1rem;
       }
 
-      .header-heading {
+      .header-group {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.9rem;
         text-align: center;
       }
 
-      .nav-links {
+      .site-nav {
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.5rem;
       }
 
       .section {
         padding: 0.9rem 1rem 1.04rem;
       }
-    }
 
-    @media (max-width: 420px) {
-      .nav-link {
-        padding: 0.4rem 0.7rem;
-        font-size: 0.9rem;
+      .section-title {
+        font-size: 1.5rem;
       }
 
-      .site-footer {
-        padding-inline: 0.75rem;
-        font-size: 0.78rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+      .subheader {
+        font-size: 1.2rem;
       }
 
-      *,
-      *::before {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
+      .portfolio-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -335,141 +320,140 @@
 <body id="top">
 
   <header class="site-header">
-    <div class="container">
+    <div class="container header-group">
 
-      <div class="header-group">
-
-        <div class="header-heading">
-          <h1 class="header-title">Michael Schimkus</h1>
-        </div>
-
-        <nav aria-label="Main navigation">
-
-          <div class="nav-links">
-            <a href="#background" class="nav-link">Background</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
-            <a href="#contact" class="nav-link">Contact</a>
-          </div>
-
-        </nav>
-
+      <div class="header-title">
+        Michael Schimkus
       </div>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link active" href="#background">Background</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
 
     </div>
   </header>
 
   <main class="container">
 
-    <div class="section-group">
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
 
-      <div class="section-heading">
-        <h2 class="section-title">Background</h2>
+    <section id="background" class="section">
+
+      <h2 class="section-title">Background</h2>
+
+      <h3 class="subheader">About Me</h3>
+
+      <p class="background-text">
+        I am a GIS Specialist with hands-on experience supporting environmental
+        and utility projects through high-quality spatial analysis, data
+        management, and cartographic deliverables. In my current role, I
+        develop standardized GIS templates, perform QA/QC on spatial datasets,
+        and publish maps and data to ArcGIS Online and Field Maps for field and
+        regulatory use. I have worked closely with multidisciplinary teams and
+        clients to ensure accuracy, consistency, and on-time delivery of GIS
+        products. I would welcome the opportunity to contribute my technical
+        skills and attention to detail to your team.
+      </p>
+
+      <br>
+
+      <h3 class="subheader education-subheader">Education</h3>
+
+      <p class="background-text">
+        <strong>Geographic Information Systems Certificate</strong>,
+        <em>Cypress College</em><br>
+        <strong>Bachelor of Arts in Anthropology</strong>,
+        <em>California State University, Long Beach</em>
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         PORTFOLIO
+    ========================== -->
+
+    <section id="portfolio" class="section">
+
+      <h2 class="section-title">Portfolio</h2>
+
+      <div class="portfolio-grid">
+
+        <article class="project">
+
+          <h3 class="subheader project-title">
+            Population Change in Communities Outside Joshua Tree National Park
+          </h3>
+
+          <div class="project-image-wrap">
+            <img
+              class="project-image"
+              src="project1.jpg"
+              alt="Map showing population change in communities outside Joshua Tree National Park"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <p class="project-description">
+              <em>
+                A cartographic analysis examining population change in
+                communities surrounding Joshua Tree National Park.
+              </em>
+            </p>
+
+          </div>
+
+        </article>
+
       </div>
 
-      <section id="background" class="section">
+    </section>
 
-        <h3 class="subheader">About Me</h3>
 
-        <p class="background-text">
-          I am a GIS Specialist with hands-on experience supporting environmental
-          and utility projects through high-quality spatial analysis, data
-          management, and cartographic deliverables. In my current role, I
-          develop standardized GIS templates, perform QA/QC on spatial datasets,
-          and publish maps and data to ArcGIS Online and Field Maps for field and
-          regulatory use. I have worked closely with multidisciplinary teams and
-          clients to ensure accuracy, consistency, and on-time delivery of GIS
-          products. I would welcome the opportunity to contribute my technical
-          skills and attention to detail to your team.
-        </p>
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
-        <br>
+    <section id="contact" class="section">
 
-        <h3 class="subheader education-subheader">Education</h3>
+      <h2 class="section-title">Contact</h2>
 
-        <p class="background-text">
-          <strong>Geographic Information Systems Certificate</strong>, <em>Cypress College</em><br>
-          <strong>Bachelor of Arts in Anthropology</strong>, <em>California State University, Long Beach</em>
-        </p>
+      <h3 class="subheader">Email:</h3>
 
-      </section>
+      <p class="contact-intro">
+        <a href="mailto:michaelsc@duck.com">
+          michaelsc@duck.com
+        </a>
+      </p>
 
-    </div>
+      <br>
 
-    <div class="section-group">
+      <h3 class="subheader">LinkedIn:</h3>
 
-      <div class="section-heading">
-        <h2 class="section-title">Portfolio</h2>
-      </div>
+      <p class="contact-intro">
+        <a
+          href="https://www.linkedin.com/in/michael-schimkus-4a781b78/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn Profile
+        </a>
+      </p>
 
-      <section id="portfolio" class="section">
-
-        <div class="portfolio-grid">
-
-          <article class="project">
-
-            <h3 class="project-title">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
-
-            <div class="project-image-wrap">
-              <img
-                class="project-image"
-                src="project1.jpg"
-                alt="Map showing population change in communities outside Joshua Tree National Park"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="project-content">
-
-              <p class="project-description">
-                <em>A cartographic analysis examining population change in communities
-                surrounding Joshua Tree National Park.</em>
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </section>
-
-    </div>
-
-    <div class="section-group">
-
-      <div class="section-heading">
-        <h2 class="section-title">Contact</h2>
-      </div>
-
-      <section id="contact" class="section">
-
-        <h3 class="subheader">Email:</h3>
-
-        <p class="contact-intro">
-          <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>
-        </p>
-
-        <br>
-
-        <h3 class="subheader">LinkedIn:</h3>
-
-        <p class="contact-intro">
-          <a
-            href="https://www.linkedin.com/in/michael-schimkus-4a781b78/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn Profile
-          </a>
-        </p>
-
-      </section>
-
-    </div>
+    </section>
 
   </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer class="site-footer">
 
@@ -483,14 +467,10 @@
 
   </footer>
 
-  <script>
-    /* Copyright year */
 
+  <script>
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
-
-
-    /* Navigation */
 
     const navLinks = document.querySelectorAll(".nav-link");
 
