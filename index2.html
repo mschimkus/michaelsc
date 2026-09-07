@@ -18,34 +18,33 @@
     rel="preconnect"
     href="https://fonts.googleapis.com"
   >
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
     crossorigin
   >
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet"
   >
 
   <style>
     :root {
-      --bg: #fafbfa;
+      --bg: #f3f6f4;
       --surface: #ffffff;
       --muted: #56635b;
       --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
       --title-dark: #1d4934;
-      --card-border: #7f8b84;
+      --card-border: #d3dad5;
       --card-shadow: 0 5px 18px rgba(35, 65, 48, 0.14);
       --radius: 12px;
       --max-width: 1100px;
       --transition: 0.2s ease;
+      --content-indent: 5px;
     }
 
     * {
@@ -64,7 +63,7 @@
       min-height: 100vh;
       background: var(--bg);
       color: var(--muted);
-      font-family: "Public Sans", sans-serif;
+      font-family: "Inter", sans-serif;
       line-height: 1.6;
     }
 
@@ -100,8 +99,10 @@
 
     .header-title {
       color: var(--title-dark);
+      font-family: "Inter", sans-serif;
       font-size: 1.896rem;
       font-weight: 700;
+      letter-spacing: -0.025em;
       line-height: 1.3;
       text-align: center;
       white-space: nowrap;
@@ -118,10 +119,11 @@
     .nav-link {
       display: inline-block;
       padding: 0.125rem 0.85rem;
-      border: 1px solid #d5e4da;
+      border: 1px solid #d3dad5;
       border-radius: 999px;
-      background: var(--primary-light);
+      background: var(--surface);
       color: var(--primary-dark);
+      font-family: "Inter", sans-serif;
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
@@ -159,9 +161,12 @@
 
     .section-title {
       margin-bottom: 0.1rem;
+      padding-left: var(--content-indent);
       color: var(--title-dark);
+      font-family: "Inter", sans-serif;
       font-size: 1.564rem;
       font-weight: 700;
+      letter-spacing: -0.025em;
       line-height: 1.3;
     }
 
@@ -176,10 +181,11 @@
     .subheader {
       margin-bottom: 0.2rem;
       color: var(--primary);
+      font-family: "Inter", sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1.4;
-      letter-spacing: -0.01em;
     }
 
     /* =========================
@@ -189,6 +195,7 @@
     .about-text {
       color: var(--muted);
       font-size: 0.96rem;
+      font-weight: 400;
       text-align: justify;
     }
 
@@ -228,12 +235,6 @@
       background: #f7faf8;
       box-shadow: 0 3px 10px rgba(35, 65, 48, 0.07);
       scroll-snap-align: start;
-    }
-
-    .project + .project {
-      margin-top: 0;
-      padding-top: 0.9rem;
-      border-top: 1px solid #cbd6cf;
     }
 
     .project-header {
@@ -292,60 +293,54 @@
     .project-description {
       color: var(--muted);
       font-size: 0.92rem;
+      font-weight: 400;
       line-height: 1.6;
     }
 
     /* =========================
-       Portfolio Guide
+       Portfolio Pagination
     ========================= */
 
-    .portfolio-guide-group {
-      position: relative;
+    .portfolio-pagination {
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
       width: 100%;
       min-height: 1.6rem;
       margin-top: 0.55rem;
+      padding: 0.1rem 0;
     }
 
-    .portfolio-guide-action {
-      display: inline-flex;
-      align-items: center;
+    .portfolio-dot {
+      display: block;
+      width: 9px;
+      height: 9px;
       padding: 0;
       border: 0;
-      background: none;
-      color: var(--primary);
-      font-family: inherit;
-      font-size: 0.96rem;
-      font-weight: 600;
-      line-height: 1.6;
+      border-radius: 999px;
+      background: var(--primary);
       cursor: pointer;
-      transition: color var(--transition);
+      transition:
+        width var(--transition),
+        height var(--transition),
+        background var(--transition),
+        transform var(--transition);
     }
 
-    .portfolio-guide-action:hover {
-      color: var(--primary-dark);
-      text-decoration: none;
+    .portfolio-dot:hover {
+      transform: scale(1.15);
     }
 
-    .portfolio-guide-action:focus-visible {
+    .portfolio-dot:focus-visible {
       outline: 2px solid var(--primary);
-      outline-offset: 3px;
-      border-radius: 2px;
+      outline-offset: 4px;
     }
 
-    .portfolio-guide-action:disabled {
-      display: none;
-    }
-
-    #portfolioGuidePrev {
-      position: absolute;
-      left: 0;
-    }
-
-    #portfolioGuideNext {
-      position: absolute;
-      right: 0;
+    .portfolio-dot.active {
+      width: 42px;
+      height: 9px;
+      background: var(--title-dark);
     }
 
     /* =========================
@@ -368,7 +363,7 @@
       background: #ffffff;
       color: var(--primary-dark);
       box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
-      font-family: inherit;
+      font-family: "Inter", sans-serif;
       font-size: 1.5rem;
       line-height: 1;
       cursor: pointer;
@@ -457,11 +452,6 @@
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     }
 
-    /*
-       The close button is fixed to the viewport and
-       dynamically positioned against the actual image.
-    */
-
     .image-overlay-close {
       position: fixed;
       z-index: 1001;
@@ -475,7 +465,7 @@
       border-radius: 50%;
       background: #ffffff;
       color: var(--primary-dark);
-      font-family: inherit;
+      font-family: "Inter", sans-serif;
       font-size: 1.65rem;
       font-weight: 600;
       line-height: 1;
@@ -505,19 +495,22 @@
     .experience-text {
       color: var(--muted);
       font-size: 0.96rem;
+      font-weight: 400;
     }
 
     .experience-item {
       display: inline;
+      margin-left: var(--content-indent);
     }
 
     .experience-text strong {
       color: var(--title-dark);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .experience-text em {
       font-style: italic;
+      font-weight: 400;
     }
 
     .education-subheader {
@@ -529,8 +522,10 @@
     ========================= */
 
     .contact-intro {
+      padding-left: var(--content-indent);
       color: var(--muted);
       font-size: 0.96rem;
+      font-weight: 400;
     }
 
     .contact-intro a {
@@ -553,7 +548,7 @@
       padding: 1.25rem 0 1.5rem;
       color: var(--muted);
       font-size: 0.88rem;
-      font-weight: 700;
+      font-weight: 600;
       text-align: center;
     }
 
@@ -625,12 +620,19 @@
         transform: translateY(-50%) scale(1.03);
       }
 
-      .portfolio-guide-group {
+      .portfolio-pagination {
+        gap: 0.7rem;
         margin-top: 0.55rem;
       }
 
-      .portfolio-guide-action {
-        font-size: 0.95rem;
+      .portfolio-dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      .portfolio-dot.active {
+        width: 36px;
+        height: 8px;
       }
 
       .image-overlay {
@@ -661,11 +663,37 @@
     <div class="container header-group">
       <h1 class="header-title">Michael Schimkus</h1>
 
-      <nav class="site-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="#about">About</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#experience">Experience</a>
-        <a class="nav-link" href="#contact">Contact</a>
+      <nav
+        class="site-nav"
+        aria-label="Main navigation"
+      >
+        <a
+          class="nav-link active"
+          href="#about"
+        >
+          About
+        </a>
+
+        <a
+          class="nav-link"
+          href="#portfolio"
+        >
+          Portfolio
+        </a>
+
+        <a
+          class="nav-link"
+          href="#experience"
+        >
+          Experience
+        </a>
+
+        <a
+          class="nav-link"
+          href="#contact"
+        >
+          Contact
+        </a>
       </nav>
     </div>
   </header>
@@ -896,29 +924,15 @@
 
         </div>
 
+        <!-- =========================
+             Portfolio Pagination
+        ========================= -->
+
         <div
-          class="portfolio-guide-group"
-          aria-label="Portfolio navigation"
+          class="portfolio-pagination"
+          id="portfolioPagination"
+          aria-label="Portfolio project navigation"
         >
-
-          <button
-            class="portfolio-guide-action"
-            id="portfolioGuidePrev"
-            type="button"
-            aria-label="View previous portfolio project"
-          >
-            ← View Previous
-          </button>
-
-          <button
-            class="portfolio-guide-action"
-            id="portfolioGuideNext"
-            type="button"
-            aria-label="View next portfolio project"
-          >
-            View More →
-          </button>
-
         </div>
 
       </div>
@@ -969,15 +983,17 @@
 
         <p class="experience-text">
 
-          <strong>GIS Certificate</strong>,
-          <em>Cypress College</em>
-          (2022)
+          <span class="experience-item">
+            <strong>Certificate in GIS</strong>,
+            <em>Cypress College</em>
+          </span>
 
           <br>
 
-          <strong>B.A. in Anthropology</strong>,
-          <em>California State University, Long Beach</em>
-          (2013)
+          <span class="experience-item">
+            <strong>B.A. in Anthropology</strong>,
+            <em>California State University, Long Beach</em>
+          </span>
 
         </p>
 
@@ -1067,11 +1083,9 @@
     <div class="container">
 
       <p>
-        ©
+        Copyright ©
         <span id="current-year"></span>
-        <a href="#about">
-          Michael Schimkus
-        </a>
+        Michael Schimkus. All rights reserved.
       </p>
 
     </div>
@@ -1097,20 +1111,57 @@
         "portfolioNext"
       );
 
-    const portfolioGuidePrev =
+    const portfolioPagination =
       document.getElementById(
-        "portfolioGuidePrev"
-      );
-
-    const portfolioGuideNext =
-      document.getElementById(
-        "portfolioGuideNext"
+        "portfolioPagination"
       );
 
     const projectCards =
       portfolioScroll.querySelectorAll(
         ".project"
       );
+
+
+    /*
+       Create one pagination dot for each
+       portfolio project.
+    */
+
+    projectCards.forEach(
+      (project, index) => {
+
+        const dot =
+          document.createElement("button");
+
+        dot.className =
+          "portfolio-dot";
+
+        dot.type = "button";
+
+        dot.setAttribute(
+          "aria-label",
+          `View portfolio project ${index + 1}`
+        );
+
+        dot.addEventListener(
+          "click",
+          () => {
+            scrollToProject(index);
+          }
+        );
+
+        portfolioPagination.appendChild(
+          dot
+        );
+      }
+    );
+
+
+    const portfolioDots =
+      portfolioPagination.querySelectorAll(
+        ".portfolio-dot"
+      );
+
 
     function getCurrentProjectIndex() {
       if (!projectCards.length) {
@@ -1125,6 +1176,7 @@
 
       projectCards.forEach(
         (project, index) => {
+
           const distance =
             Math.abs(
               project.offsetLeft -
@@ -1143,6 +1195,7 @@
 
       return currentIndex;
     }
+
 
     function scrollToProject(index) {
       if (!projectCards.length) {
@@ -1167,6 +1220,7 @@
       });
     }
 
+
     function scrollToNextProject() {
       const currentIndex =
         getCurrentProjectIndex();
@@ -1181,6 +1235,7 @@
       }
     }
 
+
     function scrollToPreviousProject() {
       const currentIndex =
         getCurrentProjectIndex();
@@ -1191,6 +1246,7 @@
         );
       }
     }
+
 
     function updatePortfolioNavigation() {
       const currentIndex =
@@ -1203,38 +1259,51 @@
         currentIndex >=
         projectCards.length - 1;
 
+
       portfolioPrev.disabled =
         isFirst;
 
       portfolioNext.disabled =
         isLast;
 
-      portfolioGuidePrev.disabled =
-        isFirst;
 
-      portfolioGuideNext.disabled =
-        isLast;
+      portfolioDots.forEach(
+        (dot, index) => {
+
+          const isActive =
+            index === currentIndex;
+
+          dot.classList.toggle(
+            "active",
+            isActive
+          );
+
+          if (isActive) {
+            dot.setAttribute(
+              "aria-current",
+              "true"
+            );
+          } else {
+            dot.removeAttribute(
+              "aria-current"
+            );
+          }
+        }
+      );
     }
+
 
     portfolioPrev.addEventListener(
       "click",
       scrollToPreviousProject
     );
 
+
     portfolioNext.addEventListener(
       "click",
       scrollToNextProject
     );
 
-    portfolioGuidePrev.addEventListener(
-      "click",
-      scrollToPreviousProject
-    );
-
-    portfolioGuideNext.addEventListener(
-      "click",
-      scrollToNextProject
-    );
 
     portfolioScroll.addEventListener(
       "scroll",
@@ -1242,10 +1311,12 @@
       { passive: true }
     );
 
+
     window.addEventListener(
       "resize",
       updatePortfolioNavigation
     );
+
 
     updatePortfolioNavigation();
 
@@ -1384,12 +1455,14 @@
 
     projectImageLinks.forEach(
       (button) => {
+
         button.addEventListener(
           "click",
           () => {
             openImageOverlay(button);
           }
         );
+
       }
     );
 
@@ -1403,11 +1476,13 @@
     imageOverlay.addEventListener(
       "click",
       (event) => {
+
         if (
           event.target === imageOverlay
         ) {
           closeImageOverlay();
         }
+
       }
     );
 
@@ -1415,6 +1490,7 @@
     document.addEventListener(
       "keydown",
       (event) => {
+
         if (
           event.key === "Escape" &&
           imageOverlay.classList.contains(
@@ -1423,6 +1499,7 @@
         ) {
           closeImageOverlay();
         }
+
       }
     );
 
