@@ -7,12 +7,12 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Michael Schimkus | GIS Specialist</title>
-
   <meta
     name="description"
     content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
   >
+
+  <title>Michael Schimkus | GIS Specialist</title>
 
   <link
     rel="preconnect"
@@ -20,11 +20,11 @@
   >
   <link
     rel="preconnect"
-    href="https://fonts.gstatic.com"
+    href="https://fonts.googleapis.com"
     crossorigin
   >
   <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -46,6 +46,8 @@
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -55,11 +57,10 @@
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
       background: var(--bg);
       color: var(--muted);
       font-family: "Public Sans", sans-serif;
-      font-size: 16px;
       line-height: 1.6;
     }
 
@@ -68,22 +69,8 @@
     }
 
     img {
+      display: block;
       max-width: 100%;
-    }
-
-    a {
-      color: var(--primary);
-    }
-
-    a:hover {
-      color: var(--primary-dark);
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
     }
 
     .container {
@@ -91,7 +78,9 @@
       margin: 0 auto;
     }
 
-    /* Header */
+    /* =========================
+       Header
+    ========================= */
 
     .site-header {
       padding: 0.5rem 0 1.5rem;
@@ -149,7 +138,9 @@
       transform: translateY(-1px);
     }
 
-    /* Main */
+    /* =========================
+       Main / Sections
+    ========================= */
 
     main {
       display: flex;
@@ -187,7 +178,9 @@
       letter-spacing: -0.01em;
     }
 
-    /* About */
+    /* =========================
+       About
+    ========================= */
 
     .about-text {
       color: var(--muted);
@@ -195,7 +188,9 @@
       text-align: justify;
     }
 
-    /* Portfolio */
+    /* =========================
+       Portfolio
+    ========================= */
 
     .portfolio-area {
       position: relative;
@@ -245,6 +240,10 @@
       margin-bottom: 0;
     }
 
+    /* =========================
+       Portfolio Image Preview
+    ========================= */
+
     .project-image-wrap {
       width: 100%;
       height: 360px;
@@ -292,7 +291,9 @@
       line-height: 1.6;
     }
 
-    /* Portfolio guide controls */
+    /* =========================
+       Portfolio Guide
+    ========================= */
 
     .portfolio-guide-group {
       position: relative;
@@ -343,7 +344,9 @@
       right: 0;
     }
 
-    /* Portfolio arrows */
+    /* =========================
+       Portfolio Arrows
+    ========================= */
 
     .portfolio-prev,
     .portfolio-next {
@@ -404,71 +407,9 @@
       pointer-events: none;
     }
 
-    /* Experience */
-
-    .experience-text {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .experience-item {
-      display: inline;
-    }
-
-    .experience-text strong {
-      color: var(--title-dark);
-      font-weight: 700;
-    }
-
-    .experience-text em {
-      font-style: italic;
-    }
-
-    .education-subheader {
-      margin-top: 0.8rem;
-    }
-
-    /* Contact */
-
-    .contact-intro {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .contact-intro a {
-      color: var(--primary-dark);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .contact-intro a:hover,
-    .contact-intro a:focus-visible {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    /* Footer */
-
-    .site-footer {
-      padding: 1.25rem 0 1.5rem;
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .site-footer a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site-footer a:hover,
-    .site-footer a:focus-visible {
-      color: var(--primary-dark);
-      text-decoration: none;
-    }
-
-    /* Full-size image overlay */
+    /* =========================
+       Full Image Overlay
+    ========================= */
 
     .image-overlay {
       position: fixed;
@@ -512,10 +453,16 @@
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     }
 
+    /*
+      X button:
+      Positioned just above / partially over the
+      top-right corner of the image.
+    */
+
     .image-overlay-close {
       position: absolute;
-      top: -1rem;
-      right: -1rem;
+      top: 0.5rem;
+      right: 0.5rem;
       z-index: 2;
       display: flex;
       align-items: center;
@@ -550,7 +497,79 @@
       outline-offset: 3px;
     }
 
-    /* Mobile */
+    /* =========================
+       Experience
+    ========================= */
+
+    .experience-text {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .experience-item {
+      display: inline;
+    }
+
+    .experience-text strong {
+      color: var(--title-dark);
+      font-weight: 700;
+    }
+
+    .experience-text em {
+      font-style: italic;
+    }
+
+    .education-subheader {
+      margin-top: 0.8rem;
+    }
+
+    /* =========================
+       Contact
+    ========================= */
+
+    .contact-intro {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact-intro a {
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-intro a:hover,
+    .contact-intro a:focus-visible {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    .site-footer {
+      padding: 1.25rem 0 1.5rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .site-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    /* =========================
+       Mobile
+    ========================= */
 
     @media (max-width: 700px) {
       .site-nav {
@@ -623,13 +642,13 @@
       }
 
       /*
-        Mobile Safari fix:
-        Keep the close button inside the image/content area
-        rather than positioning it above the viewport.
+        Mobile:
+        Keep the X in the same relative position as desktop,
+        just above / partially over the image's top-right.
       */
       .image-overlay-close {
-        top: 0.35rem;
-        right: 0.35rem;
+        top: 0.5rem;
+        right: 0.5rem;
         width: 38px;
         height: 38px;
         font-size: 1.45rem;
@@ -681,15 +700,8 @@
 
   <main class="container">
 
-    <!-- About -->
-
-    <section
-      class="section"
-      id="about"
-    >
-      <h2 class="section-title">
-        About
-      </h2>
+    <section class="section" id="about">
+      <h2 class="section-title">About</h2>
 
       <div class="section-card">
         <p class="about-text">
@@ -703,15 +715,8 @@
       </div>
     </section>
 
-    <!-- Portfolio -->
-
-    <section
-      class="section"
-      id="portfolio"
-    >
-      <h2 class="section-title">
-        Portfolio
-      </h2>
+    <section class="section" id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
 
       <div class="section-card">
 
@@ -724,10 +729,7 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
-            <!-- Project 1 -->
-
             <article class="project">
-
               <div class="project-header">
                 <h3 class="subheader">
                   Project Title One
@@ -756,13 +758,9 @@
                   contributions made for this project.
                 </p>
               </div>
-
             </article>
 
-            <!-- Project 2 -->
-
             <article class="project">
-
               <div class="project-header">
                 <h3 class="subheader">
                   Project Title Two
@@ -791,13 +789,9 @@
                   contributions made for this project.
                 </p>
               </div>
-
             </article>
 
-            <!-- Project 3 -->
-
             <article class="project">
-
               <div class="project-header">
                 <h3 class="subheader">
                   Project Title Three
@@ -826,13 +820,9 @@
                   contributions made for this project.
                 </p>
               </div>
-
             </article>
 
-            <!-- Project 4 -->
-
             <article class="project">
-
               <div class="project-header">
                 <h3 class="subheader">
                   Project Title Four
@@ -861,13 +851,9 @@
                   contributions made for this project.
                 </p>
               </div>
-
             </article>
 
-            <!-- Project 5 -->
-
             <article class="project">
-
               <div class="project-header">
                 <h3 class="subheader">
                   Project Title Five
@@ -896,7 +882,6 @@
                   contributions made for this project.
                 </p>
               </div>
-
             </article>
 
           </div>
@@ -925,7 +910,6 @@
           class="portfolio-guide-group"
           aria-label="Portfolio navigation"
         >
-
           <button
             class="portfolio-guide-action"
             id="portfolioGuidePrev"
@@ -943,21 +927,13 @@
           >
             View More →
           </button>
-
         </div>
 
       </div>
     </section>
 
-    <!-- Experience -->
-
-    <section
-      class="section"
-      id="experience"
-    >
-      <h2 class="section-title">
-        Experience
-      </h2>
+    <section class="section" id="experience">
+      <h2 class="section-title">Experience</h2>
 
       <div class="section-card">
 
@@ -1012,15 +988,8 @@
       </div>
     </section>
 
-    <!-- Contact -->
-
-    <section
-      class="section"
-      id="contact"
-    >
-      <h2 class="section-title">
-        Contact
-      </h2>
+    <section class="section" id="contact">
+      <h2 class="section-title">Contact</h2>
 
       <div class="section-card">
 
@@ -1055,8 +1024,6 @@
 
   </main>
 
-  <!-- Full-size image overlay -->
-
   <div
     class="image-overlay"
     id="imageOverlay"
@@ -1087,8 +1054,6 @@
     </div>
 
   </div>
-
-  <!-- Footer -->
 
   <footer class="site-footer">
     <div class="container">
@@ -1148,23 +1113,18 @@
       let currentIndex = 0;
       let closestDistance = Infinity;
 
-      projectCards.forEach(
-        (project, index) => {
-          const distance =
-            Math.abs(
-              project.offsetLeft -
-              scrollLeft
-            );
+      projectCards.forEach((project, index) => {
+        const distance =
+          Math.abs(
+            project.offsetLeft -
+            scrollLeft
+          );
 
-          if (
-            distance <
-            closestDistance
-          ) {
-            closestDistance = distance;
-            currentIndex = index;
-          }
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          currentIndex = index;
         }
-      );
+      });
 
       return currentIndex;
     }
@@ -1185,9 +1145,7 @@
 
       portfolioScroll.scrollTo({
         left:
-          projectCards[
-            targetIndex
-          ].offsetLeft,
+          projectCards[targetIndex].offsetLeft,
         behavior: "smooth"
       });
     }
@@ -1264,9 +1222,7 @@
     portfolioScroll.addEventListener(
       "scroll",
       updatePortfolioNavigation,
-      {
-        passive: true
-      }
+      { passive: true }
     );
 
     window.addEventListener(
@@ -1310,10 +1266,7 @@
       const image =
         button.querySelector("img");
 
-      if (
-        !fullImage ||
-        !image
-      ) {
+      if (!fullImage || !image) {
         return;
       }
 
@@ -1364,16 +1317,14 @@
       }
     }
 
-    projectImageLinks.forEach(
-      (button) => {
-        button.addEventListener(
-          "click",
-          () => {
-            openImageOverlay(button);
-          }
-        );
-      }
-    );
+    projectImageLinks.forEach((button) => {
+      button.addEventListener(
+        "click",
+        () => {
+          openImageOverlay(button);
+        }
+      );
+    });
 
     imageOverlayClose.addEventListener(
       "click",
@@ -1424,9 +1375,7 @@
           "click",
           () => {
             document
-              .querySelectorAll(
-                ".nav-link"
-              )
+              .querySelectorAll(".nav-link")
               .forEach((item) => {
                 item.classList.toggle(
                   "active",
