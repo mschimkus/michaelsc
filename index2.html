@@ -126,6 +126,7 @@
       background: var(--primary);
       border-color: var(--primary);
       color: #ffffff;
+      text-decoration: none;
       transform: translateY(-1px);
     }
 
@@ -186,8 +187,8 @@
     .portfolio-guide-group {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
+      justify-content: space-between;
+      gap: 1rem;
       width: 100%;
       margin-bottom: 0.55rem;
     }
@@ -195,16 +196,14 @@
     .portfolio-guide-action {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       padding: 0;
       border: 0;
       background: none;
       color: var(--primary);
       font-family: inherit;
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1.4;
-      letter-spacing: -0.01em;
+      font-size: 0.96rem;
+      font-weight: 600;
+      line-height: 1.6;
       text-align: center;
       cursor: pointer;
       transition:
@@ -214,7 +213,7 @@
 
     .portfolio-guide-action:hover {
       color: var(--primary-dark);
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     .portfolio-guide-action:focus-visible {
@@ -225,6 +224,14 @@
 
     .portfolio-guide-action:disabled {
       display: none;
+    }
+
+    #portfolioGuidePrev {
+      margin-right: auto;
+    }
+
+    #portfolioGuideNext {
+      margin-left: auto;
     }
 
     /* =========================
@@ -417,7 +424,7 @@
     .contact-intro a:hover,
     .contact-intro a:focus-visible {
       color: var(--primary);
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     /* =========================
@@ -440,6 +447,7 @@
     .site-footer a:hover,
     .site-footer a:focus-visible {
       color: var(--primary-dark);
+      text-decoration: none;
     }
 
     /* =========================
@@ -486,7 +494,7 @@
       }
 
       .portfolio-guide-action {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
       }
 
       /* =========================
@@ -508,9 +516,8 @@
       }
 
       /*
-        Keep the same visual arrows on mobile.
-        They sit just inside the portfolio edges
-        so they don't interfere with the page layout.
+        Keep mobile swipe navigation while also
+        showing the visual project arrows.
       */
 
       .portfolio-prev,
@@ -542,7 +549,7 @@
 
   <!-- =========================
        HEADER
-  ========================== -->
+  ========================= -->
 
   <header class="site-header">
 
@@ -596,7 +603,7 @@
 
     <!-- =========================
          ABOUT
-    ========================== -->
+    ========================= -->
 
     <section
       class="section"
@@ -625,7 +632,7 @@
 
     <!-- =========================
          PORTFOLIO
-    ========================== -->
+    ========================= -->
 
     <section
       class="section"
@@ -641,7 +648,7 @@
         <!--
           Portfolio guide:
           • First project: View More →
-          • Middle projects: both options
+          • Middle projects: ← View Previous / View More →
           • Last project: ← View Previous
         -->
 
@@ -680,7 +687,9 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
-            <!-- PROJECT 1 -->
+            <!-- =========================
+                 PROJECT 1
+            ========================= -->
 
             <article class="project">
 
@@ -715,7 +724,9 @@
             </article>
 
 
-            <!-- PROJECT 2 -->
+            <!-- =========================
+                 PROJECT 2
+            ========================= -->
 
             <article class="project">
 
@@ -750,7 +761,9 @@
             </article>
 
 
-            <!-- PROJECT 3 -->
+            <!-- =========================
+                 PROJECT 3
+            ========================= -->
 
             <article class="project">
 
@@ -785,7 +798,9 @@
             </article>
 
 
-            <!-- PROJECT 4 -->
+            <!-- =========================
+                 PROJECT 4
+            ========================= -->
 
             <article class="project">
 
@@ -820,7 +835,9 @@
             </article>
 
 
-            <!-- PROJECT 5 -->
+            <!-- =========================
+                 PROJECT 5
+            ========================= -->
 
             <article class="project">
 
@@ -889,7 +906,7 @@
 
     <!-- =========================
          EXPERIENCE
-    ========================== -->
+    ========================= -->
 
     <section
       class="section"
@@ -958,7 +975,7 @@
 
     <!-- =========================
          CONTACT
-    ========================== -->
+    ========================= -->
 
     <section
       class="section"
@@ -1010,7 +1027,7 @@
 
   <!-- =========================
        FOOTER
-  ========================== -->
+  ========================= -->
 
   <footer class="site-footer">
 
@@ -1032,7 +1049,7 @@
   <script>
     /* =========================
        PORTFOLIO ELEMENTS
-    ========================== */
+    ========================= */
 
     const portfolioScroll =
       document.getElementById("portfolioScroll");
@@ -1055,7 +1072,7 @@
 
     /* =========================
        FIND CURRENT PROJECT
-    ========================== */
+    ========================= */
 
     function getCurrentProjectIndex() {
 
@@ -1094,7 +1111,7 @@
 
     /* =========================
        SCROLL TO PROJECT
-    ========================== */
+    ========================= */
 
     function scrollToProject(index) {
 
@@ -1127,7 +1144,7 @@
 
     /* =========================
        NEXT PROJECT
-    ========================== */
+    ========================= */
 
     function scrollToNextProject() {
 
@@ -1150,7 +1167,7 @@
 
     /* =========================
        PREVIOUS PROJECT
-    ========================== */
+    ========================= */
 
     function scrollToPreviousProject() {
 
@@ -1170,7 +1187,7 @@
 
     /* =========================
        UPDATE NAVIGATION
-    ========================== */
+    ========================= */
 
     function updatePortfolioNavigation() {
 
@@ -1186,7 +1203,7 @@
 
 
       /*
-        Visual arrows
+        Visual project arrows.
       */
 
       portfolioPrev.disabled =
@@ -1197,7 +1214,7 @@
 
 
       /*
-        Text navigation
+        Text navigation.
       */
 
       portfolioGuidePrev.disabled =
@@ -1211,7 +1228,7 @@
 
     /* =========================
        VISUAL ARROW CONTROLS
-    ========================== */
+    ========================= */
 
     portfolioPrev.addEventListener(
       "click",
@@ -1226,7 +1243,7 @@
 
     /* =========================
        TEXT CONTROLS
-    ========================== */
+    ========================= */
 
     portfolioGuidePrev.addEventListener(
       "click",
@@ -1241,7 +1258,7 @@
 
     /* =========================
        TRACK SWIPE / SCROLL
-    ========================== */
+    ========================= */
 
     portfolioScroll.addEventListener(
       "scroll",
@@ -1267,7 +1284,7 @@
 
     /* =========================
        FOOTER YEAR
-    ========================== */
+    ========================= */
 
     document.getElementById(
       "current-year"
@@ -1277,7 +1294,7 @@
 
     /* =========================
        NAVIGATION ACTIVE STATE
-    ========================== */
+    ========================= */
 
     document
       .querySelectorAll(".nav-link")
