@@ -13,6 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
@@ -33,6 +34,10 @@
       --max-width: 1100px;
       --transition: 0.2s ease;
     }
+
+    /* =========================
+       RESET
+    ========================= */
 
     * {
       box-sizing: border-box;
@@ -59,6 +64,10 @@
     a {
       color: inherit;
     }
+
+    /* =========================
+       CONTAINER
+    ========================= */
 
     .container {
       width: min(calc(100% - 2rem), var(--max-width));
@@ -130,6 +139,10 @@
       padding-bottom: 0.75rem;
     }
 
+    /* =========================
+       SECTION CARDS
+    ========================= */
+
     .section {
       padding: 1.26rem 1.4rem 1.2rem;
       border: 1px solid var(--card-border);
@@ -196,8 +209,12 @@
       transform: translateY(-2px);
     }
 
-    .project-title {
-      margin: 0;
+    /*
+      This class controls spacing only.
+      The project title itself uses the shared
+      .subheader class.
+    */
+    .project-header {
       padding: 1rem 1rem 0.4rem;
     }
 
@@ -283,6 +300,7 @@
     ========================= */
 
     @media (max-width: 700px) {
+
       .site-header {
         padding-bottom: 1rem;
       }
@@ -319,6 +337,10 @@
 
 <body id="top">
 
+  <!-- =========================
+       HEADER
+  ========================== -->
+
   <header class="site-header">
     <div class="container header-group">
 
@@ -327,13 +349,37 @@
       </div>
 
       <nav class="site-nav" aria-label="Primary navigation">
-        <a class="nav-link active" href="#background">Background</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#contact">Contact</a>
+
+        <a
+          class="nav-link active"
+          href="#background"
+        >
+          Background
+        </a>
+
+        <a
+          class="nav-link"
+          href="#portfolio"
+        >
+          Portfolio
+        </a>
+
+        <a
+          class="nav-link"
+          href="#contact"
+        >
+          Contact
+        </a>
+
       </nav>
 
     </div>
   </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
 
   <main class="container">
 
@@ -343,9 +389,13 @@
 
     <section id="background" class="section">
 
-      <h2 class="section-title">Background</h2>
+      <h2 class="section-title">
+        Background
+      </h2>
 
-      <h3 class="subheader">About Me</h3>
+      <h3 class="subheader">
+        About Me
+      </h3>
 
       <p class="background-text">
         I am a GIS Specialist with hands-on experience supporting environmental
@@ -361,13 +411,25 @@
 
       <br>
 
-      <h3 class="subheader education-subheader">Education</h3>
+      <h3 class="subheader education-subheader">
+        Education
+      </h3>
 
       <p class="background-text">
-        <strong>Geographic Information Systems Certificate</strong>,
-        <em>Cypress College</em><br>
-        <strong>Bachelor of Arts in Anthropology</strong>,
-        <em>California State University, Long Beach</em>
+        <strong>
+          Geographic Information Systems Certificate
+        </strong>,
+        <em>
+          Cypress College
+        </em>
+        <br>
+
+        <strong>
+          Bachelor of Arts in Anthropology
+        </strong>,
+        <em>
+          California State University, Long Beach
+        </em>
       </p>
 
     </section>
@@ -379,23 +441,31 @@
 
     <section id="portfolio" class="section">
 
-      <h2 class="section-title">Portfolio</h2>
+      <h2 class="section-title">
+        Portfolio
+      </h2>
 
       <div class="portfolio-grid">
 
         <article class="project">
 
-          <h3 class="subheader project-title">
-            Population Change in Communities Outside Joshua Tree National Park
-          </h3>
+          <div class="project-header">
+
+            <h3 class="subheader">
+              Population Change in Communities Outside Joshua Tree National Park
+            </h3>
+
+          </div>
 
           <div class="project-image-wrap">
+
             <img
               class="project-image"
               src="project1.jpg"
               alt="Map showing population change in communities outside Joshua Tree National Park"
               loading="lazy"
             >
+
           </div>
 
           <div class="project-content">
@@ -422,9 +492,13 @@
 
     <section id="contact" class="section">
 
-      <h2 class="section-title">Contact</h2>
+      <h2 class="section-title">
+        Contact
+      </h2>
 
-      <h3 class="subheader">Email:</h3>
+      <h3 class="subheader">
+        Email:
+      </h3>
 
       <p class="contact-intro">
         <a href="mailto:michaelsc@duck.com">
@@ -434,7 +508,9 @@
 
       <br>
 
-      <h3 class="subheader">LinkedIn:</h3>
+      <h3 class="subheader">
+        LinkedIn:
+      </h3>
 
       <p class="contact-intro">
         <a
@@ -468,6 +544,10 @@
   </footer>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
   <script>
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
@@ -476,9 +556,11 @@
 
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
+
         navLinks.forEach((item) => {
           item.classList.toggle("active", item === link);
         });
+
       });
     });
   </script>
