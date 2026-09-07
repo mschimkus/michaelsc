@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -14,11 +15,19 @@
 
   <title>Michael Schimkus | GIS Specialist</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -68,7 +77,9 @@
       margin: 0 auto;
     }
 
-    /* Header */
+    /* =========================
+       Header
+       ========================= */
 
     .site-header {
       padding: 0.5rem 0 1.5rem;
@@ -90,8 +101,6 @@
       text-align: center;
       white-space: nowrap;
     }
-
-    /* Navigation */
 
     .site-nav {
       display: flex;
@@ -128,13 +137,19 @@
       transform: translateY(-1px);
     }
 
-    /* Main */
+    /* =========================
+       Main Layout
+       ========================= */
 
     main {
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
       padding-bottom: 0.75rem;
+    }
+
+    .section {
+      width: 100%;
     }
 
     .section-title {
@@ -153,8 +168,6 @@
       box-shadow: var(--card-shadow);
     }
 
-    /* Subheaders */
-
     .subheader {
       margin-bottom: 0.2rem;
       color: var(--primary);
@@ -164,12 +177,9 @@
       letter-spacing: -0.01em;
     }
 
-    .education-subheader {
-      margin-top: 1rem;
-      margin-bottom: 0.15rem;
-    }
-
-    /* About */
+    /* =========================
+       About
+       ========================= */
 
     .about-text {
       color: var(--muted);
@@ -177,12 +187,31 @@
       text-align: justify;
     }
 
-    /* Portfolio */
+    /* =========================
+       Portfolio
+       ========================= */
+
+    .portfolio-scroll {
+      display: flex;
+      gap: 1.25rem;
+      width: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      padding-bottom: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .portfolio-scroll .project {
+      flex: 0 0 88%;
+      min-width: 0;
+      scroll-snap-align: start;
+    }
 
     .project + .project {
-      margin-top: 1.25rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--card-border);
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
     }
 
     .project-header {
@@ -211,7 +240,9 @@
       line-height: 1.6;
     }
 
-    /* Experience */
+    /* =========================
+       Experience
+       ========================= */
 
     .experience-text {
       color: var(--muted);
@@ -223,7 +254,13 @@
       margin-bottom: 0.2rem;
     }
 
-    /* Contact */
+    .education-subheader {
+      margin-top: 1rem;
+    }
+
+    /* =========================
+       Contact
+       ========================= */
 
     .contact-intro {
       color: var(--muted);
@@ -242,7 +279,9 @@
       text-decoration: underline;
     }
 
-    /* Footer */
+    /* =========================
+       Footer
+       ========================= */
 
     .site-footer {
       padding: 1.25rem 0 1.5rem;
@@ -262,7 +301,9 @@
       color: var(--primary-dark);
     }
 
-    /* Mobile */
+    /* =========================
+       Mobile
+       ========================= */
 
     @media (max-width: 700px) {
       .site-header {
@@ -303,6 +344,14 @@
         font-size: 0.95rem;
       }
 
+      .portfolio-scroll {
+        gap: 1rem;
+      }
+
+      .portfolio-scroll .project {
+        flex-basis: 92%;
+      }
+
       .project-description {
         font-size: 0.92rem;
       }
@@ -314,29 +363,54 @@
   </style>
 </head>
 
-<body id="top">
+<body>
+
+  <!-- =========================
+       Header
+       ========================= -->
 
   <header class="site-header">
     <div class="container header-group">
 
-      <h1 class="header-title">Michael Schimkus</h1>
+      <h1 class="header-title">
+        Michael Schimkus
+      </h1>
 
       <nav class="site-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="#about">About</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#experience">Experience</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link active" href="#about">
+          About
+        </a>
+
+        <a class="nav-link" href="#portfolio">
+          Portfolio
+        </a>
+
+        <a class="nav-link" href="#experience">
+          Experience
+        </a>
+
+        <a class="nav-link" href="#contact">
+          Contact
+        </a>
       </nav>
 
     </div>
   </header>
 
 
+  <!-- =========================
+       Main
+       ========================= -->
+
   <main class="container">
+
+    <!-- About -->
 
     <section class="section" id="about">
 
-      <h2 class="section-title">About</h2>
+      <h2 class="section-title">
+        About
+      </h2>
 
       <div class="section-card">
 
@@ -354,81 +428,155 @@
     </section>
 
 
+    <!-- Portfolio -->
+
     <section class="section" id="portfolio">
 
-      <h2 class="section-title">Portfolio</h2>
+      <h2 class="section-title">
+        Portfolio
+      </h2>
 
       <div class="section-card">
 
-        <article class="project">
+        <div class="portfolio-scroll">
 
-          <div class="project-header">
-            <h3 class="subheader">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
-          </div>
+          <!-- Project 1 -->
 
-          <div class="project-image-wrap">
-            <img
-              class="project-image"
-              src="project1.jpg"
-              alt="Map showing population change in communities outside Joshua Tree National Park"
-              loading="lazy"
-            >
-          </div>
+          <article class="project">
 
-          <div class="project-content">
-            <p class="project-description">
-              <em>
-                A cartographic analysis examining population change in
-                communities surrounding Joshua Tree National Park.
-              </em>
-            </p>
-          </div>
+            <div class="project-header">
 
-        </article>
+              <h3 class="subheader">
+                Population Change in Communities Outside Joshua Tree National Park
+              </h3>
+
+            </div>
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+              >
+
+            </div>
+
+            <div class="project-content">
+
+              <p class="project-description">
+                <em>
+                  A cartographic analysis examining population change in
+                  communities surrounding Joshua Tree National Park.
+                </em>
+              </p>
+
+            </div>
+
+          </article>
 
 
-        <article class="project">
+          <!-- Project 2 -->
 
-          <div class="project-header">
-            <h3 class="subheader">
-              Population Change in Communities Outside Joshua Tree National Park
-            </h3>
-          </div>
+          <article class="project">
 
-          <div class="project-image-wrap">
-            <img
-              class="project-image"
-              src="project1.jpg"
-              alt="Map showing population change in communities outside Joshua Tree National Park"
-              loading="lazy"
-            >
-          </div>
+            <div class="project-header">
 
-          <div class="project-content">
-            <p class="project-description">
-              <em>
-                A cartographic analysis examining population change in
-                communities surrounding Joshua Tree National Park.
-              </em>
-            </p>
-          </div>
+              <h3 class="subheader">
+                Population Change in Communities Outside Joshua Tree National Park
+              </h3>
 
-        </article>
+            </div>
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="project1.jpg"
+                alt="Map showing population change in communities outside Joshua Tree National Park"
+              >
+
+            </div>
+
+            <div class="project-content">
+
+              <p class="project-description">
+                <em>
+                  A cartographic analysis examining population change in
+                  communities surrounding Joshua Tree National Park.
+                </em>
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- Project 3 -->
+          <!-- Duplicate this structure when ready -->
+
+          <!--
+          <article class="project">
+
+            <div class="project-header">
+
+              <h3 class="subheader">
+                Project Title
+              </h3>
+
+            </div>
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="project3.jpg"
+                alt="Description of project map"
+              >
+
+            </div>
+
+            <div class="project-content">
+
+              <p class="project-description">
+                <em>
+                  Project description goes here.
+                </em>
+              </p>
+
+            </div>
+
+          </article>
+          -->
+
+
+          <!-- Project 4 -->
+          <!-- Duplicate the project structure when ready -->
+
+
+          <!-- Project 5 -->
+          <!-- Duplicate the project structure when ready -->
+
+        </div>
 
       </div>
 
     </section>
 
 
+    <!-- Experience -->
+
     <section class="section" id="experience">
 
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title">
+        Experience
+      </h2>
 
       <div class="section-card">
 
-        <h3 class="subheader">Professional</h3>
+        <h3 class="subheader">
+          Professional
+        </h3>
 
         <p class="experience-text">
 
@@ -437,6 +585,7 @@
             <em>Amigo Environmental</em>
             (2025 – Present)
           </span>
+
           <br>
 
           <span class="experience-item">
@@ -444,6 +593,7 @@
             <em>Montrose Environmental Group</em>
             (2022 – 2025)
           </span>
+
           <br>
 
           <span class="experience-item">
@@ -460,11 +610,17 @@
         </h3>
 
         <p class="experience-text">
+
           <strong>GIS Certificate</strong>,
-          <em>Cypress College</em> (2022)<br>
+          <em>Cypress College</em>
+          (2022)
+
+          <br>
 
           <strong>B.A. in Anthropology</strong>,
-          <em>California State University, Long Beach</em> (2013)
+          <em>California State University, Long Beach</em>
+          (2013)
+
         </p>
 
       </div>
@@ -472,25 +628,36 @@
     </section>
 
 
+    <!-- Contact -->
+
     <section class="section" id="contact">
 
-      <h2 class="section-title">Contact</h2>
+      <h2 class="section-title">
+        Contact
+      </h2>
 
       <div class="section-card">
 
-        <h3 class="subheader">Email</h3>
+        <h3 class="subheader">
+          Email
+        </h3>
 
         <p class="contact-intro">
+
           <a href="mailto:michaelsc@duck.com">
             michaelsc@duck.com
           </a>
+
         </p>
 
         <br>
 
-        <h3 class="subheader">LinkedIn</h3>
+        <h3 class="subheader">
+          LinkedIn
+        </h3>
 
         <p class="contact-intro">
+
           <a
             href="https://www.linkedin.com/in/mschimkus"
             target="_blank"
@@ -498,6 +665,7 @@
           >
             LinkedIn.com/in/mschimkus/
           </a>
+
         </p>
 
       </div>
@@ -507,14 +675,26 @@
   </main>
 
 
+  <!-- =========================
+       Footer
+       ========================= -->
+
   <footer class="site-footer">
-    <a href="#top">
-      &copy;
-      <span id="current-year"></span>
-      Michael Schimkus
-    </a>
+
+    <div class="container">
+
+      <a href="#about">
+        © <span id="current-year"></span> Michael Schimkus
+      </a>
+
+    </div>
+
   </footer>
 
+
+  <!-- =========================
+       JavaScript
+       ========================= -->
 
   <script>
     document.getElementById("current-year").textContent =
