@@ -53,12 +53,6 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-    }
-
     body {
       min-height: 100vh;
       background: var(--bg);
@@ -81,12 +75,9 @@
       margin: 0 auto;
     }
 
-    /* =========================
-       Header
-    ========================= */
+    /* Header */
 
     .site-header {
-      position: relative;
       padding: 0.5rem 0 1.5rem;
     }
 
@@ -110,20 +101,20 @@
 
     .site-nav {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .nav-link {
       display: inline-block;
-      padding: 0.125rem 0.85rem;
+      padding: 0.129rem 0.876rem;
       border: 1px solid #d3dad5;
       border-radius: 999px;
       background: var(--surface);
       color: var(--primary-dark);
-      font-size: 1rem;
+      font-size: 1.03rem;
       font-weight: 600;
       text-decoration: none;
       transition:
@@ -143,14 +134,13 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       Main / Sections
-    ========================= */
+    /* Main / Sections */
 
     main {
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
+      padding-top: 0.75rem;
       padding-bottom: 0.75rem;
     }
 
@@ -189,20 +179,46 @@
       line-height: 1.4;
     }
 
-    /* =========================
-       About
-    ========================= */
+    /* About / Experience */
 
     .about-text {
+      padding-left: var(--content-indent);
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 1.008rem;
       font-weight: 400;
       text-align: justify;
     }
 
-    /* =========================
-       Portfolio
-    ========================= */
+    .background-subheader {
+      margin-bottom: 0.2rem;
+    }
+
+    .experience-text {
+      color: var(--muted);
+      font-size: 1.008rem;
+      font-weight: 400;
+    }
+
+    .experience-item {
+      display: block;
+      padding-left: var(--content-indent);
+    }
+
+    .experience-text strong {
+      color: var(--title-dark);
+      font-weight: 600;
+    }
+
+    .experience-text em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .education-subheader {
+      margin-top: 0.8rem;
+    }
+
+    /* Portfolio */
 
     .portfolio-area {
       position: relative;
@@ -245,10 +261,6 @@
     .project-header .subheader {
       margin-bottom: 0;
     }
-
-    /* =========================
-       Portfolio Image Preview
-    ========================= */
 
     .project-image-wrap {
       width: 100%;
@@ -293,14 +305,12 @@
 
     .project-description {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.966rem;
       font-weight: 400;
       line-height: 1.6;
     }
 
-    /* =========================
-       Portfolio Pagination
-    ========================= */
+    /* Portfolio Pagination */
 
     .portfolio-pagination {
       display: flex;
@@ -344,9 +354,7 @@
       background: var(--title-dark);
     }
 
-    /* =========================
-       Portfolio Arrows
-    ========================= */
+    /* Portfolio Arrows */
 
     .portfolio-prev,
     .portfolio-next {
@@ -406,9 +414,7 @@
       pointer-events: none;
     }
 
-    /* =========================
-       Full Image Overlay
-    ========================= */
+    /* Image Overlay */
 
     .image-overlay {
       position: fixed;
@@ -487,42 +493,12 @@
       outline-offset: 3px;
     }
 
-    /* =========================
-       Experience
-    ========================= */
-
-    .experience-text {
-      color: var(--muted);
-      font-size: 0.96rem;
-      font-weight: 400;
-    }
-
-    .experience-item {
-      display: block;
-      padding-left: var(--content-indent);
-    }
-
-    .experience-text strong {
-      color: var(--title-dark);
-      font-weight: 600;
-    }
-
-    .experience-text em {
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .education-subheader {
-      margin-top: 0.8rem;
-    }
-
-    /* =========================
-       Contact
-    ========================= */
+    /* Contact */
 
     .contact-text {
+      padding-left: var(--content-indent);
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 1.008rem;
       font-weight: 400;
     }
 
@@ -544,9 +520,7 @@
       text-underline-offset: 3px;
     }
 
-    /* =========================
-       Footer
-    ========================= */
+    /* Footer */
 
     .site-footer {
       padding: 0 0 1.5rem;
@@ -556,9 +530,7 @@
       text-align: center;
     }
 
-    /* =========================
-       Mobile
-    ========================= */
+    /* Mobile */
 
     @media (max-width: 700px) {
       .site-nav {
@@ -568,8 +540,8 @@
       }
 
       .nav-link {
-        padding: 0.125rem 0.6rem;
-        font-size: 0.95rem;
+        padding: 0.129rem 0.618rem;
+        font-size: 0.979rem;
         white-space: nowrap;
       }
 
@@ -585,8 +557,14 @@
         font-size: 1.1rem;
       }
 
-      .about-text {
-        font-size: 0.95rem;
+      .about-text,
+      .experience-text,
+      .contact-text {
+        font-size: 0.9975rem;
+      }
+
+      .project-description {
+        font-size: 0.966rem;
       }
 
       .project {
@@ -648,10 +626,6 @@
 
 <body>
 
-  <!-- =========================
-       Header
-  ========================= -->
-
   <header class="site-header">
     <div class="container header-group">
 
@@ -680,13 +654,6 @@
 
         <a
           class="nav-link"
-          href="#experience"
-        >
-          Experience
-        </a>
-
-        <a
-          class="nav-link"
           href="#contact"
         >
           Contact
@@ -698,10 +665,6 @@
 
   <main class="container">
 
-    <!-- =========================
-         About
-    ========================= -->
-
     <section
       class="section"
       id="about"
@@ -712,6 +675,10 @@
 
       <div class="section-card">
 
+        <h3 class="subheader background-subheader">
+          Background
+        </h3>
+
         <p class="about-text">
           I am a GIS Specialist with hands-on experience supporting
           environmental and utility projects through high-quality spatial
@@ -721,12 +688,52 @@
           and Field Maps for field and regulatory use.
         </p>
 
+        <h3 class="subheader education-subheader">
+          Professional
+        </h3>
+
+        <p class="experience-text">
+
+          <span class="experience-item">
+            <strong>GIS Specialist</strong>,
+            <em>Amigo Environmental</em>
+            (2025 – Present)
+          </span>
+
+          <span class="experience-item">
+            <strong>GIS Technician</strong>,
+            <em>Montrose Environmental Group</em>
+            (2022 – 2025)
+          </span>
+
+          <span class="experience-item">
+            <strong>GIS Intern</strong>,
+            <em>HANA Resources</em>
+            (2022)
+          </span>
+
+        </p>
+
+        <h3 class="subheader education-subheader">
+          Education
+        </h3>
+
+        <p class="experience-text">
+
+          <span class="experience-item">
+            <strong>Certificate in GIS</strong>,
+            <em>Cypress College</em>
+          </span>
+
+          <span class="experience-item">
+            <strong>B.A. in Anthropology</strong>,
+            <em>California State University, Long Beach</em>
+          </span>
+
+        </p>
+
       </div>
     </section>
-
-    <!-- =========================
-         Portfolio
-    ========================= -->
 
     <section
       class="section section-hidden"
@@ -746,8 +753,6 @@
             tabindex="0"
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
-
-            <!-- Project 1 -->
 
             <article class="project">
 
@@ -786,8 +791,6 @@
 
             </article>
 
-            <!-- Project 2 -->
-
             <article class="project">
 
               <div class="project-header">
@@ -824,8 +827,6 @@
               </div>
 
             </article>
-
-            <!-- Project 3 -->
 
             <article class="project">
 
@@ -864,8 +865,6 @@
 
             </article>
 
-            <!-- Project 4 -->
-
             <article class="project">
 
               <div class="project-header">
@@ -902,8 +901,6 @@
               </div>
 
             </article>
-
-            <!-- Project 5 -->
 
             <article class="project">
 
@@ -973,71 +970,6 @@
       </div>
     </section>
 
-    <!-- =========================
-         Experience
-    ========================= -->
-
-    <section
-      class="section section-hidden"
-      id="experience"
-    >
-      <h2 class="section-title">
-        Experience
-      </h2>
-
-      <div class="section-card">
-
-        <h3 class="subheader">
-          Professional
-        </h3>
-
-        <p class="experience-text">
-
-          <span class="experience-item">
-            <strong>GIS Specialist</strong>,
-            <em>Amigo Environmental</em>
-            (2025 – Present)
-          </span>
-
-          <span class="experience-item">
-            <strong>GIS Technician</strong>,
-            <em>Montrose Environmental Group</em>
-            (2022 – 2025)
-          </span>
-
-          <span class="experience-item">
-            <strong>GIS Intern</strong>,
-            <em>HANA Resources</em>
-            (2022)
-          </span>
-
-        </p>
-
-        <h3 class="subheader education-subheader">
-          Education
-        </h3>
-
-        <p class="experience-text">
-
-          <span class="experience-item">
-            <strong>Certificate in GIS</strong>,
-            <em>Cypress College</em>
-          </span>
-
-          <span class="experience-item">
-            <strong>B.A. in Anthropology</strong>,
-            <em>California State University, Long Beach</em>
-          </span>
-
-        </p>
-
-      </div>
-    </section>
-
-    <!-- =========================
-         Contact
-    ========================= -->
-
     <section
       class="section section-hidden"
       id="contact"
@@ -1048,8 +980,12 @@
 
       <div class="section-card">
 
+        <h3 class="subheader">
+          Get in touch
+        </h3>
+
         <p class="contact-text">
-          Want to get in touch? Reach out via email at
+          Reach out via email at
           <a href="mailto:michaelsc@duck.com">
             michaelsc@duck.com
           </a>
@@ -1066,10 +1002,6 @@
     </section>
 
   </main>
-
-  <!-- =========================
-       Full Image Overlay
-  ========================= -->
 
   <div
     class="image-overlay"
@@ -1102,10 +1034,6 @@
 
   </div>
 
-  <!-- =========================
-       Footer
-  ========================= -->
-
   <footer class="site-footer">
     <div class="container">
 
@@ -1119,21 +1047,39 @@
   </footer>
 
   <script>
-    /* =========================
-       Single-Section Navigation
-    ========================= */
+    const sections = document.querySelectorAll(".section");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-    const sections =
-      document.querySelectorAll(".section");
+    const portfolioScroll =
+      document.getElementById("portfolioScroll");
 
-    const navLinks =
-      document.querySelectorAll(".nav-link");
+    const portfolioPrev =
+      document.getElementById("portfolioPrev");
 
+    const portfolioNext =
+      document.getElementById("portfolioNext");
 
-    function showSection(
-      sectionId,
-      updateHistory = true
-    ) {
+    const portfolioPagination =
+      document.getElementById("portfolioPagination");
+
+    const projectCards =
+      portfolioScroll.querySelectorAll(".project");
+
+    const imageOverlay =
+      document.getElementById("imageOverlay");
+
+    const imageOverlayImage =
+      document.getElementById("imageOverlayImage");
+
+    const imageOverlayClose =
+      document.getElementById("imageOverlayClose");
+
+    const projectImageLinks =
+      document.querySelectorAll(".project-image-link");
+
+    let lastFocusedImage = null;
+
+    function showSection(sectionId) {
       const targetSection =
         document.getElementById(sectionId);
 
@@ -1141,234 +1087,40 @@
         return;
       }
 
-
-      sections.forEach(
-        (section) => {
-
-          const isActive =
-            section === targetSection;
-
-          section.classList.toggle(
-            "section-hidden",
-            !isActive
-          );
-
-        }
-      );
-
-
-      navLinks.forEach(
-        (link) => {
-
-          const isActive =
-            link.getAttribute("href") ===
-            `#${sectionId}`;
-
-          link.classList.toggle(
-            "active",
-            isActive
-          );
-
-          if (isActive) {
-
-            link.setAttribute(
-              "aria-current",
-              "page"
-            );
-
-          } else {
-
-            link.removeAttribute(
-              "aria-current"
-            );
-
-          }
-
-        }
-      );
-
-
-      if (updateHistory) {
-
-        history.pushState(
-          null,
-          "",
-          `#${sectionId}`
+      sections.forEach((section) => {
+        section.classList.toggle(
+          "section-hidden",
+          section !== targetSection
         );
-
-      }
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
       });
 
+      navLinks.forEach((link) => {
+        const isActive =
+          link.getAttribute("href") === `#${sectionId}`;
+
+        link.classList.toggle("active", isActive);
+
+        if (isActive) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
 
       if (sectionId === "portfolio") {
-
-        requestAnimationFrame(
-          () => {
-            updatePortfolioNavigation();
-          }
-        );
-
+        requestAnimationFrame(updatePortfolioNavigation);
       }
     }
 
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    navLinks.forEach(
-      (link) => {
-
-        link.addEventListener(
-          "click",
-          (event) => {
-
-            event.preventDefault();
-
-            const sectionId =
-              link
-                .getAttribute("href")
-                .slice(1);
-
-            showSection(
-              sectionId,
-              true
-            );
-
-          }
+        showSection(
+          link.getAttribute("href").slice(1)
         );
-
-      }
-    );
-
-
-    window.addEventListener(
-      "popstate",
-      () => {
-
-        const sectionId =
-          window.location.hash
-            .slice(1);
-
-        if (
-          document.getElementById(
-            sectionId
-          )
-        ) {
-
-          showSection(
-            sectionId,
-            false
-          );
-
-        } else {
-
-          showSection(
-            "about",
-            false
-          );
-
-        }
-
-      }
-    );
-
-
-    /* =========================
-       Initial Section
-    ========================= */
-
-    const initialSection =
-      window.location.hash
-        .slice(1);
-
-    if (
-      document.getElementById(
-        initialSection
-      )
-    ) {
-
-      showSection(
-        initialSection,
-        false
-      );
-
-    } else {
-
-      showSection(
-        "about",
-        false
-      );
-
-    }
-
-
-    /* =========================
-       Portfolio Navigation
-    ========================= */
-
-    const portfolioScroll =
-      document.getElementById(
-        "portfolioScroll"
-      );
-
-    const portfolioPrev =
-      document.getElementById(
-        "portfolioPrev"
-      );
-
-    const portfolioNext =
-      document.getElementById(
-        "portfolioNext"
-      );
-
-    const portfolioPagination =
-      document.getElementById(
-        "portfolioPagination"
-      );
-
-    const projectCards =
-      portfolioScroll.querySelectorAll(
-        ".project"
-      );
-
-
-    projectCards.forEach(
-      (_, index) => {
-
-        const dot =
-          document.createElement("button");
-
-        dot.className =
-          "portfolio-dot";
-
-        dot.type = "button";
-
-        dot.setAttribute(
-          "aria-label",
-          `View portfolio project ${index + 1}`
-        );
-
-        dot.addEventListener(
-          "click",
-          () => {
-            scrollToProject(index);
-          }
-        );
-
-        portfolioPagination.appendChild(
-          dot
-        );
-      }
-    );
-
-
-    const portfolioDots =
-      portfolioPagination.querySelectorAll(
-        ".portfolio-dot"
-      );
-
+      });
+    });
 
     function getCurrentProjectIndex() {
       if (!projectCards.length) {
@@ -1381,136 +1133,109 @@
       let currentIndex = 0;
       let closestDistance = Infinity;
 
-      projectCards.forEach(
-        (project, index) => {
+      projectCards.forEach((project, index) => {
+        const distance =
+          Math.abs(project.offsetLeft - scrollLeft);
 
-          const distance =
-            Math.abs(
-              project.offsetLeft -
-              scrollLeft
-            );
-
-          if (
-            distance <
-            closestDistance
-          ) {
-            closestDistance = distance;
-            currentIndex = index;
-          }
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          currentIndex = index;
         }
-      );
+      });
 
       return currentIndex;
     }
-
 
     function scrollToProject(index) {
       if (!projectCards.length) {
         return;
       }
 
-      const targetIndex =
-        Math.max(
-          0,
-          Math.min(
-            index,
-            projectCards.length - 1
-          )
-        );
+      const targetIndex = Math.max(
+        0,
+        Math.min(index, projectCards.length - 1)
+      );
 
       portfolioScroll.scrollTo({
-        left:
-          projectCards[
-            targetIndex
-          ].offsetLeft,
+        left: projectCards[targetIndex].offsetLeft,
         behavior: "smooth"
       });
     }
-
-
-    function scrollToNextProject() {
-      const currentIndex =
-        getCurrentProjectIndex();
-
-      if (
-        currentIndex <
-        projectCards.length - 1
-      ) {
-        scrollToProject(
-          currentIndex + 1
-        );
-      }
-    }
-
-
-    function scrollToPreviousProject() {
-      const currentIndex =
-        getCurrentProjectIndex();
-
-      if (currentIndex > 0) {
-        scrollToProject(
-          currentIndex - 1
-        );
-      }
-    }
-
 
     function updatePortfolioNavigation() {
       const currentIndex =
         getCurrentProjectIndex();
 
-      const isFirst =
+      portfolioPrev.disabled =
         currentIndex === 0;
 
-      const isLast =
-        currentIndex >=
-        projectCards.length - 1;
-
-
-      portfolioPrev.disabled =
-        isFirst;
-
       portfolioNext.disabled =
-        isLast;
+        currentIndex >= projectCards.length - 1;
 
+      portfolioDots.forEach((dot, index) => {
+        const isActive =
+          index === currentIndex;
 
-      portfolioDots.forEach(
-        (dot, index) => {
+        dot.classList.toggle(
+          "active",
+          isActive
+        );
 
-          const isActive =
-            index === currentIndex;
-
-          dot.classList.toggle(
-            "active",
-            isActive
+        if (isActive) {
+          dot.setAttribute(
+            "aria-current",
+            "true"
           );
-
-          if (isActive) {
-            dot.setAttribute(
-              "aria-current",
-              "true"
-            );
-          } else {
-            dot.removeAttribute(
-              "aria-current"
-            );
-          }
+        } else {
+          dot.removeAttribute(
+            "aria-current"
+          );
         }
-      );
+      });
     }
 
+    projectCards.forEach((_, index) => {
+      const dot =
+        document.createElement("button");
+
+      dot.className = "portfolio-dot";
+      dot.type = "button";
+
+      dot.setAttribute(
+        "aria-label",
+        `View portfolio project ${index + 1}`
+      );
+
+      dot.addEventListener(
+        "click",
+        () => scrollToProject(index)
+      );
+
+      portfolioPagination.appendChild(dot);
+    });
+
+    const portfolioDots =
+      portfolioPagination.querySelectorAll(
+        ".portfolio-dot"
+      );
 
     portfolioPrev.addEventListener(
       "click",
-      scrollToPreviousProject
+      () => {
+        scrollToProject(
+          getCurrentProjectIndex() - 1
+        );
+      }
     );
-
 
     portfolioNext.addEventListener(
       "click",
-      scrollToNextProject
+      () => {
+        scrollToProject(
+          getCurrentProjectIndex() + 1
+        );
+      }
     );
-
 
     portfolioScroll.addEventListener(
       "scroll",
@@ -1518,48 +1243,14 @@
       { passive: true }
     );
 
-
     window.addEventListener(
       "resize",
       updatePortfolioNavigation
     );
 
-
-    updatePortfolioNavigation();
-
-
-    /* =========================
-       Full Image Overlay
-    ========================= */
-
-    const imageOverlay =
-      document.getElementById(
-        "imageOverlay"
-      );
-
-    const imageOverlayImage =
-      document.getElementById(
-        "imageOverlayImage"
-      );
-
-    const imageOverlayClose =
-      document.getElementById(
-        "imageOverlayClose"
-      );
-
-    const projectImageLinks =
-      document.querySelectorAll(
-        ".project-image-link"
-      );
-
-    let lastFocusedImage = null;
-
-
     function positionImageOverlayClose() {
       if (
-        !imageOverlay.classList.contains(
-          "is-open"
-        ) ||
+        !imageOverlay.classList.contains("is-open") ||
         !imageOverlayImage.complete ||
         !imageOverlayImage.naturalWidth
       ) {
@@ -1579,36 +1270,24 @@
         `${imageRect.top - closeSize / 2}px`;
     }
 
-
     function openImageOverlay(button) {
       const fullImage =
-        button.getAttribute(
-          "data-full-image"
-        );
+        button.getAttribute("data-full-image");
 
       const image =
         button.querySelector("img");
 
-      if (
-        !fullImage ||
-        !image
-      ) {
+      if (!fullImage || !image) {
         return;
       }
 
       lastFocusedImage = button;
 
-      imageOverlayImage.src =
-        fullImage;
-
+      imageOverlayImage.src = fullImage;
       imageOverlayImage.alt =
-        image.alt ||
-        "Full-size portfolio image";
+        image.alt || "Full-size portfolio image";
 
-      imageOverlay.classList.add(
-        "is-open"
-      );
-
+      imageOverlay.classList.add("is-open");
       imageOverlay.setAttribute(
         "aria-hidden",
         "false"
@@ -1627,7 +1306,6 @@
 
       imageOverlayClose.focus();
     }
-
 
     function closeImageOverlay() {
       imageOverlay.classList.remove(
@@ -1654,57 +1332,38 @@
       }
     }
 
-
-    projectImageLinks.forEach(
-      (button) => {
-
-        button.addEventListener(
-          "click",
-          () => {
-            openImageOverlay(button);
-          }
-        );
-
-      }
-    );
-
+    projectImageLinks.forEach((button) => {
+      button.addEventListener(
+        "click",
+        () => openImageOverlay(button)
+      );
+    });
 
     imageOverlayClose.addEventListener(
       "click",
       closeImageOverlay
     );
 
-
     imageOverlay.addEventListener(
       "click",
       (event) => {
-
-        if (
-          event.target === imageOverlay
-        ) {
+        if (event.target === imageOverlay) {
           closeImageOverlay();
         }
-
       }
     );
-
 
     document.addEventListener(
       "keydown",
       (event) => {
-
         if (
           event.key === "Escape" &&
-          imageOverlay.classList.contains(
-            "is-open"
-          )
+          imageOverlay.classList.contains("is-open")
         ) {
           closeImageOverlay();
         }
-
       }
     );
-
 
     window.addEventListener(
       "resize",
@@ -1716,15 +1375,12 @@
       positionImageOverlayClose
     );
 
-
-    /* =========================
-       Footer Year
-    ========================= */
-
     document.getElementById(
       "current-year"
     ).textContent =
       new Date().getFullYear();
+
+    updatePortfolioNavigation();
   </script>
 
 </body>
