@@ -178,7 +178,7 @@
 
     .subheader {
       margin-bottom: 0.2rem;
-      color: var(--primary-dark);
+      color: var(--primary);
       font-size: 1.15rem;
       font-weight: 700;
       line-height: 1.4;
@@ -215,12 +215,6 @@
       aspect-ratio: 16 / 10;
       object-fit: cover;
       background: #edf2ee;
-      cursor: zoom-in;
-      transition: transform 0.35s ease;
-    }
-
-    .project:hover .project-image {
-      transform: scale(1.02);
     }
 
     .project-content {
@@ -276,14 +270,6 @@
       text-align: center;
     }
 
-    .footer-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-
     .site-footer a {
       color: var(--primary-dark);
       text-decoration: none;
@@ -296,73 +282,6 @@
       color: var(--primary);
       text-decoration: none;
       outline: none;
-    }
-
-    .footer-separator {
-      color: var(--card-border);
-      font-size: 1rem;
-      line-height: 1;
-      margin-inline: 0.05rem;
-    }
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background: rgba(15, 25, 20, 0.88);
-    }
-
-    .modal.is-open {
-      display: flex;
-    }
-
-    .modal img {
-      max-width: 95vw;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      display: grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: none;
-      transition:
-        background-color var(--transition),
-        transform var(--transition);
-    }
-
-    .modal-close:hover {
-      background: rgba(255, 255, 255, 0.22);
-      transform: rotate(90deg);
-    }
-
-    .modal-close svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .modal-close path {
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
     }
 
     @media (max-width: 700px) {
@@ -396,15 +315,6 @@
       .site-footer {
         padding-inline: 0.75rem;
         font-size: 0.78rem;
-      }
-
-      .modal {
-        padding: 0.75rem;
-      }
-
-      .modal-close {
-        top: 0.75rem;
-        right: 0.75rem;
       }
     }
 
@@ -541,6 +451,8 @@
           <a href="mailto:michaelsc@duck.com">michaelsc@duck.com</a>
         </p>
 
+        <br>
+
         <h3 class="subheader">LinkedIn:</h3>
 
         <p class="contact-intro">
@@ -561,20 +473,6 @@
 
   <footer class="site-footer">
 
-    <div class="footer-links">
-
-      <a href="#background">Background</a>
-
-      <span class="footer-separator">•</span>
-
-      <a href="#portfolio">Portfolio</a>
-
-      <span class="footer-separator">•</span>
-
-      <a href="#contact">Contact</a>
-
-    </div>
-
     <div>
       <a href="#top">
         &copy;
@@ -584,32 +482,6 @@
     </div>
 
   </footer>
-
-  <div
-    class="modal"
-    id="image-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Expanded portfolio image"
-  >
-
-    <button
-      class="modal-close"
-      id="modal-close"
-      type="button"
-      aria-label="Close image"
-    >
-
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 6L18 18"></path>
-        <path d="M18 6L6 18"></path>
-      </svg>
-
-    </button>
-
-    <img id="modal-image" src="" alt="">
-
-  </div>
 
   <script>
     /* Copyright year */
@@ -628,49 +500,6 @@
           item.classList.toggle("active", item === link);
         });
       });
-    });
-
-
-    /* Image viewer */
-
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const modalClose = document.getElementById("modal-close");
-
-    document.querySelectorAll(".project-image").forEach((image) => {
-      image.addEventListener("click", () => {
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
-
-        modal.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-
-        modalClose.focus();
-      });
-    });
-
-    function closeModal() {
-      modal.classList.remove("is-open");
-      document.body.style.overflow = "";
-      modalImage.src = "";
-      modalImage.alt = "";
-    }
-
-    modalClose.addEventListener("click", closeModal);
-
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "Escape" &&
-        modal.classList.contains("is-open")
-      ) {
-        closeModal();
-      }
     });
   </script>
 
