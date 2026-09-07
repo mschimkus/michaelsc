@@ -183,39 +183,6 @@
        PORTFOLIO GUIDE
     ========================= */
 
-    .portfolio-guide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      margin-bottom: 0.55rem;
-      padding: 0;
-      border: 0;
-      background: none;
-      color: var(--primary);
-      font-family: inherit;
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1.4;
-      letter-spacing: -0.01em;
-      text-align: center;
-      cursor: pointer;
-      transition:
-        color var(--transition),
-        transform var(--transition);
-    }
-
-    .portfolio-guide:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
-    }
-
-    .portfolio-guide:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
     .portfolio-guide-group {
       display: flex;
       align-items: center;
@@ -509,18 +476,22 @@
         font-size: 0.95rem;
       }
 
-      /*
-        Keep the portfolio guide visually consistent
-        with the mobile subheader.
-      */
+      /* =========================
+         MOBILE PORTFOLIO GUIDE
+      ========================= */
 
       .portfolio-guide-group {
         gap: 1rem;
+        margin-bottom: 0.55rem;
       }
 
       .portfolio-guide-action {
         font-size: 1.1rem;
       }
+
+      /* =========================
+         MOBILE PORTFOLIO
+      ========================= */
 
       .portfolio-scroll {
         gap: 1rem;
@@ -537,13 +508,30 @@
       }
 
       /*
-        Keep mobile swipe navigation clean.
-        No desktop arrows are shown.
+        Keep the same visual arrows on mobile.
+        They sit just inside the portfolio edges
+        so they don't interfere with the page layout.
       */
 
       .portfolio-prev,
       .portfolio-next {
-        display: none;
+        display: flex;
+        width: 38px;
+        height: 38px;
+        font-size: 1.35rem;
+      }
+
+      .portfolio-prev {
+        left: 0.35rem;
+      }
+
+      .portfolio-next {
+        right: 0.35rem;
+      }
+
+      .portfolio-prev:hover,
+      .portfolio-next:hover {
+        transform: translateY(-50%) scale(1.03);
       }
     }
   </style>
@@ -651,12 +639,10 @@
       <div class="section-card">
 
         <!--
-          Navigation guide.
-
-          JavaScript dynamically shows:
-          • previous + next in the middle
-          • next only at the beginning
-          • previous only at the end
+          Portfolio guide:
+          • First project: View More →
+          • Middle projects: both options
+          • Last project: ← View Previous
         -->
 
         <div
@@ -670,7 +656,7 @@
             type="button"
             aria-label="View previous portfolio project"
           >
-            ← Scroll to view previous
+            ← View Previous
           </button>
 
           <button
@@ -679,7 +665,7 @@
             type="button"
             aria-label="View next portfolio project"
           >
-            Scroll to view more →
+            View More →
           </button>
 
         </div>
@@ -694,9 +680,7 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
-            <!-- =========================
-                 PROJECT 1
-            ========================== -->
+            <!-- PROJECT 1 -->
 
             <article class="project">
 
@@ -731,9 +715,7 @@
             </article>
 
 
-            <!-- =========================
-                 PROJECT 2
-            ========================== -->
+            <!-- PROJECT 2 -->
 
             <article class="project">
 
@@ -768,9 +750,7 @@
             </article>
 
 
-            <!-- =========================
-                 PROJECT 3
-            ========================== -->
+            <!-- PROJECT 3 -->
 
             <article class="project">
 
@@ -805,9 +785,7 @@
             </article>
 
 
-            <!-- =========================
-                 PROJECT 4
-            ========================== -->
+            <!-- PROJECT 4 -->
 
             <article class="project">
 
@@ -842,9 +820,7 @@
             </article>
 
 
-            <!-- =========================
-                 PROJECT 5
-            ========================== -->
+            <!-- PROJECT 5 -->
 
             <article class="project">
 
@@ -881,7 +857,7 @@
           </div>
 
 
-          <!-- DESKTOP LEFT ARROW -->
+          <!-- LEFT ARROW -->
 
           <button
             class="portfolio-prev"
@@ -893,7 +869,7 @@
           </button>
 
 
-          <!-- DESKTOP RIGHT ARROW -->
+          <!-- RIGHT ARROW -->
 
           <button
             class="portfolio-next"
@@ -1210,7 +1186,7 @@
 
 
       /*
-        Desktop arrows
+        Visual arrows
       */
 
       portfolioPrev.disabled =
@@ -1221,17 +1197,7 @@
 
 
       /*
-        Guide navigation.
-
-        At the beginning:
-        [ Scroll to view more → ]
-
-        In the middle:
-        [ ← Scroll to view previous ]
-        [ Scroll to view more → ]
-
-        At the end:
-        [ ← Scroll to view previous ]
+        Text navigation
       */
 
       portfolioGuidePrev.disabled =
@@ -1244,7 +1210,7 @@
 
 
     /* =========================
-       DESKTOP ARROWS
+       VISUAL ARROW CONTROLS
     ========================== */
 
     portfolioPrev.addEventListener(
@@ -1259,7 +1225,7 @@
 
 
     /* =========================
-       GUIDE TEXT BUTTONS
+       TEXT CONTROLS
     ========================== */
 
     portfolioGuidePrev.addEventListener(
@@ -1274,7 +1240,7 @@
 
 
     /* =========================
-       TRACK SCROLL POSITION
+       TRACK SWIPE / SCROLL
     ========================== */
 
     portfolioScroll.addEventListener(
@@ -1293,7 +1259,7 @@
 
 
     /*
-      Set the initial state.
+      Set initial state.
     */
 
     updatePortfolioNavigation();
