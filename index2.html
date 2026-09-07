@@ -8,23 +8,18 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <title>Michael Schimkus | GIS Specialist</title>
+
   <meta
     name="description"
     content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
   >
 
-  <title>Michael Schimkus | GIS Specialist</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -75,8 +70,8 @@
     }
 
     /* =========================
-       Header
-       ========================= */
+       HEADER
+    ========================= */
 
     .site-header {
       padding: 0.5rem 0 1.5rem;
@@ -135,8 +130,8 @@
     }
 
     /* =========================
-       Main Layout
-       ========================= */
+       MAIN
+    ========================= */
 
     main {
       display: flex;
@@ -175,8 +170,8 @@
     }
 
     /* =========================
-       About
-       ========================= */
+       ABOUT
+    ========================= */
 
     .about-text {
       color: var(--muted);
@@ -185,25 +180,33 @@
     }
 
     /* =========================
-       Portfolio
-       ========================= */
+       PORTFOLIO GUIDE
+    ========================= */
 
     .portfolio-guide {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
       margin-bottom: 0.55rem;
       padding: 0;
       border: 0;
       background: none;
-      color: var(--primary-dark);
+      color: var(--primary);
       font-family: inherit;
-      font-size: 0.96rem;
-      font-weight: 600;
-      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      text-align: center;
       cursor: pointer;
+      transition:
+        color var(--transition),
+        transform var(--transition);
     }
 
     .portfolio-guide:hover {
-      color: var(--primary);
+      color: var(--primary-dark);
       text-decoration: underline;
     }
 
@@ -212,6 +215,54 @@
       outline-offset: 3px;
       border-radius: 2px;
     }
+
+    .portfolio-guide-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      width: 100%;
+      margin-bottom: 0.55rem;
+    }
+
+    .portfolio-guide-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: var(--primary);
+      font-family: inherit;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      text-align: center;
+      cursor: pointer;
+      transition:
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .portfolio-guide-action:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .portfolio-guide-action:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .portfolio-guide-action:disabled {
+      display: none;
+    }
+
+    /* =========================
+       PORTFOLIO
+    ========================= */
 
     .portfolio-area {
       position: relative;
@@ -228,31 +279,13 @@
       scroll-snap-type: x mandatory;
       overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: auto;
+      scrollbar-width: none;
       scroll-behavior: smooth;
     }
 
     .portfolio-scroll::-webkit-scrollbar {
-      height: 10px;
+      display: none;
     }
-
-    .portfolio-scroll::-webkit-scrollbar-track {
-      background: #edf1ee;
-      border-radius: 999px;
-    }
-
-    .portfolio-scroll::-webkit-scrollbar-thumb {
-      background: #7f8b84;
-      border-radius: 999px;
-    }
-
-    .portfolio-scroll::-webkit-scrollbar-thumb:hover {
-      background: var(--primary);
-    }
-
-    /* =========================
-       Project Cards
-       ========================= */
 
     .project {
       flex: 0 0 94%;
@@ -302,38 +335,57 @@
     }
 
     /* =========================
-       Desktop Next Button
-       ========================= */
+       PORTFOLIO ARROWS
+    ========================= */
 
+    .portfolio-prev,
     .portfolio-next {
       position: absolute;
       top: 50%;
-      right: -0.7rem;
       z-index: 5;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 42px;
       height: 42px;
       padding: 0;
+
       border: 1px solid #cbd6cf;
       border-radius: 50%;
+
       background: #ffffff;
       color: var(--primary-dark);
+
       box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
+
       font-family: inherit;
       font-size: 1.5rem;
       line-height: 1;
+
       cursor: pointer;
+
       transform: translateY(-50%);
+
       transition:
         background var(--transition),
         color var(--transition),
         border-color var(--transition),
         box-shadow var(--transition),
-        transform var(--transition);
+        transform var(--transition),
+        opacity var(--transition);
     }
 
+    .portfolio-prev {
+      left: -0.7rem;
+    }
+
+    .portfolio-next {
+      right: -0.7rem;
+    }
+
+    .portfolio-prev:hover,
     .portfolio-next:hover {
       background: var(--primary-light);
       border-color: var(--primary);
@@ -342,37 +394,47 @@
       transform: translateY(-50%) scale(1.04);
     }
 
+    .portfolio-prev:focus-visible,
     .portfolio-next:focus-visible {
       outline: 2px solid var(--primary);
       outline-offset: 3px;
     }
 
+    .portfolio-prev:disabled,
     .portfolio-next:disabled {
       opacity: 0;
       pointer-events: none;
     }
 
     /* =========================
-       Experience
-       ========================= */
+       EXPERIENCE
+    ========================= */
 
     .experience-text {
       color: var(--muted);
       font-size: 0.96rem;
-      text-align: justify;
     }
 
     .experience-item {
-      margin-bottom: 0.2rem;
+      display: inline;
+    }
+
+    .experience-text strong {
+      color: var(--title-dark);
+      font-weight: 700;
+    }
+
+    .experience-text em {
+      font-style: italic;
     }
 
     .education-subheader {
-      margin-top: 1rem;
+      margin-top: 0.8rem;
     }
 
     /* =========================
-       Contact
-       ========================= */
+       CONTACT
+    ========================= */
 
     .contact-intro {
       color: var(--muted);
@@ -392,8 +454,8 @@
     }
 
     /* =========================
-       Footer
-       ========================= */
+       FOOTER
+    ========================= */
 
     .site-footer {
       padding: 1.25rem 0 1.5rem;
@@ -414,17 +476,10 @@
     }
 
     /* =========================
-       Mobile
-       ========================= */
+       MOBILE
+    ========================= */
 
     @media (max-width: 700px) {
-      .site-header {
-        padding-bottom: 1.2rem;
-      }
-
-      .header-title {
-        font-size: 1.75rem;
-      }
 
       .site-nav {
         gap: 0.4rem;
@@ -450,14 +505,21 @@
         font-size: 1.1rem;
       }
 
-      .about-text,
-      .experience-text,
-      .contact-intro {
+      .about-text {
         font-size: 0.95rem;
       }
 
-      .portfolio-guide {
-        font-size: 0.95rem;
+      /*
+        Keep the portfolio guide visually consistent
+        with the mobile subheader.
+      */
+
+      .portfolio-guide-group {
+        gap: 1rem;
+      }
+
+      .portfolio-guide-action {
+        font-size: 1.1rem;
       }
 
       .portfolio-scroll {
@@ -474,26 +536,25 @@
         padding-top: 0.8rem;
       }
 
-      .project-description {
-        font-size: 0.92rem;
-      }
+      /*
+        Keep mobile swipe navigation clean.
+        No desktop arrows are shown.
+      */
 
+      .portfolio-prev,
       .portfolio-next {
         display: none;
-      }
-
-      .site-footer {
-        font-size: 0.88rem;
       }
     }
   </style>
 </head>
 
+
 <body>
 
   <!-- =========================
-       Header
-       ========================= -->
+       HEADER
+  ========================== -->
 
   <header class="site-header">
 
@@ -503,21 +564,36 @@
         Michael Schimkus
       </h1>
 
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav
+        class="site-nav"
+        aria-label="Main navigation"
+      >
 
-        <a class="nav-link active" href="#about">
+        <a
+          class="nav-link active"
+          href="#about"
+        >
           About
         </a>
 
-        <a class="nav-link" href="#portfolio">
+        <a
+          class="nav-link"
+          href="#portfolio"
+        >
           Portfolio
         </a>
 
-        <a class="nav-link" href="#experience">
+        <a
+          class="nav-link"
+          href="#experience"
+        >
           Experience
         </a>
 
-        <a class="nav-link" href="#contact">
+        <a
+          class="nav-link"
+          href="#contact"
+        >
           Contact
         </a>
 
@@ -528,15 +604,16 @@
   </header>
 
 
-  <!-- =========================
-       Main
-       ========================= -->
-
   <main class="container">
 
-    <!-- About -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
-    <section class="section" id="about">
+    <section
+      class="section"
+      id="about"
+    >
 
       <h2 class="section-title">
         About
@@ -545,12 +622,12 @@
       <div class="section-card">
 
         <p class="about-text">
-          I am a GIS Specialist with hands-on experience supporting environmental
-          and utility projects through high-quality spatial analysis, data
-          management, and cartographic deliverables. In my current role, I
-          develop standardized GIS templates, perform QA/QC on spatial datasets,
-          and publish maps and data to ArcGIS Online and Field Maps for field
-          and regulatory use.
+          I am a GIS Specialist with hands-on experience supporting
+          environmental and utility projects through high-quality spatial
+          analysis, data management, and cartographic deliverables. In my
+          current role, I develop standardized GIS templates, perform QA/QC
+          on spatial datasets, and publish maps and data to ArcGIS Online and
+          Field Maps for field and regulatory use.
         </p>
 
       </div>
@@ -558,9 +635,14 @@
     </section>
 
 
-    <!-- Portfolio -->
+    <!-- =========================
+         PORTFOLIO
+    ========================== -->
 
-    <section class="section" id="portfolio">
+    <section
+      class="section"
+      id="portfolio"
+    >
 
       <h2 class="section-title">
         Portfolio
@@ -568,14 +650,40 @@
 
       <div class="section-card">
 
-        <button
-          class="portfolio-guide"
-          id="portfolioGuide"
-          type="button"
-          aria-label="View next portfolio project"
+        <!--
+          Navigation guide.
+
+          JavaScript dynamically shows:
+          • previous + next in the middle
+          • next only at the beginning
+          • previous only at the end
+        -->
+
+        <div
+          class="portfolio-guide-group"
+          id="portfolioGuideGroup"
         >
-          Scroll to view more →
-        </button>
+
+          <button
+            class="portfolio-guide-action"
+            id="portfolioGuidePrev"
+            type="button"
+            aria-label="View previous portfolio project"
+          >
+            ← Scroll to view previous
+          </button>
+
+          <button
+            class="portfolio-guide-action"
+            id="portfolioGuideNext"
+            type="button"
+            aria-label="View next portfolio project"
+          >
+            Scroll to view more →
+          </button>
+
+        </div>
+
 
         <div class="portfolio-area">
 
@@ -586,24 +694,26 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
-            <!-- Project Card 1 -->
+            <!-- =========================
+                 PROJECT 1
+            ========================== -->
 
             <article class="project">
 
-              <div class="project-header">
+              <header class="project-header">
 
                 <h3 class="subheader">
-                  Population Change in Communities Outside Joshua Tree National Park
+                  Project Title One
                 </h3>
 
-              </div>
+              </header>
 
               <div class="project-image-wrap">
 
                 <img
                   class="project-image"
-                  src="project1.jpg"
-                  alt="Map showing population change in communities outside Joshua Tree National Park"
+                  src="project-1.jpg"
+                  alt="Project one map"
                 >
 
               </div>
@@ -611,10 +721,9 @@
               <div class="project-content">
 
                 <p class="project-description">
-                  <em>
-                    A cartographic analysis examining population change in
-                    communities surrounding Joshua Tree National Park.
-                  </em>
+                  Project description goes here. Describe the GIS work,
+                  analysis, mapping, data management, or other relevant
+                  contributions made for this project.
                 </p>
 
               </div>
@@ -622,24 +731,26 @@
             </article>
 
 
-            <!-- Project Card 2 -->
+            <!-- =========================
+                 PROJECT 2
+            ========================== -->
 
             <article class="project">
 
-              <div class="project-header">
+              <header class="project-header">
 
                 <h3 class="subheader">
-                  Population Change in Communities Outside Joshua Tree National Park
+                  Project Title Two
                 </h3>
 
-              </div>
+              </header>
 
               <div class="project-image-wrap">
 
                 <img
                   class="project-image"
-                  src="project1.jpg"
-                  alt="Map showing population change in communities outside Joshua Tree National Park"
+                  src="project-2.jpg"
+                  alt="Project two map"
                 >
 
               </div>
@@ -647,10 +758,9 @@
               <div class="project-content">
 
                 <p class="project-description">
-                  <em>
-                    A cartographic analysis examining population change in
-                    communities surrounding Joshua Tree National Park.
-                  </em>
+                  Project description goes here. Describe the GIS work,
+                  analysis, mapping, data management, or other relevant
+                  contributions made for this project.
                 </p>
 
               </div>
@@ -658,24 +768,26 @@
             </article>
 
 
-            <!-- Project Card 3 -->
+            <!-- =========================
+                 PROJECT 3
+            ========================== -->
 
             <article class="project">
 
-              <div class="project-header">
+              <header class="project-header">
 
                 <h3 class="subheader">
-                  Project Title
+                  Project Title Three
                 </h3>
 
-              </div>
+              </header>
 
               <div class="project-image-wrap">
 
                 <img
                   class="project-image"
-                  src="project3.jpg"
-                  alt="Description of project map"
+                  src="project-3.jpg"
+                  alt="Project three map"
                 >
 
               </div>
@@ -683,9 +795,9 @@
               <div class="project-content">
 
                 <p class="project-description">
-                  <em>
-                    Project description goes here.
-                  </em>
+                  Project description goes here. Describe the GIS work,
+                  analysis, mapping, data management, or other relevant
+                  contributions made for this project.
                 </p>
 
               </div>
@@ -693,24 +805,26 @@
             </article>
 
 
-            <!-- Project Card 4 -->
+            <!-- =========================
+                 PROJECT 4
+            ========================== -->
 
             <article class="project">
 
-              <div class="project-header">
+              <header class="project-header">
 
                 <h3 class="subheader">
-                  Project Title
+                  Project Title Four
                 </h3>
 
-              </div>
+              </header>
 
               <div class="project-image-wrap">
 
                 <img
                   class="project-image"
-                  src="project4.jpg"
-                  alt="Description of project map"
+                  src="project-4.jpg"
+                  alt="Project four map"
                 >
 
               </div>
@@ -718,9 +832,9 @@
               <div class="project-content">
 
                 <p class="project-description">
-                  <em>
-                    Project description goes here.
-                  </em>
+                  Project description goes here. Describe the GIS work,
+                  analysis, mapping, data management, or other relevant
+                  contributions made for this project.
                 </p>
 
               </div>
@@ -728,24 +842,26 @@
             </article>
 
 
-            <!-- Project Card 5 -->
+            <!-- =========================
+                 PROJECT 5
+            ========================== -->
 
             <article class="project">
 
-              <div class="project-header">
+              <header class="project-header">
 
                 <h3 class="subheader">
-                  Project Title
+                  Project Title Five
                 </h3>
 
-              </div>
+              </header>
 
               <div class="project-image-wrap">
 
                 <img
                   class="project-image"
-                  src="project5.jpg"
-                  alt="Description of project map"
+                  src="project-5.jpg"
+                  alt="Project five map"
                 >
 
               </div>
@@ -753,9 +869,9 @@
               <div class="project-content">
 
                 <p class="project-description">
-                  <em>
-                    Project description goes here.
-                  </em>
+                  Project description goes here. Describe the GIS work,
+                  analysis, mapping, data management, or other relevant
+                  contributions made for this project.
                 </p>
 
               </div>
@@ -765,7 +881,19 @@
           </div>
 
 
-          <!-- Desktop next-project button -->
+          <!-- DESKTOP LEFT ARROW -->
+
+          <button
+            class="portfolio-prev"
+            id="portfolioPrev"
+            type="button"
+            aria-label="View previous portfolio project"
+          >
+            ←
+          </button>
+
+
+          <!-- DESKTOP RIGHT ARROW -->
 
           <button
             class="portfolio-next"
@@ -783,9 +911,14 @@
     </section>
 
 
-    <!-- Experience -->
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
 
-    <section class="section" id="experience">
+    <section
+      class="section"
+      id="experience"
+    >
 
       <h2 class="section-title">
         Experience
@@ -847,9 +980,14 @@
     </section>
 
 
-    <!-- Contact -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
-    <section class="section" id="contact">
+    <section
+      class="section"
+      id="contact"
+    >
 
       <h2 class="section-title">
         Contact
@@ -895,106 +1033,224 @@
 
 
   <!-- =========================
-       Footer
-       ========================= -->
+       FOOTER
+  ========================== -->
 
   <footer class="site-footer">
 
     <div class="container">
 
-      <a href="#about">
-        © <span id="current-year"></span> Michael Schimkus
-      </a>
+      <p>
+        ©
+        <span id="current-year"></span>
+        <a href="#about">
+          Michael Schimkus
+        </a>
+      </p>
 
     </div>
 
   </footer>
 
 
-  <!-- =========================
-       JavaScript
-       ========================= -->
-
   <script>
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-
-
     /* =========================
-       Main Navigation
-       ========================= */
-
-    document.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-
-        document.querySelectorAll(".nav-link").forEach((item) => {
-          item.classList.toggle("active", item === link);
-        });
-
-      });
-    });
-
-
-    /* =========================
-       Portfolio Navigation
-       ========================= */
+       PORTFOLIO ELEMENTS
+    ========================== */
 
     const portfolioScroll =
       document.getElementById("portfolioScroll");
 
+    const portfolioPrev =
+      document.getElementById("portfolioPrev");
+
     const portfolioNext =
       document.getElementById("portfolioNext");
 
-    const portfolioGuide =
-      document.getElementById("portfolioGuide");
+    const portfolioGuidePrev =
+      document.getElementById("portfolioGuidePrev");
+
+    const portfolioGuideNext =
+      document.getElementById("portfolioGuideNext");
 
     const projectCards =
       portfolioScroll.querySelectorAll(".project");
 
 
-    function scrollToNextProject() {
+    /* =========================
+       FIND CURRENT PROJECT
+    ========================== */
 
-      const firstProject = projectCards[0];
+    function getCurrentProjectIndex() {
 
-      if (!firstProject) {
+      if (!projectCards.length) {
+        return 0;
+      }
+
+      const currentScroll =
+        portfolioScroll.scrollLeft;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      projectCards.forEach(
+        (project, index) => {
+
+          const distance =
+            Math.abs(
+              project.offsetLeft -
+              currentScroll
+            );
+
+          if (distance < closestDistance) {
+
+            closestDistance = distance;
+            closestIndex = index;
+
+          }
+
+        }
+      );
+
+      return closestIndex;
+    }
+
+
+    /* =========================
+       SCROLL TO PROJECT
+    ========================== */
+
+    function scrollToProject(index) {
+
+      if (!projectCards.length) {
         return;
       }
 
-      const projectWidth =
-        firstProject.offsetWidth;
+      const clampedIndex =
+        Math.max(
+          0,
+          Math.min(
+            index,
+            projectCards.length - 1
+          )
+        );
 
-      const gap =
-        parseFloat(
-          window.getComputedStyle(firstProject).marginRight
-        ) || 0;
+      portfolioScroll.scrollTo({
 
-      const scrollAmount =
-        projectWidth + gap + 20;
+        left:
+          projectCards[
+            clampedIndex
+          ].offsetLeft,
 
-      portfolioScroll.scrollBy({
-        left: scrollAmount,
         behavior: "smooth"
+
       });
+
     }
 
 
-    function updatePortfolioButton() {
+    /* =========================
+       NEXT PROJECT
+    ========================== */
 
-      const maxScroll =
-        portfolioScroll.scrollWidth -
-        portfolioScroll.clientWidth;
+    function scrollToNextProject() {
 
-      if (portfolioScroll.scrollLeft >= maxScroll - 5) {
+      const currentIndex =
+        getCurrentProjectIndex();
 
-        portfolioNext.disabled = true;
+      if (
+        currentIndex <
+        projectCards.length - 1
+      ) {
 
-      } else {
-
-        portfolioNext.disabled = false;
+        scrollToProject(
+          currentIndex + 1
+        );
 
       }
+
     }
 
+
+    /* =========================
+       PREVIOUS PROJECT
+    ========================== */
+
+    function scrollToPreviousProject() {
+
+      const currentIndex =
+        getCurrentProjectIndex();
+
+      if (currentIndex > 0) {
+
+        scrollToProject(
+          currentIndex - 1
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       UPDATE NAVIGATION
+    ========================== */
+
+    function updatePortfolioNavigation() {
+
+      const currentIndex =
+        getCurrentProjectIndex();
+
+      const isFirstProject =
+        currentIndex === 0;
+
+      const isLastProject =
+        currentIndex >=
+        projectCards.length - 1;
+
+
+      /*
+        Desktop arrows
+      */
+
+      portfolioPrev.disabled =
+        isFirstProject;
+
+      portfolioNext.disabled =
+        isLastProject;
+
+
+      /*
+        Guide navigation.
+
+        At the beginning:
+        [ Scroll to view more → ]
+
+        In the middle:
+        [ ← Scroll to view previous ]
+        [ Scroll to view more → ]
+
+        At the end:
+        [ ← Scroll to view previous ]
+      */
+
+      portfolioGuidePrev.disabled =
+        isFirstProject;
+
+      portfolioGuideNext.disabled =
+        isLastProject;
+
+    }
+
+
+    /* =========================
+       DESKTOP ARROWS
+    ========================== */
+
+    portfolioPrev.addEventListener(
+      "click",
+      scrollToPreviousProject
+    );
 
     portfolioNext.addEventListener(
       "click",
@@ -1002,26 +1258,86 @@
     );
 
 
-    portfolioGuide.addEventListener(
+    /* =========================
+       GUIDE TEXT BUTTONS
+    ========================== */
+
+    portfolioGuidePrev.addEventListener(
+      "click",
+      scrollToPreviousProject
+    );
+
+    portfolioGuideNext.addEventListener(
       "click",
       scrollToNextProject
     );
 
 
+    /* =========================
+       TRACK SCROLL POSITION
+    ========================== */
+
     portfolioScroll.addEventListener(
       "scroll",
-      updatePortfolioButton,
-      { passive: true }
+      updatePortfolioNavigation,
+      {
+        passive: true
+      }
     );
 
 
     window.addEventListener(
       "resize",
-      updatePortfolioButton
+      updatePortfolioNavigation
     );
 
 
-    updatePortfolioButton();
+    /*
+      Set the initial state.
+    */
+
+    updatePortfolioNavigation();
+
+
+    /* =========================
+       FOOTER YEAR
+    ========================== */
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* =========================
+       NAVIGATION ACTIVE STATE
+    ========================== */
+
+    document
+      .querySelectorAll(".nav-link")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(".nav-link")
+              .forEach(
+                (item) => {
+
+                  item.classList.toggle(
+                    "active",
+                    item === link
+                  );
+
+                }
+              );
+
+          }
+        );
+
+      });
   </script>
 
 </body>
