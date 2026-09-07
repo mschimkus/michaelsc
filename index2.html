@@ -151,7 +151,7 @@
       box-shadow: var(--card-shadow);
     }
 
-    /* Shared Subheaders */
+    /* Subheaders */
 
     .subheader {
       margin-bottom: 0.2rem;
@@ -260,10 +260,7 @@
       color: var(--primary-dark);
     }
 
-    /* Mobile
-       Spacing is intentionally unchanged.
-       Only typography is adjusted.
-    */
+    /* Mobile */
 
     @media (max-width: 700px) {
       .site-header {
@@ -283,10 +280,15 @@
       .site-nav {
         justify-content: flex-start;
         margin-left: 0;
+        gap: 0.4rem;
+        flex-wrap: nowrap;
+        width: 100%;
       }
 
       .nav-link {
+        padding: 0.125rem 0.6rem;
         font-size: 0.95rem;
+        white-space: nowrap;
       }
 
       .section-title {
