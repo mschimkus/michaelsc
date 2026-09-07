@@ -15,10 +15,7 @@
 
   <title>Michael Schimkus | GIS Specialist</title>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
     rel="preconnect"
@@ -191,31 +188,70 @@
        Portfolio
        ========================= */
 
+    .portfolio-guide {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 0.55rem;
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
     .portfolio-scroll {
       display: flex;
       gap: 1.25rem;
       width: 100%;
       overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.1rem 0.1rem 0.8rem;
       scroll-snap-type: x mandatory;
       overscroll-behavior-x: contain;
-      padding-bottom: 0.5rem;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: auto;
     }
 
-    .portfolio-scroll .project {
-      flex: 0 0 88%;
+    .portfolio-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .portfolio-scroll::-webkit-scrollbar-track {
+      background: #edf1ee;
+      border-radius: 999px;
+    }
+
+    .portfolio-scroll::-webkit-scrollbar-thumb {
+      background: #7f8b84;
+      border-radius: 999px;
+    }
+
+    .portfolio-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    .project {
+      flex: 0 0 78%;
       min-width: 0;
+      padding: 0.9rem;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      background: var(--surface);
+      box-shadow: 0 3px 12px rgba(35, 65, 48, 0.10);
       scroll-snap-align: start;
     }
 
     .project + .project {
       margin-top: 0;
-      padding-top: 0;
-      border-top: none;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--card-border);
     }
 
     .project-header {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .project-header .subheader {
+      margin-bottom: 0;
     }
 
     .project-image-wrap {
@@ -231,7 +267,7 @@
     }
 
     .project-content {
-      padding-top: 0.75rem;
+      padding-top: 0.7rem;
     }
 
     .project-description {
@@ -344,12 +380,22 @@
         font-size: 0.95rem;
       }
 
+      .portfolio-guide {
+        justify-content: flex-start;
+        font-size: 0.8rem;
+      }
+
       .portfolio-scroll {
         gap: 1rem;
       }
 
-      .portfolio-scroll .project {
-        flex-basis: 92%;
+      .project {
+        flex-basis: 90%;
+        padding: 0.8rem;
+      }
+
+      .project + .project {
+        padding-top: 0.8rem;
       }
 
       .project-description {
@@ -370,6 +416,7 @@
        ========================= -->
 
   <header class="site-header">
+
     <div class="container header-group">
 
       <h1 class="header-title">
@@ -377,6 +424,7 @@
       </h1>
 
       <nav class="site-nav" aria-label="Main navigation">
+
         <a class="nav-link active" href="#about">
           About
         </a>
@@ -392,9 +440,11 @@
         <a class="nav-link" href="#contact">
           Contact
         </a>
+
       </nav>
 
     </div>
+
   </header>
 
 
@@ -438,7 +488,15 @@
 
       <div class="section-card">
 
-        <div class="portfolio-scroll">
+        <div class="portfolio-guide">
+          Scroll to view more →
+        </div>
+
+        <div
+          class="portfolio-scroll"
+          tabindex="0"
+          aria-label="Portfolio projects. Scroll horizontally to view more projects."
+        >
 
           <!-- Project 1 -->
 
@@ -513,9 +571,7 @@
 
 
           <!-- Project 3 -->
-          <!-- Duplicate this structure when ready -->
 
-          <!--
           <article class="project">
 
             <div class="project-header">
@@ -547,15 +603,76 @@
             </div>
 
           </article>
-          -->
 
 
           <!-- Project 4 -->
-          <!-- Duplicate the project structure when ready -->
+
+          <article class="project">
+
+            <div class="project-header">
+
+              <h3 class="subheader">
+                Project Title
+              </h3>
+
+            </div>
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="project4.jpg"
+                alt="Description of project map"
+              >
+
+            </div>
+
+            <div class="project-content">
+
+              <p class="project-description">
+                <em>
+                  Project description goes here.
+                </em>
+              </p>
+
+            </div>
+
+          </article>
 
 
           <!-- Project 5 -->
-          <!-- Duplicate the project structure when ready -->
+
+          <article class="project">
+
+            <div class="project-header">
+
+              <h3 class="subheader">
+                Project Title
+              </h3>
+
+            </div>
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="project5.jpg"
+                alt="Description of project map"
+              >
+
+            </div>
+
+            <div class="project-content">
+
+              <p class="project-description">
+                <em>
+                  Project description goes here.
+                </em>
+              </p>
+
+            </div>
+
+          </article>
 
         </div>
 
@@ -603,7 +720,6 @@
           </span>
 
         </p>
-
 
         <h3 class="subheader education-subheader">
           Education
