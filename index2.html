@@ -21,7 +21,7 @@
 
   <style>
     :root {
-      --bg: #f5f8f6;
+      --bg: #f7f9f8;
       --surface: #ffffff;
       --muted: #56635b;
       --primary: #347f5c;
@@ -63,68 +63,36 @@
       margin: 0 auto;
     }
 
-
     /* Header */
 
     .site-header {
-      padding: 0.5rem 0 0.2rem;
+      padding: 0.5rem 0 1.5rem;
     }
 
     .header-group {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
     }
 
     .header-title {
       color: var(--title-dark);
-      font-size: 1.75rem;
+      font-size: 1.66rem;
       font-weight: 700;
       line-height: 1.3;
+      white-space: nowrap;
     }
-
-
-    /* Main Layout */
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      padding-bottom: 0.75rem;
-    }
-
-    .section-title {
-      margin-bottom: 0.1rem;
-      color: var(--title-dark);
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .section-card {
-      padding: 0.9rem 1.26rem 1.08rem;
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: var(--card-shadow);
-    }
-
 
     /* Navigation */
 
-    .navigation-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2.7px 0;
-    }
-
     .site-nav {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
+      margin-left: 2rem;
     }
 
     .nav-link {
@@ -153,6 +121,30 @@
       transform: translateY(-1px);
     }
 
+    /* Main */
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-title {
+      margin-bottom: 0.1rem;
+      color: var(--title-dark);
+      font-size: 1.57rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .section-card {
+      padding: 0.855rem 1.197rem 1.026rem;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+    }
 
     /* Shared Subheaders */
 
@@ -170,7 +162,6 @@
       margin-bottom: 0.15rem;
     }
 
-
     /* About */
 
     .about-text {
@@ -178,7 +169,6 @@
       font-size: 0.96rem;
       text-align: justify;
     }
-
 
     /* Portfolio */
 
@@ -214,7 +204,6 @@
       line-height: 1.6;
     }
 
-
     /* Experience */
 
     .experience-text {
@@ -226,7 +215,6 @@
     .experience-item {
       margin-bottom: 0.2rem;
     }
-
 
     /* Contact */
 
@@ -246,7 +234,6 @@
       color: var(--primary);
       text-decoration: underline;
     }
-
 
     /* Footer */
 
@@ -268,62 +255,64 @@
       color: var(--primary-dark);
     }
 
-
     /* Mobile */
 
     @media (max-width: 700px) {
-      .header-title {
-        font-size: 1.55rem;
+      .site-header {
+        padding-bottom: 1.2rem;
       }
 
-      .navigation-card {
-        padding: 2.7px 0;
-      }
-
-      .site-nav {
+      .header-group {
+        align-items: flex-start;
+        flex-direction: column;
         gap: 0.5rem;
       }
 
+      .header-title {
+        font-size: 1.47rem;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+        margin-left: 0;
+      }
+
       .section-title {
-        font-size: 1.5rem;
+        font-size: 1.425rem;
       }
 
       .section-card {
-        padding: 0.72rem 0.9rem 0.936rem;
+        padding: 0.684rem 0.855rem 0.889rem;
       }
     }
   </style>
 </head>
 
-
 <body id="top">
 
   <header class="site-header">
     <div class="container header-group">
+
       <h1 class="header-title">Michael Schimkus</h1>
-    </div>
-  </header>
 
-
-  <main class="container">
-
-    <div class="section-card navigation-card">
       <nav class="site-nav" aria-label="Main navigation">
         <a class="nav-link active" href="#about">About</a>
         <a class="nav-link" href="#portfolio">Portfolio</a>
         <a class="nav-link" href="#experience">Experience</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
-    </div>
 
+    </div>
+  </header>
+
+
+  <main class="container">
 
     <section class="section" id="about">
 
       <h2 class="section-title">About</h2>
 
       <div class="section-card">
-
-        <h3 class="subheader">About Me</h3>
 
         <p class="about-text">
           I am a GIS Specialist with hands-on experience supporting environmental
@@ -413,23 +402,21 @@
 
       <div class="section-card">
 
-        <h3 class="subheader">
-          Professional
-        </h3>
+        <h3 class="subheader">Professional</h3>
 
         <p class="experience-text">
 
           <span class="experience-item">
             <strong>GIS Specialist</strong>,
             <em>Amigo Environmental</em>
-            (2025 - Present)
+            (2025 – Present)
           </span>
           <br>
 
           <span class="experience-item">
             <strong>GIS Technician</strong>,
             <em>Montrose Environmental Group</em>
-            (2022 - 2025)
+            (2022 – 2025)
           </span>
           <br>
 
@@ -507,11 +494,9 @@
     document.getElementById("current-year").textContent =
       new Date().getFullYear();
 
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    navLinks.forEach((link) => {
+    document.querySelectorAll(".nav-link").forEach((link) => {
       link.addEventListener("click", () => {
-        navLinks.forEach((item) => {
+        document.querySelectorAll(".nav-link").forEach((item) => {
           item.classList.toggle("active", item === link);
         });
       });
