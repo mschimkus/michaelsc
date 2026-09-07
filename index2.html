@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
-  <title>Michael Schimkus | GIS Specialist</title>
 
   <meta
     name="description"
     content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Michael Schimkus | GIS Specialist</title>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -59,6 +64,10 @@
       line-height: 1.6;
     }
 
+    body.overlay-open {
+      overflow: hidden;
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -69,7 +78,9 @@
       margin: 0 auto;
     }
 
-    /* Header */
+    /* =========================
+       Header
+    ========================= */
 
     .site-header {
       padding: 0.5rem 0 1.5rem;
@@ -127,7 +138,9 @@
       transform: translateY(-1px);
     }
 
-    /* Main */
+    /* =========================
+       Main / Sections
+    ========================= */
 
     main {
       display: flex;
@@ -165,7 +178,9 @@
       letter-spacing: -0.01em;
     }
 
-    /* About */
+    /* =========================
+       About
+    ========================= */
 
     .about-text {
       color: var(--muted);
@@ -173,14 +188,16 @@
       text-align: justify;
     }
 
-    /* Portfolio */
+    /* =========================
+       Portfolio
+    ========================= */
 
     .portfolio-guide-group {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
       width: 100%;
+      min-height: 1.6rem;
       margin-bottom: 0.55rem;
     }
 
@@ -212,6 +229,16 @@
 
     .portfolio-guide-action:disabled {
       display: none;
+    }
+
+    #portfolioGuidePrev {
+      position: absolute;
+      left: 0;
+    }
+
+    #portfolioGuideNext {
+      position: absolute;
+      right: 0;
     }
 
     .portfolio-area {
@@ -262,16 +289,45 @@
       margin-bottom: 0;
     }
 
+    /* =========================
+       Portfolio Image Preview
+    ========================= */
+
     .project-image-wrap {
       width: 100%;
+      height: 360px;
       overflow: hidden;
       border-radius: 8px;
+      background: #edf2ee;
+    }
+
+    .project-image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: zoom-in;
     }
 
     .project-image {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
       background: #edf2ee;
+      transition: transform var(--transition);
+    }
+
+    .project-image-link:hover .project-image {
+      transform: scale(1.02);
+    }
+
+    .project-image-link:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 8px;
     }
 
     .project-content {
@@ -284,7 +340,93 @@
       line-height: 1.6;
     }
 
-    /* Portfolio arrows */
+    /* =========================
+       Portfolio Image Overlay
+    ========================= */
+
+    .image-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(20, 27, 23, 0.88);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity var(--transition),
+        visibility var(--transition);
+    }
+
+    .image-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .image-overlay-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(96vw, 1400px);
+      height: min(92vh, 1000px);
+    }
+
+    .image-overlay-image {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .image-overlay-close {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-family: inherit;
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .image-overlay-close:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+      transform: scale(1.04);
+    }
+
+    .image-overlay-close:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+
+    /* =========================
+       Portfolio Arrows
+    ========================= */
 
     .portfolio-prev,
     .portfolio-next {
@@ -345,7 +487,9 @@
       pointer-events: none;
     }
 
-    /* Experience */
+    /* =========================
+       Experience
+    ========================= */
 
     .experience-text {
       color: var(--muted);
@@ -369,7 +513,9 @@
       margin-top: 0.8rem;
     }
 
-    /* Contact */
+    /* =========================
+       Contact
+    ========================= */
 
     .contact-intro {
       color: var(--muted);
@@ -388,7 +534,9 @@
       text-decoration: none;
     }
 
-    /* Footer */
+    /* =========================
+       Footer
+    ========================= */
 
     .site-footer {
       padding: 1.25rem 0 1.5rem;
@@ -409,7 +557,9 @@
       text-decoration: none;
     }
 
-    /* Mobile */
+    /* =========================
+       Mobile
+    ========================= */
 
     @media (max-width: 700px) {
       .site-nav {
@@ -440,14 +590,6 @@
         font-size: 0.95rem;
       }
 
-      .portfolio-guide-action {
-        font-size: 0.95rem;
-      }
-
-      .portfolio-guide-group {
-        gap: 1rem;
-      }
-
       .portfolio-scroll {
         gap: 1rem;
         padding-bottom: 0.8rem;
@@ -460,6 +602,10 @@
 
       .project + .project {
         padding-top: 0.8rem;
+      }
+
+      .project-image-wrap {
+        height: 260px;
       }
 
       .portfolio-prev,
@@ -481,65 +627,58 @@
       .portfolio-next:hover {
         transform: translateY(-50%) scale(1.03);
       }
+
+      .portfolio-guide-action {
+        font-size: 0.95rem;
+      }
+
+      .image-overlay {
+        padding: 1rem;
+      }
+
+      .image-overlay-content {
+        width: 100%;
+        height: 94vh;
+      }
+
+      .image-overlay-close {
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1.45rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- =========================
+       Header
+  ========================== -->
+
   <header class="site-header">
     <div class="container header-group">
+      <h1 class="header-title">Michael Schimkus</h1>
 
-      <h1 class="header-title">
-        Michael Schimkus
-      </h1>
-
-      <nav
-        class="site-nav"
-        aria-label="Main navigation"
-      >
-        <a
-          class="nav-link active"
-          href="#about"
-        >
-          About
-        </a>
-
-        <a
-          class="nav-link"
-          href="#portfolio"
-        >
-          Portfolio
-        </a>
-
-        <a
-          class="nav-link"
-          href="#experience"
-        >
-          Experience
-        </a>
-
-        <a
-          class="nav-link"
-          href="#contact"
-        >
-          Contact
-        </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#about">About</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
-
     </div>
   </header>
 
-
   <main class="container">
 
-    <section
-      class="section"
-      id="about"
-    >
-      <h2 class="section-title">
-        About
-      </h2>
+    <!-- =========================
+         About
+    ========================== -->
+
+    <section class="section" id="about">
+      <h2 class="section-title">About</h2>
 
       <div class="section-card">
         <p class="about-text">
@@ -547,20 +686,18 @@
           environmental and utility projects through high-quality spatial
           analysis, data management, and cartographic deliverables. In my
           current role, I develop standardized GIS templates, perform QA/QC
-          on spatial datasets, and publish maps and data to ArcGIS Online and
-          Field Maps for field and regulatory use.
+          on spatial datasets, and publish maps and data to ArcGIS Online
+          and Field Maps for field and regulatory use.
         </p>
       </div>
     </section>
 
+    <!-- =========================
+         Portfolio
+    ========================== -->
 
-    <section
-      class="section"
-      id="portfolio"
-    >
-      <h2 class="section-title">
-        Portfolio
-      </h2>
+    <section class="section" id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
 
       <div class="section-card">
 
@@ -587,7 +724,6 @@
           </button>
         </div>
 
-
         <div class="portfolio-area">
 
           <div
@@ -597,19 +733,28 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
+            <!-- Project 1 -->
+
             <article class="project">
-              <header class="project-header">
+              <div class="project-header">
                 <h3 class="subheader">
                   Project Title One
                 </h3>
-              </header>
+              </div>
 
               <div class="project-image-wrap">
-                <img
-                  class="project-image"
-                  src="project-1.jpg"
-                  alt="Project one map"
+                <button
+                  class="project-image-link"
+                  type="button"
+                  data-full-image="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                  aria-label="View Project One map at full size"
                 >
+                  <img
+                    class="project-image"
+                    src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                    alt="Project one map"
+                  >
+                </button>
               </div>
 
               <div class="project-content">
@@ -621,20 +766,28 @@
               </div>
             </article>
 
+            <!-- Project 2 -->
 
             <article class="project">
-              <header class="project-header">
+              <div class="project-header">
                 <h3 class="subheader">
                   Project Title Two
                 </h3>
-              </header>
+              </div>
 
               <div class="project-image-wrap">
-                <img
-                  class="project-image"
-                  src="project-2.jpg"
-                  alt="Project two map"
+                <button
+                  class="project-image-link"
+                  type="button"
+                  data-full-image="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                  aria-label="View Project Two map at full size"
                 >
+                  <img
+                    class="project-image"
+                    src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                    alt="Project two map"
+                  >
+                </button>
               </div>
 
               <div class="project-content">
@@ -646,20 +799,28 @@
               </div>
             </article>
 
+            <!-- Project 3 -->
 
             <article class="project">
-              <header class="project-header">
+              <div class="project-header">
                 <h3 class="subheader">
                   Project Title Three
                 </h3>
-              </header>
+              </div>
 
               <div class="project-image-wrap">
-                <img
-                  class="project-image"
-                  src="project-3.jpg"
-                  alt="Project three map"
+                <button
+                  class="project-image-link"
+                  type="button"
+                  data-full-image="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                  aria-label="View Project Three map at full size"
                 >
+                  <img
+                    class="project-image"
+                    src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                    alt="Project three map"
+                  >
+                </button>
               </div>
 
               <div class="project-content">
@@ -671,20 +832,28 @@
               </div>
             </article>
 
+            <!-- Project 4 -->
 
             <article class="project">
-              <header class="project-header">
+              <div class="project-header">
                 <h3 class="subheader">
                   Project Title Four
                 </h3>
-              </header>
+              </div>
 
               <div class="project-image-wrap">
-                <img
-                  class="project-image"
-                  src="project-4.jpg"
-                  alt="Project four map"
+                <button
+                  class="project-image-link"
+                  type="button"
+                  data-full-image="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                  aria-label="View Project Four map at full size"
                 >
+                  <img
+                    class="project-image"
+                    src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                    alt="Project four map"
+                  >
+                </button>
               </div>
 
               <div class="project-content">
@@ -696,20 +865,28 @@
               </div>
             </article>
 
+            <!-- Project 5 -->
 
             <article class="project">
-              <header class="project-header">
+              <div class="project-header">
                 <h3 class="subheader">
                   Project Title Five
                 </h3>
-              </header>
+              </div>
 
               <div class="project-image-wrap">
-                <img
-                  class="project-image"
-                  src="project-5.jpg"
-                  alt="Project five map"
+                <button
+                  class="project-image-link"
+                  type="button"
+                  data-full-image="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                  aria-label="View Project Five map at full size"
                 >
+                  <img
+                    class="project-image"
+                    src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
+                    alt="Project five map"
+                  >
+                </button>
               </div>
 
               <div class="project-content">
@@ -722,7 +899,6 @@
             </article>
 
           </div>
-
 
           <button
             class="portfolio-prev"
@@ -746,22 +922,19 @@
       </div>
     </section>
 
+    <!-- =========================
+         Experience
+    ========================== -->
 
-    <section
-      class="section"
-      id="experience"
-    >
-      <h2 class="section-title">
-        Experience
-      </h2>
+    <section class="section" id="experience">
+      <h2 class="section-title">Experience</h2>
 
       <div class="section-card">
 
-        <h3 class="subheader">
-          Professional
-        </h3>
+        <h3 class="subheader">Professional</h3>
 
         <p class="experience-text">
+
           <span class="experience-item">
             <strong>GIS Specialist</strong>,
             <em>Amigo Environmental</em>
@@ -783,8 +956,8 @@
             <em>HANA Resources</em>
             (2022)
           </span>
-        </p>
 
+        </p>
 
         <h3 class="subheader education-subheader">
           Education
@@ -805,20 +978,16 @@
       </div>
     </section>
 
+    <!-- =========================
+         Contact
+    ========================== -->
 
-    <section
-      class="section"
-      id="contact"
-    >
-      <h2 class="section-title">
-        Contact
-      </h2>
+    <section class="section" id="contact">
+      <h2 class="section-title">Contact</h2>
 
       <div class="section-card">
 
-        <h3 class="subheader">
-          Email
-        </h3>
+        <h3 class="subheader">Email</h3>
 
         <p class="contact-intro">
           <a href="mailto:michaelsc@duck.com">
@@ -828,9 +997,7 @@
 
         <br>
 
-        <h3 class="subheader">
-          LinkedIn
-        </h3>
+        <h3 class="subheader">LinkedIn</h3>
 
         <p class="contact-intro">
           <a
@@ -847,21 +1014,58 @@
 
   </main>
 
+  <!-- =========================
+       Full Image Overlay
+  ========================== -->
+
+  <div
+    class="image-overlay"
+    id="imageOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Full-size portfolio image"
+    aria-hidden="true"
+  >
+    <div class="image-overlay-content">
+
+      <button
+        class="image-overlay-close"
+        id="imageOverlayClose"
+        type="button"
+        aria-label="Close full-size image"
+      >
+        ×
+      </button>
+
+      <img
+        class="image-overlay-image"
+        id="imageOverlayImage"
+        src=""
+        alt=""
+      >
+
+    </div>
+  </div>
+
+  <!-- =========================
+       Footer
+  ========================== -->
 
   <footer class="site-footer">
     <div class="container">
       <p>
         ©
         <span id="current-year"></span>
-        <a href="#about">
-          Michael Schimkus
-        </a>
+        <a href="#about">Michael Schimkus</a>
       </p>
     </div>
   </footer>
 
-
   <script>
+    /* =========================
+       Portfolio Navigation
+    ========================= */
+
     const portfolioScroll =
       document.getElementById("portfolioScroll");
 
@@ -894,7 +1098,9 @@
 
       projectCards.forEach((project, index) => {
         const distance =
-          Math.abs(project.offsetLeft - scrollLeft);
+          Math.abs(
+            project.offsetLeft - scrollLeft
+          );
 
         if (distance < closestDistance) {
           closestDistance = distance;
@@ -931,8 +1137,13 @@
       const currentIndex =
         getCurrentProjectIndex();
 
-      if (currentIndex < projectCards.length - 1) {
-        scrollToProject(currentIndex + 1);
+      if (
+        currentIndex <
+        projectCards.length - 1
+      ) {
+        scrollToProject(
+          currentIndex + 1
+        );
       }
     }
 
@@ -942,7 +1153,9 @@
         getCurrentProjectIndex();
 
       if (currentIndex > 0) {
-        scrollToProject(currentIndex - 1);
+        scrollToProject(
+          currentIndex - 1
+        );
       }
     }
 
@@ -955,13 +1168,20 @@
         currentIndex === 0;
 
       const isLast =
-        currentIndex >= projectCards.length - 1;
+        currentIndex >=
+        projectCards.length - 1;
 
-      portfolioPrev.disabled = isFirst;
-      portfolioNext.disabled = isLast;
+      portfolioPrev.disabled =
+        isFirst;
 
-      portfolioGuidePrev.disabled = isFirst;
-      portfolioGuideNext.disabled = isLast;
+      portfolioNext.disabled =
+        isLast;
+
+      portfolioGuidePrev.disabled =
+        isFirst;
+
+      portfolioGuideNext.disabled =
+        isLast;
     }
 
 
@@ -985,19 +1205,142 @@
       scrollToNextProject
     );
 
+
     portfolioScroll.addEventListener(
       "scroll",
       updatePortfolioNavigation,
       { passive: true }
     );
 
+
     window.addEventListener(
       "resize",
       updatePortfolioNavigation
     );
 
+
     updatePortfolioNavigation();
 
+
+    /* =========================
+       Full Image Overlay
+    ========================= */
+
+    const imageOverlay =
+      document.getElementById("imageOverlay");
+
+    const imageOverlayImage =
+      document.getElementById("imageOverlayImage");
+
+    const imageOverlayClose =
+      document.getElementById("imageOverlayClose");
+
+    const projectImageLinks =
+      document.querySelectorAll(".project-image-link");
+
+    let lastFocusedImage = null;
+
+
+    function openImageOverlay(button) {
+      const fullImage =
+        button.getAttribute("data-full-image");
+
+      const image =
+        button.querySelector("img");
+
+      if (!fullImage || !image) {
+        return;
+      }
+
+      lastFocusedImage = button;
+
+      imageOverlayImage.src = fullImage;
+      imageOverlayImage.alt =
+        image.alt || "Full-size portfolio image";
+
+      imageOverlay.classList.add("is-open");
+      imageOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "overlay-open"
+      );
+
+      imageOverlayClose.focus();
+    }
+
+
+    function closeImageOverlay() {
+      imageOverlay.classList.remove(
+        "is-open"
+      );
+
+      imageOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.classList.remove(
+        "overlay-open"
+      );
+
+      imageOverlayImage.src = "";
+      imageOverlayImage.alt = "";
+
+      if (lastFocusedImage) {
+        lastFocusedImage.focus();
+      }
+    }
+
+
+    projectImageLinks.forEach((button) => {
+      button.addEventListener(
+        "click",
+        () => {
+          openImageOverlay(button);
+        }
+      );
+    });
+
+
+    imageOverlayClose.addEventListener(
+      "click",
+      closeImageOverlay
+    );
+
+
+    imageOverlay.addEventListener(
+      "click",
+      (event) => {
+        if (
+          event.target === imageOverlay
+        ) {
+          closeImageOverlay();
+        }
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (
+          event.key === "Escape" &&
+          imageOverlay.classList.contains(
+            "is-open"
+          )
+        ) {
+          closeImageOverlay();
+        }
+      }
+    );
+
+
+    /* =========================
+       Footer Year
+    ========================= */
 
     document.getElementById(
       "current-year"
@@ -1005,24 +1348,31 @@
       new Date().getFullYear();
 
 
+    /* =========================
+       Navigation Active State
+    ========================= */
+
     document
       .querySelectorAll(".nav-link")
       .forEach((link) => {
 
-        link.addEventListener("click", () => {
+        link.addEventListener(
+          "click",
+          () => {
 
-          document
-            .querySelectorAll(".nav-link")
-            .forEach((item) => {
+            document
+              .querySelectorAll(".nav-link")
+              .forEach((item) => {
 
-              item.classList.toggle(
-                "active",
-                item === link
-              );
+                item.classList.toggle(
+                  "active",
+                  item === link
+                );
 
-            });
+              });
 
-        });
+          }
+        );
 
       });
   </script>
