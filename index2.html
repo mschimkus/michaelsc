@@ -218,10 +218,13 @@
       width: 100%;
     }
 
+    /*
+      Images maintain their original aspect ratio
+      so the full GIS map is visible without cropping.
+    */
     .project-image {
       width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
+      height: auto;
       background: #edf2ee;
     }
 
