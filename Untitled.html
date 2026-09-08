@@ -995,6 +995,23 @@
       </div>
     </section>
 
+    <section
+      class="section section-hidden"
+      id="links"
+    >
+      <h2 class="section-title">
+        Links
+      </h2>
+
+      <div class="section-card">
+
+        <h3 class="subheader">
+          Other Sites
+        </h3>
+
+      </div>
+    </section>
+
   </main>
 
   <div
@@ -1033,7 +1050,7 @@
       <p>
         Copyright ©
         <span id="current-year"></span>
-        Michael Schimkus. All rights reserved.&#32;&#32;<a href="webring.html">▶</a>
+        Michael Schimkus. All rights reserved.&#32;&#32;<a href="#links" id="webringLink">▶</a>
       </p>
     </div>
   </footer>
@@ -1113,6 +1130,16 @@
         );
       });
     });
+
+    document
+      .getElementById("webringLink")
+      .addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+          showSection("links");
+        }
+      );
 
     function getCurrentProjectIndex() {
       if (!projectCards.length) {
