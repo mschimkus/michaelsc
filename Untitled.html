@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -12,7 +13,14 @@
     content="Michael Schimkus — GIS Specialist specializing in cartography, spatial analysis, and data management."
   >
 
+  <meta
+    name="theme-color"
+    content="#347f5c"
+  >
+
   <title>Michael Schimkus | GIS Specialist</title>
+
+  <!-- Fonts -->
 
   <link
     rel="preconnect"
@@ -30,32 +38,72 @@
     rel="stylesheet"
   >
 
+
   <style>
+    /* =========================================================
+       Variables
+       ========================================================= */
+
     :root {
       --bg: #f3f6f4;
       --surface: #fafbfa;
+
       --muted: #56635b;
+
       --primary: #347f5c;
       --primary-dark: #24583f;
       --primary-light: #edf5f0;
+
       --title-dark: #193f2d;
+
       --card-border: #d3dad5;
-      --card-shadow: 0 5px 18px rgba(35, 65, 48, 0.14);
+      --project-border: #cbd6cf;
+
+      --project-bg: #f7faf8;
+      --image-bg: #edf2ee;
+
+      --card-shadow:
+        0 5px 18px rgba(35, 65, 48, 0.14);
+
+      --project-shadow:
+        0 3px 10px rgba(35, 65, 48, 0.07);
+
+      --button-shadow:
+        0 3px 10px rgba(35, 65, 48, 0.16);
+
+      --button-hover-shadow:
+        0 4px 12px rgba(35, 65, 48, 0.2);
+
       --radius: 12px;
       --max-width: 1100px;
       --transition: 0.2s ease;
     }
 
-    * {
+
+    /* =========================================================
+       Reset / Base
+       ========================================================= */
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
     body {
       min-height: 100vh;
+      min-height: 100dvh;
+
       background: var(--bg);
       color: var(--muted);
+
       font-family: "Inter", sans-serif;
       line-height: 1.6;
     }
@@ -69,12 +117,32 @@
       max-width: 100%;
     }
 
-    .container {
-      width: min(calc(100% - 2rem), var(--max-width));
-      margin: 0 auto;
+    button {
+      font: inherit;
     }
 
-    /* Header */
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      width: 100%;
+    }
+
+    .section-hidden {
+      display: none;
+    }
+
+
+    /* =========================================================
+       Header
+       ========================================================= */
 
     .site-header {
       padding: 0.5rem 0 1.5rem;
@@ -90,11 +158,13 @@
 
     .name-title {
       color: var(--title-dark);
+
       font-size: 1.85rem;
       font-weight: 700;
       letter-spacing: -0.025em;
       line-height: 1.3;
       text-align: center;
+
       white-space: nowrap;
     }
 
@@ -102,20 +172,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       flex-wrap: wrap;
       gap: 0.625rem;
     }
 
     .nav-link {
       display: inline-block;
+
       padding: 0.129rem 0.876rem;
-      border: 1px solid #d3dad5;
+
+      border: 1px solid var(--card-border);
       border-radius: 999px;
+
       background: var(--surface);
       color: var(--primary-dark);
+
       font-size: 1.0609rem;
       font-weight: 600;
       text-decoration: none;
+
       transition:
         background var(--transition),
         color var(--transition),
@@ -129,63 +205,62 @@
       background: var(--primary);
       border-color: var(--primary);
       color: #fff;
+
       text-decoration: none;
       transform: translateY(-1px);
     }
 
-    /* Main */
+
+    /* =========================================================
+       Main / Cards
+       ========================================================= */
 
     main {
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
+
       padding-top: 0.75rem;
       padding-bottom: 0.75rem;
     }
 
-    .section {
-      width: 100%;
-    }
-
-    .section-hidden {
-      display: none;
-    }
-
     .section-card {
       padding: 0.855rem 1.197rem 1.026rem;
+
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
+
       background: var(--surface);
       box-shadow: var(--card-shadow);
-      -webkit-text-size-adjust: 100%;
     }
 
     .section-header {
       margin-bottom: 0.2rem;
+
       color: var(--title-dark);
+
       font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.4;
     }
 
-    /* Home */
 
-    /* About */
+    /* =========================================================
+       Text
+       ========================================================= */
 
-    .about-text {
+    .about-text,
+    .experience-text,
+    .contact-text {
       color: var(--muted);
+
       font-size: 1.008rem;
       font-weight: 400;
-      text-align: justify;
     }
 
-    /* Professional / Education */
-
-    .experience-text {
-      color: var(--muted);
-      font-size: 1.008rem;
-      font-weight: 400;
+    .about-text {
+      text-align: justify;
     }
 
     .experience-item {
@@ -206,7 +281,10 @@
       margin-top: 0.8rem;
     }
 
-    /* Portfolio */
+
+    /* =========================================================
+       Portfolio
+       ========================================================= */
 
     .portfolio-area {
       position: relative;
@@ -216,15 +294,22 @@
     .portfolio-scroll {
       display: flex;
       gap: 1.25rem;
+
       width: 100%;
+
       overflow-x: auto;
       overflow-y: hidden;
+
       padding: 0.1rem 0.1rem 0.8rem;
+
       scroll-snap-type: x mandatory;
-      overscroll-behavior-x: contain;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
       scroll-behavior: smooth;
+
+      overscroll-behavior-x: contain;
+
+      -webkit-overflow-scrolling: touch;
+
+      scrollbar-width: none;
     }
 
     .portfolio-scroll::-webkit-scrollbar {
@@ -234,13 +319,16 @@
     .project {
       flex: 0 0 94%;
       min-width: 0;
+
       padding: 0.9rem;
-      border: 1px solid #cbd6cf;
+
+      border: 1px solid var(--project-border);
       border-radius: 10px;
-      background: #f7faf8;
-      box-shadow: 0 3px 10px rgba(35, 65, 48, 0.07);
+
+      background: var(--project-bg);
+      box-shadow: var(--project-shadow);
+
       scroll-snap-align: start;
-      -webkit-text-size-adjust: 100%;
     }
 
     .project-header {
@@ -254,27 +342,37 @@
     .project-image-wrap {
       width: 100%;
       height: 360px;
+
       overflow: hidden;
+
       border-radius: 8px;
-      background: #edf2ee;
+
+      background: var(--image-bg);
     }
 
     .project-image-link {
       display: block;
+
       width: 100%;
       height: 100%;
+
       padding: 0;
       border: 0;
+
       background: none;
+
       cursor: zoom-in;
     }
 
     .project-image {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
       object-position: 50% 50%;
-      background: #edf2ee;
+
+      background: var(--image-bg);
+
       transition: transform var(--transition);
     }
 
@@ -285,6 +383,7 @@
     .project-image-link:focus-visible {
       outline: 2px solid var(--primary);
       outline-offset: 3px;
+
       border-radius: 8px;
     }
 
@@ -294,33 +393,45 @@
 
     .project-description {
       color: var(--muted);
+
       font-size: 0.966rem;
       font-weight: 400;
       line-height: 1.6;
     }
 
-    /* Portfolio Pagination */
+
+    /* =========================================================
+       Portfolio Pagination
+       ========================================================= */
 
     .portfolio-pagination {
       display: flex;
       align-items: center;
       justify-content: center;
+
       gap: 0.85rem;
+
       width: 100%;
       min-height: 1.6rem;
+
       margin-top: 0.55rem;
       padding: 0.1rem 0;
     }
 
     .portfolio-dot {
       display: block;
+
       width: 9px;
       height: 9px;
+
       padding: 0;
       border: 0;
       border-radius: 999px;
+
       background: var(--primary);
+
       cursor: pointer;
+
       transition:
         width var(--transition),
         height var(--transition),
@@ -340,31 +451,45 @@
     .portfolio-dot.active {
       width: 42px;
       height: 9px;
+
       background: var(--title-dark);
     }
 
-    /* Portfolio Arrows */
+
+    /* =========================================================
+       Portfolio Arrows
+       ========================================================= */
 
     .portfolio-prev,
     .portfolio-next {
       position: absolute;
       top: 50%;
       z-index: 5;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 42px;
       height: 42px;
+
       padding: 0;
-      border: 1px solid #cbd6cf;
+
+      border: 1px solid var(--project-border);
       border-radius: 50%;
+
       background: #fff;
       color: var(--primary-dark);
-      box-shadow: 0 3px 10px rgba(35, 65, 48, 0.16);
+
+      box-shadow: var(--button-shadow);
+
       font-size: 1.5rem;
       line-height: 1;
+
       cursor: pointer;
+
       transform: translateY(-50%);
+
       transition:
         background var(--transition),
         color var(--transition),
@@ -387,7 +512,9 @@
       background: var(--primary-light);
       border-color: var(--primary);
       color: var(--primary);
-      box-shadow: 0 4px 12px rgba(35, 65, 48, 0.2);
+
+      box-shadow: var(--button-hover-shadow);
+
       transform: translateY(-50%) scale(1.04);
     }
 
@@ -403,20 +530,32 @@
       pointer-events: none;
     }
 
-    /* Image Overlay */
+
+    /* =========================================================
+       Image Overlay
+       ========================================================= */
 
     .image-overlay {
       position: fixed;
       inset: 0;
       z-index: 1000;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+
+      padding:
+        max(2rem, env(safe-area-inset-top))
+        max(2rem, env(safe-area-inset-right))
+        max(2rem, env(safe-area-inset-bottom))
+        max(2rem, env(safe-area-inset-left));
+
       background: rgba(20, 27, 23, 0.88);
+
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+
       transition:
         opacity var(--transition),
         visibility var(--transition);
@@ -430,41 +569,60 @@
 
     .image-overlay-content {
       position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: min(96vw, 1400px);
+
       height: min(92vh, 1000px);
+      height: min(92dvh, 1000px);
     }
 
     .image-overlay-image {
       display: block;
+
       max-width: 100%;
       max-height: 100%;
+
       width: auto;
       height: auto;
+
       border-radius: 6px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35);
     }
 
     .image-overlay-close {
       position: fixed;
       z-index: 1001;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 42px;
       height: 42px;
+
       padding: 0;
+
       border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 50%;
+
       background: #fff;
       color: var(--primary-dark);
+
       font-size: 1.65rem;
       font-weight: 600;
       line-height: 1;
+
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.25);
+
       transition:
         background var(--transition),
         color var(--transition),
@@ -482,18 +640,15 @@
       outline-offset: 3px;
     }
 
-    /* Contact */
 
-    .contact-text {
-      color: var(--muted);
-      font-size: 1.008rem;
-      font-weight: 400;
-      -webkit-text-size-adjust: 100%;
-    }
+    /* =========================================================
+       Contact
+       ========================================================= */
 
     .contact-text a {
       color: var(--primary-dark);
       font-weight: 600;
+
       text-decoration-line: underline;
       text-decoration-style: dashed;
       text-decoration-thickness: 1px;
@@ -503,19 +658,21 @@
     .contact-text a:hover,
     .contact-text a:focus-visible {
       color: #4a916d;
-      text-decoration-line: underline;
-      text-decoration-style: dashed;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
     }
 
-    /* Footer */
+
+    /* =========================================================
+       Footer
+       ========================================================= */
 
     .site-footer {
       padding: 0 0 1.5rem;
+
       color: var(--muted);
-      font-size: 0.68816rem;
+
+      font-size: 0.75rem;
       font-weight: 400;
+
       text-align: center;
     }
 
@@ -524,17 +681,22 @@
       text-decoration: none;
     }
 
-    /* Mobile */
+
+    /* =========================================================
+       Mobile
+       ========================================================= */
 
     @media (max-width: 700px) {
       .site-nav {
-        gap: 0.525rem;
         flex-wrap: nowrap;
+        gap: 0.525rem;
+
         width: 100%;
       }
 
       .nav-link {
         padding: 0.129rem 0.618rem;
+
         font-size: 1.0609rem;
         white-space: nowrap;
       }
@@ -544,27 +706,18 @@
       }
 
       .section-header {
-        font-size: 1.0rem;
-      }
-
-      .about-text,
-      .experience-text,
-      .contact-text {
-        font-size: 1.008rem;
-      }
-
-      .project-description {
-        font-size: 0.966rem;
+        font-size: 1.1rem;
       }
 
       .project {
-        flex: 0 0 90%;
+        flex-basis: 90%;
       }
 
       .portfolio-prev,
       .portfolio-next {
         width: 38px;
         height: 38px;
+
         font-size: 1.35rem;
       }
 
@@ -597,22 +750,32 @@
       }
 
       .image-overlay {
-        padding: 1rem;
+        padding:
+          max(1rem, env(safe-area-inset-top))
+          max(1rem, env(safe-area-inset-right))
+          max(1rem, env(safe-area-inset-bottom))
+          max(1rem, env(safe-area-inset-left));
       }
 
       .image-overlay-content {
         width: 100%;
+
         height: 94vh;
+        height: 94dvh;
       }
 
       .image-overlay-close {
         width: 38px;
         height: 38px;
+
         font-size: 1.45rem;
       }
     }
 
-    /* iOS Horizontal */
+
+    /* =========================================================
+       iOS Landscape
+       ========================================================= */
 
     @media (orientation: landscape) and (max-height: 700px) {
       .site-footer {
@@ -622,12 +785,19 @@
   </style>
 </head>
 
+
 <body>
+
+  <!-- =======================================================
+       Header
+       ======================================================= -->
 
   <header class="site-header">
     <div class="container header-group">
 
-      <h1 class="name-title">Michael Schimkus</h1>
+      <h1 class="name-title">
+        Michael Schimkus
+      </h1>
 
       <nav
         class="site-nav"
@@ -666,7 +836,14 @@
     </div>
   </header>
 
+
+  <!-- =======================================================
+       Main Content
+       ======================================================= -->
+
   <main class="container">
+
+    <!-- Home -->
 
     <section
       class="section"
@@ -674,12 +851,15 @@
     >
       <div class="section-card">
 
-        <h3 class="section-header">
+        <h2 class="section-header">
           Welcome
-        </h3>
+        </h2>
 
       </div>
     </section>
+
+
+    <!-- About -->
 
     <section
       class="section section-hidden"
@@ -687,17 +867,18 @@
     >
       <div class="section-card">
 
-        <h3 class="section-header">
+        <h2 class="section-header">
           Background
-        </h3>
+        </h2>
 
         <p class="about-text">
           I am a GIS Specialist with hands-on experience supporting environmental and utility projects through high-quality spatial analysis, data management, and cartographic deliverables. In my current role, I develop standardized GIS templates, perform QA/QC on spatial datasets, and publish maps and data to ArcGIS Online and Field Maps for field and regulatory use.
         </p>
 
-        <h3 class="section-header education-subheader">
+
+        <h2 class="section-header education-subheader">
           Professional
-        </h3>
+        </h2>
 
         <p class="experience-text">
 
@@ -721,9 +902,10 @@
 
         </p>
 
-        <h3 class="section-header education-subheader">
+
+        <h2 class="section-header education-subheader">
           Education
-        </h3>
+        </h2>
 
         <p class="experience-text">
 
@@ -742,6 +924,9 @@
       </div>
     </section>
 
+
+    <!-- Portfolio -->
+
     <section
       class="section section-hidden"
       id="portfolio"
@@ -757,12 +942,14 @@
             aria-label="Portfolio projects. Scroll horizontally to view more projects."
           >
 
+            <!-- Project 1 -->
+
             <article class="project">
 
               <div class="project-header">
-                <h3 class="section-header">
+                <h2 class="section-header">
                   Project Title One
-                </h3>
+                </h2>
               </div>
 
               <div class="project-image-wrap">
@@ -777,6 +964,8 @@
                     class="project-image"
                     src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
                     alt="Project one map"
+                    fetchpriority="high"
+                    decoding="async"
                   >
                 </button>
 
@@ -792,12 +981,15 @@
 
             </article>
 
+
+            <!-- Project 2 -->
+
             <article class="project">
 
               <div class="project-header">
-                <h3 class="section-header">
+                <h2 class="section-header">
                   Project Title Two
-                </h3>
+                </h2>
               </div>
 
               <div class="project-image-wrap">
@@ -812,7 +1004,9 @@
                     class="project-image"
                     src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
                     alt="Project two map"
-                  />
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </button>
 
               </div>
@@ -827,12 +1021,15 @@
 
             </article>
 
+
+            <!-- Project 3 -->
+
             <article class="project">
 
               <div class="project-header">
-                <h3 class="section-header">
+                <h2 class="section-header">
                   Project Title Three
-                </h3>
+                </h2>
               </div>
 
               <div class="project-image-wrap">
@@ -847,7 +1044,9 @@
                     class="project-image"
                     src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
                     alt="Project three map"
-                  />
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </button>
 
               </div>
@@ -862,12 +1061,15 @@
 
             </article>
 
+
+            <!-- Project 4 -->
+
             <article class="project">
 
               <div class="project-header">
-                <h3 class="section-header">
+                <h2 class="section-header">
                   Project Title Four
-                </h3>
+                </h2>
               </div>
 
               <div class="project-image-wrap">
@@ -882,7 +1084,9 @@
                     class="project-image"
                     src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
                     alt="Project four map"
-                  />
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </button>
 
               </div>
@@ -897,12 +1101,15 @@
 
             </article>
 
+
+            <!-- Project 5 -->
+
             <article class="project">
 
               <div class="project-header">
-                <h3 class="section-header">
+                <h2 class="section-header">
                   Project Title Five
-                </h3>
+                </h2>
               </div>
 
               <div class="project-image-wrap">
@@ -917,7 +1124,9 @@
                     class="project-image"
                     src="https://raw.githubusercontent.com/mschimkus/michaelsc/main/project1.jpg"
                     alt="Project five map"
-                  />
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </button>
 
               </div>
@@ -933,6 +1142,9 @@
             </article>
 
           </div>
+
+
+          <!-- Portfolio controls -->
 
           <button
             class="portfolio-prev"
@@ -954,6 +1166,9 @@
 
         </div>
 
+
+        <!-- Portfolio pagination -->
+
         <div
           class="portfolio-pagination"
           id="portfolioPagination"
@@ -963,15 +1178,18 @@
       </div>
     </section>
 
+
+    <!-- Contact -->
+
     <section
       class="section section-hidden"
       id="contact"
     >
       <div class="section-card">
 
-        <h3 class="section-header">
+        <h2 class="section-header">
           Get in touch
-        </h3>
+        </h2>
 
         <p class="contact-text">
           Reach out via email at
@@ -991,20 +1209,28 @@
       </div>
     </section>
 
+
+    <!-- Additional Links -->
+
     <section
       class="section section-hidden"
       id="links"
     >
       <div class="section-card">
 
-        <h3 class="section-header">
+        <h2 class="section-header">
           Other Sites
-        </h3>
+        </h2>
 
       </div>
     </section>
 
   </main>
+
+
+  <!-- =======================================================
+       Image Overlay
+       ======================================================= -->
 
   <div
     class="image-overlay"
@@ -1037,362 +1263,649 @@
 
   </div>
 
+
+  <!-- =======================================================
+       Footer
+       ======================================================= -->
+
   <footer class="site-footer">
     <div class="container">
+
       <p>
         Copyright ©
         <span id="current-year"></span>
         Michael Schimkus. All rights reserved.
-        <a href="#links" id="linksLink"><span class="site-footer-more">More</span> <span class="site-footer-triangle">▶︎</span></a>
+
+        <a
+          href="#links"
+          id="linksLink"
+        >
+          <span class="site-footer-more">
+            More
+          </span>
+          <span class="site-footer-triangle">
+            ▶︎
+          </span>
+        </a>
       </p>
+
     </div>
   </footer>
 
+
+  <!-- =======================================================
+       JavaScript
+       ======================================================= -->
+
   <script>
-    const sections = document.querySelectorAll(".section");
-    const navLinks = document.querySelectorAll(".nav-link");
+    (() => {
+      "use strict";
 
-    const portfolioScroll =
-      document.getElementById("portfolioScroll");
 
-    const portfolioPrev =
-      document.getElementById("portfolioPrev");
+      /* =======================================================
+         DOM References
+         ======================================================= */
 
-    const portfolioNext =
-      document.getElementById("portfolioNext");
+      const sections =
+        document.querySelectorAll(".section");
 
-    const portfolioPagination =
-      document.getElementById("portfolioPagination");
+      const navLinks =
+        document.querySelectorAll(".nav-link");
 
-    const projectCards =
-      portfolioScroll.querySelectorAll(".project");
+      const portfolioScroll =
+        document.getElementById("portfolioScroll");
 
-    const imageOverlay =
-      document.getElementById("imageOverlay");
+      const portfolioPrev =
+        document.getElementById("portfolioPrev");
 
-    const imageOverlayImage =
-      document.getElementById("imageOverlayImage");
+      const portfolioNext =
+        document.getElementById("portfolioNext");
 
-    const imageOverlayClose =
-      document.getElementById("imageOverlayClose");
+      const portfolioPagination =
+        document.getElementById("portfolioPagination");
 
-    const projectImageLinks =
-      document.querySelectorAll(".project-image-link");
+      const projectCards =
+        portfolioScroll
+          ? Array.from(
+              portfolioScroll.querySelectorAll(
+                ".project"
+              )
+            )
+          : [];
 
-    let lastFocusedImage = null;
+      const projectImageLinks =
+        document.querySelectorAll(
+          ".project-image-link"
+        );
 
-    function showSection(sectionId) {
-      const targetSection =
-        document.getElementById(sectionId);
+      const imageOverlay =
+        document.getElementById("imageOverlay");
 
-      if (!targetSection) {
-        return;
+      const imageOverlayImage =
+        document.getElementById(
+          "imageOverlayImage"
+        );
+
+      const imageOverlayClose =
+        document.getElementById(
+          "imageOverlayClose"
+        );
+
+      const linksLink =
+        document.getElementById("linksLink");
+
+      const currentYear =
+        document.getElementById("current-year");
+
+
+      /* =======================================================
+         State
+         ======================================================= */
+
+      let portfolioDots = [];
+      let lastFocusedImage = null;
+
+      let portfolioUpdateScheduled =
+        false;
+
+      let overlayPositionScheduled =
+        false;
+
+
+      /* =======================================================
+         Section Navigation
+         ======================================================= */
+
+      function showSection(sectionId) {
+        const targetSection =
+          document.getElementById(sectionId);
+
+        if (!targetSection) {
+          return;
+        }
+
+        sections.forEach((section) => {
+          section.classList.toggle(
+            "section-hidden",
+            section !== targetSection
+          );
+        });
+
+        navLinks.forEach((link) => {
+          const isActive =
+            link.getAttribute("href") ===
+            `#${sectionId}`;
+
+          link.classList.toggle(
+            "active",
+            isActive
+          );
+
+          if (isActive) {
+            link.setAttribute(
+              "aria-current",
+              "page"
+            );
+          } else {
+            link.removeAttribute(
+              "aria-current"
+            );
+          }
+        });
+
+        if (sectionId === "portfolio") {
+          schedulePortfolioUpdate();
+        }
       }
 
-      sections.forEach((section) => {
-        section.classList.toggle(
-          "section-hidden",
-          section !== targetSection
-        );
-      });
 
       navLinks.forEach((link) => {
-        const isActive =
-          link.getAttribute("href") === `#${sectionId}`;
+        link.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
 
-        link.classList.toggle("active", isActive);
+            const sectionId =
+              link.getAttribute(
+                "href"
+              )?.slice(1);
 
-        if (isActive) {
-          link.setAttribute("aria-current", "page");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-
-      if (sectionId === "portfolio") {
-        requestAnimationFrame(updatePortfolioNavigation);
-      }
-    }
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        showSection(
-          link.getAttribute("href").slice(1)
+            if (sectionId) {
+              showSection(sectionId);
+            }
+          }
         );
       });
-    });
 
-    document
-      .getElementById("linksLink")
-      .addEventListener(
-        "click",
-        (event) => {
-          event.preventDefault();
-          showSection("links");
-        }
-      );
 
-    function getCurrentProjectIndex() {
-      if (!projectCards.length) {
-        return 0;
-      }
-
-      const scrollLeft =
-        portfolioScroll.scrollLeft;
-
-      let currentIndex = 0;
-      let closestDistance = Infinity;
-
-      projectCards.forEach((project, index) => {
-        const distance =
-          Math.abs(project.offsetLeft - scrollLeft);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          currentIndex = index;
-        }
-      });
-
-      return currentIndex;
-    }
-
-    function scrollToProject(index) {
-      if (!projectCards.length) {
-        return;
-      }
-
-      const targetIndex = Math.max(
-        0,
-        Math.min(index, projectCards.length - 1)
-      );
-
-      portfolioScroll.scrollTo({
-        left: projectCards[targetIndex].offsetLeft,
-        behavior: "smooth"
-      });
-    }
-
-    function updatePortfolioNavigation() {
-      const currentIndex =
-        getCurrentProjectIndex();
-
-      portfolioPrev.disabled =
-        currentIndex === 0;
-
-      portfolioNext.disabled =
-        currentIndex >= projectCards.length - 1;
-
-      portfolioDots.forEach((dot, index) => {
-        const isActive =
-          index === currentIndex;
-
-        dot.classList.toggle(
-          "active",
-          isActive
-        );
-
-        if (isActive) {
-          dot.setAttribute(
-            "aria-current",
-            "true"
-          );
-        } else {
-          dot.removeAttribute(
-            "aria-current"
-          );
-        }
-      });
-    }
-
-    projectCards.forEach((_, index) => {
-      const dot =
-        document.createElement("button");
-
-      dot.className = "portfolio-dot";
-      dot.type = "button";
-
-      dot.setAttribute(
-        "aria-label",
-        `View portfolio project ${index + 1}`
-      );
-
-      dot.addEventListener(
-        "click",
-        () => scrollToProject(index)
-      );
-
-      portfolioPagination.appendChild(dot);
-    });
-
-    const portfolioDots =
-      portfolioPagination.querySelectorAll(
-        ".portfolio-dot"
-      );
-
-    portfolioPrev.addEventListener(
-      "click",
-      () => {
-        scrollToProject(
-          getCurrentProjectIndex() - 1
+      if (linksLink) {
+        linksLink.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
+            showSection("links");
+          }
         );
       }
-    );
 
-    portfolioNext.addEventListener(
-      "click",
-      () => {
-        scrollToProject(
-          getCurrentProjectIndex() + 1
-        );
-      }
-    );
 
-    portfolioScroll.addEventListener(
-      "scroll",
-      updatePortfolioNavigation,
-      { passive: true }
-    );
+      /* =======================================================
+         Portfolio
+         ======================================================= */
 
-    window.addEventListener(
-      "resize",
-      updatePortfolioNavigation
-    );
-
-    function positionImageOverlayClose() {
-      if (
-        !imageOverlay.classList.contains("is-open") ||
-        !imageOverlayImage.complete ||
-        !imageOverlayImage.naturalWidth
-      ) {
-        return;
-      }
-
-      const imageRect =
-        imageOverlayImage.getBoundingClientRect();
-
-      const closeSize =
-        imageOverlayClose.offsetWidth;
-
-      imageOverlayClose.style.left =
-        `${imageRect.right - closeSize / 2}px`;
-
-      imageOverlayClose.style.top =
-        `${imageRect.top - closeSize / 2}px`;
-    }
-
-    function openImageOverlay(button) {
-      const fullImage =
-        button.getAttribute("data-full-image");
-
-      const image =
-        button.querySelector("img");
-
-      if (!fullImage || !image) {
-        return;
-      }
-
-      lastFocusedImage = button;
-
-      imageOverlayImage.src = fullImage;
-      imageOverlayImage.alt =
-        image.alt || "Full-size portfolio image";
-
-      imageOverlay.classList.add("is-open");
-      imageOverlay.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-      document.body.classList.add(
-        "overlay-open"
-      );
-
-      imageOverlayImage.onload =
-        positionImageOverlayClose;
-
-      requestAnimationFrame(
-        positionImageOverlayClose
-      );
-
-      imageOverlayClose.focus();
-    }
-
-    function closeImageOverlay() {
-      imageOverlay.classList.remove(
-        "is-open"
-      );
-
-      imageOverlay.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      document.body.classList.remove(
-        "overlay-open"
-      );
-
-      imageOverlayImage.src = "";
-      imageOverlayImage.alt = "";
-
-      imageOverlayClose.style.left = "";
-      imageOverlayClose.style.top = "";
-
-      if (lastFocusedImage) {
-        lastFocusedImage.focus();
-      }
-    }
-
-    projectImageLinks.forEach((button) => {
-      button.addEventListener(
-        "click",
-        () => openImageOverlay(button)
-      );
-    });
-
-    imageOverlayClose.addEventListener(
-      "click",
-      closeImageOverlay
-    );
-
-    imageOverlay.addEventListener(
-      "click",
-      (event) => {
-        if (event.target === imageOverlay) {
-          closeImageOverlay();
-        }
-      }
-    );
-
-    document.addEventListener(
-      "keydown",
-      (event) => {
+      function getCurrentProjectIndex() {
         if (
-          event.key === "Escape" &&
-          imageOverlay.classList.contains("is-open")
+          !portfolioScroll ||
+          !projectCards.length
         ) {
-          closeImageOverlay();
+          return 0;
         }
+
+        const scrollLeft =
+          portfolioScroll.scrollLeft;
+
+        let currentIndex = 0;
+        let closestDistance = Infinity;
+
+        projectCards.forEach(
+          (project, index) => {
+            const distance =
+              Math.abs(
+                project.offsetLeft -
+                scrollLeft
+              );
+
+            if (
+              distance <
+              closestDistance
+            ) {
+              closestDistance = distance;
+              currentIndex = index;
+            }
+          }
+        );
+
+        return currentIndex;
       }
-    );
 
-    window.addEventListener(
-      "resize",
-      positionImageOverlayClose
-    );
 
-    window.addEventListener(
-      "orientationchange",
-      positionImageOverlayClose
-    );
+      function scrollToProject(index) {
+        if (
+          !portfolioScroll ||
+          !projectCards.length
+        ) {
+          return;
+        }
 
-    document.getElementById(
-      "current-year"
-    ).textContent =
-      new Date().getFullYear();
+        const targetIndex =
+          Math.max(
+            0,
+            Math.min(
+              index,
+              projectCards.length - 1
+            )
+          );
 
-    updatePortfolioNavigation();
+        portfolioScroll.scrollTo({
+          left:
+            projectCards[targetIndex]
+              .offsetLeft,
+          behavior: "smooth"
+        });
+      }
+
+
+      function updatePortfolioNavigation() {
+        if (
+          !portfolioScroll ||
+          !portfolioPrev ||
+          !portfolioNext ||
+          !projectCards.length
+        ) {
+          return;
+        }
+
+        const currentIndex =
+          getCurrentProjectIndex();
+
+        portfolioPrev.disabled =
+          currentIndex === 0;
+
+        portfolioNext.disabled =
+          currentIndex >=
+          projectCards.length - 1;
+
+        portfolioDots.forEach(
+          (dot, index) => {
+            const isActive =
+              index === currentIndex;
+
+            dot.classList.toggle(
+              "active",
+              isActive
+            );
+
+            if (isActive) {
+              dot.setAttribute(
+                "aria-current",
+                "true"
+              );
+            } else {
+              dot.removeAttribute(
+                "aria-current"
+              );
+            }
+          }
+        );
+      }
+
+
+      function schedulePortfolioUpdate() {
+        if (portfolioUpdateScheduled) {
+          return;
+        }
+
+        portfolioUpdateScheduled = true;
+
+        requestAnimationFrame(() => {
+          portfolioUpdateScheduled =
+            false;
+
+          updatePortfolioNavigation();
+        });
+      }
+
+
+      function createPortfolioPagination() {
+        if (
+          !portfolioPagination ||
+          !projectCards.length
+        ) {
+          return;
+        }
+
+        const fragment =
+          document.createDocumentFragment();
+
+        projectCards.forEach(
+          (_, index) => {
+            const dot =
+              document.createElement(
+                "button"
+              );
+
+            dot.className =
+              "portfolio-dot";
+
+            dot.type = "button";
+
+            dot.setAttribute(
+              "aria-label",
+              `View portfolio project ${index + 1}`
+            );
+
+            dot.addEventListener(
+              "click",
+              () => {
+                scrollToProject(index);
+              }
+            );
+
+            fragment.appendChild(dot);
+          }
+        );
+
+        portfolioPagination.appendChild(
+          fragment
+        );
+
+        portfolioDots = Array.from(
+          portfolioPagination.querySelectorAll(
+            ".portfolio-dot"
+          )
+        );
+      }
+
+
+      if (
+        portfolioScroll &&
+        portfolioPrev &&
+        portfolioNext
+      ) {
+        portfolioPrev.addEventListener(
+          "click",
+          () => {
+            scrollToProject(
+              getCurrentProjectIndex() - 1
+            );
+          }
+        );
+
+        portfolioNext.addEventListener(
+          "click",
+          () => {
+            scrollToProject(
+              getCurrentProjectIndex() + 1
+            );
+          }
+        );
+
+        portfolioScroll.addEventListener(
+          "scroll",
+          schedulePortfolioUpdate,
+          { passive: true }
+        );
+      }
+
+
+      createPortfolioPagination();
+
+
+      /* =======================================================
+         Portfolio Resize Observation
+         ======================================================= */
+
+      if (
+        portfolioScroll &&
+        "ResizeObserver" in window
+      ) {
+        const portfolioObserver =
+          new ResizeObserver(() => {
+            schedulePortfolioUpdate();
+          });
+
+        portfolioObserver.observe(
+          portfolioScroll
+        );
+      }
+
+
+      /* =======================================================
+         Image Overlay
+         ======================================================= */
+
+      function positionImageOverlayClose() {
+        if (
+          !imageOverlay ||
+          !imageOverlayImage ||
+          !imageOverlayClose
+        ) {
+          return;
+        }
+
+        if (
+          !imageOverlay.classList.contains(
+            "is-open"
+          ) ||
+          !imageOverlayImage.complete ||
+          !imageOverlayImage.naturalWidth
+        ) {
+          return;
+        }
+
+        const imageRect =
+          imageOverlayImage.getBoundingClientRect();
+
+        const closeSize =
+          imageOverlayClose.offsetWidth;
+
+        imageOverlayClose.style.left =
+          `${imageRect.right - closeSize / 2}px`;
+
+        imageOverlayClose.style.top =
+          `${imageRect.top - closeSize / 2}px`;
+      }
+
+
+      function scheduleOverlayPosition() {
+        if (overlayPositionScheduled) {
+          return;
+        }
+
+        overlayPositionScheduled = true;
+
+        requestAnimationFrame(() => {
+          overlayPositionScheduled =
+            false;
+
+          positionImageOverlayClose();
+        });
+      }
+
+
+      function openImageOverlay(button) {
+        if (
+          !imageOverlay ||
+          !imageOverlayImage ||
+          !imageOverlayClose
+        ) {
+          return;
+        }
+
+        const fullImage =
+          button.getAttribute(
+            "data-full-image"
+          );
+
+        const image =
+          button.querySelector("img");
+
+        if (!fullImage || !image) {
+          return;
+        }
+
+        lastFocusedImage = button;
+
+        imageOverlayImage.src =
+          fullImage;
+
+        imageOverlayImage.alt =
+          image.alt ||
+          "Full-size portfolio image";
+
+        imageOverlay.classList.add(
+          "is-open"
+        );
+
+        imageOverlay.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.classList.add(
+          "overlay-open"
+        );
+
+        imageOverlayImage.onload =
+          scheduleOverlayPosition;
+
+        scheduleOverlayPosition();
+
+        imageOverlayClose.focus();
+      }
+
+
+      function closeImageOverlay() {
+        if (!imageOverlay) {
+          return;
+        }
+
+        imageOverlay.classList.remove(
+          "is-open"
+        );
+
+        imageOverlay.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.classList.remove(
+          "overlay-open"
+        );
+
+        imageOverlayImage.src = "";
+        imageOverlayImage.alt = "";
+
+        imageOverlayClose.style.left = "";
+        imageOverlayClose.style.top = "";
+
+        if (lastFocusedImage) {
+          lastFocusedImage.focus();
+        }
+
+        lastFocusedImage = null;
+      }
+
+
+      projectImageLinks.forEach(
+        (button) => {
+          button.addEventListener(
+            "click",
+            () => {
+              openImageOverlay(button);
+            }
+          );
+        }
+      );
+
+
+      if (imageOverlayClose) {
+        imageOverlayClose.addEventListener(
+          "click",
+          closeImageOverlay
+        );
+      }
+
+
+      if (imageOverlay) {
+        imageOverlay.addEventListener(
+          "click",
+          (event) => {
+            if (
+              event.target ===
+              imageOverlay
+            ) {
+              closeImageOverlay();
+            }
+          }
+        );
+      }
+
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            event.key === "Escape" &&
+            imageOverlay?.classList.contains(
+              "is-open"
+            )
+          ) {
+            closeImageOverlay();
+          }
+        }
+      );
+
+
+      /* =======================================================
+         Window / Orientation Events
+         ======================================================= */
+
+      window.addEventListener(
+        "resize",
+        () => {
+          schedulePortfolioUpdate();
+          scheduleOverlayPosition();
+        },
+        { passive: true }
+      );
+
+
+      window.addEventListener(
+        "orientationchange",
+        () => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(
+              scheduleOverlayPosition
+            );
+          });
+        },
+        { passive: true }
+      );
+
+
+      /* =======================================================
+         Initialization
+         ======================================================= */
+
+      if (currentYear) {
+        currentYear.textContent =
+          new Date().getFullYear();
+      }
+
+      updatePortfolioNavigation();
+
+    })();
   </script>
 
 </body>
