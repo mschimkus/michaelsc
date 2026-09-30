@@ -59,14 +59,10 @@
       --card-border: #d3dad5;
       --project-border: #cbd6cf;
 
-      --project-bg: #f7faf8;
       --image-bg: #edf2ee;
 
       --card-shadow:
         0 5px 18px rgba(35, 65, 48, 0.14);
-
-      --project-shadow:
-        0 3px 10px rgba(35, 65, 48, 0.07);
 
       --button-shadow:
         0 3px 10px rgba(35, 65, 48, 0.16);
@@ -696,10 +692,6 @@
         font-size: 1.1rem;
       }
 
-      .project {
-        flex-basis: 100%;
-      }
-
       .portfolio-prev,
       .portfolio-next {
         width: 38px;
@@ -1184,6 +1176,8 @@
       id="contact"
     >
 
+      <!-- Get in touch -->
+
       <h2 class="section-header">
         Get in touch
       </h2>
@@ -1206,17 +1200,11 @@
         </p>
 
       </div>
-    </section>
 
 
-    <!-- Additional Links -->
+      <!-- Other Sites -->
 
-    <section
-      class="section section-hidden"
-      id="links"
-    >
-
-      <h2 class="section-header">
+      <h2 class="section-header education-subheader">
         Other Sites
       </h2>
 
@@ -1275,18 +1263,6 @@
         Copyright ©
         <span id="current-year"></span>
         Michael Schimkus. All rights reserved.
-
-        <a
-          href="#links"
-          id="linksLink"
-        >
-          <span class="site-footer-more">
-            More
-          </span>
-          <span class="site-footer-triangle">
-            ▶︎
-          </span>
-        </a>
       </p>
 
     </div>
@@ -1353,9 +1329,6 @@
         document.getElementById(
           "imageOverlayClose"
         );
-
-      const linksLink =
-        document.getElementById("linksLink");
 
       const currentYear =
         document.getElementById("current-year");
@@ -1439,17 +1412,6 @@
           }
         );
       });
-
-
-      if (linksLink) {
-        linksLink.addEventListener(
-          "click",
-          (event) => {
-            event.preventDefault();
-            showSection("links");
-          }
-        );
-      }
 
 
       /* =======================================================
