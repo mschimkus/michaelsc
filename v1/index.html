@@ -533,7 +533,7 @@
 
       .name-title {
         margin-left: 0.1rem;
-        font-size: 1.5rem;
+        font-size: 1.65rem;
       }
 
       .site-nav {
@@ -553,7 +553,7 @@
 
       .section-header {
         margin-left: 0.25rem;
-        font-size: 1.45rem;
+        font-size: 1.55rem;
       }
 
       .image-overlay {
@@ -581,12 +581,24 @@
 
 
     /* =========================================================
-       iOS Landscape
+       Narrow Portrait Header
        ========================================================= */
 
-    @media (orientation: landscape) and (max-height: 700px) {
-      .site-footer {
-        font-size: 0.55rem;
+    @media (orientation: portrait) and (max-width: 500px) {
+      .header-group {
+        justify-content: center;
+      }
+
+      .name-title {
+        flex-basis: 100%;
+
+        margin-left: 0;
+
+        text-align: center;
+      }
+
+      .site-nav {
+        justify-content: center;
       }
     }
   </style>
